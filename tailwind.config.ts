@@ -23,7 +23,7 @@ const config: Config = {
     }) {
       addUtilities({
         ".text-shadow-glow": {
-          textShadow: "0px 0px 20px #0000006e",
+          textShadow: "0px 0px 20px #000000",
         },
       });
     },

@@ -30,7 +30,11 @@ export function HeroBanner() {
             Code of Conduct
           </a>
         </nav> */}
-        <Button variant="outline" onClick={openDiscordLink}>
+        <Button
+          variant="outline"
+          className="bg-blue-700 z-10"
+          onClick={openDiscordLink}
+        >
           Join our Discord
         </Button>
       </header>
@@ -61,7 +65,7 @@ export function HeroBanner() {
         <div className="mt-8 flex items-center space-x-4">
           <Button
             variant="outline"
-            className="text-white border-white"
+            className="text-white border-white bg-blue-300 md:bg-transparent text-shadow-glow"
             onClick={openDiscordLink}
           >
             Join our Discord
@@ -69,7 +73,7 @@ export function HeroBanner() {
           <a
             href="https://www.cloudsummit.ca/"
             target="_blank"
-            className="text-white hover:text-gray-900 text-sm hover:underline transition-colors"
+            className="text-white hover:text-gray-900 text-sm hover:underline transition-colors text-shadow-glow"
           >
             Last year&apos;s event →
           </a>
