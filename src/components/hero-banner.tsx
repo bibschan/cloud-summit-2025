@@ -40,14 +40,14 @@ export function HeroBanner() {
       </header>
       <main className="relative flex flex-col items-center justify-center text-center py-20 z-10">
         <div className="flex items-center space-x-4 text-sm text-shadow-glow">
-          <span className="text-shadow-glow">MAY xxxxx, 2025</span>
+          <span className="text-shadow-glow">MAY 27, 2025</span>
           <span className="text-shadow-glow">•</span>
           <span className="text-shadow-glow">
             VANCOUVER&apos;S ORPHEUM THEATER
           </span>
         </div>
         <h1 className="mt-4 text-6xl font-bold text-shadow-glow">
-          CLOUD SUMMIT
+          CLOUD & AI SUMMIT
         </h1>
         {/* <h2 className="mt-2 text-3xl italic text-shadow-glow">
           Adventurers Wanted
@@ -56,11 +56,12 @@ export function HeroBanner() {
           Gather your party and head into the clouds!
         </p>
         <p className="mt-4 max-w-2xl text-shadow-glow">
-          Cloud Summit is a full day conference focused on all things Cloud,
-          brought to you by the Canadian Public Cloud Association. It brings
-          together thought leaders and cloud engineers across the world to share
-          insights and best practices in a collaborative, inclusive and fun
-          environment.
+          Cloud & AI Summit is a full day conference focused on all things Cloud
+          and AI, brought to you by the Canadian Public Cloud Association. It
+          brings together thought leaders and cloud engineers across the world
+          to share insights and best practices in a collaborative, inclusive and
+          fun environment. to share insights and best practices in a
+          collaborative, inclusive and fun environment.
         </p>
         <div className="mt-8 flex items-center space-x-4">
           <Button
