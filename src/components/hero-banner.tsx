@@ -3,8 +3,8 @@
 import { Button } from "@/components/ui/button";
 
 export function HeroBanner() {
-  const openDiscordLink = () => {
-    window.open("https://discord.gg/c9FPgheRH2", "_blank");
+  const openLink = () => {
+    window.open("https://www.vtixonline.com/cloud-ai-summit/4527/", "_blank");
   };
 
   return (
@@ -33,7 +33,7 @@ export function HeroBanner() {
         <Button
           variant="outline"
           className="bg-blue-700 z-10"
-          onClick={openDiscordLink}
+          onClick={openLink}
         >
           Join our Discord
         </Button>
@@ -67,7 +67,7 @@ export function HeroBanner() {
           <Button
             variant="outline"
             className="text-white border-white bg-blue-300 md:bg-transparent text-shadow-glow"
-            onClick={openDiscordLink}
+            onClick={openLink}
           >
             Join our Discord
           </Button>
