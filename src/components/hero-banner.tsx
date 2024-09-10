@@ -35,7 +35,7 @@ export function HeroBanner() {
           className="bg-blue-700 z-10"
           onClick={openLink}
         >
-          Join our Discord
+          Get your ticket!
         </Button>
       </header>
       <main className="relative flex flex-col items-center justify-center text-center py-20 z-10">
@@ -69,7 +69,7 @@ export function HeroBanner() {
             className="text-white border-white bg-blue-300 md:bg-transparent text-shadow-glow"
             onClick={openLink}
           >
-            Join our Discord
+            Get your ticket!
           </Button>
           <a
             href="https://www.cloudsummit.ca/"
