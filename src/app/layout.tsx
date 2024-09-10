@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` bg-gradient-to-b from-blue-700 to-blue-300 ${cn(
+        className={`bg-gradient-to-b from-blue-700 to-blue-300 ${cn(
           "antialiased",
           fontHeading.variable,
           fontBody.variable
