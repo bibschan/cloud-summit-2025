@@ -10,7 +10,7 @@ export function HeroBanner() {
   return (
     <div className="min-h-screen text-white px-4">
       <header className="flex items-center justify-end pt-4">
-        {/* <nav className="flex space-x-6 ">
+        <nav className="flex space-x-6 ">
           <a href="#" className="hover:underline">
             About
           </a>
@@ -29,7 +29,7 @@ export function HeroBanner() {
           <a href="#" className="hover:underline">
             Code of Conduct
           </a>
-        </nav> */}
+        </nav>
         <Button
           variant="outline"
           className="bg-blue-700 z-10"
