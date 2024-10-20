@@ -228,19 +228,7 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <p className="mb-4">&copy; 2025 Cloud Summit. All rights reserved.</p>
           <div className="flex justify-center space-x-4">
-            <a href="#" className="hover:text-green-500 transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-green-500 transition-colors">
-              Terms of Service
-            </a>
-            <a
-              href="https://discord.gg/c9FPgheRH2"
-              target="_blank"
-              className="hover:text-green-500 transition-colors"
-            >
-              Contact Us
-            </a>
+            Powered by v0 and Vercel
           </div>
         </div>
       </footer>
