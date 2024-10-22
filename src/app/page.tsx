@@ -58,7 +58,8 @@ export default function Home() {
             src="/main-banner/highlight-video.mp4"
             autoPlay
             muted
-            className="mix-blend-overlay object-cover h-[75vh]"
+            loop
+            className="mix-blend-overlay object-cover h-[75vh] w-full"
           />
         </div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
