@@ -9,6 +9,8 @@ import {
   Megaphone,
   Building,
   ChevronRight,
+  Instagram,
+  Linkedin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,6 +22,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Sponsors from "@/components/sponsors";
+import Link from "next/link";
 
 export default function Home() {
   const openLink = () => {
@@ -226,10 +229,128 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-400 py-12">
-        <div className="container mx-auto px-4 text-center">
-          <p className="mb-4">&copy; 2025 Cloud Summit. All rights reserved.</p>
-          <div className="flex justify-center space-x-4">
-            Powered by v0 and Vercel
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Cloud Summit
+              </h3>
+              <p className="mb-4">
+                &copy; 2025 Cloud Summit. All rights reserved.
+              </p>
+              <div className="flex space-x-4">
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/publiccloudninja/"
+                  className="text-gray-400 hover:text-green-500 transition-colors"
+                >
+                  <Instagram className="h-6 w-6" />
+                  <span className="sr-only">Twitter</span>
+                </a>
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/company/canadiancloud"
+                  className="text-gray-400 hover:text-green-500 transition-colors"
+                >
+                  <Linkedin className="h-6 w-6" />
+                  <span className="sr-only">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Quick Links
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-green-500 transition-colors"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-green-500 transition-colors"
+                  >
+                    Speakers
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-green-500 transition-colors"
+                  >
+                    Schedule
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-green-500 transition-colors"
+                  >
+                    Sponsors
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Resources
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-green-500 transition-colors"
+                  >
+                    FAQs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-green-500 transition-colors"
+                  >
+                    Code of Conduct
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-green-500 transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    className="hover:text-green-500 transition-colors"
+                  >
+                    Terms of Service
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Archive</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/2024/index.html"
+                    className="hover:text-green-500 transition-colors"
+                  >
+                    Cloud Summit 2024
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-8 pt-8 border-t border-gray-800 text-center">
+            <p>Built by the Cloud Summit team. Powered by Vercel and v0.</p>
           </div>
         </div>
       </footer>
