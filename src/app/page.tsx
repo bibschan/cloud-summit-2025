@@ -340,7 +340,7 @@ export default function Home() {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="/2024/index.html"
+                    href="/2024.html"
                     className="hover:text-green-500 transition-colors"
                   >
                     Cloud Summit 2024
