@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/card";
 import Sponsors from "@/components/sponsors";
 import Link from "next/link";
+import Nav from "@/components/nav";
 
 export default function Home() {
   const openLink = () => {
@@ -30,30 +31,17 @@ export default function Home() {
   };
 
   const openSpeakersLink = () => {
-    window.open("", "_blank");
+    window.open("https://forms.gle/6qjgftM5Uf4ZSNNP7", "_blank");
   };
 
   const openVolunteersLink = () => {
-    window.open("", "_blank");
+    window.open("https://forms.gle/NECDLqn6T6qbmWXZ8", "_blank");
   };
 
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Main Banner */}
-      <nav className="flex fixed space-x-6 z-10 right-0 pr-6 pt-4">
-        <a href="#" className="hover:underline">
-          About
-        </a>
-        {/* <a href="#" className="hover:underline">
-          Schedule
-        </a>
-        <a href="#" className="hover:underline">
-          Speakers
-        </a> */}
-        <a href="#previous-event" className="hover:underline">
-          2024 Cloud Summit
-        </a>
-      </nav>
+      <Nav />
       <header className="relative h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-green-900/50 to-black/50"></div>
