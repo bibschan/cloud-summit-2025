@@ -10,7 +10,7 @@ import {
   Building,
   ChevronRight,
   Instagram,
-  Linkedin,
+  Linkedin
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,7 +19,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
 import Sponsors from "@/components/sponsors";
 import Link from "next/link";
@@ -58,7 +58,7 @@ export default function Home() {
             Cloud Summit 2025
           </h1>
           <p className="text-xl md:text-2xl mb-8 font-bold text-gray-100">
-            Shaping the Future of Cloud Technology
+            ALL THE CLOUDS, ALL AT ONCE
           </p>
           <p className="text-lg md:text-xl mb-8 font-bold text-gray-100">
             May 27th, 2025
