@@ -204,11 +204,11 @@ export default function Home() {
                 </CardContent>
               </Card>
               <p className="text-gray-300">
-                Experience Cloud Summit in our cutting-edge venue, designed to
-                foster innovation and collaboration with two stages. With
-                state-of-the-art facilities and a futuristic atmosphere, it`s
-                the perfect setting for the brightest minds in cloud technology
-                to converge.
+                Experience the Vancouver Cloud Summit like no technology
+                conference you have been to before. Sophistication and elegance
+                meets new age technology and engagement in an amazing venue in
+                the heart of downtown Vancouver. 2 large stages, many intimate
+                workshops and talks as well as a few surprises!
               </p>
             </div>
           </div>
