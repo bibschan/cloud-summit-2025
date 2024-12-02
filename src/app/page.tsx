@@ -24,7 +24,7 @@ import {
 import Sponsors from "@/components/sponsors";
 import Link from "next/link";
 import Nav from "@/components/nav";
-import QAaccordion from "@/components/qa-accordion";
+import FAQaccordion from "@/components/faq-accordion";
 
 export default function Home() {
   const openLink = () => {
@@ -221,9 +221,9 @@ export default function Home() {
       >
         <div className="container mx-auto px-4 xl:max-w-[1100px]">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-            Q & A
+            FAQ
           </h2>
-          <QAaccordion />
+          <FAQaccordion />
         </div>
       </section>
 

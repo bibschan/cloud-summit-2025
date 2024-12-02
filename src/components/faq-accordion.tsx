@@ -7,7 +7,7 @@ import {
   AccordionTrigger
 } from "./ui/accordion";
 
-export default function QAaccordion() {
+export default function FAQaccordion() {
   const [openAccordionIndex, setOpenAccordionIndex] = React.useState<
     number | null
   >(null);
@@ -16,7 +16,7 @@ export default function QAaccordion() {
     setOpenAccordionIndex(index);
   };
 
-  const QAs = [
+  const FAQs = [
     {
       question: "Who is Cloud Summit for?",
       answer: (
@@ -83,7 +83,7 @@ export default function QAaccordion() {
 
   return (
     <Accordion type="single" collapsible className="w-full mx-auto">
-      {QAs.map((qa, i) => (
+      {FAQs.map((qa, i) => (
         <AccordionItem value={`item-${i + 1}`} key={i}>
           <AccordionTrigger
             className={`hover:text-green-500 transition-colors ${
