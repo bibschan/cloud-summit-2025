@@ -24,6 +24,13 @@ import {
 import Sponsors from "@/components/sponsors";
 import Link from "next/link";
 import Nav from "@/components/nav";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function Home() {
   const openLink = () => {
@@ -58,7 +65,7 @@ export default function Home() {
             Cloud Summit 2025
           </h1>
           <p className="text-xl md:text-2xl mb-8 font-bold text-gray-100">
-            Shaping the Future of Cloud Technology
+            ALL THE CLOUDS, ALL AT ONCE
           </p>
           <p className="text-lg md:text-xl mb-8 font-bold text-gray-100">
             May 27th, 2025
@@ -75,30 +82,50 @@ export default function Home() {
 
       {/* Previous Event Photos */}
       <section className="py-20 bg-gray-900" id="previous-event">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
             Previous Event Highlights
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="relative h-64 rounded-lg overflow-hidden group"
+
+          <div className="w-full mx-auto px-4 md:py-6 py-4">
+            <div className="relative flex justify-center">
+              <Carousel
+                className="md:w-full w-[90%]"
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
               >
-                <Image
-                  src={`/past-events/AWSDay-${i}.jpg`}
-                  alt={`Event Photo ${i}`}
-                  layout="fill"
-                  objectFit="cover"
-                  className="transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <p className="text-white text-lg font-semibold">
-                    AWS Day 2024
-                  </p>
-                </div>
-              </div>
-            ))}
+                <CarouselContent className="-ml-4">
+                  {[1, 2, 3, 4, 5].map((index) => (
+                    <CarouselItem
+                      key={index}
+                      className="lg:basis-1/4 md:basis-1/3 sm:basis-1/2"
+                    >
+                      <div
+                        key={index}
+                        className="relative h-64 rounded-lg group"
+                      >
+                        <Image
+                          src={`/past-events/AWSDay-${index}.jpg`}
+                          alt={`Event Photo ${index}`}
+                          layout="fill"
+                          objectFit="cover"
+                          className="transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                          <p className="text-white text-lg font-semibold">
+                            Cloud Summit 2024
+                          </p>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="absolute lg:-left-5 -left-7 top-1/2 transform -translate-y-1/2 bg-primary/90 hover:bg-primary text-white border border-white p-4" />
+                <CarouselNext className="absolute lg:-right-5 -right-7 top-1/2 transform -translate-y-1/2 bg-primary/90 hover:bg-primary text-white rounded-full border border-white p-4" />
+              </Carousel>
+            </div>
           </div>
         </div>
       </section>
@@ -177,12 +204,11 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
             Venue Information
           </h2>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-            <div className="md:w-max">
+          <div className="flex flex-col md:flex-row items-center justify-center w-full gap-8">
+            <div className="md:w-max w-full">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10411.22242662249!2d-123.1204164!3d49.2800806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486717fcd9b875d%3A0x6f19bb45bb73289c!2sOrpheum!5e0!3m2!1sen!2sca!4v1729318806028!5m2!1sen!2sca"
-                width="600"
-                height="300"
+                className="h-[300px] md:w-[600px] w-full"
                 loading="lazy"
               ></iframe>
             </div>
@@ -204,11 +230,11 @@ export default function Home() {
                 </CardContent>
               </Card>
               <p className="text-gray-300">
-                Experience Cloud Summit in our cutting-edge venue, designed to
-                foster innovation and collaboration with two stages. With
-                state-of-the-art facilities and a futuristic atmosphere, it`s
-                the perfect setting for the brightest minds in cloud technology
-                to converge.
+                Experience the Vancouver Cloud Summit like no technology
+                conference you have been to before. Sophistication and elegance
+                meets new age technology and engagement in an amazing venue in
+                the heart of downtown Vancouver. 2 large stages, many intimate
+                workshops and talks as well as a few surprises!
               </p>
             </div>
           </div>
