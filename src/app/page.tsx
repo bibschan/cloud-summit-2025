@@ -10,7 +10,7 @@ import {
   Building,
   ChevronRight,
   Instagram,
-  Linkedin
+  Linkedin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,7 +19,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@/components/ui/card";
 import Sponsors from "@/components/sponsors";
 import Link from "next/link";
@@ -29,7 +29,7 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 export default function Home() {
@@ -93,7 +93,7 @@ export default function Home() {
                 className="md:w-full w-[90%]"
                 opts={{
                   align: "start",
-                  loop: true
+                  loop: true,
                 }}
               >
                 <CarouselContent className="-ml-4">
@@ -115,7 +115,7 @@ export default function Home() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                           <p className="text-white text-lg font-semibold">
-                            AWS Day 2024
+                            Cloud Summit 2024
                           </p>
                         </div>
                       </div>
