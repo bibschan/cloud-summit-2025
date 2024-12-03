@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   :root {
     --background: 210 100% 97%;
@@ -26,11 +24,11 @@
     --input: 210 40% 56%;
     --ring: 210 40% 60%;
     --radius: 1rem;
+    scroll-behavior: smooth;
   }
 }
 
 @layer base {
-
   h1,
   h2,
   h3,
@@ -57,7 +55,6 @@
   position: relative;
   display: block;
   height: 100%;
-
 }
 
 .animation-cloud-btn-inner {
@@ -69,7 +66,6 @@
   overflow: hidden;
   z-index: 0;
   border-radius: 4px;
-
 }
 
 .animation-cloud-part {
@@ -80,7 +76,7 @@
   background: #ffffff;
   border-radius: 100%;
   transform: translate3d(0, 150%, 0) scale(1.7);
-  transition: transform .45s;
+  transition: transform 0.45s;
 }
 
 .animation-cloud-part:nth-child(1) {
@@ -95,12 +91,12 @@
 
 .animation-cloud-part:nth-child(3) {
   left: 60%;
-  transition-delay: .16s;
+  transition-delay: 0.16s;
 }
 
 .animation-cloud-part:nth-child(4) {
   left: 90%;
-  transition-delay: .24s;
+  transition-delay: 0.24s;
 }
 
 .animation-cloud-btn {
@@ -115,18 +111,18 @@
 .animation-cloud-btn:hover {
   opacity: 1;
   border-color: white;
-  transition: all 0.250s ease-in-out;
+  transition: all 0.25s ease-in-out;
 
   span.cloud-button-content {
     color: #111827;
-    transition: all 0.250s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 }
 
 span.cloud-button-content {
   z-index: 10;
   position: relative;
-  color: white
+  color: white;
 }
 
 /* Cloud animation ends */

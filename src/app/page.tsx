@@ -10,7 +10,7 @@ import {
   Building,
   ChevronRight,
   Instagram,
-  Linkedin,
+  Linkedin
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,11 +19,12 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
 import Sponsors from "@/components/sponsors";
 import Link from "next/link";
 import Nav from "@/components/nav";
+import FAQaccordion from "@/components/faq-accordion";
 import {
   Carousel,
   CarouselContent,
@@ -200,7 +201,7 @@ export default function Home() {
 
       {/* Venue Information */}
       <section className="py-20 bg-gradient-to-b from-black to-gray-900">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 xl:max-w-[1100px]">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
             Venue Information
           </h2>
@@ -238,6 +239,17 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+      <section
+        className="py-20 bg-gradient-to-b from-gray-900 to-black"
+        id="f&q"
+      >
+        <div className="container mx-auto px-4 xl:max-w-[1100px]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+            FAQ
+          </h2>
+          <FAQaccordion />
         </div>
       </section>
 
@@ -317,7 +329,7 @@ export default function Home() {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="#"
+                    href="#f&q"
                     className="hover:text-green-500 transition-colors"
                   >
                     FAQs
