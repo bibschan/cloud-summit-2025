@@ -24,8 +24,7 @@ export default function Sponsors() {
         "Logo on website",
         "Social media shoutout",
         "Newsletter feature"
-      ],
-      recommended: true
+      ]
     },
     {
       name: "Gold",
@@ -80,16 +79,6 @@ export default function Sponsors() {
               <div
                 className={`relative w-full h-full p-6 rounded-lg bg-[rgb(67,73,163)] `}
               >
-                {tier.recommended && (
-                  <motion.div
-                    className="absolute -top-3 -right-3 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5, duration: 0.3 }}
-                  >
-                    Recommended
-                  </motion.div>
-                )}
                 <h3 className={`text-2xl font-bold mb-4 ${tier.titleClass}`}>
                   {tier.name}
                 </h3>
