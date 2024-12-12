@@ -42,7 +42,7 @@ export default function Sponsors() {
   ];
 
   return (
-    <section className="h-[100vh] px-4 bg-gradient-to-br from-purple-700 via-indigo-800 to-blue-900 text-white overflow-hidden">
+    <section className="md:h-[100vh] px-4 bg-gradient-to-br from-purple-700 via-indigo-800 to-blue-900 text-white overflow-hidden">
       <Nav />
       <div className="max-w-6xl mx-auto py-20">
         <motion.h2
@@ -98,7 +98,7 @@ export default function Sponsors() {
 
         <div className="text-center">
           <motion.button
-            className="bg-white text-blue-900 px-8 py-3 rounded-full font-bold text-lg transition-all hover:bg-blue-100"
+            className="max-md:w-full bg-white text-blue-900 px-8 py-5 md:py-3 rounded-full font-bold text-lg transition-all hover:bg-blue-100"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             animate={{
