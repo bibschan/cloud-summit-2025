@@ -8,12 +8,12 @@ export default function Sponsors() {
   const tiers = [
     {
       name: "Bronze",
-      price: "$100/month",
+      price: "x/month",
       features: ["Logo on website", "Social media shoutout"],
     },
     {
       name: "Silver",
-      price: "$500/month",
+      price: "x/month",
       features: [
         "Logo on website",
         "Social media shoutout",
@@ -22,7 +22,7 @@ export default function Sponsors() {
     },
     {
       name: "Gold",
-      price: "$1000/month",
+      price: "x/month",
       features: [
         "Logo on website",
         "Social media shoutout",
