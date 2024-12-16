@@ -97,25 +97,34 @@ export default function Sponsors() {
         </div>
 
         <div className="text-center">
-          <motion.button
-            className="max-md:w-full bg-white text-blue-900 px-8 py-5 md:py-3 rounded-full font-bold text-lg transition-all hover:bg-blue-100"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            animate={{
-              boxShadow: [
-                "0px 0px 0px rgba(255,255,255,0)",
-                "0px 0px 20px rgba(255,255,255,0.5)",
-                "0px 0px 0px rgba(255,255,255,0)"
-              ]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
+          <motion.a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScUSc2xo8Fcs_-T7lJzG27lZ0kueb1oSnSNE1WxzSV1c1umCQ/viewform"
+            target="_blank"
+            className="w-full h-full"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
           >
-            Become a Sponsor
-          </motion.button>
+            <motion.button
+              className="max-md:w-full bg-white text-blue-900 px-8 py-5 md:py-3 rounded-full font-bold text-lg transition-all hover:bg-blue-100"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              animate={{
+                boxShadow: [
+                  "0px 0px 0px rgba(255,255,255,0)",
+                  "0px 0px 20px rgba(255,255,255,0.5)",
+                  "0px 0px 0px rgba(255,255,255,0)"
+                ]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "reverse"
+              }}
+            >
+              Become a Sponsor
+            </motion.button>
+          </motion.a>
         </div>
       </div>
     </section>
