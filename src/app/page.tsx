@@ -10,7 +10,7 @@ import {
   Building,
   ChevronRight,
   Instagram,
-  Linkedin
+  Linkedin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,7 +19,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@/components/ui/card";
 import Sponsors from "@/components/sponsors";
 import Link from "next/link";
@@ -32,6 +32,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { providers } from "../../public/cloud-providers/clouds";
 
 export default function Home() {
   const openLink = () => {
@@ -50,9 +51,9 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white">
       {/* Main Banner */}
       <Nav />
-      <header className="relative h-[75vh] flex items-center justify-center overflow-hidden">
+      <header className="relative h-[75vh] flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-green-900/50 to-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/60"></div>
           <video
             src="/main-banner/highlight-video.mp4"
             autoPlay
@@ -61,15 +62,15 @@ export default function Home() {
             className="mix-blend-overlay object-cover h-[75vh] w-full"
           />
         </div>
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+        <div className="relative z-10 text-center max-w-5xl mx-auto px-4">
+          <h1 className="text-4xl md:text-8xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
             Cloud Summit 2025
           </h1>
-          <p className="text-xl md:text-2xl mb-8 font-bold text-gray-100">
-            ALL THE CLOUDS, ALL AT ONCE
+          <p className="text-xl md:text-4xl mb-8 font-bold text-gray-100">
+            ALL THE CLOUDS, <br /> ALL AT ONCE.
           </p>
           <p className="text-lg md:text-xl mb-8 font-bold text-gray-100">
-            May 27th, 2025
+            May 27th, 2025 @ Orpheum Theatre
           </p>
           <Button
             size="lg"
@@ -78,6 +79,22 @@ export default function Home() {
           >
             Register Now <ChevronRight className="ml-2 h-4 w-4" />
           </Button>
+        </div>
+        <div className="grid grid-cols-4 gap-4 mt-32 md:grid-cols-4 md:flex md:flex-row md:overflow-hidden md:whitespace-nowrap">
+          {providers.map((provider) => (
+            <a
+              href={provider.link}
+              key={provider.name}
+              target="_blank"
+              className="relative"
+            >
+              <img
+                src={provider.icon}
+                alt={provider.name}
+                className="w-20 h-auto object-cover"
+              />
+            </a>
+          ))}
         </div>
       </header>
 

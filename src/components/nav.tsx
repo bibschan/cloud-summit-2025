@@ -15,9 +15,14 @@ export default function Nav() {
       <Link href="#" className="hover:underline">
         Speakers
       </Link>
-      {/* <Link href="/sponsor" passHref className="hover:underline">
+      <Link
+        href="https://forms.gle/1XDU3sdR94UgbcUEA"
+        target="_blank"
+        passHref
+        className="hover:underline"
+      >
         Sponsors
-      </Link> */}
+      </Link>
     </nav>
   );
 }
