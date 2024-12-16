@@ -11,7 +11,7 @@ export default function Sponsors() {
       bgColor: "bg-white/[0.03]",
       titleClass:
         "bg-gradient-to-b from-[#D6A573] via-[#B68B5B] to-[#8A6643] bg-clip-text text-transparent",
-      price: "$100/month",
+      price: "x/month",
       features: ["Logo on website", "Social media shoutout"]
     },
     {
@@ -19,7 +19,7 @@ export default function Sponsors() {
       bgColor: "bg-white/[0.06]",
       titleClass:
         "bg-gradient-to-b from-[#FFFFFF] via-[#C0C0C0] to-[#7B7B7B] bg-clip-text text-transparent",
-      price: "$500/month",
+      price: "x/month",
       features: [
         "Logo on website",
         "Social media shoutout",
@@ -31,7 +31,7 @@ export default function Sponsors() {
       bgColor: "bg-white/[0.09]",
       titleClass:
         "bg-gradient-to-b from-[#F1C27D] via-[#D4A653] to-[#B08A39] bg-clip-text text-transparent",
-      price: "$1000/month",
+      price: "x/month",
       features: [
         "Logo on website",
         "Social media shoutout",
