@@ -51,7 +51,7 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white">
       {/* Main Banner */}
       <Nav />
-      <div className="relative h-[75vh] flex flex-col items-center justify-center overflow-hidden  w-full bg-[#070B14] px-4 py-16 text-white">
+      <div className="relative min-h-[900px] flex flex-col items-center justify-center overflow-hidden  w-full bg-[#070B14] px-4 py-16 text-white">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/60"></div>
           <video
@@ -59,16 +59,24 @@ export default function Home() {
             autoPlay
             muted
             loop
-            className="mix-blend-overlay object-cover h-[75vh] w-full"
+            className="mix-blend-overlay object-cover h-full w-full"
           />
         </div>
 
         <div className="relative mx-auto flex flex-row flex-wrap justify-center gap-6">
           {/* Logo and Subtitle */}
           <div className="md:mb-8 text-center">
-            <h1 className="mb-4 text-7xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+            <h1 className="mb-4 hidden md:block font-bold tracking-tight md:text-6xl lg:text-7xl">
               <span className="bg-gradient-to-r from-green-900 to-green-500 px-6">
                 Cloud Summit
+              </span>
+            </h1>
+            <h1 className="mb-4 text-7xl font-bold tracking-tight md:hidden flex flex-wrap justify-center gap-2">
+              <span className="bg-gradient-to-r from-green-900 to-green-500 px-6 ">
+                Cloud
+              </span>
+              <span className="bg-gradient-to-r from-green-900 to-green-500 px-6 ">
+                Summit
               </span>
             </h1>
             {/* <p className="text-xl md:text-2xl mb-8 font-bold text-gray-100">
@@ -98,8 +106,8 @@ export default function Home() {
         <div className="relative mx-auto flex flex-col flex-wrap justify-center gap-6">
           {/* Description */}
           <p className="mx-auto mb-8 max-w-3xl text-center text-lg text-gray-300 md:text-xl">
-            Join thousands of cloud developers, architects, IT & infrastructure
-            professionals and executives building the cloud ecosystem.
+            Join cloud developers, architects, IT & infrastructure professionals
+            and executives building the cloud ecosystem.
           </p>
 
           {/* CTA Buttons */}
@@ -218,7 +226,7 @@ export default function Home() {
         </div>
       </header> */}
       {/* Previous Event Photos */}
-      <section className="py-20 bg-gray-900" id="previous-event">
+      <section className="py-20 bg-gray-900" id="highlights">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
             Previous Event Highlights
@@ -333,7 +341,10 @@ export default function Home() {
         </div>
       </section>
       {/* Venue Information */}
-      <section className="py-20 bg-gradient-to-b from-black to-gray-900">
+      <section
+        className="py-20 bg-gradient-to-b from-black to-gray-900"
+        id="venue"
+      >
         <div className="container mx-auto px-4 xl:max-w-[1100px]">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
             Venue Information
@@ -376,7 +387,7 @@ export default function Home() {
       </section>
       <section
         className="py-20 bg-gradient-to-b from-gray-900 to-black"
-        id="f&q"
+        id="faq"
       >
         <div className="container mx-auto px-4 xl:max-w-[1100px]">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
@@ -422,7 +433,7 @@ export default function Home() {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="#"
+                    href="#about"
                     className="hover:text-green-500 transition-colors"
                   >
                     About Us
@@ -430,15 +441,16 @@ export default function Home() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="https://forms.gle/6qjgftM5Uf4ZSNNP7"
                     className="hover:text-green-500 transition-colors"
+                    target="_blank"
                   >
                     Speakers
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="#venue"
                     className="hover:text-green-500 transition-colors"
                   >
                     Schedule
@@ -446,8 +458,9 @@ export default function Home() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="https://forms.gle/1XDU3sdR94UgbcUEA"
                     className="hover:text-green-500 transition-colors"
+                    target="_blank"
                   >
                     Sponsors
                   </Link>
@@ -461,13 +474,13 @@ export default function Home() {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="#f&q"
+                    href="#faq"
                     className="hover:text-green-500 transition-colors"
                   >
                     FAQs
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     href="#"
                     className="hover:text-green-500 transition-colors"
@@ -482,7 +495,7 @@ export default function Home() {
                   >
                     Privacy Policy
                   </Link>
-                </li>
+                </li> 
                 <li>
                   <Link
                     href="#"
@@ -490,7 +503,7 @@ export default function Home() {
                   >
                     Terms of Service
                   </Link>
-                </li>
+                </li>*/}
               </ul>
             </div>
             <div>
@@ -508,7 +521,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-            <p>Built by the Cloud Summit team. Powered by Vercel and v0.</p>
+            <p>Built by Kota and Bibi. Powered by Vercel and v0.</p>
           </div>
         </div>
       </footer>
