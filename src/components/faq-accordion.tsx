@@ -13,6 +13,10 @@ export default function FAQaccordion() {
   >(null);
 
   const handleAccordionToggle = (index: number) => {
+    if (index === openAccordionIndex) {
+      setOpenAccordionIndex(null);
+      return;
+    }
     setOpenAccordionIndex(index);
   };
 
@@ -91,7 +95,7 @@ export default function FAQaccordion() {
             }`}
             onClick={() => handleAccordionToggle(i)}
           >
-            {qa.question}
+            <span className="text-left">{qa.question}</span>
           </AccordionTrigger>
           <AccordionContent>{qa.answer}</AccordionContent>
         </AccordionItem>
