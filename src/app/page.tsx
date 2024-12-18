@@ -30,8 +30,9 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious,
+  CarouselPrevious
 } from "@/components/ui/carousel";
+import StatBanner from "@/components/stat-banner";
 
 export default function Home() {
   const openLink = () => {
@@ -78,6 +79,7 @@ export default function Home() {
           >
             Register Now <ChevronRight className="ml-2 h-4 w-4" />
           </Button>
+          <StatBanner />
         </div>
       </header>
 
@@ -94,7 +96,7 @@ export default function Home() {
                 className="md:w-full w-[90%]"
                 opts={{
                   align: "start",
-                  loop: true,
+                  loop: true
                 }}
               >
                 <CarouselContent className="-ml-4">
