@@ -10,7 +10,7 @@ import {
   Building,
   ChevronRight,
   Instagram,
-  Linkedin,
+  Linkedin
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,7 +19,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 } from "@/components/ui/card";
 import Sponsors from "@/components/sponsors";
 import Link from "next/link";
@@ -30,7 +30,7 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious,
+  CarouselPrevious
 } from "@/components/ui/carousel";
 import { providers } from "../../public/cloud-providers/clouds";
 
@@ -238,7 +238,7 @@ export default function Home() {
                 className="md:w-full w-[90%]"
                 opts={{
                   align: "start",
-                  loop: true,
+                  loop: true
                 }}
               >
                 <CarouselContent className="-ml-4">
@@ -397,9 +397,9 @@ export default function Home() {
         </div>
       </section>
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
+      <footer className="bg-gray-900 text-gray-400 py-12 max-md:text-center">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-md:place-items-center">
             <div>
               <h3 className="text-lg font-semibold text-white mb-4">
                 Cloud Summit
@@ -407,7 +407,7 @@ export default function Home() {
               <p className="mb-4">
                 &copy; 2025 Cloud Summit. All rights reserved.
               </p>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 max-md:justify-center">
                 <a
                   target="_blank"
                   href="https://www.instagram.com/publiccloudninja/"
