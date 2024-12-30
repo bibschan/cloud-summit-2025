@@ -33,6 +33,7 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 import StatBanner from "@/components/stat-banner";
+import { providers } from "../../public/cloud-providers/clouds";
 
 export default function Home() {
   const openLink = () => {
@@ -51,9 +52,137 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white">
       {/* Main Banner */}
       <Nav />
-      <header className="relative h-[75vh] flex items-center justify-center overflow-hidden">
+      <div className="relative min-h-[900px] flex flex-col items-center justify-center overflow-hidden  w-full bg-[#070B14] px-4 py-16 text-white">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-green-900/50 to-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/60"></div>
+          <video
+            src="/main-banner/highlight-video.mp4"
+            autoPlay
+            muted
+            loop
+            className="mix-blend-overlay object-cover h-full w-full"
+          />
+        </div>
+
+        <div className="relative mx-auto flex flex-row flex-wrap justify-center gap-6">
+          {/* Logo and Subtitle */}
+          <div className="md:mb-8 text-center">
+            <h1 className="mb-4 hidden md:block font-bold tracking-tight md:text-6xl lg:text-7xl">
+              <span className="bg-gradient-to-r from-green-900 to-green-500 px-6">
+                Cloud Summit
+              </span>
+            </h1>
+            <h1 className="mb-4 text-7xl font-bold tracking-tight md:hidden flex flex-wrap justify-center gap-2">
+              <span className="bg-gradient-to-r from-green-900 to-green-500 px-6 ">
+                Cloud
+              </span>
+              <span className="bg-gradient-to-r from-green-900 to-green-500 px-6 ">
+                Summit
+              </span>
+            </h1>
+            {/* <p className="text-xl md:text-2xl mb-8 font-bold text-gray-100">
+              ALL THE CLOUDS, ALL AT ONCE.
+            </p> */}
+            <h2 className="text-xl font-light md:text-2xl hidden md:block">
+              <span>Infrastructure</span>
+              <span className="mx-3 text-gray-500">|</span>
+              <span>Security</span>
+              <span className="mx-3 text-gray-500">|</span>
+              <span>DevOps</span>
+            </h2>
+          </div>
+
+          {/* Event Dates */}
+          <div className="mb-8 flex flex-col items-center md:items-start justify-start -mt-1">
+            <div className="flex items-center gap-4 mb-3 rounded-full bg-gradient-to-r from-green-900 to-green-500 px-6 py-2">
+              <span className="font-bold">May 27, 2025</span>
+              <span className="text-sm">Orpheum Theatre</span>
+            </div>
+            <div className="flex items-center gap-4 rounded-full border  border-white/20 px-6 py-2">
+              <span className="font-bold">Vancouver, BC</span>
+              <span className="text-sm">Canada</span>
+            </div>
+          </div>
+        </div>
+        <div className="relative mx-auto flex flex-col flex-wrap justify-center gap-6">
+          {/* Description */}
+          <p className="mx-auto mb-8 max-w-3xl text-center text-lg text-gray-300 md:text-xl">
+            Join cloud developers, architects, IT & infrastructure professionals
+            and executives building the cloud ecosystem.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="mb-2 md:mb-16 flex flex-col items-center justify-center gap-4 md:flex-row">
+            <Button
+              size="lg"
+              className="min-w-[200px] bg-gradient-to-r from-green-900 to-green-500 font-bold"
+              onClick={openLink}
+            >
+              <span className="text">GET TICKETS</span>
+              <svg
+                className="next-arrow"
+                aria-hidden="false"
+                width="20px"
+                height="25px"
+                viewBox="0 0 50 80"
+                xmlSpace="preserve"
+              >
+                <polyline
+                  stroke="#ffffff"
+                  stroke-width="9"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  points="0, 0 45, 40 0, 80"
+                ></polyline>
+              </svg>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="min-w-[200px] border-white/20 text-white hover:bg-white/10 hidden md:block"
+              onClick={openVolunteersLink}
+            >
+              GET INVOLVED
+            </Button>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-8 text-center ">
+            <div>
+              <div className="text-2xl font-bold md:text-3xl">780+</div>
+              <div className="text-sm text-gray-200">In-Person Attendees</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold md:text-3xl">21+</div>
+              <div className="text-sm text-gray-200">Talks & Workshops</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold md:text-3xl">$10,000+</div>
+              <div className="text-sm text-gray-200">Charity Donation Goal</div>
+            </div>
+          </div>
+        </div>
+        <div className="grid grid-cols-4 gap-4 mt-4 md:mt-16 md:grid-cols-4 md:flex md:flex-row md:overflow-hidden md:whitespace-nowrap">
+          {providers.map((provider) => (
+            <a
+              href={provider.link}
+              key={provider.name}
+              target="_blank"
+              className="relative"
+            >
+              <img
+                src={provider.icon}
+                alt={provider.name}
+                className="w-14 h-auto object-cover"
+              />
+            </a>
+          ))}
+        </div>
+      </div>
+      {/* <header className="relative h-[75vh] flex flex-col items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/60"></div>
           <video
             src="/main-banner/highlight-video.mp4"
             autoPlay
@@ -62,15 +191,15 @@ export default function Home() {
             className="mix-blend-overlay object-cover h-[75vh] w-full"
           />
         </div>
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+        <div className="relative z-10 text-center max-w-5xl mx-auto px-4">
+          <h1 className="text-4xl md:text-8xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
             Cloud Summit 2025
           </h1>
-          <p className="text-xl md:text-2xl mb-8 font-bold text-gray-100">
-            ALL THE CLOUDS, ALL AT ONCE
+          <p className="text-xl md:text-4xl mb-8 font-bold text-gray-100">
+            ALL THE CLOUDS, <br /> ALL AT ONCE.
           </p>
           <p className="text-lg md:text-xl mb-8 font-bold text-gray-100">
-            May 27th, 2025
+            May 27th, 2025 @ Orpheum Theatre
           </p>
           <Button
             size="lg"
@@ -81,10 +210,25 @@ export default function Home() {
           </Button>
           <StatBanner />
         </div>
-      </header>
-
+        <div className="grid grid-cols-4 gap-4 mt-32 md:grid-cols-4 md:flex md:flex-row md:overflow-hidden md:whitespace-nowrap">
+          {providers.map((provider) => (
+            <a
+              href={provider.link}
+              key={provider.name}
+              target="_blank"
+              className="relative"
+            >
+              <img
+                src={provider.icon}
+                alt={provider.name}
+                className="w-20 h-auto object-cover"
+              />
+            </a>
+          ))}
+        </div>
+      </header> */}
       {/* Previous Event Photos */}
-      <section className="py-20 bg-gray-900" id="previous-event">
+      <section className="py-20 bg-gray-900" id="highlights">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
             Previous Event Highlights
@@ -132,12 +276,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Sponsor Logos */}
       <section className="py-20 bg-black">
         <Sponsors />
       </section>
-
       {/* Call for Speakers and Volunteers */}
       <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
         <div className="container mx-auto px-4 text-center">
@@ -200,9 +342,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Venue Information */}
-      <section className="py-20 bg-gradient-to-b from-black to-gray-900">
+      <section
+        className="py-20 bg-gradient-to-b from-black to-gray-900"
+        id="venue"
+      >
         <div className="container mx-auto px-4 xl:max-w-[1100px]">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
             Venue Information
@@ -245,7 +389,7 @@ export default function Home() {
       </section>
       <section
         className="py-20 bg-gradient-to-b from-gray-900 to-black"
-        id="f&q"
+        id="faq"
       >
         <div className="container mx-auto px-4 xl:max-w-[1100px]">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
@@ -254,11 +398,10 @@ export default function Home() {
           <FAQaccordion />
         </div>
       </section>
-
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
+      <footer className="bg-gray-900 text-gray-400 py-12 max-md:text-center">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-md:place-items-center">
             <div>
               <h3 className="text-lg font-semibold text-white mb-4">
                 Cloud Summit
@@ -266,7 +409,7 @@ export default function Home() {
               <p className="mb-4">
                 &copy; 2025 Cloud Summit. All rights reserved.
               </p>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 max-md:justify-center">
                 <a
                   target="_blank"
                   href="https://www.instagram.com/publiccloudninja/"
@@ -292,7 +435,7 @@ export default function Home() {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="#"
+                    href="#about"
                     className="hover:text-green-500 transition-colors"
                   >
                     About Us
@@ -300,15 +443,16 @@ export default function Home() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="https://forms.gle/6qjgftM5Uf4ZSNNP7"
                     className="hover:text-green-500 transition-colors"
+                    target="_blank"
                   >
                     Speakers
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="#venue"
                     className="hover:text-green-500 transition-colors"
                   >
                     Schedule
@@ -316,8 +460,9 @@ export default function Home() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="https://forms.gle/1XDU3sdR94UgbcUEA"
                     className="hover:text-green-500 transition-colors"
+                    target="_blank"
                   >
                     Sponsors
                   </Link>
@@ -331,13 +476,13 @@ export default function Home() {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="#f&q"
+                    href="#faq"
                     className="hover:text-green-500 transition-colors"
                   >
                     FAQs
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link
                     href="#"
                     className="hover:text-green-500 transition-colors"
@@ -352,7 +497,7 @@ export default function Home() {
                   >
                     Privacy Policy
                   </Link>
-                </li>
+                </li> 
                 <li>
                   <Link
                     href="#"
@@ -360,7 +505,7 @@ export default function Home() {
                   >
                     Terms of Service
                   </Link>
-                </li>
+                </li>*/}
               </ul>
             </div>
             <div>
@@ -378,7 +523,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-            <p>Built by the Cloud Summit team. Powered by Vercel and v0.</p>
+            <p>Built by Kota and Bibi. Powered by Vercel and v0.</p>
           </div>
         </div>
       </footer>
