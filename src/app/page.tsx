@@ -146,22 +146,8 @@ export default function Home() {
               GET INVOLVED
             </Button>
           </div>
-
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 text-center ">
-            <div>
-              <div className="text-2xl font-bold md:text-3xl">780+</div>
-              <div className="text-sm text-gray-200">In-Person Attendees</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold md:text-3xl">21+</div>
-              <div className="text-sm text-gray-200">Talks & Workshops</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold md:text-3xl">$10,000+</div>
-              <div className="text-sm text-gray-200">Charity Donation Goal</div>
-            </div>
-          </div>
+          <StatBanner />
         </div>
         <div className="grid grid-cols-4 gap-4 mt-4 md:mt-16 md:grid-cols-4 md:flex md:flex-row md:overflow-hidden md:whitespace-nowrap">
           {providers.map((provider) => (

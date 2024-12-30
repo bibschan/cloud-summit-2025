@@ -36,17 +36,17 @@ const StatBanner = () => {
 
   return (
     <div
-      className={`w-full md:py-10 py-7 flex justify-center md:gap-10 gap-5  ${
+      className={`w-full flex justify-center md:gap-10 gap-5 max-md:py-5 ${
         !attendeesNum || !workshopNum || !charityNum ? "opacity-0" : ""
       }`}
     >
-      <NumberBox title="Attendees Last Event">
+      <NumberBox title="In-Person Attendees">
         {attendeesNum.toFixed(0).toLocaleString()}
       </NumberBox>
       <NumberBox title="Talks & Workshops">
         {workshopNum.toFixed(0).toLocaleString()}
       </NumberBox>
-      <NumberBox title="Charity Goal">
+      <NumberBox title="Charity Donation Goal">
         ${Number(charityNum.toFixed(0)).toLocaleString()}
       </NumberBox>
     </div>
@@ -60,11 +60,11 @@ const NumberBox: React.FC<{ children: React.ReactNode; title: string }> = ({
   title
 }) => {
   return (
-    <div className={`flex flex-col flex-1 `}>
-      <span className="md:text-3xl text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-        {children}{" "}
+    <div className={`flex flex-col flex-1 items-center`}>
+      <span className="md:text-3xl text-2xl font-bold bg-clip-text text-transparent text-white">
+        {children}+
       </span>
-      <span className="md:text-md text-sm">{title}</span>
+      <span className="md:text-md text-sm text-center">{title}</span>
     </div>
   );
 };
