@@ -32,6 +32,7 @@ import {
   CarouselNext,
   CarouselPrevious
 } from "@/components/ui/carousel";
+import StatBanner from "@/components/stat-banner";
 import { providers } from "../../public/cloud-providers/clouds";
 
 export default function Home() {
@@ -145,22 +146,8 @@ export default function Home() {
               GET INVOLVED
             </Button>
           </div>
-
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 text-center ">
-            <div>
-              <div className="text-2xl font-bold md:text-3xl">780+</div>
-              <div className="text-sm text-gray-200">In-Person Attendees</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold md:text-3xl">21+</div>
-              <div className="text-sm text-gray-200">Talks & Workshops</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold md:text-3xl">$10,000+</div>
-              <div className="text-sm text-gray-200">Charity Donation Goal</div>
-            </div>
-          </div>
+          <StatBanner />
         </div>
         <div className="grid grid-cols-4 gap-4 mt-4 md:mt-16 md:grid-cols-4 md:flex md:flex-row md:overflow-hidden md:whitespace-nowrap">
           {providers.map((provider) => (
@@ -207,6 +194,7 @@ export default function Home() {
           >
             Register Now <ChevronRight className="ml-2 h-4 w-4" />
           </Button>
+          <StatBanner />
         </div>
         <div className="grid grid-cols-4 gap-4 mt-32 md:grid-cols-4 md:flex md:flex-row md:overflow-hidden md:whitespace-nowrap">
           {providers.map((provider) => (
