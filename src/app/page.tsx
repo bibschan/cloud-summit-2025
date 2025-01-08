@@ -33,11 +33,12 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { providers } from "../../public/cloud-providers/clouds";
+import Script from "next/script";
 
 export default function Home() {
-  const openLink = () => {
-    window.open("https://www.vtixonline.com/cloud-ai-summit/4527/", "_blank");
-  };
+  // const openLink = () => {
+  //   window.open("https://www.vtixonline.com/cloud-ai-summit/4527/", "_blank");
+  // };
 
   const openSpeakersLink = () => {
     window.open("https://forms.gle/6qjgftM5Uf4ZSNNP7", "_blank");
@@ -112,7 +113,7 @@ export default function Home() {
 
           {/* CTA Buttons */}
           <div className="mb-2 md:mb-16 flex flex-col items-center justify-center gap-4 md:flex-row">
-            <Button
+            {/* <Button
               size="lg"
               className="min-w-[200px] bg-gradient-to-r from-green-900 to-green-500 font-bold"
               onClick={openLink}
@@ -135,7 +136,22 @@ export default function Home() {
                   points="0, 0 45, 40 0, 80"
                 ></polyline>
               </svg>
-            </Button>
+            </Button> */}
+            <a
+              href="https://lu.ma/event/evt-cItbLfgBkf8na4n"
+              className="min-w-[200px] h-11 flex justify-center items-center rounded-md bg-gradient-to-r from-green-900 to-green-500 font-bold"
+              data-luma-action="checkout"
+              data-luma-event-id="evt-cItbLfgBkf8na4n"
+            >
+              Get Tickets
+            </a>
+
+            <Script
+              id="luma-checkout"
+              src="https://embed.lu.ma/checkout-button.js"
+              strategy="lazyOnload"
+            />
+
             <Button
               size="lg"
               variant="outline"
