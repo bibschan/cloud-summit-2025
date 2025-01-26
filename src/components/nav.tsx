@@ -28,6 +28,7 @@ export default function Nav() {
       >
         Sponsors
       </Link>
+      {/* test */}
     </nav>
   );
 }
