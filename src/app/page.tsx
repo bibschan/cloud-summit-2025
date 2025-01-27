@@ -33,6 +33,7 @@ import {
   CarouselPrevious
 } from "@/components/ui/carousel";
 import { providers } from "../../public/cloud-providers/clouds";
+import ScheduleAndSpeakers from "@/components/schedule-and-speakers";
 
 export default function Home() {
   const openLink = () => {
@@ -340,6 +341,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <ScheduleAndSpeakers />
+
       {/* Venue Information */}
       <section
         className="py-20 bg-gradient-to-b from-black to-gray-900"
