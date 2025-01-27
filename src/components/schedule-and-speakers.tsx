@@ -29,7 +29,7 @@ export default function ScheduleAndSpeakers() {
         }
       }, 0);
 
-      return () => clearTimeout(timeout); // Cleanup timeout if component unmounts
+      return () => clearTimeout(timeout);
     }
   }, [selectedScheduleCard]);
 
@@ -156,7 +156,7 @@ export default function ScheduleAndSpeakers() {
   ];
 
   return (
-    <section className="container mx-auto">
+    <section className="container mx-auto py-20">
       <h2 className="text-center text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 mb-12">
         Featured Speakers
       </h2>
@@ -279,7 +279,7 @@ export default function ScheduleAndSpeakers() {
         </TabsContent>
       </Tabs>
       {/* Speakers Section */}
-      <section className="container mx-auto px-4 py-24">
+      <section className="container mx-auto px-4 pt-20">
         <h2 className="text-center text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 mb-12">
           Featured Speakers
         </h2>
