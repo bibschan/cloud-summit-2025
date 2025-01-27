@@ -158,7 +158,7 @@ export default function ScheduleAndSpeakers() {
   return (
     <section className="container mx-auto py-20">
       <h2 className="text-center text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500 mb-12">
-        Featured Speakers
+        Event Schedule
       </h2>
       <div className="flex justify-center">
         <Card className="bg-gray-800 border-gray-700">
