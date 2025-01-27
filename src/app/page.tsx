@@ -414,7 +414,7 @@ export default function Home() {
               <div className="flex space-x-4 max-md:justify-center">
                 <a
                   target="_blank"
-                  href="https://www.instagram.com/publiccloudninja/"
+                  href="https://www.instagram.com/canadiancloudninja"
                   className="text-gray-400 hover:text-green-500 transition-colors"
                 >
                   <Instagram className="h-6 w-6" />
@@ -499,7 +499,7 @@ export default function Home() {
                   >
                     Privacy Policy
                   </Link>
-                </li> 
+                </li>
                 <li>
                   <Link
                     href="#"

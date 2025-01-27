@@ -67,7 +67,7 @@ export default function FAQaccordion() {
           The event won&apos;t be live-streamed; however, we will have photos
           here on{" "}
           <Link
-            href="https://www.instagram.com/publiccloudninja/"
+            href="https://www.instagram.com/canadiancloudninja"
             className="underline"
           >
             Instagram
