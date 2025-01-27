@@ -14,7 +14,7 @@ interface Talk {
 }
 
 export default function ScheduleAndSpeakers() {
-  const [activeTab, setActiveTab] = useState("main");
+  const [activeTab, setActiveTab] = useState("main stage");
   const [selectedScheduleCard, setSelectedScheduleCard] = useState<string>("");
 
   useEffect(() => {
