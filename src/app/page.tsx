@@ -499,7 +499,7 @@ export default function Home() {
                   >
                     Privacy Policy
                   </Link>
-                </li> 
+                </li>
                 <li>
                   <Link
                     href="#"
@@ -525,7 +525,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-            <p>Built by Kota and Bibi. Powered by Vercel and v0.</p>
+            <p>Built by Kota, Sophia, Luis and Madhuja. Powered by Vercel and v0.</p>
           </div>
         </div>
       </footer>
