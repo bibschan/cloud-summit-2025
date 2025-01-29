@@ -1,33 +1,55 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Nav() {
+  const [isAtTop, setIsAtTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setIsAtTop(true);
+      } else {
+        setIsAtTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="flex fixed space-x-6 z-10 right-0 pr-6 pt-4">
-      <Link href="#highlights" className="hover:underline">
-        About
-      </Link>
-      <Link href="#venue" className="hover:underline">
-        Schedule
-      </Link>
-      <Link
-        href="https://forms.gle/6qjgftM5Uf4ZSNNP7"
-        className="hover:underline"
-        target="_blank"
-        passHref
-      >
-        Speakers
-      </Link>
-      <Link
-        href="https://forms.gle/1XDU3sdR94UgbcUEA"
-        target="_blank"
-        passHref
-        className="hover:underline"
-      >
-        Sponsors
-      </Link>
+    <nav className={`
+      fixed top-0 w-full z-10 py-6 transition duration-300 ease-in-out
+      ${isAtTop ? "" : "backdrop-blur-md shadow-xl"}
+    `}>
+      <div className="container mx-auto px-6 flex justify-end">
+        <div className="flex space-x-8 font-semibold">
+          <Link href="#highlights" className="hover:text-sky-400">
+            About
+          </Link>
+          <Link href="#venue" className="hover:text-sky-400">
+            Schedule
+          </Link>
+          <Link
+            href="https://forms.gle/6qjgftM5Uf4ZSNNP7"
+            className="hover:text-sky-400"
+            target="_blank"
+            passHref
+          >
+            Speakers
+          </Link>
+          <Link
+            href="https://forms.gle/1XDU3sdR94UgbcUEA"
+            target="_blank"
+            passHref
+            className="hover:text-sky-400"
+          >
+            Sponsors
+          </Link>
+        </div>
+      </div>
     </nav>
   );
 }
