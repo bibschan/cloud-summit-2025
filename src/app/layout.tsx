@@ -8,6 +8,30 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Cloud Summit 2025",
   description: "Vancouver's Cloud Summit 2025",
+  openGraph: {
+    title: "Cloud Summit 2025",
+    description: "",
+    url: "https://cloudsummit.ca/",
+    siteName: "",
+    images: [
+      {
+        url: "",
+        width: 1200,
+        height: 630,
+        alt: "Cloud Summit 2025",
+      },
+    ],
+    locale: "en_CA",
+    type: "website",
+  },
+
+  //Twitter metadata
+  twitter: {
+    card: "",
+    title: "",
+    description: "",
+    images: [""],
+  }
 };
 
 const fontHeading = Inter({
