@@ -94,7 +94,7 @@ export default function SponsorsSection() {
 
 function SponsorImage({ name, logo }: SponsorImageProps) {
   return (
-    <div className="flex h-40 items-center justify-center rounded-lg bg-gray-100 p-6">
+    <div className="flex h-40 items-center justify-center rounded-lg p-6">
       <Image
         src={logo}
         alt={`${name} logo`}
