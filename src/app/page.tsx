@@ -279,7 +279,7 @@ export default function Home() {
         </div>
       </section>
       {/* Sponsor Logos */}
-      <section className="py-20 bg-black">
+      <section className="py-20 bg-[#f2f3f4]">
         <Sponsors />
       </section>
       {/* Call for Speakers and Volunteers */}

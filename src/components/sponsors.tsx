@@ -64,9 +64,9 @@ export default function SponsorsSection() {
         </h2>
         <div className="relative">
           {/* Left edge overlay */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black/40 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#f2f3f4]/40 to-transparent z-10" />
           {/* Right edge overlay */}
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black/40 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#f2f3f4]/40 to-transparent z-10" />
           
           <div ref={emblaRef} className="overflow-hidden">
             <div className="flex">
