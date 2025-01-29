@@ -35,6 +35,8 @@ import {
 import StatBanner from "@/components/stat-banner";
 import { providers } from "../../public/cloud-providers/clouds";
 import Script from "next/script";
+import SponsorsSection from "@/components/sponsors";
+import BecomeSponsor from "@/components/become-sponsor";
 
 export default function Home() {
   // const openLink = () => {
@@ -279,8 +281,11 @@ export default function Home() {
         </div>
       </section>
       {/* Sponsor Logos */}
-      <section className="py-20 bg-black">
-        <Sponsors />
+      <section className="py-20 bg-gray-900">
+        <SponsorsSection />
+      </section>
+            <section className="py-20 bg-gray-900 ">
+        <BecomeSponsor />
       </section>
       {/* Call for Speakers and Volunteers */}
       <section className="py-20 bg-gradient-to-b from-gray-900 to-black">

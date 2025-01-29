@@ -57,38 +57,33 @@ export default function SponsorsSection() {
   ]);
 
   return (
-    <>
-      <div className="container mx-auto px-4 pb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-          Sponsors
-        </h2>
-        <div className="relative">
-          {/* Left edge overlay */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black/40 to-transparent z-10" />
-          {/* Right edge overlay */}
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black/40 to-transparent z-10" />
-          
-          <div ref={emblaRef} className="overflow-hidden">
-            <div className="flex">
-              {SPONSORS.map((sponsor) => (
-                <div 
-                  key={sponsor.name} 
-                  className="flex-[0_0_60%] md:flex-[0_0_40%] lg:flex-[0_0_25%] px-2 md:px-4"
-                >
-                  <SponsorImage
-                    name={sponsor.name}
-                    logo={sponsor.logo}
-                  />
-                </div>
-              ))}
-            </div>
+    <div className="container mx-auto px-4 pb-12">
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+        Sponsors
+      </h2>
+      <div className="relative">
+        {/* Left edge overlay */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black/40 to-transparent z-10" />
+        {/* Right edge overlay */}
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black/40 to-transparent z-10" />
+        
+        <div ref={emblaRef} className="overflow-hidden">
+          <div className="flex">
+            {SPONSORS.map((sponsor) => (
+              <div 
+                key={sponsor.name} 
+                className="flex-[0_0_60%] md:flex-[0_0_40%] lg:flex-[0_0_25%] px-2 md:px-4"
+              >
+                <SponsorImage
+                  name={sponsor.name}
+                  logo={sponsor.logo}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      <div className="mt-12">
-        <BecomeSponsorCard />
-      </div>
-    </>
+    </div>
   );
 }
 
@@ -104,31 +99,5 @@ function SponsorImage({ name, logo }: SponsorImageProps) {
         style={{ objectFit: "contain", maxWidth: "180px" }}
       />
     </div>
-  );
-}
-
-function BecomeSponsorCard() {
-  return (
-    <Card className="border-none bg-gradient-to-r from-green-500 to-blue-500">
-      <CardContent className="p-6 text-center">
-        <Sprout className="mx-auto mb-4 h-12 w-12 text-white" />
-        <h3 className="mb-2 text-xl font-bold text-white">
-          Become a Sponsor
-        </h3>
-        <p className="mx-auto mb-4 max-w-xl text-sm text-white">
-          Support innovation and connect with leaders in cloud technology.
-          Join us in shaping the future of the industry!
-        </p>
-        <Link href="https://forms.gle/1XDU3sdR94UgbcUEA" target="_blank">
-          <Button
-            size="sm"
-            variant="secondary"
-            className="bg-white text-black hover:bg-gray-100"
-          >
-            Learn More
-          </Button>
-        </Link>
-      </CardContent>
-    </Card>
   );
 }
