@@ -6,16 +6,20 @@ import { jsPDF } from 'jspdf';
 export default function JustificationLetterPDF() {
     const [formData, setFormData] = useState(
         {
+            managerName: '',
+            company: '',
+            specificProject: '',
+            specificTeam: '',
+            travelCost: '',
+            agenda: '',
+            goals: '',
             name: '',
             title: '',
-            company: '',
-            managerName: '',
-            customAmount: '',
-            department: ''
         }
     )
     const [isSmallScreen, setIsSmallScreen] = useState(false)
-    const pdfRef = useRef<HTMLDivElement>(null)
+    const pdfRef = useRef<HTMLDivElement>(null);
+    const currentDate = new Date();
 
     useEffect(() => {
         const handleResize = () => {
@@ -80,113 +84,124 @@ export default function JustificationLetterPDF() {
 
     return (
         <div className="min-h-screen bg-gray-900 text-white p-4 sm:p-8">
-            <div className="max-w-4xl mx-auto">
+
                 <h1 className="text-2xl font-bold">Conference Attendance Justification Letter</h1>
 
-                <div className="space-y-4 my-4 ">
-                    <div>
-                        <label className="block text-sm font-medium mb-1">Your Name</label>
-                        <input
-                            name="name"
-                            value={formData.name}
+            <div ref={pdfRef} className="rounded-lg border text-card-foreground shadow-sm bg-gray-800 border-gray-700 max-w-4xl mx-auto mt-8 p-8">
+                <div className={`pdf-content ${isSmallScreen ? "text-sm" : "text-base"}`}>
+                    <h3 className="mb-4"><span className="font-bold">Subject:</span> Request for Approval to Attend Cloud Summit 2025 </h3>
+                    <p className="whitespace-pre-wrap">{formData.title}</p>
+                </div>
+                <div className="prose max-w-none">
+
+                    <p className="mb-4">Dear
+                    <input
+                            name="managerName"
+                            value={formData.managerName}
                             onChange={handleChange}
-                            placeholder="Enter your name"
-                            className="w-full"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium mb-1">Your Title</label>
-                        <input
-                            name="title"
-                            value={formData.title}
-                            onChange={handleChange}
-                            placeholder="Enter your title"
-                            className="w-full"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium mb-1">Company</label>
+                            placeholder="Enter your manager's name"
+                            className="w-56 bg-gray-800 border-gray-700 rounded px-2 ml-2"
+                    />,
+                    </p>
+                    <p className="mb-4">
+                        I am writing to request approval to attend <a href="https://www.cloudsummit.com" target="_blank" rel="noopener noreferrer">Cloud Summit 2025</a> scheduled for May 27th, 2025, in Vancouver. This event is Western Canada&#39;s leading cloud-focused conference, bringing together top industry experts, innovators, and practitioners to discuss emerging technologies, best practices, and trends in cloud computing.
+                    </p>
+
+                    <h3 className="mb-4 font-bold">Key Benefits to
                         <input
                             name="company"
                             value={formData.company}
                             onChange={handleChange}
                             placeholder="Enter your company name"
-                            className="w-full"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium mb-1">Manager's Name</label>
-                        <input
-                            name="managerName"
-                            value={formData.managerName}
+                            className="w-56 bg-gray-800 border-gray-700 rounded px-2 ml-2"
+                        />:
+                    </h3>
+
+                    <ol className="mb-4 list-decimal list-inside flex flex-col gap-3">
+                        <li>
+                            <span className="font-bold">Expert Insights on Cloud Innovation</span>
+                            <p className="mx-4">Attending this summit will provide cutting-edge knowledge on cloud strategies, solutions, and emerging trends that could directly benefit our ongoing
+                            <input
+                            name="specificProject"
+                            value={formData.specificProject}
                             onChange={handleChange}
-                            placeholder="Enter your manager's name"
-                            className="w-full"
-                        />
-                    </div>
-                </div>
-                <div className="space-x-4">
-                    <button onClick={handleSave} className="bg-blue-600 mx-2 px-4 py-2 rounded-md">
-                        Save as PDF
-                    </button>
-                    <button onClick={handlePrint} className="bg-blue-600 mx-2 px-4 py-2 rounded-md">
-                        Print
-                    </button>
-                </div>
-            </div>
-            <div ref={pdfRef} className="max-w-4xl mx-auto mt-8 p-8 bg-gray-800 rounded-lg shadow-lg">
-                <div className={`pdf-content ${isSmallScreen ? "text-sm" : "text-base"}`}>
-                    <h2 className="text-2xl font-bold mb-4">Justification Letter</h2>
-                    <p className="whitespace-pre-wrap">{formData.title}</p>
-                </div>
-                <div className="prose max-w-none">
-                    <p className="mb-4">Dear {formData.managerName || '[Manager Name]'},</p>
+                            placeholder="Enter specific project/initiative"
+                            className="w-60 bg-gray-800 border-gray-700 rounded px-2 mx-2"
+                            /> by ensuring alignment with the latest industry advancements.
+                            </p>
+                        </li>
+                        <li>
+                            <span className="font-bold">Networking Opportunities</span>
+                            <p className="mx-4">The event offers unparalleled access to industry leaders and peers, creating opportunities to discuss challenges, share insights, and potentially form valuable partnerships or collaborations.
+                            </p>
+                        </li>
+                        <li>
+                            <span className="font-bold">Skills Development</span>
+                            <p className="mx-4">The summit agenda includes technical sessions and keynote presentations designed to deepen expertise in cloud technologies. These sessions can enhance my ability to contribute to
+                            <input
+                            name="specificTeam"
+                            value={formData.specificTeam}
+                            onChange={handleChange}
+                            placeholder="Enter specific team/project goal"
+                            className="w-64 bg-gray-800 border-gray-700 rounded pl-2 mx-2"
+                            />
+                            and mentor colleagues on these topics.</p>
+                        </li>
+                        <li>
+                            <span className="font-bold">Immediate ROI</span>
+                            <p className="mx-4">Post-event, I will consolidate and share key takeaways with the team, ensuring the knowledge gained benefits the organization broadly and maximizes the return on this investment.</p>
+                        </li>
+                    </ol>
 
-                    <p className="mb-4">
-                        I am writing to request approval to attend [Conference Name] in [Location] from [Start Date] to [End Date].
-                        This conference is the premier event for professionals in our industry and offers invaluable opportunities
-                        for learning, networking, and staying current with industry trends.
-                    </p>
-
-                    <p className="mb-4">
-                        The conference offers numerous benefits that align directly with our organization's goals and my professional
-                        development, including:
-                    </p>
-
-                    <ul className="mb-4">
-                        <li>Access to the latest industry trends and innovations</li>
-                        <li>Networking opportunities with industry leaders and peers</li>
-                        <li>Hands-on workshops and training sessions</li>
-                        <li>Exposure to best practices and case studies</li>
+                    <h3 className="mb-4">
+                        Cost-Benefit Overview:
+                    </h3>
+                    <ul className="list-disc list-inside mb-4">
+                        <li>Registration Fee: {currentDate > new Date('2025-03-01') ? '$60.00' : '$30.00'}</li>
+                        <li>Travel/Accommodation: [Cost, if applicable]</li>
+                        <li>Total Estimated Investment: [Cost]</li>
                     </ul>
 
+                    <h3 className="mt-4 font-bold">Alignment with Company Goals: </h3>
                     <p className="mb-4">
-                        The total cost to attend would be approximately [Amount], which includes:
-                    </p>
-
-                    <ul className="mb-4">
-                        <li>Conference Registration: $X</li>
-                        <li>Travel Expenses: $X</li>
-                        <li>Accommodation: $X</li>
-                        <li>Meals and Incidentals: $X</li>
-                    </ul>
-
-                    <p className="mb-4">
-                        Upon returning, I will share key learnings with our team through a presentation and written report,
-                        ensuring that the knowledge gained benefits our entire organization.
+                        The topics covered at the Cloud Summit, such as [specific agenda items or themes relevant to your role/team], directly align with our strategic objectives to [specific goal, e.g., modernize IT infrastructure, enhance cloud security, improve operational efficiency].
                     </p>
 
                     <p className="mb-4">
-                        Thank you for considering this request. I look forward to discussing this opportunity with you.
+                        Thank you for considering this request. Attending the Cloud Summit 2025 will not only benefit my professional development but also directly support {formData.company || '[Company Name]'}&#39;s growth and innovation initiatives.
+                    </p>
+                    <p className="mb-4">
+                        Please let me know if you need any additional details or if we can discuss further.
                     </p>
 
                     <p className="mb-4">
                         Best regards,<br />
-                        {formData.name || '[Your Name]'}<br />
-                        {formData.title || '[Your Title]'}<br />
-                        {formData.company || '[Company Name]'}
+                        <input
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            placeholder="Enter your name"
+                            className="w-full bg-gray-800 border-gray-700 rounded px-2 my-2 "
+                        />
+                        <br />
+                        <input
+                            name="title"
+                            value={formData.title}
+                            onChange={handleChange}
+                            placeholder="Enter your title"
+                            className="w-full bg-gray-800 border-gray-700 rounded px-2 my-2"
+                        />
+                        <br />
                     </p>
                 </div>
+            </div>
+            <div className=" flex justify-end my-4 max-w-4xl mx-auto">
+                <a onClick={handleSave} className="bg-blue-600 mx-2 px-4 py-2 rounded-md">
+                    <img alt='Save as PDF' src='/justification-letter/download.svg'></img>
+                </a>
+                <a onClick={handlePrint} className="bg-blue-600 mx-2 px-4 py-2 rounded-md">
+                    <img alt='Print' src='/justification-letter/printer.svg'></img>
+                </a>
             </div>
         </div>
     )
