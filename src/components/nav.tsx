@@ -21,11 +21,11 @@ export default function Nav() {
 
   return (
     <nav className={`
-      fixed top-0 w-full z-10 py-6 transition duration-300 ease-in-out
-      ${isAtTop ? "" : "backdrop-blur-md shadow-xl"}
+      fixed top-0 w-full z-10 py-5 transition duration-300 ease-in-out
+      ${isAtTop ? "" : "bg-black/50 backdrop-blur-md shadow-xl"}
     `}>
-      <div className="container mx-auto px-6 flex justify-end">
-        <div className="flex space-x-8 font-semibold">
+      <div className="container mx-auto px-6 flex lg:justify-end justify-center">
+        <div className="flex space-x-4 sm:space-x-8 font-semibold text-sm md:text-base">
           <Link href="#highlights" className="hover:text-sky-400">
             About
           </Link>
