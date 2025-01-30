@@ -17,7 +17,7 @@ export default function JustificationLetterForm({ formData, setFormData}: { form
       }
 
     return (
-        <form className="rounded-lg border text-card-foreground shadow-sm bg-white border-gray-700 max-w-lg md:max-w-md mx-auto md:mx-0 mt-8 p-8 max-h-fit">
+        <form className="rounded-lg border text-card-foreground shadow-sm bg-white border-gray-700 max-w-lg md:max-w-md mx-auto md:mx-0 p-8 max-h-fit">
             <label className="block text-sm font-medium mb-1 text-black">Manager&apos;s Name</label>
             <input
                 name="managerName"

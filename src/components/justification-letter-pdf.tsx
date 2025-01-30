@@ -66,8 +66,15 @@ export default function JustificationLetterPDF(formData: any, setFormData: any) 
 
     return (
         <div className="min-h-screen bg-gray-900 text-white ">
-
-            <section ref={pdfRef} className="rounded-lg border text-card-foreground shadow-sm bg-gray-800 border-gray-700 max-w-xl mx-auto mt-8 p-8 flex-grow">
+            <section ref={pdfRef} className="rounded-lg border text-card-foreground shadow-sm bg-gray-800 border-gray-700 max-w-xl mx-auto p-8 flex-grow">
+                <div className=" flex justify-end mb-4 max-w-4xl mx-auto">
+                    <a onClick={handleSave} className="bg-blue-600 mx-2 px-4 py-2 rounded-md">
+                        <img alt='Save as PDF' src='/justification-letter/download.svg'></img>
+                    </a>
+                    <a onClick={handlePrint} className="bg-blue-600 mx-2 px-4 py-2 rounded-md">
+                        <img alt='Print' src='/justification-letter/printer.svg'></img>
+                    </a>
+                </div>
                 <div className={`pdf-content ${isSmallScreen ? "text-sm" : "text-base"}`}>
                     <h3 className="mb-4"><span className="font-bold">Subject:</span> Request for Approval to Attend Cloud Summit 2025 </h3>
                 </div>
@@ -131,14 +138,7 @@ export default function JustificationLetterPDF(formData: any, setFormData: any) 
                         {formData.company || '[Company Name]'}
                     </p>
                 </div>
-                <div className=" flex justify-end my-4 max-w-4xl mx-auto">
-                <a onClick={handleSave} className="bg-blue-600 mx-2 px-4 py-2 rounded-md">
-                    <img alt='Save as PDF' src='/justification-letter/download.svg'></img>
-                </a>
-                <a onClick={handlePrint} className="bg-blue-600 mx-2 px-4 py-2 rounded-md">
-                    <img alt='Print' src='/justification-letter/printer.svg'></img>
-                </a>
-            </div>
+
             </section>
 
         </div >
