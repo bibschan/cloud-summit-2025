@@ -1,9 +1,104 @@
 import React from 'react'
 
-export default function JustificationLetterForm() {
-  return (
-    <div>
+interface MyComponentProps {
+    formData: FormDataType;
+    setFormData: Dispatch<SetStateAction<FormDataType>>;
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  }
 
-    </div>
-  )
+export default function JustificationLetterForm({ formData, setFormData}: { formData: FormDataType, setFormData: (formData: FormDataType) => void }) {
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData(prevData => ({
+          ...prevData,
+          [name]: value
+        }))
+      }
+
+    return (
+        <form className="rounded-lg border text-card-foreground shadow-sm bg-white border-gray-700 max-w-lg md:max-w-md mx-auto md:mx-0 mt-8 p-8 max-h-fit">
+            <label className="block text-sm font-medium mb-1 text-black">Manager&apos;s Name</label>
+            <input
+                name="managerName"
+                value={formData.managerName}
+                onChange={handleChange}
+                placeholder="Enter your manager's name"
+                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
+            />
+
+            <label className="block text-sm font-medium mb-1 text-black">Company</label>
+            <input
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                placeholder="Enter your company name"
+                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
+            />
+
+            <label className="block text-sm font-medium mb-1 text-black">Specific Project</label>
+            <input
+                name="specificProject"
+                value={formData.specificProject}
+                onChange={handleChange}
+                placeholder="Enter your specific project"
+                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
+            />
+
+            <label className="block text-sm font-medium mb-1 text-black">Specific Team/Goal</label>
+            <input
+                name="specificTeam"
+                value={formData.specificTeam}
+                onChange={handleChange}
+                placeholder="Enter your specific team/goal"
+                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
+            />
+
+            <label className="block text-sm font-medium mb-1 text-black">Travel Cost</label>
+            <input
+                name="travelCost"
+                value={formData.travelCost}
+                onChange={handleChange}
+                placeholder="Enter your travel cost"
+                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
+            />
+
+            <label className="block text-sm font-medium mb-1 text-black">Agenda</label>
+            <input
+                name="agenda"
+                value={formData.agenda}
+                onChange={handleChange}
+                placeholder="Enter the conference agenda"
+                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
+            />
+
+            <label className="block text-sm font-medium mb-1 text-black">Goal</label>
+            <input
+                name="goal"
+                value={formData.goal}
+                onChange={handleChange}
+                placeholder="specific goal, e.g., modernize IT infrastructure, enhance cloud security, improve operational efficiency"
+                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
+            />
+
+            <label className="text-sm font-medium mb-1 text-black">Your Name</label>
+            <input
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Enter your name"
+                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
+            />
+
+            <label className="block text-sm font-medium mb-1 text-black">Your Title</label>
+            <input
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                placeholder="Enter your title"
+                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
+            />
+
+        </form >
+    )
 }
