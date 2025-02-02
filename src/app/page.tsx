@@ -10,7 +10,7 @@ import {
   Building,
   ChevronRight,
   Instagram,
-  Linkedin
+  Linkedin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,7 +19,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@/components/ui/card";
 import Sponsors from "@/components/sponsors";
 import Link from "next/link";
@@ -30,7 +30,7 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import StatBanner from "@/components/stat-banner";
 import { providers } from "../../public/cloud-providers/clouds";
@@ -243,7 +243,7 @@ export default function Home() {
                 className="md:w-full w-[90%]"
                 opts={{
                   align: "start",
-                  loop: true
+                  loop: true,
                 }}
               >
                 <CarouselContent className="-ml-4">
