@@ -230,3 +230,28 @@ Common status codes:
 - Transaction-based updates
 - Data validation
 - Consistent vote counts 
+
+## Technical Architecture
+
+### Voting Process with Authentication
+```mermaid
+stateDiagram-v2
+    [*] --> SignedOut
+    SignedOut --> Authenticating: Click Sign In
+    Authenticating --> SignedIn: Auth Success
+    Authenticating --> SignedOut: Auth Failed
+    
+    SignedIn --> ViewingProviders: Load Vote Page
+    ViewingProviders --> SelectingProvider: Click Provider
+    SelectingProvider --> ConfirmingVote: Submit Vote
+    ConfirmingVote --> VoteProcessing: Confirm
+    
+    VoteProcessing --> VoteSuccess: API Success
+    VoteProcessing --> VoteError: API Error
+    VoteError --> ViewingProviders: Retry
+    
+    VoteSuccess --> ViewingResults: Show Results
+    ViewingResults --> SelectingProvider: Change Vote
+    
+    SignedIn --> SignedOut: Sign Out
+```
