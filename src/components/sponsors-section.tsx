@@ -7,9 +7,9 @@ import { Sprout } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 
-export default function Sponsors() {
+export const SponsorsSection = () => {
   return (
-    <>
+    <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
           Past Sponsors
@@ -68,7 +68,6 @@ export default function Sponsors() {
               Support innovation and connect with leaders in cloud technology.
               Join us in shaping the future of the industry!
             </p>
-            {/* <Link href="/sponsor" passHref> */}
             <Link href="https://forms.gle/1XDU3sdR94UgbcUEA" target="_blank">
               <Button
                 size="sm"
@@ -81,6 +80,6 @@ export default function Sponsors() {
           </CardContent>
         </Card>
       </div>
-    </>
+    </section>
   );
-}
+}; 
