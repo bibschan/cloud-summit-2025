@@ -24,7 +24,7 @@ export default auth((req) => {
   return NextResponse.next();
 });
 
-// Optionally configure middleware to run only on specific paths
+// run only on specific paths
 export const config = {
   matcher: [
     "/vote/:path*",

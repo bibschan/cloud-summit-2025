@@ -222,7 +222,7 @@ export default function VotePage() {
     <>
       <Nav />
       <main className="min-h-screen bg-gradient-to-b from-blue-700 to-blue-300 pt-20">
-        <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4">
           <div className="flex flex-col items-center mb-8">
             <h1 className="text-3xl font-bold mb-4 text-white text-center">Vote for Your Favorite Cloud Provider</h1>
             
@@ -236,8 +236,8 @@ export default function VotePage() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
               />
-            </div>
-          </div>
+      </div>
+    </div>
           
           {filteredProviders.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

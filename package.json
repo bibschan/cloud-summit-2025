@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prisma:generate": "prisma generate",
+    "prisma:generate": "prisma generate", 
     "prisma:push": "prisma db push",
     "db:seed": "cross-env NODE_ENV=development ts-node --compiler-options '{\"module\":\"CommonJS\"}' prisma/seed.ts",
     "db:clean": "cross-env NODE_ENV=development ts-node --compiler-options '{\"module\":\"CommonJS\"}' prisma/seed.ts --clean"
