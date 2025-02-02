@@ -1,8 +1,11 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { EVENT_CONFIG } from "@/lib/constants";
 import Script from "next/script";
 import StatBanner from "./stat-banner";
 import { providers } from "../../public/cloud-providers/clouds";
+import Image from "next/image";
 
 export const HeroSection = () => {
   const openVolunteersLink = () => {
@@ -106,11 +109,15 @@ export const HeroSection = () => {
             target="_blank"
             className="relative"
           >
-            <img
-              src={provider.icon}
-              alt={provider.name}
-              className="w-14 h-auto object-cover"
-            />
+            <div className="relative w-14 h-14">
+              <Image
+                src={provider.icon}
+                alt={provider.name}
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 56px, 56px"
+              />
+            </div>
           </a>
         ))}
       </div>

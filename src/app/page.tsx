@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Nav from "@/components/nav";
 import { HeroSection } from "@/components/hero-section";
