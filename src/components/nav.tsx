@@ -4,13 +4,16 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 
 export default function Nav() {
   const [isAtTop, setIsAtTop] = useState(true);
-  const [hasVoted, setHasVoted] = useState(true);  // Default to true to prevent flash
+  const [hasVoted, setHasVoted] = useState(true);
   const { data: session } = useSession();
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const isSignInPage = pathname === "/auth/signin";
+  const isVotePage = pathname === "/vote";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,11 +49,44 @@ export default function Nav() {
     return isHomePage ? `#${section}` : `/#${section}`;
   };
 
-  return (
-    <nav className={`
-      fixed top-0 w-full z-10 py-5 transition duration-300 ease-in-out
-      ${isAtTop ? "" : "bg-black/50 backdrop-blur-md shadow-xl"}
-    `}>
+  // Render different nav content based on route
+  const renderNavContent = () => {
+    if (isSignInPage) {
+      return (
+        <div className="container mx-auto px-6 flex justify-between items-center">
+          <Link 
+            href="/"
+            className="text-white hover:text-sky-400 flex items-center gap-2 transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            Back
+          </Link>
+        </div>
+      );
+    }
+
+    if (isVotePage) {
+      return (
+        <div className="container mx-auto px-6 flex justify-between items-center">
+          <Link 
+            href="/"
+            className="text-white hover:text-sky-400 flex items-center gap-2 transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            Back
+          </Link>
+          <button
+            onClick={() => signOut()}
+            className="text-white hover:text-sky-400 font-semibold text-sm md:text-base"
+          >
+            Sign Out
+          </button>
+        </div>
+      );
+    }
+
+    // Default nav content (homepage)
+    return (
       <div className="container mx-auto px-6 flex lg:justify-end justify-center">
         <div className="flex space-x-4 sm:space-x-8 font-semibold text-sm md:text-base">
           <Link href={getHomeLink("highlights")} className="hover:text-sky-400">
@@ -80,7 +116,7 @@ export default function Nav() {
               <Link href="/vote" className="hover:text-sky-400">
                 Vote
               </Link>
-              {isHomePage && session && !hasVoted && (
+              {isHomePage && !hasVoted && (
                 <div className="absolute -top-1 -right-2 flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
@@ -96,12 +132,24 @@ export default function Nav() {
               Sign Out
             </button>
           ) : (
-            <Link href="/auth/signin" className="hover:text-sky-400">
+            <Link 
+              href="/auth/signin" 
+              className="hover:text-sky-400"
+            >
               Sign In
             </Link>
           )}
         </div>
       </div>
+    );
+  };
+
+  return (
+    <nav className={`
+      fixed top-0 w-full z-10 py-5 transition duration-300 ease-in-out
+      ${isAtTop && !isVotePage ? "" : (isVotePage ? "" : "bg-black/50 backdrop-blur-md shadow-xl")}
+    `}>
+      {renderNavContent()}
       {isHomePage && session && !hasVoted && (
         <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
           <div className="bg-sky-500 text-white px-4 py-2 rounded-md shadow-lg text-sm whitespace-nowrap">

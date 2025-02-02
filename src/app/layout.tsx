@@ -55,7 +55,11 @@ export default function RootLayout({
         )}`}
       >
         <Providers>{children}</Providers>
-        <Toaster />
+        <Toaster 
+          richColors 
+          position="bottom-right"
+          closeButton={false}
+        />
       </body>
     </html>
   );
