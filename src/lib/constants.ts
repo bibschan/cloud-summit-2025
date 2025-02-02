@@ -13,7 +13,13 @@ export const EVENT_CONFIG = {
   links: {
     tickets: "https://lu.ma/event/evt-cItbLfgBkf8na4n",
     speakers: "https://forms.gle/6qjgftM5Uf4ZSNNP7",
-    volunteers: "https://forms.gle/NECDLqn6T6qbmWXZ8"
+    volunteers: "https://forms.gle/NECDLqn6T6qbmWXZ8",
+    sponsors: "https://forms.gle/1XDU3sdR94UgbcUEA",
+    social: {
+      instagram: "https://www.instagram.com/canadiancloudninja/",
+      youtube: "https://www.youtube.com/@PublicCloudNinja/about",
+      linkedin: "https://www.linkedin.com/company/canadiancloud"
+    }
   },
   sections: {
     highlights: {
@@ -42,6 +48,27 @@ export const EVENT_CONFIG = {
     venue: {
       title: "Venue Information",
       description: "Experience the Vancouver Cloud Summit like no technology conference you have been to before. Sophistication and elegance meets new age technology and engagement in an amazing venue in the heart of downtown Vancouver. 2 large stages, many intimate workshops and talks as well as a few surprises!"
+    },
+    faq: {
+      title: "FAQ",
+      items: [
+        {
+          question: "Who is Cloud Summit for?",
+          answer: "Cloud Summit is for anyone who wants to stay ahead of the latest technology advancements in Cloud, see and hear first-hand from industry experts in transformative innovations like generative AI, analytics, and cloud operations, as well as gaining a glimpse into what is happening on other major cloud platforms. Whether you're a developer, a business decision-maker, an IT decision-maker, or a technical project manager, there's something at Cloud Summit for you."
+        },
+        {
+          question: "How is Cloud Summit different from other technology conferences?",
+          answer: "Cloud Summit Vancouver is our annual networking and learning event with a focus on business and the community. We are run by an official Canadian Not-For-Profit with all profits going to charity. With a focus on community comes a more heightened human and connective experience with a unique emphasis on more creative engagements such as music, hands-on demos, whiteboarding, and more to create a dynamic boost to your engagement."
+        },
+        {
+          question: "Is the event accessible?",
+          answer: "Yes, there is both accessible ramps, elevators, and main stage seating."
+        },
+        {
+          question: "Will I be able to watch the event online?",
+          answer: "The event won't be live-streamed; however, we will have photos on Instagram and videos on YouTube."
+        }
+      ]
     }
   },
   features: {
@@ -50,10 +77,14 @@ export const EVENT_CONFIG = {
       security: "Security",
       devops: "DevOps"
     }
+  },
+  team: {
+    members: [
+      { name: "Kota", github: "https://github.com/boooocchi" },
+      { name: "Sophia", github: "https://github.com/Sophia-G-Chan" },
+      { name: "Luis", github: "https://github.com/luisher98" },
+      { name: "Bibi", github: "https://github.com/bibschan" },
+      { name: "Madhuja", github: "https://github.com/madhujamitra" }
+    ]
   }
-} as const;
-
-export const SOCIAL_LINKS = {
-  instagram: "https://instagram.com",
-  linkedin: "https://linkedin.com"
 } as const; 
