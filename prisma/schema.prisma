@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// Vote model represents a user's vote for a cloud provider
+// Each user can only vote for one provider at a time
+// When a user changes their vote, the old vote is updated rather than creating a new one
+model Vote {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  // userId stores the user's email from OAuth (GitHub/Google)
+  userId      String
+  // providerId references the CloudProvider model's id
+  providerId  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Ensures a user can only have one vote per provider
+  // Also prevents duplicate votes in case of concurrent requests
+  @@unique([userId, providerId])
+  // Index to improve query performance when looking up votes by provider
+  @@index([providerId])
+}
+
+// CloudProvider model stores information about each cloud provider
+// This is a reference table that's seeded with initial data for now
+// Matt will be in charge of this data
+model CloudProvider {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  // name is used as a unique identifier for the provider (e.g., 'aws', 'gcp')
+  name        String   @unique
+  // displayName is the human-readable name (e.g., 'Amazon Web Services')
+  displayName String
+  // Path to the provider's logo in the public directory
+  logoUrl     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// VoteCount model maintains a running tally of votes for each provider
+// This denormalized structure improves read performance by avoiding COUNT queries
+model VoteCount {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  // References the CloudProvider model's id
+  providerId  String   @unique
+  // The current number of votes for this provider
+  count       Int      @default(0)
+  // Tracks when the count was last updated
+  lastUpdated DateTime @updatedAt
+}
