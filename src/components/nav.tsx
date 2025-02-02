@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Nav() {
   const [isAtTop, setIsAtTop] = useState(true);
+  const { data: session } = useSession();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,6 +50,23 @@ export default function Nav() {
           >
             Sponsors
           </Link>
+          {session && (
+            <Link href="/vote" className="hover:text-sky-400">
+              Vote
+            </Link>
+          )}
+          {session ? (
+            <button
+              onClick={() => signOut()}
+              className="hover:text-sky-400"
+            >
+              Sign Out
+            </button>
+          ) : (
+            <Link href="/auth/signin" className="hover:text-sky-400">
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
     </nav>
