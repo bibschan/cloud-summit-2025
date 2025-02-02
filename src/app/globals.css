@@ -126,3 +126,8 @@ span.cloud-button-content {
 }
 
 /* Cloud animation ends */
+
+/* Fallback icon styles */
+.fallback-active + .fallback {
+  display: flex !important;
+}
