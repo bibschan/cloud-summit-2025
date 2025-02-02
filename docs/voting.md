@@ -4,7 +4,68 @@
 
 A secure voting platform that enables authenticated users to vote for their preferred cloud provider. The system uses MongoDB for data storage and provides REST APIs in Next.js server components for vote management.
 
+### Activity Diagram of the Voting Process with Authentication
+```mermaid
+stateDiagram-v2
+    [*] --> SignedOut
+    SignedOut --> Authenticating: Click Sign In
+    Authenticating --> SignedIn: Auth Success
+    Authenticating --> SignedOut: Auth Failed
+    
+    SignedIn --> ViewingProviders: Load Vote Page
+    ViewingProviders --> SelectingProvider: Click Provider
+    SelectingProvider --> ConfirmingVote: Submit Vote
+    ConfirmingVote --> VoteProcessing: Confirm
+    
+    VoteProcessing --> VoteSuccess: API Success
+    VoteProcessing --> VoteError: API Error
+    VoteError --> ViewingProviders: Retry
+    
+    VoteSuccess --> ViewingResults: Show Results
+    ViewingResults --> SelectingProvider: Change Vote
+    
+    SignedIn --> SignedOut: Sign Out
+```
+
 ## Database Structure
+
+### Database UML Diagram
+```mermaid
+classDiagram
+    class CloudProvider {
+        +String id @id @ObjectId
+        +String name @unique
+        +String displayName
+        +String logoUrl
+        +DateTime createdAt @default(now)
+        +DateTime updatedAt @updatedAt
+    }
+    
+    class Vote {
+        +String id @id @ObjectId
+        +String userId
+        +String providerId
+        +DateTime createdAt @default(now)
+        +DateTime updatedAt @updatedAt
+        @@unique([userId, providerId])
+        @@index([providerId])
+    }
+    
+    class VoteCount {
+        +String id @id @ObjectId
+        +String providerId @unique
+        +Int count @default(0)
+        +DateTime lastUpdated @updatedAt
+    }
+
+    CloudProvider "1" -- "1" VoteCount : has >
+    CloudProvider "1" -- "*" Vote : receives >
+    Vote "*" -- "1" User : casts >
+
+    note for CloudProvider "Stores cloud provider information"
+    note for Vote "Records user votes with unique constraint"
+    note for VoteCount "Maintains denormalized vote counts"
+```
 
 ### Models
 
@@ -210,48 +271,3 @@ Common status codes:
 - 400: Invalid request
 - 401: Authentication required
 - 500: Server error
-
-### System Safeguards
-- Previous state backup
-- Automatic rollback
-- Error notifications
-- Network error handling
-- Concurrent modification handling
-
-## Security
-
-### Authentication
-- OAuth (GitHub/Google) required
-- Session validation
-- Protected API endpoints
-
-### Data Integrity
-- One vote per user
-- Transaction-based updates
-- Data validation
-- Consistent vote counts 
-
-## Technical Architecture
-
-### Voting Process with Authentication
-```mermaid
-stateDiagram-v2
-    [*] --> SignedOut
-    SignedOut --> Authenticating: Click Sign In
-    Authenticating --> SignedIn: Auth Success
-    Authenticating --> SignedOut: Auth Failed
-    
-    SignedIn --> ViewingProviders: Load Vote Page
-    ViewingProviders --> SelectingProvider: Click Provider
-    SelectingProvider --> ConfirmingVote: Submit Vote
-    ConfirmingVote --> VoteProcessing: Confirm
-    
-    VoteProcessing --> VoteSuccess: API Success
-    VoteProcessing --> VoteError: API Error
-    VoteError --> ViewingProviders: Retry
-    
-    VoteSuccess --> ViewingResults: Show Results
-    ViewingResults --> SelectingProvider: Change Vote
-    
-    SignedIn --> SignedOut: Sign Out
-```

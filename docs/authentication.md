@@ -14,18 +14,18 @@ When a user wants to access our voting system:
 
 ### Keeping Users Signed In
 We use sessions to remember who users are:
-- We create a secure token (like a digital wristband)
-- This token is stored safely in their browser
-- It automatically refreshes to stay valid
+- A secure token (JWT) is created
+- This token is stored safely in their browser as a cookie
+- If you refresh the page it automatically signs in
 
 ## Security Features
 
 ### Protecting User Data
-This is actually a very nice approach to security:
+This social login approach is actually a very nice approach to security because:
 - We only store the user's email
 - We don't keep passwords, we leverage third party authentification
 - We use special secure cookies that can't be accessed by scripts
-- Although as always we should further enhance security.
+- Although as always we should further enhance security, specially towards our own website security.
 
 ### Protected Areas
 - Voting pages: Where users cast their votes
@@ -150,7 +150,7 @@ src/
 1. **Optimization**
    - Session caching
    - Token validation
-   - Request throttling
+   - Request throttling 
    - Resource management
 
 2. **Monitoring**
