@@ -175,11 +175,6 @@ graph TD
     G --> H[Store Session Cookie]
     H --> I[Redirect to App]
     I --> J[Access Protected Routes]
-    
-    style A fill:#f9f,stroke:#333
-    style B fill:#bbf,stroke:#333
-    style G fill:#bfb,stroke:#333
-    style J fill:#bfb,stroke:#333
 ```
 
 ### Session Validation Flow
@@ -238,9 +233,5 @@ flowchart LR
     C -->|Failed| E
     D -->|Success| F
     D -->|Failed| G[Show Error Message]
-    
-    style A fill:#f96,stroke:#333
-    style F fill:#9f6,stroke:#333
-    style G fill:#f66,stroke:#333
 ```
 
