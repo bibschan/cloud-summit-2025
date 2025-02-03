@@ -110,15 +110,20 @@ export default function Footer() {
           <p className="mb-4">
             Built by{" "}
             {EVENT_CONFIG.team.members.map((member, index) => (
-              <a
-                key={member.name}
-                href={member.github}
-                target="_blank"
-                className="text-green-500 hover:text-green-400"
-              >
-                {member.name}
-                {index < EVENT_CONFIG.team.members.length - 1 ? ", " : ""}
-              </a>
+              <React.Fragment key={member.name}>
+                <a
+                  href={member.github}
+                  target="_blank"
+                  className="text-green-500 hover:text-green-400"
+                >
+                  {member.name}
+                </a>
+                {index < EVENT_CONFIG.team.members.length - 2
+                  ? ", "
+                  : index === EVENT_CONFIG.team.members.length - 2
+                  ? " and "
+                  : ""}
+              </React.Fragment>
             ))}.
           </p>
           <p>Powered by Vercel and v0.</p>
