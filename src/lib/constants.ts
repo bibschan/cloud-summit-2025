@@ -1,0 +1,90 @@
+export const EVENT_CONFIG = {
+  title: "Cloud Summit",
+  date: "May 27, 2025",
+  venue: "Orpheum Theatre",
+  location: {
+    city: "Vancouver",
+    province: "BC",
+    country: "Canada",
+    address: "601 Smithe Street",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10411.22242662249!2d-123.1204164!3d49.2800806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486717fcd9b875d%3A0x6f19bb45bb73289c!2sOrpheum!5e0!3m2!1sen!2sca!4v1729318806028!5m2!1sen!2sca"
+  },
+  description: "Join cloud developers, architects, IT & infrastructure professionals and executives building the cloud ecosystem.",
+  links: {
+    tickets: "https://lu.ma/event/evt-cItbLfgBkf8na4n",
+    speakers: "https://forms.gle/6qjgftM5Uf4ZSNNP7",
+    volunteers: "https://forms.gle/NECDLqn6T6qbmWXZ8",
+    sponsors: "https://forms.gle/1XDU3sdR94UgbcUEA",
+    social: {
+      instagram: "https://www.instagram.com/canadiancloudninja/",
+      youtube: "https://www.youtube.com/@PublicCloudNinja/about",
+      linkedin: "https://www.linkedin.com/company/canadiancloud"
+    }
+  },
+  sections: {
+    highlights: {
+      title: "Previous Event Highlights",
+      images: [
+        { id: 1, path: "/past-events/AWSDay-1.jpg", caption: "Cloud Summit 2024" },
+        { id: 2, path: "/past-events/AWSDay-2.jpg", caption: "Cloud Summit 2024" },
+        { id: 3, path: "/past-events/AWSDay-3.jpg", caption: "Cloud Summit 2024" },
+        { id: 4, path: "/past-events/AWSDay-4.jpg", caption: "Cloud Summit 2024" },
+        { id: 5, path: "/past-events/AWSDay-5.jpg", caption: "Cloud Summit 2024" }
+      ]
+    },
+    community: {
+      title: "Join Our Community",
+      speakers: {
+        title: "Call for Speakers",
+        description: "Share your expertise with our community",
+        content: "Be part of shaping the future of cloud technology. Submit your talk proposal and inspire the next generation of innovators."
+      },
+      volunteers: {
+        title: "Volunteer Opportunities",
+        description: "Help make Cloud Summit a success",
+        content: "Join our team of dedicated volunteers and play a crucial role in creating an unforgettable experience for all attendees."
+      }
+    },
+    venue: {
+      title: "Venue Information",
+      description: "Experience the Vancouver Cloud Summit like no technology conference you have been to before. Sophistication and elegance meets new age technology and engagement in an amazing venue in the heart of downtown Vancouver. 2 large stages, many intimate workshops and talks as well as a few surprises!"
+    },
+    faq: {
+      title: "FAQ",
+      items: [
+        {
+          question: "Who is Cloud Summit for?",
+          answer: "Cloud Summit is for anyone who wants to stay ahead of the latest technology advancements in Cloud, see and hear first-hand from industry experts in transformative innovations like generative AI, analytics, and cloud operations, as well as gaining a glimpse into what is happening on other major cloud platforms. Whether you're a developer, a business decision-maker, an IT decision-maker, or a technical project manager, there's something at Cloud Summit for you."
+        },
+        {
+          question: "How is Cloud Summit different from other technology conferences?",
+          answer: "Cloud Summit Vancouver is our annual networking and learning event with a focus on business and the community. We are run by an official Canadian Not-For-Profit with all profits going to charity. With a focus on community comes a more heightened human and connective experience with a unique emphasis on more creative engagements such as music, hands-on demos, whiteboarding, and more to create a dynamic boost to your engagement."
+        },
+        {
+          question: "Is the event accessible?",
+          answer: "Yes, there is both accessible ramps, elevators, and main stage seating."
+        },
+        {
+          question: "Will I be able to watch the event online?",
+          answer: "The event won't be live-streamed; however, we will have photos on Instagram and videos on YouTube."
+        }
+      ]
+    }
+  },
+  features: {
+    title: {
+      infrastructure: "Infrastructure",
+      security: "Security",
+      devops: "DevOps"
+    }
+  },
+  team: {
+    members: [
+      { name: "Kota", github: "https://github.com/boooocchi" },
+      { name: "Sophia", github: "https://github.com/Sophia-G-Chan" },
+      { name: "Luis", github: "https://github.com/luisher98" },
+      { name: "Bibi", github: "https://github.com/bibschan" },
+      { name: "Madhuja", github: "https://github.com/madhujamitra" }
+    ]
+  }
+} as const; 

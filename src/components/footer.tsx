@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Instagram, Linkedin, Github } from "lucide-react";
+import { EVENT_CONFIG } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -10,15 +11,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-md:place-items-center">
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">
-              Cloud Summit
+              {EVENT_CONFIG.title}
             </h3>
             <p className="mb-4">
-              &copy; 2025 Cloud Summit. All rights reserved.
+              &copy; 2025 {EVENT_CONFIG.title}. All rights reserved.
             </p>
             <div className="flex space-x-4 max-md:justify-center">
               <a
                 target="_blank"
-                href="https://www.instagram.com/canadiancloudninja"
+                href={EVENT_CONFIG.links.social.instagram}
                 className="text-gray-400 hover:text-green-500 transition-colors"
               >
                 <Instagram className="h-6 w-6" />
@@ -26,7 +27,7 @@ export default function Footer() {
               </a>
               <a
                 target="_blank"
-                href="https://www.linkedin.com/company/canadiancloud"
+                href={EVENT_CONFIG.links.social.linkedin}
                 className="text-gray-400 hover:text-green-500 transition-colors"
               >
                 <Linkedin className="h-6 w-6" />
@@ -49,7 +50,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://forms.gle/6qjgftM5Uf4ZSNNP7"
+                  href={EVENT_CONFIG.links.speakers}
                   className="hover:text-green-500 transition-colors"
                   target="_blank"
                 >
@@ -66,7 +67,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://forms.gle/1XDU3sdR94UgbcUEA"
+                  href={EVENT_CONFIG.links.sponsors}
                   className="hover:text-green-500 transition-colors"
                   target="_blank"
                 >
@@ -105,12 +106,23 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-          <p className="mb-4">Built by{" "}
-            <a href="https://github.com/boooocchi" target="_blank" className="text-green-500 hover:text-green-400">Kota</a>,{" "}
-            <a href="https://github.com/Sophia-G-Chan" target="_blank" className="text-green-500 hover:text-green-400">Sophia</a>,{" "}
-            <a href="https://github.com/luisher98" target="_blank" className="text-green-500 hover:text-green-400">Luis</a>,{" "}
-            <a href="https://github.com/bibschan" target="_blank" className="text-green-500 hover:text-green-400">Bibi</a> and{" "}
-            <a href="https://github.com/madhujamitra" target="_blank" className="text-green-500 hover:text-green-400">Madhuja</a>.
+          <p className="mb-4">
+            Built by{" "}
+            {EVENT_CONFIG.team.members.map((member, index) => (
+              <>
+                <a
+                  key={member.name}
+                  href={member.github}
+                  target="_blank"
+                  className="text-green-500 hover:text-green-400"
+                >
+                  {member.name}
+                </a>
+                {index < EVENT_CONFIG.team.members.length - 1 && (
+                  <>{index === EVENT_CONFIG.team.members.length - 2 ? " and " : ", "}</>
+                )}
+              </>
+            ))}.
           </p>
           <p>Powered by Vercel and v0.</p>
         </div>

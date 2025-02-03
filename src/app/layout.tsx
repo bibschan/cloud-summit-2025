@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Providers } from "./providers";
 import { Toaster } from "sonner";
 
@@ -12,7 +13,8 @@ export const metadata: Metadata = {
   description: "Vancouver's Cloud Summit 2025",
   openGraph: {
     title: "Cloud Summit 2025 – Western Canada's Premier Cloud Event",
-    description: "Join Cloud Summit 2025 for cutting-edge insights, top cloud experts, and a mission-driven approach—100% of proceeds go to charity!",
+    description:
+      "Join Cloud Summit 2025 for cutting-edge insights, top cloud experts, and a mission-driven approach—100% of proceeds go to charity!",
     url: "https://cloudsummit.ca/",
     siteName: "Cloud Summit 2025",
     images: [
@@ -60,6 +62,7 @@ export default function RootLayout({
           position="bottom-right"
           closeButton={false}
         />
+        <GoogleTagManager gtmId="GTM-56TFJ6TC" />
       </body>
     </html>
   );
