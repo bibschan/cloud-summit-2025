@@ -87,4 +87,35 @@ export const EVENT_CONFIG = {
       { name: "Madhuja", github: "https://github.com/madhujamitra" }
     ]
   }
-} as const; 
+} as const;
+
+export const SPONSORS = [
+  {
+    name: "Couchbase",
+    logo: "/sponsors/couchbase.svg",
+  },
+  {
+    name: "SUSE",
+    logo: "/sponsors/suse.svg",
+  },
+  {
+    name: "Sophos",
+    logo: "/sponsors/sophos.svg",
+  },
+  {
+    name: "Veeam",
+    logo: "/sponsors/veeam.svg",
+  },
+  {
+    name: "Microsoft",
+    logo: "/sponsors/microsoft.svg",
+  },
+  {
+    name: "Google",
+    logo: "/sponsors/google.svg",
+  },
+  {
+    name: "AWS",
+    logo: "/sponsors/aws.svg",
+  },
+] as const; 

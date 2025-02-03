@@ -1,4 +1,6 @@
 import React from "react";
+import styles from "./cloud.module.css";
+import { cn } from "@/lib/utils";
 
 interface CloudProps {
   className?: string;
@@ -6,17 +8,9 @@ interface CloudProps {
 
 const Cloud: React.FC<CloudProps> = ({ className = "" }) => {
   return (
-    <div
-      className={`absolute mt-16 w-36 h-11 bg-gray-300 shadow-cloud rounded-full ${className}`}
-    >
-      <div
-        className="absolute w-12 h-12 bg-gray-300 rounded-full"
-        style={{ top: "-2rem", left: "1.5rem" }}
-      ></div>
-      <div
-        className="absolute w-16 h-16 bg-gray-300 rounded-full"
-        style={{ top: "-2.5rem", left: "3.875rem" }}
-      ></div>
+    <div className={cn("absolute mt-16 w-36 h-11 bg-gray-300 shadow-[10px_10px_rgba(0,0,0,0.2)] rounded-full", className)}>
+      <div className="absolute w-12 h-12 -top-8 left-6 bg-gray-300 rounded-full" />
+      <div className="absolute w-16 h-16 -top-10 left-[3.875rem] bg-gray-300 rounded-full" />
     </div>
   );
 };

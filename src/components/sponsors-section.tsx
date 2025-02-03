@@ -6,39 +6,8 @@ import Link from "next/link";
 import { Sprout } from "lucide-react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-
-const SPONSORS = [
-  {
-    name: "Couchbase",
-    logo: "/sponsors/couchbase.svg",
-  },
-  {
-    name: "SUSE",
-    logo: "/sponsors/suse.svg",
-  },
-  {
-    name: "Sophos",
-    logo: "/sponsors/sophos.svg",
-  },
-  {
-    name: "Veeam",
-    logo: "/sponsors/veeam.svg",
-  },
-  {
-    name: "Microsoft",
-    logo: "/sponsors/microsoft.svg",
-  },
-  {
-    name: "Google",
-    logo: "/sponsors/google.svg",
-  },
-  {
-    name: "AWS",
-    logo: "/sponsors/aws.svg",
-  },
-] as const;
+import styles from "./sponsors-section.module.css";
+import { SPONSORS } from "@/lib/constants";
 
 interface SponsorImageProps {
   name: string;
@@ -46,18 +15,6 @@ interface SponsorImageProps {
 }
 
 export const SponsorsSection = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      align: "center",
-      loop: true,
-    },
-    [
-      Autoplay({
-        delay: 3000,
-      }),
-    ]
-  );
-
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 pb-12">
@@ -66,16 +23,16 @@ export const SponsorsSection = () => {
         </h2>
         <div className="relative">
           {/* Left edge overlay */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#f2f3f4]/40 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
           {/* Right edge overlay */}
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#f2f3f4]/40 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
 
-          <div ref={emblaRef} className="overflow-hidden">
-            <div className="flex">
-              {SPONSORS.map((sponsor) => (
+          <div className="overflow-hidden">
+            <div className={`flex ${styles.scrollContent}`}>
+              {[...SPONSORS, ...SPONSORS].map((sponsor, index) => (
                 <div
-                  key={sponsor.name}
-                  className="flex-[0_0_60%] md:flex-[0_0_40%] lg:flex-[0_0_25%] px-2 md:px-4"
+                  key={`${sponsor.name}-${index}`}
+                  className="w-3/5 md:w-2/5 lg:w-1/4 shrink-0 px-2 md:px-4"
                 >
                   <SponsorImage name={sponsor.name} logo={sponsor.logo} />
                 </div>
@@ -99,8 +56,7 @@ function SponsorImage({ name, logo }: SponsorImageProps) {
         alt={`${name} logo`}
         width={180}
         height={100}
-        className="h-16 w-auto transition-opacity duration-300 opacity-70 hover:opacity-100 md:w-full md:max-h-14 lg:max-h-16 lg:min-h-14"
-        style={{ objectFit: "contain", maxWidth: "180px" }}
+        className="h-16 w-auto object-contain max-w-[180px] md:w-full md:max-h-14 lg:max-h-16 lg:min-h-14"
       />
     </div>
   );
