@@ -36,7 +36,7 @@ export default function JustificationLetter() {
     <main className="bg-gray-900 text-white pb-6 w-full">
       <h1 className="bg-gray-900 p-4 sm:p-8 text-2xl font-bold">Conference Attendance Justification Letter</h1>
       <div className="flex flex-col md:flex-row gap-4 md:mx-6 md:w-auto">
-        <JustificationLetterForm formData={formData} setFormData={setFormData} />
+        <JustificationLetterForm  formData={formData} setFormData={setFormData} />
         <JustificationLetterPDF formData={formData} setFormData={setFormData} />
       </div>
     </main>
