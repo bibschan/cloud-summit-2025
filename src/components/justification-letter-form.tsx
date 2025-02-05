@@ -1,20 +1,19 @@
 import React from 'react'
-
-interface MyComponentProps {
+import { FormDataType } from '@/app/justification-letter/page';
+interface JustificationLetterFormProps {
     formData: FormDataType;
-    setFormData: Dispatch<SetStateAction<FormDataType>>;
-    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  }
+    setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
+}
 
-export default function JustificationLetterForm({ formData, setFormData}: { formData: FormDataType, setFormData: (formData: FormDataType) => void }) {
+export default function JustificationLetterForm({ formData, setFormData }: JustificationLetterFormProps) {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setFormData(prevData => ({
-          ...prevData,
-          [name]: value
-        }))
-      }
+        setFormData((prevFormData: FormDataType) => ({
+            ...prevFormData,
+            [name]: value, // Dynamically update the correct property
+        }));
+    };
 
     return (
         <form className="rounded-lg border text-card-foreground shadow-sm bg-white border-gray-700 max-w-lg md:max-w-md mx-auto md:mx-0 p-8 max-h-fit">

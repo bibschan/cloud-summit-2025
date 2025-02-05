@@ -4,7 +4,7 @@ import JustificationLetterForm from "@/components/justification-letter-form";
 import React, { useState, useEffect, useRef } from "react";
 import { jsPDF } from 'jspdf';
 
-interface FormDataType {
+export interface FormDataType {
   managerName: string;
   company: string;
   specificProject: string;

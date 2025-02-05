@@ -9,6 +9,10 @@ export default function JustificationLetterPDF(formData: any, setFormData: any) 
     const pdfRef = useRef<HTMLDivElement>(null);
     const currentDate = new Date();
 
+    const pdf = new jsPDF('portrait', 'px', 'letter');
+    pdf.setFont('helvetica', 'normal');
+    pdf.setFontSize(12);
+
     useEffect(() => {
         const handleResize = () => {
             setIsSmallScreen(window.innerWidth < 640)
