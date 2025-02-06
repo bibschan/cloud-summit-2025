@@ -29,7 +29,7 @@ export default function Nav() {
           <Link href="#highlights" className="hover:text-sky-400">
             About
           </Link>
-          <Link href="#venue" className="hover:text-sky-400">
+          <Link href="/schedule" className="hover:text-sky-400">
             Schedule
           </Link>
           <Link
