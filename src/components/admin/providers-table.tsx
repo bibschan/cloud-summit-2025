@@ -346,7 +346,7 @@ export function ProvidersTable() {
           <TableHeader>
             <TableRow className="hover:bg-transparent border-white/[0.08]">
               <TableHead className="w-[100px] text-white/40 font-medium h-11">Logo</TableHead>
-              <TableHead className="text-white/40 font-medium">Name</TableHead>
+              <TableHead className="text-white/40 font-medium">id</TableHead>
               <TableHead className="text-white/40 font-medium">Display Name</TableHead>
               <TableHead className="text-white/40 font-medium">Added</TableHead>
               <TableHead className="w-[100px] text-white/40 font-medium text-right pr-6">Actions</TableHead>
