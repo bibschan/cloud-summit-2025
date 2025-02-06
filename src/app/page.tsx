@@ -7,7 +7,7 @@ import { CommunitySection } from "@/components/community-section";
 import { VenueSection } from "@/components/venue-section";
 import { FAQSection } from "@/components/faq-section";
 import Footer from "@/components/footer";
-
+import CharitySection from "@/components/charity-section";
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -18,6 +18,7 @@ export default function Home() {
         <SponsorsSection />
         <CommunitySection />
         <VenueSection />
+        <CharitySection />
         <FAQSection />
       </main>
       <Footer />
