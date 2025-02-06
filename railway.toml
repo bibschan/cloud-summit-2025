@@ -1,0 +1,13 @@
+[build]
+builder = "nixpacks"
+buildCommand = "npm run staging:build"
+
+[deploy]
+startCommand = "npm run staging:start"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
+
+[deploy.env]
+NODE_ENV = "staging" 
