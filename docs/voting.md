@@ -4,6 +4,38 @@
 
 A secure voting platform that enables authenticated users to vote for their preferred cloud provider. The system uses MongoDB for data storage and provides REST APIs in Next.js server components for vote management.
 
+## API Routes and Caching Strategy
+
+### Static vs Dynamic Routes
+
+Our API implements a hybrid caching strategy to balance performance and real-time data needs:
+
+#### Static with Revalidation
+- `/api/providers`: Cached and revalidated hourly
+  - Cloud providers rarely change
+  - No user-specific data
+  - Benefits from caching for better performance
+  - Uses `revalidate = 3600` (1 hour)
+
+#### Dynamic Routes
+- `/api/vote`: Must be dynamic because:
+  - Processes real-time voting actions
+  - Requires fresh vote counts
+  - Handles user-specific authentication
+  - Modifies database state
+  
+- `/api/vote/current`: Must be dynamic because:
+  - Returns user-specific vote data
+  - Requires fresh authentication checks
+  - Needs to reflect recent vote changes
+  - Cannot be cached across users
+
+This strategy ensures:
+- Fast response times for stable data
+- Real-time accuracy for voting operations
+- Proper security for user actions
+- Optimal database usage
+
 ### Activity Diagram of the Voting Process with Authentication
 ```mermaid
 stateDiagram-v2

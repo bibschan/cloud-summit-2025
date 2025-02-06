@@ -3,6 +3,15 @@ import { auth } from '@/lib/auth';
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
+/**
+ * This route must be dynamic (no caching) because:
+ * 1. POST: Processes real-time voting actions that modify database state
+ * 2. GET: Returns current vote counts that must be fresh
+ * 3. Requires user authentication on each request
+ * 4. Handles concurrent voting with transactions
+ */
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: Request) {
   try {
     const session = await auth();
@@ -43,7 +52,7 @@ export async function POST(request: Request) {
     });
 
     // Start a transaction to ensure vote counts stay consistent
-    const result = await prisma.$transaction(async (tx: PrismaClient) => {
+    const result = await prisma.$transaction(async (tx) => {
       if (existingVote) {
         // If voting for the same provider, do nothing
         if (existingVote.providerId === provider.id) {

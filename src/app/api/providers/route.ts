@@ -1,11 +1,20 @@
 import { prisma } from '@/lib/db';
 import { NextResponse } from 'next/server';
 
+/**
+ * This route uses revalidation instead of being dynamic because:
+ * 1. Cloud providers rarely change (stable data)
+ * 2. No user-specific content is returned
+ * 3. Benefits from caching for better performance
+ * 4. Same response for all users
+ * 
+ * Revalidation every hour provides a good balance between 
+ * data freshness and performance.
+ */
+export const revalidate = 3600; // 1 hour
+
 export async function GET() {
   try {
-    // First check database connection
-    await prisma.$connect();
-
     const providers = await prisma.cloudProvider.findMany({
       orderBy: {
         name: 'asc',
@@ -23,7 +32,5 @@ export async function GET() {
       { error: 'Failed to fetch providers. Please try again later.' },
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect();
   }
 } 
