@@ -3,14 +3,16 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { Providers } from "./providers";
+import { Providers } from "@/components/providers";
 import { Toaster } from "sonner";
+import Nav from '@/components/nav';
+import { headers } from 'next/headers';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Cloud Summit 2025",
-  description: "Vancouver's Cloud Summit 2025",
+  description: "The premier cloud computing conference",
   openGraph: {
     title: "Cloud Summit 2025 – Western Canada's Premier Cloud Event",
     description:
@@ -44,19 +46,29 @@ const fontBody = Inter({
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const headersList = headers();
+  const pathname = headersList.get("x-pathname") || "";
+  const isVotePage = pathname === "/vote";
+
   return (
-    <html lang="en">
+    <html lang="en" className={cn(
+      "scroll-smooth",
+      isVotePage && "bg-blue-700"
+    )}>
       <body
-        className={`bg-gradient-to-b from-blue-700 to-blue-300 ${cn(
+        className={cn(
           "antialiased",
           fontHeading.variable,
           fontBody.variable
-        )}`}
+        )}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <Nav />
+          {children}
+        </Providers>
         <Toaster 
           richColors 
           position="bottom-right"

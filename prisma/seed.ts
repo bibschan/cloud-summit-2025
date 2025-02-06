@@ -55,22 +55,47 @@ const providers = [
   {
     name: 'aws',
     displayName: 'Amazon Web Services',
-    logoUrl: 'https://d1.awsstatic.com/logos/aws-logo-lockups/poweredbyaws/PB_AWS_logo_RGB_stacked_REV_SQ.91cd4af40773cbfbd15577a3c2b8a346fe3e8fa2.png',
+    logoUrl: '/cloud-providers/aws.svg',
   },
   {
     name: 'gcp',
     displayName: 'Google Cloud Platform',
-    logoUrl: 'https://www.gstatic.com/devrel-devsite/prod/v2f6fb68338062e7c16672db62c4ab042dcb9bfbacf2fa51b6959426b203a4d8a/cloud/images/cloud-logo.svg',
+    logoUrl: '/cloud-providers/gcp.svg',
   },
   {
     name: 'azure',
     displayName: 'Microsoft Azure',
-    logoUrl: 'https://azure.microsoft.com/content/dam/microsoft/final/en-us/microsoft-brand/icons/azure-logo.svg',
+    logoUrl: '/cloud-providers/azure.svg',
+  },
+  {
+    name: 'oracle',
+    displayName: 'Oracle Cloud',
+    logoUrl: '/cloud-providers/oracle.svg',
+  },
+  {
+    name: 'ibm',
+    displayName: 'IBM Cloud',
+    logoUrl: '/cloud-providers/ibm.svg',
+  },
+  {
+    name: 'alibaba',
+    displayName: 'Alibaba Cloud',
+    logoUrl: '/cloud-providers/alibaba.svg',
+  },
+  {
+    name: 'tencent',
+    displayName: 'Tencent Cloud',
+    logoUrl: '/cloud-providers/tencent.png',
+  },
+  {
+    name: 'huawei',
+    displayName: 'Huawei Cloud',
+    logoUrl: '/cloud-providers/huawei.png',
   },
   {
     name: 'digitalocean',
     displayName: 'DigitalOcean',
-    logoUrl: 'https://www.digitalocean.com/_next/static/media/logo.87a8f3b8.svg',
+    logoUrl: '/cloud-providers/digitalocean.svg',
   },
 ] as const;
 

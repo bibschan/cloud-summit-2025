@@ -11,6 +11,7 @@ interface ProviderCardProps {
     id: string;
     name: string;
     displayName: string;
+    logoUrl: string;
   };
   voteCount: number;
   totalVotes: number;
@@ -45,14 +46,13 @@ export function ProviderCard({
           <div className="relative w-10 h-10 flex items-center justify-center">
             {!imageError ? (
               <Image
-                src={`/cloud-providers/${provider.name.toLowerCase()}${
-                  provider.name === "Tencent" || provider.name === "Huawei" ? ".png" : ".svg"
-                }`}
+                src={provider.logoUrl}
                 alt={provider.displayName}
                 width={40}
                 height={40}
                 className="object-contain"
                 onError={() => setImageError(true)}
+                unoptimized
               />
             ) : (
               <Cloud className="w-8 h-8 text-white/70" />

@@ -1,7 +1,6 @@
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db';
 import { auth } from '@/lib/auth';
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
 
 /**
  * This route must be dynamic (no caching) because:
@@ -33,7 +32,7 @@ export async function POST(request: Request) {
     }
 
     // Check if provider exists
-    const provider = await prisma.cloudProvider.findUnique({
+    const provider = await db.cloudProvider.findUnique({
       where: { id: providerId },
     });
 
@@ -45,14 +44,14 @@ export async function POST(request: Request) {
     }
 
     // Find user's existing vote
-    const existingVote = await prisma.vote.findFirst({
+    const existingVote = await db.vote.findFirst({
       where: {
         userId: userId,
       },
     });
 
     // Start a transaction to ensure vote counts stay consistent
-    const result = await prisma.$transaction(async (tx) => {
+    const result = await db.$transaction(async (tx) => {
       if (existingVote) {
         // If voting for the same provider, do nothing
         if (existingVote.providerId === provider.id) {
@@ -135,7 +134,7 @@ export async function POST(request: Request) {
 
 export async function GET() {
   try {
-    const voteCounts = await prisma.voteCount.findMany({
+    const voteCounts = await db.voteCount.findMany({
       orderBy: {
         count: 'desc',
       },

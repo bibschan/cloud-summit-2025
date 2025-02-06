@@ -1,4 +1,4 @@
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db';
 import { NextResponse } from 'next/server';
 
 /**
@@ -15,7 +15,7 @@ export const revalidate = 3600; // 1 hour
 
 export async function GET() {
   try {
-    const providers = await prisma.cloudProvider.findMany({
+    const providers = await db.cloudProvider.findMany({
       orderBy: {
         name: 'asc',
       },

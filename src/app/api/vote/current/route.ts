@@ -1,4 +1,4 @@
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db';
 import { auth } from '@/lib/auth';
 import { NextResponse } from 'next/server';
 
@@ -24,7 +24,7 @@ export async function GET() {
       );
     }
 
-    const vote = await prisma.vote.findFirst({
+    const vote = await db.vote.findFirst({
       where: {
         userId: userId,
       },

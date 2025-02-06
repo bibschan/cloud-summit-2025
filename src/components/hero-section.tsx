@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { EVENT_CONFIG } from "@/lib/constants";
 import Script from "next/script";
 import StatBanner from "./stat-banner";
-import { providers } from "../../public/cloud-providers/clouds";
 import Image from "next/image";
+import { heroProviders } from "@/lib/cloud-hero-providers";
 
 export const HeroSection = () => {
   const openVolunteersLink = () => {
@@ -102,7 +102,7 @@ export const HeroSection = () => {
 
       {/* Cloud Providers */}
       <div className="grid grid-cols-4 gap-4 mt-4 md:mt-16 md:grid-cols-4 md:flex md:flex-row md:overflow-hidden md:whitespace-nowrap">
-        {providers.map((provider) => (
+        {heroProviders.map((provider) => (
           <a
             href={provider.link}
             key={provider.name}
@@ -113,9 +113,10 @@ export const HeroSection = () => {
               <Image
                 src={provider.icon}
                 alt={provider.name}
-                fill
+                width={56}
+                height={56}
                 className="object-contain"
-                sizes="(max-width: 768px) 56px, 56px"
+                unoptimized
               />
             </div>
           </a>

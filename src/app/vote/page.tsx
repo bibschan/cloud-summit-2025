@@ -30,6 +30,19 @@ interface Vote {
 }
 
 export default function VotePage() {
+  return (
+    <main className="min-h-screen" suppressHydrationWarning>
+      <script dangerouslySetInnerHTML={{
+        __html: `document.documentElement.classList.add('vote-page')`
+      }} />
+      <div className="container mx-auto px-6 py-24">
+        <VoteSection />
+      </div>
+    </main>
+  );
+}
+
+function VoteSection() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [providers, setProviders] = useState<CloudProvider[]>([]);
@@ -162,91 +175,78 @@ export default function VotePage() {
   );
 
   if (status === "loading" || !providers.length) {
-    return (
-      <>
-        <Nav />
-        <main className="min-h-screen bg-gradient-to-b from-blue-700 to-blue-300 pt-20 relative">
-          <LoadingSkeleton />
-        </main>
-      </>
-    );
+    return <LoadingSkeleton />;
   }
 
   if (error) {
     toast.error(error);
     return (
-      <>
-        <Nav />
-        <main className="min-h-screen bg-gradient-to-b from-blue-700 to-blue-300 pt-20 relative">
-          <div className="container mx-auto px-4 text-center">
-            <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-8 max-w-xl mx-auto">
-              <h2 className="text-2xl font-bold text-white mb-4">Oops! Something went wrong</h2>
-              <p className="text-gray-200 mb-6">{error}</p>
-              <Button
-                onClick={() => window.location.reload()}
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/10"
-              >
-                Try Again
-              </Button>
-            </div>
-          </div>
-        </main>
-      </>
+      <div className="container mx-auto px-4 text-center">
+        <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-8 max-w-xl mx-auto">
+          <h2 className="text-2xl font-bold text-white mb-4">Oops! Something went wrong</h2>
+          <p className="text-gray-200 mb-6">{error}</p>
+          <Button
+            onClick={() => window.location.reload()}
+            variant="outline"
+            className="border-white/20 text-white hover:bg-white/10"
+          >
+            Try Again
+          </Button>
+        </div>
+      </div>
     );
   }
 
   return (
-    <>
-      <Nav />
-      <main className="min-h-screen bg-gradient-to-b from-blue-700 to-blue-300 pt-20 relative">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center space-y-6 mb-12">
-            <h1 className="text-3xl font-bold text-white text-center drop-shadow-sm">
-              Vote for Your Favorite Cloud Provider
-            </h1>
-            <div className="w-full max-w-md drop-shadow-sm">
-              <SearchBar value={searchQuery} onChange={setSearchQuery} />
-            </div>
-          </div>
-          
-          {filteredProviders.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProviders.map((provider) => {
-                const voteCount = voteCounts.find(vc => vc.providerId === provider.id)?.count || 0;
-                return (
-                  <ProviderCard
-                    key={provider.id}
-                    provider={provider}
-                    voteCount={voteCount}
-                    totalVotes={getTotalVotes()}
-                    isSelected={userVote === provider.id}
-                    userHasVoted={!!userVote}
-                    loading={loading}
-                    onVote={handleVote}
-                  />
-                );
-              })}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <h3 className="text-xl font-semibold text-white mb-2">
-                Don&apos;t see your cloud provider?
-              </h3>
-              <p className="text-gray-300 mb-4">
-                Help us expand our list by nominating a provider.
-              </p>
-              <Button 
-                variant="outline" 
-                className="border-white/20 text-white hover:bg-white/10"
-                onClick={() => window.open('https://forms.gle/1XDU3sdR94UgbcUEA', '_blank')}
-              >
-                Nominate a Provider
-              </Button>
-            </div>
-          )}
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-1.5">
+        <h1 className="text-3xl font-bold tracking-tight text-white text-center">
+          Vote for Your Favorite Cloud Provider
+        </h1>
+        <p className="text-lg text-white/60 text-center">
+          Cast your vote for your favorite cloud provider.
+        </p>
+      </div>
+
+      <div className="w-full max-w-md mx-auto">
+        <SearchBar value={searchQuery} onChange={setSearchQuery} />
+      </div>
+      
+      {filteredProviders.length > 0 ? (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProviders.map((provider) => {
+            const voteCount = voteCounts.find(vc => vc.providerId === provider.id)?.count || 0;
+            return (
+              <ProviderCard
+                key={provider.id}
+                provider={provider}
+                voteCount={voteCount}
+                totalVotes={getTotalVotes()}
+                isSelected={userVote === provider.id}
+                userHasVoted={!!userVote}
+                loading={loading}
+                onVote={handleVote}
+              />
+            );
+          })}
         </div>
-      </main>
-    </>
+      ) : (
+        <div className="text-center py-12 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">
+          <h3 className="text-xl font-semibold text-white mb-2">
+            Don&apos;t see your cloud provider?
+          </h3>
+          <p className="text-gray-300 mb-4">
+            Help us expand our list by nominating a provider.
+          </p>
+          <Button 
+            variant="outline" 
+            className="border-white/20 text-white hover:bg-white/10"
+            onClick={() => window.open('https://forms.gle/1XDU3sdR94UgbcUEA', '_blank')}
+          >
+            Nominate a Provider
+          </Button>
+        </div>
+      )}
+    </div>
   );
 } 

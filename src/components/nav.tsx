@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { isAdmin } from "@/lib/admin";
 
 export default function Nav() {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -14,6 +15,8 @@ export default function Nav() {
   const isHomePage = pathname === "/";
   const isSignInPage = pathname === "/auth/signin";
   const isVotePage = pathname === "/vote";
+  const isAdminPage = pathname === "/admin";
+  const userIsAdmin = session?.user?.email ? isAdmin(session.user.email) : false;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +54,7 @@ export default function Nav() {
 
   // Render different nav content based on route
   const renderNavContent = () => {
-    if (isSignInPage) {
+    if (isSignInPage || isVotePage || isAdminPage) {
       return (
         <div className="container mx-auto px-6 flex justify-between items-center">
           <Link 
@@ -61,26 +64,14 @@ export default function Nav() {
             <ArrowLeft className="w-5 h-5" />
             Back
           </Link>
-        </div>
-      );
-    }
-
-    if (isVotePage) {
-      return (
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <Link 
-            href="/"
-            className="text-white hover:text-sky-400 flex items-center gap-2 transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Back
-          </Link>
-          <button
-            onClick={() => signOut()}
-            className="text-white hover:text-sky-400 font-semibold text-sm md:text-base"
-          >
-            Sign Out
-          </button>
+          {session && (
+            <button
+              onClick={() => signOut()}
+              className="text-white hover:text-sky-400 font-semibold text-sm md:text-base"
+            >
+              Sign Out
+            </button>
+          )}
         </div>
       );
     }
@@ -111,32 +102,37 @@ export default function Nav() {
           >
             Sponsors
           </Link>
-          {session && (
-            <div className="relative">
-              <Link href="/vote" className="hover:text-sky-400">
-                Vote
-              </Link>
-              {isHomePage && !hasVoted && (
-                <div className="absolute -top-1 -right-2 flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
-                </div>
-              )}
-            </div>
-          )}
           {session ? (
-            <button
-              onClick={() => signOut()}
-              className="hover:text-sky-400"
-            >
-              Sign Out
-            </button>
+            <>
+              <div className="relative">
+                <Link href="/vote" className="hover:text-sky-400">
+                  Vote
+                </Link>
+                {isHomePage && !hasVoted && (
+                  <div className="absolute -top-1 -right-2 flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+                  </div>
+                )}
+              </div>
+              {userIsAdmin && (
+                <Link href="/admin" className="hover:text-sky-400">
+                  Admin
+                </Link>
+              )}
+              <button
+                onClick={() => signOut()}
+                className="hover:text-sky-400"
+              >
+                Sign Out
+              </button>
+            </>
           ) : (
             <Link 
               href="/auth/signin" 
               className="hover:text-sky-400"
             >
-              Sign In
+              Vote
             </Link>
           )}
         </div>
@@ -146,8 +142,11 @@ export default function Nav() {
 
   return (
     <nav className={`
-      fixed top-0 w-full z-10 py-5 transition duration-300 ease-in-out
-      ${isAtTop && !isVotePage ? "" : (isVotePage ? "" : "bg-black/50 backdrop-blur-md shadow-xl")}
+      w-full z-10 
+      ${isSignInPage || isVotePage || isAdminPage 
+        ? "absolute py-4" 
+        : `fixed top-0 py-5 transition duration-300 ease-in-out ${!isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""}`
+      }
     `}>
       {renderNavContent()}
       {isHomePage && session && !hasVoted && (
