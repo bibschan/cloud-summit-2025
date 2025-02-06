@@ -5,6 +5,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Cloud } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 interface ProviderCardProps {
   provider: {
@@ -55,7 +56,28 @@ export function ProviderCard({
                 unoptimized
               />
             ) : (
-              <Cloud className="w-8 h-8 text-white/70" />
+              <div className="text-center py-12 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  Don&apos;t see your cloud provider?
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  Help us expand our list by nominating a provider.
+                </p>
+                <div className="flex flex-col items-center gap-3">
+                  <Button 
+                    variant="outline" 
+                    className="border-white/20 text-white hover:bg-white/10"
+                    asChild
+                  >
+                    <Link href="/nominate">
+                      Nominate a Provider
+                    </Link>
+                  </Button>
+                  <p className="text-sm text-white/60">
+                    Your nominations help us make the platform more comprehensive.
+                  </p>
+                </div>
+              </div>
             )}
           </div>
         </div>

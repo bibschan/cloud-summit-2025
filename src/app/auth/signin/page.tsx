@@ -10,7 +10,7 @@ export default function SignInPage() {
   return (
     <main className="min-h-screen bg-gray-950">
       <div className="container mx-auto px-6 pt-24">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 max-w-md mx-auto">
           <div className="flex flex-col gap-1.5">
             <h1 className="text-3xl font-bold tracking-tight text-white">Sign In</h1>
             <p className="text-lg text-white/60">

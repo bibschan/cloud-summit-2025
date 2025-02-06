@@ -11,11 +11,13 @@ import { SearchBar } from "@/components/vote/search-bar";
 import { LoadingSkeleton } from "@/components/vote/loading-skeleton";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { NominationDialog } from "@/components/nomination-dialog";
 
 interface CloudProvider {
   id: string;
   name: string;
   displayName: string;
+  logoUrl: string;
 }
 
 interface VoteCount {
@@ -30,19 +32,6 @@ interface Vote {
 }
 
 export default function VotePage() {
-  return (
-    <main className="min-h-screen" suppressHydrationWarning>
-      <script dangerouslySetInnerHTML={{
-        __html: `document.documentElement.classList.add('vote-page')`
-      }} />
-      <div className="container mx-auto px-6 py-24">
-        <VoteSection />
-      </div>
-    </main>
-  );
-}
-
-function VoteSection() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [providers, setProviders] = useState<CloudProvider[]>([]);
@@ -51,6 +40,7 @@ function VoteSection() {
   const [error, setError] = useState<string | null>(null);
   const [userVote, setUserVote] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isNominateOpen, setIsNominateOpen] = useState(false);
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -198,55 +188,80 @@ function VoteSection() {
   }
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex flex-col gap-1.5">
-        <h1 className="text-3xl font-bold tracking-tight text-white text-center">
-          Vote for Your Favorite Cloud Provider
-        </h1>
-        <p className="text-lg text-white/60 text-center">
-          Cast your vote for your favorite cloud provider.
-        </p>
+    <main className="min-h-screen">
+      <div className="container mx-auto px-6 py-16">
+        <div className="flex flex-col gap-12">
+          {/* Header Section */}
+          <div className="flex flex-col items-center">
+            <h1 className="text-3xl font-bold tracking-tight text-white mb-3">
+              Vote for Your Favorite Cloud Provider
+            </h1>
+            <p className="text-lg text-white/60">
+              Cast your vote for your favorite cloud provider.
+            </p>
+          </div>
+
+          {/* Search Section */}
+          <div className="w-full max-w-md mx-auto">
+            <SearchBar value={searchQuery} onChange={setSearchQuery} />
+            {filteredProviders.length > 0 && (
+              <p className="text-sm text-white/40 text-center mt-3">
+                Don&apos;t see your provider?{" "}
+                <button 
+                  onClick={() => setIsNominateOpen(true)} 
+                  className="text-white/60 hover:text-white transition-colors duration-200"
+                >
+                  Nominate one →
+                </button>
+              </p>
+            )}
+          </div>
+          
+          {/* Content Section */}
+          {filteredProviders.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredProviders.map((provider) => {
+                const voteCount = voteCounts.find(vc => vc.providerId === provider.id)?.count || 0;
+                return (
+                  <ProviderCard
+                    key={provider.id}
+                    provider={provider}
+                    voteCount={voteCount}
+                    totalVotes={getTotalVotes()}
+                    isSelected={userVote === provider.id}
+                    userHasVoted={!!userVote}
+                    loading={loading}
+                    onVote={handleVote}
+                  />
+                );
+              })}
+            </div>
+          ) : (
+            <div className="max-w-xl mx-auto w-full">
+              <div className="text-center py-12 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  Don&apos;t see your cloud provider?
+                </h3>
+                <p className="text-gray-300 mb-4">
+                  Help us expand our list by nominating a provider.
+                </p>
+                <Button 
+                  variant="outline" 
+                  className="border-white/20 text-white hover:bg-white/10"
+                  onClick={() => setIsNominateOpen(true)}
+                >
+                  Nominate a Provider
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
-      <div className="w-full max-w-md mx-auto">
-        <SearchBar value={searchQuery} onChange={setSearchQuery} />
-      </div>
-      
-      {filteredProviders.length > 0 ? (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProviders.map((provider) => {
-            const voteCount = voteCounts.find(vc => vc.providerId === provider.id)?.count || 0;
-            return (
-              <ProviderCard
-                key={provider.id}
-                provider={provider}
-                voteCount={voteCount}
-                totalVotes={getTotalVotes()}
-                isSelected={userVote === provider.id}
-                userHasVoted={!!userVote}
-                loading={loading}
-                onVote={handleVote}
-              />
-            );
-          })}
-        </div>
-      ) : (
-        <div className="text-center py-12 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">
-          <h3 className="text-xl font-semibold text-white mb-2">
-            Don&apos;t see your cloud provider?
-          </h3>
-          <p className="text-gray-300 mb-4">
-            Help us expand our list by nominating a provider.
-          </p>
-          <Button 
-            variant="outline" 
-            className="border-white/20 text-white hover:bg-white/10"
-            onClick={() => window.open('https://forms.gle/1XDU3sdR94UgbcUEA', '_blank')}
-          >
-            Nominate a Provider
-          </Button>
-        </div>
-      )}
-    </div>
+      <NominationDialog 
+        open={isNominateOpen} 
+        onOpenChange={setIsNominateOpen} 
+      />
+    </main>
   );
 } 

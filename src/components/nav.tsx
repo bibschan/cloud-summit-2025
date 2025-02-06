@@ -16,6 +16,7 @@ export default function Nav() {
   const isSignInPage = pathname === "/auth/signin";
   const isVotePage = pathname === "/vote";
   const isAdminPage = pathname === "/admin";
+  const isNominatePage = pathname === "/nominate";
   const userIsAdmin = session?.user?.email ? isAdmin(session.user.email) : false;
 
   useEffect(() => {
@@ -54,7 +55,7 @@ export default function Nav() {
 
   // Render different nav content based on route
   const renderNavContent = () => {
-    if (isSignInPage || isVotePage || isAdminPage) {
+    if (isSignInPage || isVotePage || isAdminPage || isNominatePage) {
       return (
         <div className="container mx-auto px-6 flex justify-between items-center">
           <Link 
@@ -115,6 +116,9 @@ export default function Nav() {
                   </div>
                 )}
               </div>
+              <Link href="/nominate" className="hover:text-sky-400">
+                Nominate
+              </Link>
               {userIsAdmin && (
                 <Link href="/admin" className="hover:text-sky-400">
                   Admin
@@ -143,7 +147,7 @@ export default function Nav() {
   return (
     <nav className={`
       w-full z-10 
-      ${isSignInPage || isVotePage || isAdminPage 
+      ${isSignInPage || isVotePage || isAdminPage || isNominatePage 
         ? "absolute py-4" 
         : `fixed top-0 py-5 transition duration-300 ease-in-out ${!isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""}`
       }
