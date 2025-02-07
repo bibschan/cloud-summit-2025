@@ -21,7 +21,11 @@ export default function Nav() {
 
   return (
     <nav className={`
+<<<<<<< HEAD
       fixed top-0 w-full z-20 py-5 transition duration-300 ease-in-out
+=======
+      fixed top-0 w-full z-50 py-5 transition duration-300 ease-in-out
+>>>>>>> main
       ${isAtTop ? "" : "bg-black/50 backdrop-blur-md shadow-xl"}
     `}>
       <div className="container mx-auto px-6 flex lg:justify-end justify-center">
