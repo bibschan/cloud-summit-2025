@@ -191,12 +191,12 @@ export default function JustificationLetterPDF({ formData, setFormData }: Props)
                         <img alt='Print' src='/justification-letter/printer.svg'></img>
                     </a>
                 </div> */}
-                {/* <div className="w-full h-full min-h-dvh md:min-w-2xl">
+                <div className="w-full h-full min-h-dvh md:min-w-2xl">
                     <iframe
                         className="pdfobject w-full h-full min-h-dvh"
                         src={pdfUrl || ''}
                     />
-                </div> */}
+                </div>
 
 
 
