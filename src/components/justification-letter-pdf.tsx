@@ -2,8 +2,15 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { jsPDF } from 'jspdf';
+import { FormDataType } from '@/app/justification-letter/page';
 
-export default function JustificationLetterPDF(formData: any, setFormData: any) {
+interface Props {
+    formData: FormDataType;
+    setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
+}
+
+
+export default function JustificationLetterPDF({ formData, setFormData }: Props) {
 
     const [isSmallScreen, setIsSmallScreen] = useState(false)
     const pdfRef = useRef<HTMLDivElement>(null);
@@ -22,7 +29,11 @@ export default function JustificationLetterPDF(formData: any, setFormData: any) 
         return () => window.removeEventListener("resize", handleResize)
     }, [])
 
-
+    const calculateTotalCost = () => {
+        const registrationFee = currentDate > new Date('2025-03-01') ? 60 : 30;
+        const travelCost = formData.travelCost || 0;
+        return registrationFee + travelCost;
+      };
 
     const handlePrint = () => {
         window.print();
@@ -119,8 +130,12 @@ export default function JustificationLetterPDF(formData: any, setFormData: any) 
                     </h3>
                     <ul className="list-disc list-inside mb-4">
                         <li>Registration Fee: {currentDate > new Date('2025-03-01') ? '$60.00' : '$30.00'}</li>
-                        <li>Travel/Accommodation: {formData.travelCost || "[Cost, if applicable]"} </li>
-                        <li>Total Estimated Investment: [Cost]</li>
+
+                        {formData.travelCost > 0 && (
+                            <li> Travel/Accommodation: ${formData.travelCost}</li>
+                        )}
+
+                        <li>Total Estimated Investment: ${calculateTotalCost().toFixed(2)}</li>
                     </ul>
 
                     <h3 className="mt-4 font-bold">Alignment with Company Goals: </h3>

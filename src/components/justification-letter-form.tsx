@@ -17,6 +17,23 @@ export default function JustificationLetterForm({ formData, setFormData }: Justi
 
     return (
         <form className="rounded-lg border text-card-foreground shadow-sm bg-white border-gray-700 max-w-lg md:max-w-md mx-auto md:mx-0 p-8 max-h-fit">
+            <label className="text-sm font-medium mb-1 text-black">Your Name</label>
+            <input
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Enter your name"
+                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
+            />
+
+            <label className="block text-sm font-medium mb-1 text-black">Your Title</label>
+            <input
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                placeholder="Enter your title"
+                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
+            />
             <label className="block text-sm font-medium mb-1 text-black">Manager&apos;s Name</label>
             <input
                 name="managerName"
@@ -80,23 +97,7 @@ export default function JustificationLetterForm({ formData, setFormData }: Justi
                 className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
             />
 
-            <label className="text-sm font-medium mb-1 text-black">Your Name</label>
-            <input
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter your name"
-                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
-            />
 
-            <label className="block text-sm font-medium mb-1 text-black">Your Title</label>
-            <input
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-                placeholder="Enter your title"
-                className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
-            />
 
         </form >
     )
