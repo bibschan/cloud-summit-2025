@@ -90,6 +90,14 @@ export default function Footer() {
                   FAQs
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/justification-letter"
+                  className="hover:text-green-500 transition-colors"
+                >
+                  Justification Letter
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -131,4 +139,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-} 
+}
