@@ -9,14 +9,21 @@ export default function JustificationLetterForm({ formData, setFormData }: Justi
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
+        if (name === 'travelCost') {
+            setFormData(prev => ({
+                ...prev,
+                [name]: parseFloat(value) || 0
+            }));
+            return;
+        }
         setFormData((prevFormData: FormDataType) => ({
             ...prevFormData,
-            [name]: value, // Dynamically update the correct property
+            [name]: value,
         }));
     };
 
     return (
-        <form className="rounded-lg border text-card-foreground shadow-sm bg-white border-gray-700 max-w-lg md:max-w-md mx-auto md:mx-0 p-8 max-h-fit">
+        <form className="w-full rounded-lg border text-card-foreground shadow-sm bg-white border-gray-700 max-w-lg md:max-w-md mx-auto md:mx-0 p-8 max-h-fit">
             <label className="text-sm font-medium mb-1 text-black">Your Name</label>
             <input
                 name="name"
@@ -52,7 +59,8 @@ export default function JustificationLetterForm({ formData, setFormData }: Justi
                 className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
             />
 
-            <label className="block text-sm font-medium mb-1 text-black">Specific Project</label>
+            <label className="text-sm font-medium mb-1 text-black ">Specific Project</label>
+            <span className="text-xs text-gray-500 mb-2 pl-2">Optional</span>
             <input
                 name="specificProject"
                 value={formData.specificProject}
@@ -61,7 +69,8 @@ export default function JustificationLetterForm({ formData, setFormData }: Justi
                 className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
             />
 
-            <label className="block text-sm font-medium mb-1 text-black">Specific Team/Goal</label>
+            <label className=" text-sm font-medium mb-1 text-black">Specific Team/Goal</label>
+            <span className="text-xs text-gray-500 mb-2 pl-2">Optional</span>
             <input
                 name="specificTeam"
                 value={formData.specificTeam}
@@ -70,16 +79,19 @@ export default function JustificationLetterForm({ formData, setFormData }: Justi
                 className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
             />
 
-            <label className="block text-sm font-medium mb-1 text-black">Travel Cost</label>
+            <label className=" text-sm font-medium mb-1 text-black">Travel Cost</label>
+            <span className="text-xs text-gray-500 mb-2 pl-2">Optional</span>
             <input
                 name="travelCost"
                 value={formData.travelCost}
+                type="number"
                 onChange={handleChange}
                 placeholder="Enter your travel cost"
                 className="w-full rounded border text-card-foreground shadow-sm bg-white border-gray-300 p-2 text-black mb-4"
             />
 
-            <label className="block text-sm font-medium mb-1 text-black">Agenda</label>
+            <label className="text-sm font-medium mb-1 text-black">Agenda</label>
+            <span className="text-xs text-gray-500 mb-2 pl-2">Optional</span>
             <input
                 name="agenda"
                 value={formData.agenda}
