@@ -181,3 +181,37 @@ export const SPONSORS = [
     logo: "/sponsors/aws.svg",
   },
 ];
+
+export const MEDIA_CONFIG = {
+  title: "Media Lounge",
+  heading: "Explore the Media Lounge",
+  host: {
+    name: "Kris Krüg",
+    link: "https://kriskrug.co/about/",
+  },
+  description:
+    "as he interviews guest speakers and local AWS professionals live at the event. You might recognize Kris from his monthly CBC segment on AI with Stephen Quinn.",
+  items: [
+    {
+      title: "The Future of Music",
+      description:
+        "CBC Early Edition: AI Sandbox with Kris Krüg, founder of Future Proof Creatives.",
+      link: "https://www.youtube.com/watch?v=rLWbdKg_q0k&t=129s",
+      thumbnail: "/kris-krug/1.png",
+    },
+    {
+      title: "AI Companions",
+      description:
+        "AI chatbots and companionship tools are becoming more sophisticated.",
+      link: "https://www.cbc.ca/player/play/video/9.4228529",
+      thumbnail: "/kris-krug/2.png",
+    },
+    {
+      title: "Web Summit in 2025",
+      description:
+        "One of the biggest tech events in the world is coming to Vancouver.",
+      link: "https://www.cbc.ca/player/play/video/9.4228529",
+      thumbnail: "/kris-krug/3.png",
+    },
+  ],
+};
