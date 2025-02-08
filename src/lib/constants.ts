@@ -49,6 +49,24 @@ export const EVENT_CONFIG = {
       title: "Venue Information",
       description: "Experience the Vancouver Cloud Summit like no technology conference you have been to before. Sophistication and elegance meets new age technology and engagement in an amazing venue in the heart of downtown Vancouver. 2 large stages, many intimate workshops and talks as well as a few surprises!"
     },
+    charity: {
+      title: "Make a Difference Together",
+      description: "We're proud to announce that all proceeds from our conference will be donated to Union Gospel Mission.",
+      charities: [
+        {
+          id: "ugm",
+          name: "Union Gospel Mission",
+          description: "Union Gospel Mission has been feeding hope and changing the lives of men, women, youth, and children for 80 years. Through its seven locations in Metro Vancouver, the Fraser Valley and the Greater Victoria Region, UGM extends a wrap-around continuum of care to people who are struggling with poverty, homelessness, and addiction. Our comprehensive range of life-changing programs and services include: outreach, meals, chaplaincy, drop-ins, emergency shelter, family services, alcohol and drug recovery, second-stage recovery, employment services, and housing.",
+          link: "https://ugm.ca/",
+          logo: "/charity/ugm-logo.png",
+          images: [
+            { id: 1, path: "/charity/bbq.webp", caption: "Union Gospel Mission" },
+            { id: 2, path: "/charity/Easter_lunch.webp", caption: "UGM volunteers serving meals" },
+            { id: 2, path: "/charity/ugm-cold-weather.webp", caption: "UGM volunteers warm drink in cold" }
+          ]
+        }
+      ]
+    },
     faq: {
       title: "FAQ",
       items: [
@@ -118,6 +136,7 @@ export const SPONSORS = [
     name: "AWS",
     logo: "/sponsors/aws.svg",
   },
+
 ] as const; 
 
 
@@ -152,3 +171,6 @@ export const MEDIA_CONFIG = {
     },
   ],
 };
+
+] as const;
+
