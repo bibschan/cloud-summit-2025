@@ -174,10 +174,13 @@ export default function Home() {
               target="_blank"
               className="relative"
             >
-              <img
+              <Image
                 src={provider.icon}
                 alt={provider.name}
-                className="w-14 h-auto object-cover"
+                width={56}
+                height={56}
+                className="h-auto object-cover"
+                priority
               />
             </a>
           ))}
