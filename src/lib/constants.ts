@@ -20,7 +20,7 @@ export const EVENT_CONFIG = {
     social: {
       instagram: "https://www.instagram.com/canadiancloudninja/",
       youtube: "https://www.youtube.com/@PublicCloudNinja/about",
-      linkedin: "https://www.linkedin.com/company/canadiancloud",
+      linkedin: "https://www.linkedin.com/showcase/vancouvercloudsummit",
     },
   },
   sections: {
