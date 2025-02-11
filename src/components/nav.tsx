@@ -26,7 +26,7 @@ export default function Nav() {
     `}>
       <div className="container mx-auto px-6 flex lg:justify-end justify-center">
         <div className="flex space-x-4 sm:space-x-8 font-semibold text-sm md:text-base">
-          <Link href="#highlights" className="hover:text-sky-400">
+          <Link href="/#highlights" className="hover:text-sky-400">
             About
           </Link>
           <Link href="#venue" className="hover:text-sky-400">
