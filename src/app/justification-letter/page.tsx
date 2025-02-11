@@ -3,6 +3,7 @@ import JustificationLetterPDF from "@/components/justification-letter-pdf";
 import JustificationLetterForm from "@/components/justification-letter-form";
 import React, { useState, useEffect, useRef } from "react";
 import Nav from "@/components/nav";
+import Footer from "@/components/footer";
 
 
 export interface FormDataType {
