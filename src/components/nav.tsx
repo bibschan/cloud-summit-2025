@@ -20,16 +20,18 @@ export default function Nav() {
   }, []);
 
   return (
-    <nav className={`
+    <nav
+      className={`
       fixed top-0 w-full z-50 py-5 transition duration-300 ease-in-out
       ${isAtTop ? "" : "bg-black/50 backdrop-blur-md shadow-xl"}
-    `}>
+    `}
+    >
       <div className="container mx-auto px-6 flex lg:justify-end justify-center">
         <div className="flex space-x-4 sm:space-x-8 font-semibold text-sm md:text-base">
-          <Link href="#highlights" className="hover:text-sky-400">
+          <Link href="/#highlights" className="hover:text-sky-400">
             About
           </Link>
-          <Link href="#venue" className="hover:text-sky-400">
+          <Link href="/#venue" className="hover:text-sky-400">
             Schedule
           </Link>
           <Link
