@@ -4,6 +4,9 @@ import { join } from 'path';
 import { auth } from '@/lib/auth';
 import { isAdmin } from '@/lib/admin';
 
+// Force this route to be dynamic since it uses filesystem and auth
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const session = await auth();
