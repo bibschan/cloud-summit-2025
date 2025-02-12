@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/db';
+import { db } from '@/lib/db';
 
 export async function GET() {
   try {
     // Check database connection by attempting to count cloud providers
-    await prisma.cloudProvider.count();
+    await db.cloudProvider.count();
 
     return NextResponse.json(
       { status: 'healthy', message: 'All systems operational' },
