@@ -10,5 +10,13 @@ restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
 
 [deploy.env]
-APP_ENV = "staging" 
+APP_ENV = "staging"
 NODE_ENV = "production"
+PORT = "3000"
+
+[deploy.healthcheck]
+interval = "30s"
+timeout = "10s"
+retries = 3
+path = "/api/health"
+method = "GET"
