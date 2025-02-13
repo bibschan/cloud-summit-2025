@@ -12,4 +12,3 @@ restartPolicyMaxRetries = 3
 [deploy.env]
 APP_ENV = "staging" 
 NODE_ENV = "production"
-PORT = "3000"

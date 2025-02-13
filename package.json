@@ -25,7 +25,7 @@
     "local:db:studio": "cross-env APP_ENV=development prisma studio",
     
     "staging:build": "cross-env APP_ENV=staging prisma generate && next build",
-    "staging:start": "cross-env APP_ENV=staging next start -p ${PORT:-3000}",
+    "staging:start": "cross-env APP_ENV=staging next start",
     "staging:setup": "cross-env APP_ENV=staging prisma generate && npm run staging:db:push && npm run staging:db:seed",
     "staging:db:push": "cross-env APP_ENV=staging prisma db push",
     "staging:db:seed": "cross-env APP_ENV=staging ts-node --compiler-options '{\"module\":\"CommonJS\"}' prisma/seed.ts",
