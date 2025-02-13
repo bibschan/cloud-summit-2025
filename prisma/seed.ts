@@ -132,7 +132,7 @@ const testVoteDistribution = {
  * Only works in development mode for safety
  */
 async function cleanDatabase() {
-  if (process.env.NODE_ENV !== 'development') {
+  if (process.env.APP_ENV !== 'development') {
     console.error('Clean command can only be run in development mode');
     process.exit(1);
   }

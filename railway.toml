@@ -10,4 +10,5 @@ restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
 
 [deploy.env]
-NODE_ENV = "staging" 
+APP_ENV = "staging" 
+NODE_ENV = "production"
