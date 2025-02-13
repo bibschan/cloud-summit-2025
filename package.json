@@ -24,7 +24,7 @@
     "local:db:reseed": "npm run local:db:clean && npm run local:db:seed",
     "local:db:studio": "cross-env APP_ENV=development prisma studio",
     
-    "staging:build": "cross-env APP_ENV=staging prisma generate && next build",
+    "staging:build": "cross-env APP_ENV=staging NEXT_PHASE=build prisma generate && next build",
     "staging:start": "cross-env APP_ENV=staging next start -p ${PORT:-3000}",
     "staging:setup": "cross-env APP_ENV=staging prisma generate && npm run staging:db:push && npm run staging:db:seed",
     "staging:db:push": "cross-env APP_ENV=staging prisma db push",

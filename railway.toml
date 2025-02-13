@@ -1,6 +1,6 @@
 [build]
 builder = "nixpacks"
-buildCommand = "npm run staging:build"
+buildCommand = "cross-env NEXT_PUBLIC_SKIP_API_ROUTES=true npm run staging:build"
 
 [deploy]
 startCommand = "npm run staging:setup && npm run staging:start"
@@ -12,7 +12,7 @@ restartPolicyMaxRetries = 3
 [deploy.env]
 APP_ENV = "staging"
 NODE_ENV = "production"
-PORT = "3000"
+NEXT_PUBLIC_SKIP_API_ROUTES = "false"
 
 [deploy.healthcheck]
 interval = "30s"
