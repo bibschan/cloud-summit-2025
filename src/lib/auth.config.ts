@@ -16,4 +16,5 @@ export const authConfig = {
   pages: {
     signIn: "/auth/signin",
   },
+  trustHost: true,
 } satisfies NextAuthConfig; 
