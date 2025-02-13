@@ -140,10 +140,15 @@ async function cleanDatabase() {
   try {
     console.log('Cleaning database...');
     
-    // Delete all votes and vote counts
-    await prisma.vote.deleteMany();
-    await prisma.voteCount.deleteMany();
-    await prisma.cloudProvider.deleteMany();
+    // Delete all data in order to respect foreign key constraints
+    await prisma.$transaction([
+      prisma.voteAnalytics.deleteMany(),
+      prisma.voteHistory.deleteMany(),
+      prisma.vote.deleteMany(),
+      prisma.voteCount.deleteMany(),
+      prisma.systemConfig.deleteMany(),
+      prisma.cloudProvider.deleteMany(),
+    ]);
     
     console.log('Database cleaned successfully');
   } catch (error) {
@@ -175,9 +180,15 @@ async function seedDatabase() {
       })
     );
 
+    // Seed system configurations in all environments
+    await seedSystemConfigs();
+
     // Only seed test data in development
     if (process.env.APP_ENV === 'development' || process.env.APP_ENV === 'staging') {
       console.log('Development or staging mode detected - seeding test data...');
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
 
       // Create test votes in batches
       const votePromises = [];
@@ -188,11 +199,24 @@ async function seedDatabase() {
         // Create votes for this provider
         for (let i = 0; i < voteCount; i++) {
           const testUser = testUsers[i];
+          
+          // Create vote
           votePromises.push(
             prisma.vote.create({
               data: {
                 userId: testUser.email,
                 providerId: provider.id,
+              },
+            })
+          );
+
+          // Create vote history
+          votePromises.push(
+            prisma.voteHistory.create({
+              data: {
+                userId: testUser.email,
+                providerId: provider.id,
+                voteDate: today,
               },
             })
           );
@@ -209,11 +233,24 @@ async function seedDatabase() {
             },
           })
         );
+
+        // Create analytics entry
+        votePromises.push(
+          prisma.voteAnalytics.create({
+            data: {
+              providerId: provider.id,
+              date: today,
+              totalVotes: voteCount,
+              uniqueVoters: voteCount,
+              voteChanges: voteCount,
+            },
+          })
+        );
       }
 
-      // Execute all vote operations in parallel
+      // Execute all operations in parallel
       await Promise.all(votePromises);
-      console.log('Created test votes and vote counts');
+      console.log('Created test votes, vote history, and analytics');
 
       // Initialize vote count as 0 for providers with no votes
       await Promise.all(
@@ -264,13 +301,13 @@ async function seedSystemConfigs() {
       value: '3',
       description: 'Maximum number of vote changes allowed per user per day',
     },
-    // Add other system configs here
+    // Add other system configs here as needed
   ];
 
   for (const config of configs) {
     await prisma.systemConfig.upsert({
       where: { key: config.key },
-      update: {},
+      update: config,
       create: config,
     });
   }
@@ -298,7 +335,6 @@ async function main() {
       await cleanDatabase();
     } else {
       await seedDatabase();
-      await seedSystemConfigs();
     }
 
     console.log('Database seeded successfully');
