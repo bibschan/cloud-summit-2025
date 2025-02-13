@@ -190,85 +190,13 @@ async function seedDatabase() {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
-      // Create test votes in batches
-      for (const [providerName, voteCount] of Object.entries(testVoteDistribution)) {
-        const provider = seededProviders.find(p => p.name === providerName);
-        if (!provider) continue;
-
-        console.log(`Creating ${voteCount} test votes for ${providerName}...`);
-
-        // Create votes for this provider
-        for (let i = 0; i < voteCount; i++) {
-          const testUser = testUsers[i];
-          if (!testUser) continue;
-
-          try {
-            // First check if vote exists
-            const existingVote = await prisma.vote.findFirst({
-              where: {
-                userId: testUser.email,
-              },
-            });
-
-            if (existingVote) {
-              // Update existing vote
-              await prisma.vote.update({
-                where: { id: existingVote.id },
-                data: { providerId: provider.id },
-              });
-            } else {
-              // Create new vote
-              await prisma.vote.create({
-                data: {
-                  userId: testUser.email,
-                  providerId: provider.id,
-                },
-              });
-            }
-
-            // Create vote history
-            await prisma.voteHistory.create({
-              data: {
-                userId: testUser.email,
-                providerId: provider.id,
-                voteDate: today,
-              },
-            });
-          } catch (error) {
-            console.error(`Failed to create vote for user ${testUser.email}:`, error);
-          }
-        }
-
-        // Update vote count
-        await prisma.voteCount.upsert({
-          where: { providerId: provider.id },
-          update: { count: voteCount },
-          create: {
-            providerId: provider.id,
-            count: voteCount,
-          },
-        });
-
-        // Create analytics entry
-        await prisma.voteAnalytics.create({
-          data: {
-            providerId: provider.id,
-            date: today,
-            totalVotes: voteCount,
-            uniqueVoters: voteCount,
-            voteChanges: voteCount,
-          },
-        });
-      }
-
-      console.log('Created test votes, vote history, and analytics');
-
-      // Initialize vote count as 0 for providers with no votes
+      // First ensure all providers have vote counts initialized to 0
+      console.log('Initializing vote counts for all providers...');
       await Promise.all(
         seededProviders.map(provider =>
           prisma.voteCount.upsert({
             where: { providerId: provider.id },
-            update: {},
+            update: { count: 0 },
             create: {
               providerId: provider.id,
               count: 0,
@@ -276,6 +204,85 @@ async function seedDatabase() {
           })
         )
       );
+
+      // Then process votes sequentially to maintain consistency
+      for (const [providerName, voteCount] of Object.entries(testVoteDistribution)) {
+        const provider = seededProviders.find(p => p.name === providerName);
+        if (!provider) {
+          console.warn(`Provider ${providerName} not found, skipping votes`);
+          continue;
+        }
+
+        console.log(`Processing ${voteCount} test votes for ${providerName}...`);
+
+        // Use a transaction for each provider's votes to ensure consistency
+        await prisma.$transaction(async (tx) => {
+          // Create votes and history for this provider
+          for (let i = 0; i < voteCount; i++) {
+            const testUser = testUsers[i];
+            if (!testUser) continue;
+
+            try {
+              // First upsert the vote
+              await tx.vote.upsert({
+                where: {
+                  userId_providerId: {
+                    userId: testUser.email,
+                    providerId: provider.id
+                  }
+                },
+                update: {},
+                create: {
+                  userId: testUser.email,
+                  providerId: provider.id,
+                },
+              });
+
+              // Then create vote history
+              await tx.voteHistory.create({
+                data: {
+                  userId: testUser.email,
+                  providerId: provider.id,
+                  voteDate: today,
+                },
+              });
+            } catch (error) {
+              console.error(`Failed to process vote for user ${testUser.email}:`, error);
+              // Continue with other votes even if one fails
+            }
+          }
+
+          // Update vote count after all votes are processed
+          await tx.voteCount.update({
+            where: { providerId: provider.id },
+            data: { count: voteCount },
+          });
+
+          // Create or update analytics entry
+          await tx.voteAnalytics.upsert({
+            where: {
+              analytics_provider_date: {
+                providerId: provider.id,
+                date: today
+              }
+            },
+            update: {
+              totalVotes: voteCount,
+              uniqueVoters: voteCount,
+              voteChanges: voteCount,
+            },
+            create: {
+              providerId: provider.id,
+              date: today,
+              totalVotes: voteCount,
+              uniqueVoters: voteCount,
+              voteChanges: voteCount,
+            },
+          });
+        });
+
+        console.log(`Completed processing votes for ${providerName}`);
+      }
 
       console.log('Test data seeded successfully');
     } else {
