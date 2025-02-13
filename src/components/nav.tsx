@@ -6,6 +6,7 @@ import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { isAdmin } from "@/lib/admin";
+import styles from './nav.module.css';
 
 export default function Nav() {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -110,10 +111,20 @@ export default function Nav() {
                   Vote
                 </Link>
                 {isHomePage && !hasVoted && (
-                  <div className="absolute -top-1 -right-2 flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
-                  </div>
+                  <>
+                    <div className="absolute -top-1 -right-2 flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+                    </div>
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 whitespace-nowrap">
+                      <div className={styles.floatingBubble}>
+                        <div className="bg-sky-500 text-white px-4 py-2 rounded-md shadow-lg text-sm relative">
+                          <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[6px] border-b-sky-500"></div>
+                          Cast your vote for your favorite cloud provider!
+                        </div>
+                      </div>
+                    </div>
+                  </>
                 )}
               </div>
               <Link href="/nominate" className="hover:text-sky-400">
@@ -153,13 +164,6 @@ export default function Nav() {
       }
     `}>
       {renderNavContent()}
-      {isHomePage && session && !hasVoted && (
-        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
-          <div className="bg-sky-500 text-white px-4 py-2 rounded-md shadow-lg text-sm whitespace-nowrap">
-            Cast your vote for your favorite cloud provider!
-          </div>
-        </div>
-      )}
     </nav>
   );
 }
