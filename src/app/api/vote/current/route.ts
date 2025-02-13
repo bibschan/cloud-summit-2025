@@ -70,7 +70,8 @@ export async function GET() {
     return NextResponse.json({ 
       vote,
       voteLimitEnabled: enabled,
-      dailyVotesRemaining: enabled ? Math.max(0, limit - dailyVoteCount) : null
+      dailyVotesRemaining: enabled ? Math.max(0, limit - dailyVoteCount) : null,
+      dailyVoteCount: dailyVoteCount
     });
   } catch (error) {
     console.error('Error fetching user vote:', error);

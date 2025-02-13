@@ -1,6 +1,10 @@
 import { Metadata } from 'next';
 import { ProvidersTable } from '@/components/admin/providers-table';
 import { VoteLimitConfig } from '@/components/admin/vote-limit-config';
+import { DatabaseManagement } from '@/components/admin/database-management';
+import { auth } from '@/lib/auth';
+import { redirect } from 'next/navigation';
+import { isAdmin } from '@/lib/admin';
 
 export const metadata: Metadata = {
   title: 'Admin Dashboard',
@@ -8,6 +12,13 @@ export const metadata: Metadata = {
 };
 
 export default async function AdminPage() {
+  const session = await auth();
+  if (!session?.user?.email || !isAdmin(session.user.email)) {
+    redirect('/');
+  }
+
+  const appEnv = process.env.APP_ENV || 'development';
+
   return (
     <main className="min-h-screen bg-gray-950">
       <div className="container mx-auto px-6 py-24">
@@ -20,9 +31,9 @@ export default async function AdminPage() {
           </div>
 
           {/* Settings Section */}
-          <div className="grid gap-6 md:grid-cols-2">
-            <VoteLimitConfig />
-            {/* Add more settings cards here */}
+          <div className="grid gap-6 lg:grid-cols-2">
+            <VoteLimitConfig className="w-full" />
+            <DatabaseManagement appEnv={appEnv} />
           </div>
 
           {/* Providers Table */}

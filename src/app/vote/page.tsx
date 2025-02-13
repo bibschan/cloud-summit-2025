@@ -45,6 +45,7 @@ export default function VotePage() {
   const [isNominateOpen, setIsNominateOpen] = useState(false);
   const [remainingVotes, setRemainingVotes] = useState<number | null>(null);
   const [voteLimitEnabled, setVoteLimitEnabled] = useState(false);
+  const [dailyVoteCount, setDailyVoteCount] = useState(0);
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -83,6 +84,7 @@ export default function VotePage() {
           if (data.dailyVotesRemaining !== undefined) {
             setRemainingVotes(data.dailyVotesRemaining);
           }
+          setDailyVoteCount(data.dailyVotesRemaining !== undefined ? data.dailyVotesRemaining : 0);
         } else if (userVoteRes.status !== 401) {
           console.error("Failed to fetch user vote:", await userVoteRes.text());
         }
@@ -204,13 +206,13 @@ export default function VotePage() {
       <div className="container mx-auto px-6 py-16">
         <div className="flex flex-col gap-12">
           {/* Header Section */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center text-center">
             <h1 className="text-3xl font-bold tracking-tight text-white mb-3">
               Vote for Your Favorite Cloud Provider
             </h1>
             <p className="text-lg text-white/60">
               Cast your vote for your favorite cloud provider.
-              {voteLimitEnabled && remainingVotes !== null && (
+              {voteLimitEnabled && remainingVotes !== null && dailyVoteCount > 0 && (
                 <span className="block mt-2 text-sm">
                   {remainingVotes > 0 
                     ? `You have ${remainingVotes} vote change${remainingVotes !== 1 ? 's' : ''} remaining today.`

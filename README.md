@@ -20,6 +20,152 @@ npm run dev         # Starts development server
 
 Visit [http://localhost:3000](http://localhost:3000) to see the application.
 
+## Detailed Setup Guide
+
+### 1. Prerequisites Installation
+
+1. **Install Node.js and npm**
+   - Download from [nodejs.org](https://nodejs.org)
+   - Recommended version: 18.x or later
+
+2. **Install Homebrew** (macOS)
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+
+3. **Install MongoDB**
+   ```bash
+   brew tap mongodb/brew
+   brew install mongodb-community
+   ```
+
+### 2. Environment Configuration
+
+1. **Create Environment File**
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. **Configure OAuth (GitHub)**
+   - Go to GitHub Developer Settings
+   - Create a new OAuth App
+   - Set callback URL to `http://localhost:3000/api/auth/callback/github`
+   - Add credentials to `.env.local`:
+     ```env
+     GITHUB_ID=your-github-oauth-id
+     GITHUB_SECRET=your-github-oauth-secret
+     ```
+
+3. **Configure OAuth (Google)**
+   - Go to Google Cloud Console
+   - Create OAuth 2.0 credentials
+   - Set callback URL to `http://localhost:3000/api/auth/callback/google`
+   - Add credentials to `.env.local`:
+     ```env
+     GOOGLE_ID=your-google-oauth-id
+     GOOGLE_SECRET=your-google-oauth-secret
+     ```
+
+4. **Configure Admin Access**
+   ```env
+   ADMIN_EMAILS="your-email@example.com"
+   ```
+
+5. **Set Required Environment Variables**
+   ```env
+   APP_ENV=development
+   NEXTAUTH_URL=http://localhost:3000
+   NEXTAUTH_SECRET=$(openssl rand -base64 32)
+   DATABASE_URL=mongodb://localhost:27017/cloud-summit
+   ```
+
+### 3. Database Setup
+
+The `local:setup` command performs these steps:
+
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Stop Existing MongoDB**
+   ```bash
+   npm run local:db:stop
+   ```
+
+3. **Initialize MongoDB**
+   ```bash
+   npm run local:db:setup
+   ```
+
+4. **Push Schema**
+   ```bash
+   npm run local:db:push
+   ```
+
+5. **Seed Database**
+   ```bash
+   npm run local:db:seed
+   ```
+
+You can run these steps manually if needed, or use the combined command:
+```bash
+npm run local:setup
+```
+
+### 4. Development Server
+
+1. **Start MongoDB** (if not running)
+   ```bash
+   npm run local:db:start
+   ```
+
+2. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+
+### 5. Verify Setup
+
+1. **Check MongoDB**
+   ```bash
+   # Verify MongoDB is running
+   brew services list | grep mongodb
+   
+   # Test connection
+   mongosh --eval "db.runCommand({ ping: 1 })"
+   ```
+
+2. **Check Application**
+   - Open [http://localhost:3000](http://localhost:3000)
+   - Try signing in with GitHub/Google
+   - Verify admin access if configured
+
+### 6. Common Setup Issues
+
+1. **MongoDB Connection Failed**
+   ```bash
+   # Restart MongoDB
+   npm run local:db:restart
+   
+   # Check logs
+   tail -f /opt/homebrew/var/log/mongodb/mongo.log
+   ```
+
+2. **OAuth Login Failed**
+   - Verify callback URLs in GitHub/Google settings
+   - Check environment variables
+   - Ensure development server is running on correct port
+
+3. **Admin Access Issues**
+   - Verify email in `ADMIN_EMAILS` matches OAuth email exactly
+   - Check [Authentication](docs/authentication.md) for more details
+
+For more detailed information about:
+- Database management: See [Database Management](docs/database.md)
+- Authentication setup: See [Authentication](docs/authentication.md)
+- System configuration: See [Voting System](docs/voting.md)
+
 ## Project Structure
 
 ### Environments
@@ -235,22 +381,92 @@ NEXTAUTH_SECRET=<generated-secret>
 - Production OAuth credentials
 - NEXTAUTH_URL points to production domain
 
+### Required Environment Variables
+```env
+# Database
+DATABASE_URL=mongodb://localhost:27017/cloud-summit
+
+# Authentication
+GITHUB_ID=<github-oauth-id>
+GITHUB_SECRET=<github-oauth-secret>
+GOOGLE_ID=<google-oauth-id>
+GOOGLE_SECRET=<google-oauth-secret>
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=<generated-secret>
+
+# Admin Access
+ADMIN_EMAILS="admin@example.com,another-admin@example.com"  # Comma-separated list of admin emails
+
+# Environment
+APP_ENV=development  # development, staging, or production
+```
+
 ## Documentation
 
 ### Core Documentation
+Our documentation is split into three main areas that work together:
+
 - [Voting System](docs/voting.md)
   - Database models and relationships
-  - API endpoints
+  - API endpoints and caching strategy
   - Voting process flow
   - Error handling
   - Security measures
+  - Integration with [authentication](docs/authentication.md)
 
 - [Authentication](docs/authentication.md)
   - OAuth configuration
   - Session management
   - Protected routes
-  - Security measures
-  - Development guidelines
+  - Admin access control
+  - Integration with [database](docs/database.md)
+
+- [Database Management](docs/database.md)
+  - Environment-specific behavior
+  - Available commands
+  - Seeding and data management
+  - Admin configuration
+  - Integration with [voting system](docs/voting.md)
+  - Troubleshooting guide
+
+### Quick Links
+- [Admin Configuration](docs/database.md#admin-configuration)
+- [Environment Setup](docs/database.md#environment-specific-behavior)
+- [Authentication Flow](docs/authentication.md#how-does-it-work)
+- [API Documentation](docs/voting.md#api-endpoints)
+- [Database Models](docs/voting.md#database-structure)
+- [Troubleshooting](docs/database.md#troubleshooting)
+
+## Admin Access
+
+To configure admin access:
+
+1. Add admin email addresses to `ADMIN_EMAILS` in your environment variables
+2. Ensure emails match exactly with OAuth provider (GitHub/Google) emails
+3. Admins will have access to:
+   - Admin dashboard at `/admin`
+   - Database management
+   - System configuration
+   - Analytics
+
+For more details, see [Database Management](docs/database.md#admin-configuration).
+
+## Security Notes
+
+1. **Environment Variables**
+   - Never commit `.env` files
+   - Keep `ADMIN_EMAILS` list secure
+   - Use strong `NEXTAUTH_SECRET`
+
+2. **Database Access**
+   - Restrict MongoDB access
+   - Use strong passwords
+   - Enable authentication
+
+3. **Admin Access**
+   - Regularly audit admin list
+   - Use secure email providers
+   - Monitor admin actions
 
 ## Learn More
 

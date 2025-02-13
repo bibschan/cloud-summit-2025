@@ -230,7 +230,8 @@ Response (200):
     "userId": "user@example.com"
   },
   "voteLimitEnabled": true,
-  "dailyVotesRemaining": 2
+  "dailyVotesRemaining": 2,
+  "dailyVoteCount": 1
 }
 ```
 
@@ -258,6 +259,7 @@ Response (200):
   },
   "changed": true,
   "dailyVotesRemaining": 2,
+  "dailyVoteCount": 1,
   "voteLimitEnabled": true,
   "message": "Vote updated successfully. You have 2 vote changes remaining today."
 }
