@@ -132,15 +132,13 @@ const testVoteDistribution = {
  * Only works in development mode for safety
  */
 async function cleanDatabase() {
-  const appEnv = process.env.APP_ENV;
-  
-  if (!appEnv || (appEnv !== 'development' && appEnv !== 'staging')) {
-    console.error(`Clean command can only be run in development or staging mode. Current mode: ${appEnv}`);
+  if (process.env.APP_ENV !== 'development' && process.env.APP_ENV !== 'staging') {
+    console.error('Clean command can only be run in development or staging mode');
     process.exit(1);
   }
 
   try {
-    console.log(`Cleaning database in ${appEnv} environment...`);
+    console.log('Cleaning database...');
     
     // Delete all data in order to respect foreign key constraints
     await prisma.$transaction([
@@ -152,9 +150,9 @@ async function cleanDatabase() {
       prisma.cloudProvider.deleteMany(),
     ]);
     
-    console.log(`Database cleaned successfully in ${appEnv} environment`);
+    console.log('Database cleaned successfully');
   } catch (error) {
-    console.error(`Failed to clean database in ${appEnv} environment:`, error);
+    console.error('Failed to clean database:', error);
     throw error;
   }
 }
@@ -322,43 +320,26 @@ async function seedSystemConfigs() {
  * Supports both seeding and cleaning based on command line argument
  */
 async function main() {
-  const appEnv = process.env.APP_ENV;
-  if (!appEnv) {
-    console.error('APP_ENV environment variable is required');
-    process.exit(1);
-  }
-
-  if (appEnv !== 'development' && appEnv !== 'staging') {
-    console.error(`Seed command can only be run in development or staging mode. Current mode: ${appEnv}`);
+  if (process.env.APP_ENV !== 'development' && process.env.APP_ENV !== 'staging') {
+    console.error('Seed command can only be run in development or staging mode');
     process.exit(1);
   }
 
   try {
-    console.log(`Running in ${appEnv} environment`);
-    
-    // Verify database connection
-    try {
-      await prisma.$connect();
-      console.log('Database connection established');
-    } catch (error) {
-      console.error('Failed to connect to database:', error);
-      process.exit(1);
-    }
+    await prisma.$connect();
     
     // Check if we're cleaning the database
     const isClean = process.argv.includes('--clean');
     
     if (isClean) {
-      console.log(`Cleaning database in ${appEnv} environment...`);
       await cleanDatabase();
     } else {
-      console.log(`Seeding database in ${appEnv} environment...`);
       await seedDatabase();
     }
 
-    console.log(`Database operation completed successfully in ${appEnv} environment`);
+    console.log('Database seeded successfully');
   } catch (error) {
-    console.error(`Error in ${appEnv} environment:`, error);
+    console.error('Error seeding database:', error);
     process.exit(1);
   } finally {
     await prisma.$disconnect();

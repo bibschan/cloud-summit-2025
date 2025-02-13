@@ -24,13 +24,11 @@
     "local:db:reseed": "npm run local:db:clean && npm run local:db:seed",
     "local:db:studio": "cross-env APP_ENV=development prisma studio",
     
-    "staging:build": "cross-env APP_ENV=staging NEXT_PHASE=build prisma generate && next build",
-    "staging:start": "cross-env APP_ENV=staging next start -p ${PORT:-3000}",
-    "staging:setup": "cross-env APP_ENV=staging prisma generate && npm run staging:db:push && npm run staging:db:seed",
-    "staging:db:push": "cross-env APP_ENV=staging prisma db push",
+    "staging:build": "cross-env APP_ENV=staging prisma generate && next build",
+    "staging:start": "cross-env APP_ENV=staging next start",
     "staging:db:seed": "cross-env APP_ENV=staging ts-node --compiler-options '{\"module\":\"CommonJS\"}' prisma/seed.ts",
     "staging:db:clean": "cross-env APP_ENV=staging ts-node --compiler-options '{\"module\":\"CommonJS\"}' prisma/seed.ts --clean",
-    "staging:db:reseed": "cross-env APP_ENV=staging prisma generate && cross-env APP_ENV=staging prisma db push && npm run staging:db:clean && npm run staging:db:seed",
+    "staging:db:reseed": "npm run staging:db:clean && npm run staging:db:seed",
 
     "prod:build": "cross-env APP_ENV=production next build",
     "prod:start": "cross-env APP_ENV=production next start"

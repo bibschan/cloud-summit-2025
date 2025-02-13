@@ -1,22 +1,14 @@
 [build]
 builder = "nixpacks"
-buildCommand = "cross-env NEXT_PUBLIC_SKIP_API_ROUTES=true npm run staging:build"
+buildCommand = "npm run staging:build && npm run staging:db:clean"
 
 [deploy]
-startCommand = "npm run staging:setup && npm run staging:start"
+startCommand = "npm run staging:db:seed && npm run staging:start"
 healthcheckPath = "/api/health"
 healthcheckTimeout = 100
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
 
 [deploy.env]
-APP_ENV = "staging"
+APP_ENV = "staging" 
 NODE_ENV = "production"
-NEXT_PUBLIC_SKIP_API_ROUTES = "false"
-
-[deploy.healthcheck]
-interval = "30s"
-timeout = "10s"
-retries = 3
-path = "/api/health"
-method = "GET"

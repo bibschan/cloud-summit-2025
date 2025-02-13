@@ -13,10 +13,6 @@ import { NextResponse } from 'next/server';
  */
 export const revalidate = 3600; // 1 hour
 
-// Force this route to be dynamic since it uses database
-export const dynamic = 'force-dynamic';
-export const runtime = 'nodejs';
-
 export async function GET() {
   try {
     const providers = await db.cloudProvider.findMany({
