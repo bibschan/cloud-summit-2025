@@ -12,6 +12,8 @@ import { LoadingSkeleton } from "@/components/vote/loading-skeleton";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { NominationDialog } from "@/components/nomination-dialog";
+import { cn } from "@/lib/utils";
+import { VoteLimitWarning } from "@/components/vote/vote-limit-warning";
 
 interface CloudProvider {
   id: string;
@@ -41,6 +43,8 @@ export default function VotePage() {
   const [userVote, setUserVote] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [isNominateOpen, setIsNominateOpen] = useState(false);
+  const [remainingVotes, setRemainingVotes] = useState<number | null>(null);
+  const [voteLimitEnabled, setVoteLimitEnabled] = useState(false);
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -54,9 +58,10 @@ export default function VotePage() {
       
       try {
         setError(null);
-        const [providersRes, votesRes] = await Promise.all([
+        const [providersRes, votesRes, userVoteRes] = await Promise.all([
           fetch("/api/providers"),
-          fetch("/api/vote")
+          fetch("/api/vote"),
+          fetch("/api/vote/current")
         ]);
         
         if (!providersRes.ok || !votesRes.ok) {
@@ -69,17 +74,17 @@ export default function VotePage() {
         setProviders(providers);
         setVoteCounts(votes);
 
-        const userVoteRes = await fetch("/api/vote/current");
-        if (!userVoteRes.ok) {
-          if (userVoteRes.status !== 401) {
-            console.error("Failed to fetch user vote:", await userVoteRes.text());
+        if (userVoteRes.ok) {
+          const data = await userVoteRes.json();
+          if (data.vote) {
+            setUserVote(data.vote.providerId);
           }
-          return;
-        }
-        
-        const data = await userVoteRes.json();
-        if (data.vote) {
-          setUserVote(data.vote.providerId);
+          setVoteLimitEnabled(data.voteLimitEnabled);
+          if (data.dailyVotesRemaining !== undefined) {
+            setRemainingVotes(data.dailyVotesRemaining);
+          }
+        } else if (userVoteRes.status !== 401) {
+          console.error("Failed to fetch user vote:", await userVoteRes.text());
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -100,13 +105,17 @@ export default function VotePage() {
       router.push("/auth/signin");
       return;
     }
+
+    if (remainingVotes === 0 && userVote !== providerId) {
+      toast.error("You have no more vote changes remaining today. Please try again tomorrow.");
+      return;
+    }
     
     setLoading(true);
     const oldVote = userVote;
     const oldVoteCounts = [...voteCounts];
     
     try {
-      // Optimistic update
       setUserVote(providerId);
       setVoteCounts(prev => {
         const newCounts = [...prev];
@@ -131,13 +140,17 @@ export default function VotePage() {
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ error: "Failed to cast vote" }));
-        throw new Error(errorData.error || "Failed to cast vote");
+        throw new Error(errorData.message || errorData.error || "Failed to cast vote");
       }
 
       const data = await response.json();
       
+      if (data.dailyVotesRemaining !== undefined) {
+        setRemainingVotes(data.dailyVotesRemaining);
+      }
+      
       if (data.changed) {
-        toast.success(oldVote ? "Vote changed successfully!" : "Vote cast successfully!");
+        toast.success(data.message || (oldVote ? "Vote changed successfully!" : "Vote cast successfully!"));
         
         const votesRes = await fetch("/api/vote");
         if (votesRes.ok) {
@@ -145,10 +158,9 @@ export default function VotePage() {
           setVoteCounts(votes);
         }
       } else {
-        toast.success("Already voted for this provider");
+        toast.success(data.message || "Already voted for this provider");
       }
     } catch (error) {
-      // Rollback on error
       setUserVote(oldVote);
       setVoteCounts(oldVoteCounts);
       console.error("Error casting vote:", error);
@@ -198,6 +210,13 @@ export default function VotePage() {
             </h1>
             <p className="text-lg text-white/60">
               Cast your vote for your favorite cloud provider.
+              {voteLimitEnabled && remainingVotes !== null && (
+                <span className="block mt-2 text-sm">
+                  {remainingVotes > 0 
+                    ? `You have ${remainingVotes} vote change${remainingVotes !== 1 ? 's' : ''} remaining today.`
+                    : "You have no more vote changes remaining today."}
+                </span>
+              )}
             </p>
           </div>
 
@@ -217,21 +236,35 @@ export default function VotePage() {
             )}
           </div>
           
+          {/* Vote Limit Warning */}
+          {voteLimitEnabled && remainingVotes === 0 && (
+            <div className="w-full max-w-2xl mx-auto">
+              <VoteLimitWarning />
+            </div>
+          )}
+          
           {/* Content Section */}
           {filteredProviders.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className={cn(
+              "grid md:grid-cols-2 lg:grid-cols-3 gap-6",
+              voteLimitEnabled && remainingVotes === 0 && "pointer-events-none"
+            )}>
               {filteredProviders.map((provider) => {
                 const voteCount = voteCounts.find(vc => vc.providerId === provider.id)?.count || 0;
+                const isCurrentVote = userVote === provider.id;
+                const isDisabled = voteLimitEnabled && remainingVotes === 0 && !isCurrentVote;
+
                 return (
                   <ProviderCard
                     key={provider.id}
                     provider={provider}
                     voteCount={voteCount}
                     totalVotes={getTotalVotes()}
-                    isSelected={userVote === provider.id}
+                    isSelected={isCurrentVote}
                     userHasVoted={!!userVote}
                     loading={loading}
                     onVote={handleVote}
+                    disabled={isDisabled}
                   />
                 );
               })}

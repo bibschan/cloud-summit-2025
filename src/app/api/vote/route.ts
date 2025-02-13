@@ -2,6 +2,8 @@ import { db } from '@/lib/db';
 import { auth } from '@/lib/auth';
 import { NextResponse } from 'next/server';
 
+const DEFAULT_DAILY_VOTE_LIMIT = 3;
+
 /**
  * This route must be dynamic (no caching) because:
  * 1. POST: Processes real-time voting actions that modify database state
@@ -10,6 +12,58 @@ import { NextResponse } from 'next/server';
  * 4. Handles concurrent voting with transactions
  */
 export const dynamic = 'force-dynamic';
+
+async function getVoteLimitConfig() {
+  try {
+    const config = await db.systemConfig.findUnique({
+      where: { key: 'DAILY_VOTE_LIMIT' },
+    });
+    return {
+      enabled: !!config,
+      limit: config ? parseInt(config.value, 10) : DEFAULT_DAILY_VOTE_LIMIT
+    };
+  } catch (error) {
+    console.warn('Failed to fetch vote limit config:', error);
+    return {
+      enabled: false,
+      limit: DEFAULT_DAILY_VOTE_LIMIT
+    };
+  }
+}
+
+async function updateAnalytics(providerId: string, isNewVote: boolean, isVoteChange: boolean) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Find existing analytics for today
+  const existing = await db.voteAnalytics.findFirst({
+    where: {
+      providerId,
+      date: today,
+    },
+  });
+
+  if (existing) {
+    await db.voteAnalytics.update({
+      where: { id: existing.id },
+      data: {
+        totalVotes: { increment: isNewVote ? 1 : 0 },
+        uniqueVoters: { increment: isNewVote ? 1 : 0 },
+        voteChanges: { increment: isVoteChange ? 1 : 0 },
+      },
+    });
+  } else {
+    await db.voteAnalytics.create({
+      data: {
+        providerId,
+        date: today,
+        totalVotes: isNewVote ? 1 : 0,
+        uniqueVoters: isNewVote ? 1 : 0,
+        voteChanges: isVoteChange ? 1 : 0,
+      },
+    });
+  }
+}
 
 export async function POST(request: Request) {
   try {
@@ -43,6 +97,38 @@ export async function POST(request: Request) {
       );
     }
 
+    // Get today's date (without time) for daily limit check
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    // Get vote limit configuration
+    const { enabled, limit } = await getVoteLimitConfig();
+
+    // Get daily vote count regardless of whether limit is enabled
+    const dailyVoteCount = await db.voteHistory.count({
+      where: {
+        userId,
+        voteDate: {
+          gte: today,
+        },
+      },
+    });
+
+    // Only check daily vote count if limit is enabled
+    if (enabled) {
+      if (dailyVoteCount >= limit) {
+        return NextResponse.json(
+          { 
+            error: 'Daily vote limit reached',
+            message: `You can only change your vote ${limit} times per day. Please try again tomorrow.`,
+            dailyVotesRemaining: 0,
+            voteLimitEnabled: enabled
+          },
+          { status: 429 }
+        );
+      }
+    }
+
     // Find user's existing vote
     const existingVote = await db.vote.findFirst({
       where: {
@@ -55,8 +141,26 @@ export async function POST(request: Request) {
       if (existingVote) {
         // If voting for the same provider, do nothing
         if (existingVote.providerId === provider.id) {
-          return { vote: existingVote, changed: false };
+          return { 
+            vote: existingVote, 
+            changed: false,
+            dailyVotesRemaining: enabled ? limit - dailyVoteCount : null
+          };
         }
+
+        // Record the vote change in history
+        if (enabled) {
+          await tx.voteHistory.create({
+            data: {
+              userId,
+              providerId: provider.id,
+              voteDate: today,
+            },
+          });
+        }
+
+        // Update analytics
+        await updateAnalytics(provider.id, false, true);
 
         // Decrement the old provider's count
         await tx.voteCount.update({
@@ -90,8 +194,26 @@ export async function POST(request: Request) {
           },
         });
 
-        return { vote: updatedVote, changed: true };
+        return { 
+          vote: updatedVote, 
+          changed: true,
+          dailyVotesRemaining: enabled ? limit - (dailyVoteCount + 1) : null
+        };
       } else {
+        // Record the initial vote in history
+        if (enabled) {
+          await tx.voteHistory.create({
+            data: {
+              userId,
+              providerId: provider.id,
+              voteDate: today,
+            },
+          });
+        }
+
+        // Update analytics for new vote
+        await updateAnalytics(provider.id, true, false);
+
         // Create new vote
         const newVote = await tx.vote.create({
           data: {
@@ -114,7 +236,11 @@ export async function POST(request: Request) {
           },
         });
 
-        return { vote: newVote, changed: true };
+        return { 
+          vote: newVote, 
+          changed: true,
+          dailyVotesRemaining: enabled ? limit - (dailyVoteCount + 1) : null
+        };
       }
     });
 
@@ -122,6 +248,13 @@ export async function POST(request: Request) {
       success: true,
       vote: result.vote,
       changed: result.changed,
+      dailyVotesRemaining: result.dailyVotesRemaining,
+      voteLimitEnabled: enabled,
+      message: result.changed 
+        ? enabled
+          ? `Vote updated successfully. You have ${result.dailyVotesRemaining} vote changes remaining today.`
+          : 'Vote updated successfully.'
+        : 'Already voted for this provider.'
     });
   } catch (error) {
     console.error('Error processing vote:', error);

@@ -44,6 +44,19 @@ model Vote {
   @@index([providerId])
 }
 
+// VoteHistory tracks daily vote changes per user
+model VoteHistory {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String
+  providerId  String
+  // The date of the vote change (stored without time for daily grouping)
+  voteDate    DateTime
+  createdAt   DateTime @default(now())
+
+  // Index to improve query performance for daily vote limits
+  @@index([userId, voteDate])
+}
+
 // CloudProvider model stores information about each cloud provider
 // This is a reference table that's seeded with initial data for now
 // Matt will be in charge of this data
@@ -69,4 +82,29 @@ model VoteCount {
   count       Int      @default(0)
   // Tracks when the count was last updated
   lastUpdated DateTime @updatedAt
+}
+
+// SystemConfig stores configurable system settings
+model SystemConfig {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  key           String   @unique
+  value         String
+  description   String?
+  lastUpdated   DateTime @updatedAt
+  updatedBy     String?  // Admin email who last updated the config
+}
+
+// VoteAnalytics tracks voting patterns and statistics
+model VoteAnalytics {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  providerId      String   // The cloud provider these stats are for
+  date            DateTime // The date these stats are for
+  totalVotes      Int      @default(0)
+  uniqueVoters    Int      @default(0)
+  voteChanges     Int      @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([providerId, date], name: "analytics_provider_date")
+  @@map("vote_analytics")
 }

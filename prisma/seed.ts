@@ -176,8 +176,8 @@ async function seedDatabase() {
     );
 
     // Only seed test data in development
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Development mode detected - seeding test data...');
+    if (process.env.APP_ENV === 'development' || process.env.APP_ENV === 'staging') {
+      console.log('Development or staging mode detected - seeding test data...');
 
       // Create test votes in batches
       const votePromises = [];
@@ -255,11 +255,39 @@ async function seedDatabase() {
   }
 }
 
+async function seedSystemConfigs() {
+  console.log('Seeding system configurations...');
+  
+  const configs = [
+    {
+      key: 'DAILY_VOTE_LIMIT',
+      value: '3',
+      description: 'Maximum number of vote changes allowed per user per day',
+    },
+    // Add other system configs here
+  ];
+
+  for (const config of configs) {
+    await prisma.systemConfig.upsert({
+      where: { key: config.key },
+      update: {},
+      create: config,
+    });
+  }
+
+  console.log('System configurations seeded successfully');
+}
+
 /**
  * Main function that handles database operations
  * Supports both seeding and cleaning based on command line argument
  */
 async function main() {
+  if (process.env.APP_ENV !== 'development' && process.env.APP_ENV !== 'staging') {
+    console.error('Seed command can only be run in development or staging mode');
+    process.exit(1);
+  }
+
   try {
     await prisma.$connect();
     
@@ -270,10 +298,13 @@ async function main() {
       await cleanDatabase();
     } else {
       await seedDatabase();
+      await seedSystemConfigs();
     }
+
+    console.log('Database seeded successfully');
   } catch (error) {
-    console.error('Operation failed:', error);
-    throw error;
+    console.error('Error seeding database:', error);
+    process.exit(1);
   } finally {
     await prisma.$disconnect();
   }

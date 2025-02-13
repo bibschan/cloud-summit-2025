@@ -19,6 +19,7 @@ interface ProviderCardProps {
   isSelected: boolean;
   userHasVoted: boolean;
   loading: boolean;
+  disabled?: boolean;
   onVote: (providerId: string) => void;
 }
 
@@ -29,6 +30,7 @@ export function ProviderCard({
   isSelected,
   userHasVoted,
   loading,
+  disabled,
   onVote,
 }: ProviderCardProps) {
   const [imageError, setImageError] = useState(false);
@@ -38,12 +40,19 @@ export function ProviderCard({
 
   return (
     <Card className={cn(
-      "bg-gray-900/40 border-white/5 backdrop-blur-sm transition-all duration-200 hover:bg-gray-900/50 hover:scale-[1.02] hover:-translate-y-0.5",
-      isSelected && "ring-2 ring-green-400"
+      "border-white/5 backdrop-blur-sm",
+      !disabled && "transition-all duration-200 hover:bg-gray-900/50 hover:scale-[1.02] hover:-translate-y-0.5",
+      isSelected && "ring-2 ring-green-400",
+      disabled 
+        ? "opacity-40 bg-gray-900/20 cursor-not-allowed saturate-50" 
+        : "bg-gray-900/40"
     )}>
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="text-xl text-white">{provider.displayName}</CardTitle>
+          <CardTitle className={cn(
+            "text-xl",
+            disabled ? "text-white/70" : "text-white"
+          )}>{provider.displayName}</CardTitle>
           <div className="relative w-10 h-10 flex items-center justify-center">
             {!imageError ? (
               <Image
@@ -51,7 +60,10 @@ export function ProviderCard({
                 alt={provider.displayName}
                 width={40}
                 height={40}
-                className="object-contain"
+                className={cn(
+                  "object-contain",
+                  disabled && "grayscale"
+                )}
                 onError={() => setImageError(true)}
                 unoptimized
               />
@@ -87,18 +99,28 @@ export function ProviderCard({
           value={parseFloat(percentage)} 
           className={cn(
             "mb-2",
-            isSelected ? "bg-green-500/20" : "bg-gray-700/30"
+            isSelected 
+              ? "bg-green-500/20" 
+              : disabled 
+                ? "bg-gray-700/10" 
+                : "bg-gray-700/30"
           )}
         />
         <div className="flex justify-between items-center">
-          <p className="text-sm text-white/80">
+          <p className={cn(
+            "text-sm",
+            disabled ? "text-white/50" : "text-white/80"
+          )}>
             {voteCount > 0 
               ? `${voteCount} vote${voteCount !== 1 ? 's' : ''} (${percentage}%)`
               : 'No votes yet - be the first!'
             }
           </p>
           {voteCount > 0 && (
-            <p className="text-xs text-white/70">
+            <p className={cn(
+              "text-xs",
+              disabled ? "text-white/40" : "text-white/70"
+            )}>
               {percentage}%
             </p>
           )}
@@ -107,13 +129,15 @@ export function ProviderCard({
       <CardFooter>
         <Button 
           className={cn(
-            "w-full transition-colors",
+            "w-full",
             isSelected 
               ? "bg-green-500 hover:bg-green-600 text-white" 
-              : "bg-blue-500 hover:bg-blue-600 text-white"
+              : disabled
+                ? "bg-gray-600 text-white/70 cursor-not-allowed hover:bg-gray-600"
+                : "bg-blue-500 hover:bg-blue-600 text-white"
           )}
           onClick={() => onVote(provider.id)}
-          disabled={loading}
+          disabled={loading || disabled}
         >
           {isSelected ? "Current Vote" : userHasVoted ? "Change Vote" : "Vote"}
         </Button>
