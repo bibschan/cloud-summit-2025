@@ -33,7 +33,8 @@ export async function POST() {
     }
 
     // Run the reseed command
-    await execAsync(`npm run ${appEnv}:db:reseed`);
+    const scriptName = appEnv === 'development' ? 'local:db:reseed' : `${appEnv}:db:reseed`;
+    await execAsync(`npm run ${scriptName}`);
 
     return NextResponse.json({
       success: true,

@@ -1,6 +1,7 @@
 "use client";
 import { EVENT_CONFIG } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 import {
     Card,
@@ -32,42 +33,56 @@ export default function CharitySection() {
                     >Learn More about {EVENT_CONFIG.sections.charity.charities[0].name}</Button>
                 </div>
                 <figure className="md:w-4/5 space-y-6">
-                    <img
-                        src={EVENT_CONFIG.sections.charity.charities[0].images[0].path}
-                        alt={EVENT_CONFIG.sections.charity.charities[0].images[0].caption}
-                        className="w-full h-auto aspect-video object-cover rounded"
-                    />
-                    <div className="w-[calc(100%-1rem)] flex flex-row gap-4">
-                        <img
-                            src={EVENT_CONFIG.sections.charity.charities[0].images[1].path}
-                            alt={EVENT_CONFIG.sections.charity.charities[0].images[1].caption}
-                            className="w-1/2 h-full object-cover rounded"
-                        />
-                        <img
-                            src={EVENT_CONFIG.sections.charity.charities[0].images[2].path}
-                            alt={EVENT_CONFIG.sections.charity.charities[0].images[2].caption}
-                            className="w-1/2 h-full object-cover rounded"
+                    <div className="relative w-full aspect-video">
+                        <Image
+                            src={EVENT_CONFIG.sections.charity.charities[0].images[0].path}
+                            alt={EVENT_CONFIG.sections.charity.charities[0].images[0].caption}
+                            fill
+                            className="object-cover rounded"
+                            sizes="(max-width: 768px) 100vw, 80vw"
                         />
                     </div>
-
+                    <div className="w-[calc(100%-1rem)] flex flex-row gap-4">
+                        <div className="relative w-1/2 aspect-video">
+                            <Image
+                                src={EVENT_CONFIG.sections.charity.charities[0].images[1].path}
+                                alt={EVENT_CONFIG.sections.charity.charities[0].images[1].caption}
+                                fill
+                                className="object-cover rounded"
+                                sizes="(max-width: 768px) 50vw, 40vw"
+                            />
+                        </div>
+                        <div className="relative w-1/2 aspect-video">
+                            <Image
+                                src={EVENT_CONFIG.sections.charity.charities[0].images[2].path}
+                                alt={EVENT_CONFIG.sections.charity.charities[0].images[2].caption}
+                                fill
+                                className="object-cover rounded"
+                                sizes="(max-width: 768px) 50vw, 40vw"
+                            />
+                        </div>
+                    </div>
                 </figure>
             </article>
             <div className="grid md:grid-cols-1 gap-8 xl:max-w-[1100px] mx-auto px-4 text-center">
                 <Card className="w-fit bg-gray-800 border-gray-700 lg:flex xl:px-8 ">
-                    <div className="w-full lg:w-full lg:h-full flex justify-center xl:justify-start items-center">
-                        <img
-                            src={EVENT_CONFIG.sections.charity.charities[0].logo}
-                            alt={EVENT_CONFIG.sections.charity.charities[0].name}
-                            className="mx-auto object-cover  h-auto" />
+                    <div className="w-full lg:w-full lg:h-full flex justify-center xl:justify-start items-center p-4">
+                        <div className="relative w-48 h-24">
+                            <Image
+                                src={EVENT_CONFIG.sections.charity.charities[0].logo}
+                                alt={EVENT_CONFIG.sections.charity.charities[0].name}
+                                fill
+                                className="object-contain"
+                                sizes="(max-width: 768px) 192px, 192px"
+                            />
+                        </div>
                     </div>
 
                     <div>
-
                         <CardHeader>
                             <CardTitle className="text-2xl font-semibold">
                                 About {EVENT_CONFIG.sections.charity.charities[0].name}
                             </CardTitle>
-
                         </CardHeader>
 
                         <CardContent>
@@ -83,7 +98,6 @@ export default function CharitySection() {
                             >Learn More about {EVENT_CONFIG.sections.charity.charities[0].name}</Button>
                         </CardFooter>
                     </div>
-
                 </Card>
             </div>
         </section >

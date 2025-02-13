@@ -60,7 +60,7 @@ export function DatabaseManagement({ appEnv }: { appEnv: string }) {
             <div className="flex flex-col gap-2">
               <p className="text-xs text-amber-200/60">
                 To modify the seeded data, consult <code className="px-1 py-0.5 rounded bg-amber-500/10 text-amber-300">prisma/seed.ts</code> or read the{' '}
-                <Link href="https://github.com/bibschan/cloud-summit-2025/blob/voting-system/docs/database.md" className="text-amber-300 hover:text-amber-200 hover:underline">
+                <Link href="/docs/database" className="text-amber-300 hover:text-amber-200 hover:underline">
                   <FileText className="w-3 h-3 inline-block mb-0.5 mr-0.5" />
                   documentation
                 </Link>.
