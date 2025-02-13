@@ -15,7 +15,13 @@ export async function POST(request: Request) {
   try {
     const session = await auth();
     if (!session?.user?.email || !isAdmin(session.user.email)) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json(
+        { 
+          error: 'Unauthorized',
+          message: 'You must be an admin to update vote limit configuration'
+        }, 
+        { status: 401 }
+      );
     }
 
     const body = await request.json();
@@ -23,7 +29,11 @@ export async function POST(request: Request) {
 
     if (!validation.success) {
       return NextResponse.json(
-        { error: 'Invalid configuration data', details: validation.error },
+        { 
+          error: 'Invalid configuration data',
+          message: 'The provided configuration data is invalid',
+          details: validation.error 
+        },
         { status: 400 }
       );
     }
@@ -38,7 +48,7 @@ export async function POST(request: Request) {
 
       return NextResponse.json({
         success: true,
-        message: 'Vote limit disabled',
+        message: 'Vote limit disabled successfully',
       });
     }
 
@@ -60,12 +70,15 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       config,
-      message: 'Vote limit configuration updated',
+      message: 'Vote limit configuration updated successfully',
     });
   } catch (error) {
     console.error('Error updating vote limit config:', error);
     return NextResponse.json(
-      { error: 'Failed to update configuration' },
+      { 
+        error: 'Failed to update configuration',
+        message: 'An error occurred while updating the vote limit configuration',
+      },
       { status: 500 }
     );
   }
@@ -75,7 +88,13 @@ export async function GET() {
   try {
     const session = await auth();
     if (!session?.user?.email || !isAdmin(session.user.email)) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json(
+        { 
+          error: 'Unauthorized',
+          message: 'You must be an admin to view vote limit configuration'
+        }, 
+        { status: 401 }
+      );
     }
 
     const config = await db.systemConfig.findUnique({
@@ -89,7 +108,10 @@ export async function GET() {
   } catch (error) {
     console.error('Error fetching vote limit config:', error);
     return NextResponse.json(
-      { error: 'Failed to fetch configuration' },
+      { 
+        error: 'Failed to fetch configuration',
+        message: 'An error occurred while fetching the vote limit configuration',
+      },
       { status: 500 }
     );
   }

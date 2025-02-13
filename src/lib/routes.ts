@@ -3,6 +3,7 @@ export const routes = {
     admin: {
       config: {
         voteLimit: '/api/admin/config/vote-limit',
+        base: '/api/admin/config',
       },
       providers: '/api/admin/providers',
       analytics: '/api/admin/analytics',
@@ -25,6 +26,9 @@ export const routes = {
 } as const;
 
 // Type-safe route getter
-export function getRoute<T>(path: string): T {
-  return path as T;
+export function getRoute<T extends string>(path: keyof typeof routes | string): T {
+  if (typeof path === 'string') {
+    return path as T;
+  }
+  return routes[path] as T;
 } 

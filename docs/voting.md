@@ -30,6 +30,11 @@ Our API implements a hybrid caching strategy to balance performance and real-tim
   - Needs to reflect recent vote changes
   - Cannot be cached across users
 
+- `/api/admin/config/vote-limit`: Must be dynamic because:
+  - Manages vote limit configuration
+  - Requires admin authentication
+  - Modifies system settings
+
 This strategy ensures:
 - Fast response times for stable data
 - Real-time accuracy for voting operations
@@ -214,7 +219,7 @@ Updates UI before server confirmation:
 ```
 GET /api/vote/current
 ```
-Returns user's current vote status.
+Returns user's current vote status and vote limit information.
 
 Response (200):
 ```json
@@ -223,7 +228,9 @@ Response (200):
     "id": "507f1f77bcf86cd799439011",
     "providerId": "507f1f77bcf86cd799439012",
     "userId": "user@example.com"
-  }
+  },
+  "voteLimitEnabled": true,
+  "dailyVotesRemaining": 2
 }
 ```
 
@@ -249,7 +256,10 @@ Response (200):
     "providerId": "507f1f77bcf86cd799439012",
     "userId": "user@example.com"
   },
-  "changed": true
+  "changed": true,
+  "dailyVotesRemaining": 2,
+  "voteLimitEnabled": true,
+  "message": "Vote updated successfully. You have 2 vote changes remaining today."
 }
 ```
 
@@ -264,7 +274,8 @@ Response (200):
 [
   {
     "providerId": "507f1f77bcf86cd799439012",
-    "count": 42
+    "count": 42,
+    "lastUpdated": "2024-03-21T12:00:00Z"
   }
 ]
 ```
@@ -282,9 +293,50 @@ Response (200):
     "id": "507f1f77bcf86cd799439012",
     "name": "aws",
     "displayName": "Amazon Web Services",
-    "logoUrl": "https://aws.amazon.com/logo.png"
+    "logoUrl": "/cloud-providers/aws.svg"
   }
 ]
+```
+
+### Vote Limit Configuration (Admin Only)
+```
+GET /api/admin/config/vote-limit
+```
+Returns current vote limit configuration.
+
+Response (200):
+```json
+{
+  "enabled": true,
+  "value": "3"
+}
+```
+
+```
+POST /api/admin/config/vote-limit
+```
+Updates vote limit configuration.
+
+Request:
+```json
+{
+  "enabled": true,
+  "value": "3"
+}
+```
+
+Response (200):
+```json
+{
+  "success": true,
+  "config": {
+    "key": "DAILY_VOTE_LIMIT",
+    "value": "3",
+    "description": "Maximum number of vote changes allowed per user per day",
+    "updatedBy": "admin@example.com"
+  },
+  "message": "Vote limit configuration updated"
+}
 ```
 
 ## Error Handling
@@ -294,7 +346,8 @@ All endpoints return consistent error format:
 ```json
 {
   "error": "Error description",
-  "status": number
+  "message": "User-friendly error message",
+  "details": "Optional error details"
 }
 ```
 
@@ -302,4 +355,16 @@ Common status codes:
 - 200: Success
 - 400: Invalid request
 - 401: Authentication required
+- 429: Vote limit reached
 - 500: Server error
+
+### Vote Limit Errors
+When vote limit is reached:
+```json
+{
+  "error": "Daily vote limit reached",
+  "message": "You can only change your vote 3 times per day. Please try again tomorrow.",
+  "dailyVotesRemaining": 0,
+  "voteLimitEnabled": true
+}
+```
