@@ -183,7 +183,7 @@ async function seedDatabase() {
     // Seed system configurations in all environments
     await seedSystemConfigs();
 
-    // Only seed test data in development
+    // Only seed test data in development or staging
     if (process.env.APP_ENV === 'development' || process.env.APP_ENV === 'staging') {
       console.log('Development or staging mode detected - seeding test data...');
 
@@ -191,65 +191,76 @@ async function seedDatabase() {
       today.setHours(0, 0, 0, 0);
 
       // Create test votes in batches
-      const votePromises = [];
       for (const [providerName, voteCount] of Object.entries(testVoteDistribution)) {
         const provider = seededProviders.find(p => p.name === providerName);
         if (!provider) continue;
 
+        console.log(`Creating ${voteCount} test votes for ${providerName}...`);
+
         // Create votes for this provider
         for (let i = 0; i < voteCount; i++) {
           const testUser = testUsers[i];
-          
-          // Create vote
-          votePromises.push(
-            prisma.vote.create({
-              data: {
-                userId: testUser.email,
-                providerId: provider.id,
-              },
-            })
-          );
+          if (!testUser) continue;
 
-          // Create vote history
-          votePromises.push(
-            prisma.voteHistory.create({
+          try {
+            // First check if vote exists
+            const existingVote = await prisma.vote.findFirst({
+              where: {
+                userId: testUser.email,
+              },
+            });
+
+            if (existingVote) {
+              // Update existing vote
+              await prisma.vote.update({
+                where: { id: existingVote.id },
+                data: { providerId: provider.id },
+              });
+            } else {
+              // Create new vote
+              await prisma.vote.create({
+                data: {
+                  userId: testUser.email,
+                  providerId: provider.id,
+                },
+              });
+            }
+
+            // Create vote history
+            await prisma.voteHistory.create({
               data: {
                 userId: testUser.email,
                 providerId: provider.id,
                 voteDate: today,
               },
-            })
-          );
+            });
+          } catch (error) {
+            console.error(`Failed to create vote for user ${testUser.email}:`, error);
+          }
         }
 
         // Update vote count
-        votePromises.push(
-          prisma.voteCount.upsert({
-            where: { providerId: provider.id },
-            update: { count: voteCount },
-            create: {
-              providerId: provider.id,
-              count: voteCount,
-            },
-          })
-        );
+        await prisma.voteCount.upsert({
+          where: { providerId: provider.id },
+          update: { count: voteCount },
+          create: {
+            providerId: provider.id,
+            count: voteCount,
+          },
+        });
 
         // Create analytics entry
-        votePromises.push(
-          prisma.voteAnalytics.create({
-            data: {
-              providerId: provider.id,
-              date: today,
-              totalVotes: voteCount,
-              uniqueVoters: voteCount,
-              voteChanges: voteCount,
-            },
-          })
-        );
+        await prisma.voteAnalytics.create({
+          data: {
+            providerId: provider.id,
+            date: today,
+            totalVotes: voteCount,
+            uniqueVoters: voteCount,
+            voteChanges: voteCount,
+          },
+        });
       }
 
-      // Execute all operations in parallel
-      await Promise.all(votePromises);
       console.log('Created test votes, vote history, and analytics');
 
       // Initialize vote count as 0 for providers with no votes
