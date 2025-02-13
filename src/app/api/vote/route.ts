@@ -85,14 +85,32 @@ export async function POST(request: Request) {
       );
     }
 
+    console.log('Vote attempt:', { userId, providerId });
+
     // Check if provider exists
     const provider = await db.cloudProvider.findUnique({
       where: { id: providerId },
     });
 
     if (!provider) {
+      console.error('Invalid provider ID:', {
+        attemptedId: providerId,
+        userId,
+        timestamp: new Date().toISOString()
+      });
+
+      // List all available providers for debugging
+      const availableProviders = await db.cloudProvider.findMany({
+        select: { id: true, name: true }
+      });
+      console.log('Available providers:', availableProviders);
+
       return NextResponse.json(
-        { error: 'Invalid provider ID' },
+        { 
+          error: 'Invalid provider ID',
+          details: 'The specified provider ID does not exist in the database',
+          providerId 
+        },
         { status: 400 }
       );
     }

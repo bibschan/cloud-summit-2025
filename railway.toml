@@ -1,9 +1,9 @@
 [build]
 builder = "nixpacks"
-buildCommand = "npm run staging:build && npm run staging:db:clean"
+buildCommand = "npm run staging:build"
 
 [deploy]
-startCommand = "npm run staging:db:seed && npm run staging:start"
+startCommand = "npm run staging:start"
 healthcheckPath = "/api/health"
 healthcheckTimeout = 100
 restartPolicyType = "on_failure"

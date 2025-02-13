@@ -118,6 +118,12 @@ export default function VotePage() {
     const oldVoteCounts = [...voteCounts];
     
     try {
+      console.log('Attempting to vote for provider:', {
+        providerId,
+        provider: providers.find(p => p.id === providerId),
+        currentVote: userVote
+      });
+
       setUserVote(providerId);
       setVoteCounts(prev => {
         const newCounts = [...prev];
@@ -141,7 +147,8 @@ export default function VotePage() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ error: "Failed to cast vote" }));
+        const errorData = await response.json();
+        console.error('Vote failed:', errorData);
         throw new Error(errorData.message || errorData.error || "Failed to cast vote");
       }
 
@@ -163,9 +170,13 @@ export default function VotePage() {
         toast.success(data.message || "Already voted for this provider");
       }
     } catch (error) {
+      console.error('Vote error:', {
+        error,
+        providerId,
+        provider: providers.find(p => p.id === providerId)
+      });
       setUserVote(oldVote);
       setVoteCounts(oldVoteCounts);
-      console.error("Error casting vote:", error);
       toast.error(error instanceof Error ? error.message : "Failed to cast vote");
     } finally {
       setLoading(false);
