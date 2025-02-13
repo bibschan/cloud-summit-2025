@@ -75,22 +75,153 @@ The seeding process (`prisma/seed.ts`) creates:
 
 ## Modifying Seed Data
 
-To modify the seed data:
+### Understanding `prisma/seed.ts`
 
-1. Open `prisma/seed.ts`
-2. Locate the relevant section:
+The seed script is responsible for populating the database with initial data. Here's a breakdown of its components:
+
+1. **Cloud Providers Configuration**
    ```typescript
    const providers = [
      {
-       name: 'aws',
-       displayName: 'Amazon Web Services',
-       logoUrl: '/cloud-providers/aws.svg',
+       name: 'aws',           // Unique identifier
+       displayName: 'Amazon Web Services',  // Display name in UI
+       logoUrl: '/cloud-providers/aws.svg', // Path to logo in public directory
      },
      // Add more providers here
    ];
    ```
-3. Make your changes
-4. Run the appropriate reseed command for your environment
+
+2. **Test Data Configuration** (Development/Staging Only)
+   ```typescript
+   const testUsers = [
+     { id: 'test-user-1', email: 'test1@example.com' },
+     // Add more test users here
+   ];
+
+   const testVoteDistribution = {
+     'aws': 3,      // 3 votes for AWS
+     'gcp': 2,      // 2 votes for GCP
+     'azure': 1,    // 1 vote for Azure
+   };
+   ```
+
+3. **System Configurations**
+   ```typescript
+   const configs = [
+     {
+       key: 'DAILY_VOTE_LIMIT',
+       value: '3',
+       description: 'Maximum number of vote changes allowed per user per day',
+     },
+     // Add other system configs here
+   ];
+   ```
+
+### Adding a New Cloud Provider
+
+1. **Prepare Logo**
+   - Add provider logo to `/public/cloud-providers/`
+   - Support formats: SVG (preferred) or PNG
+   - Follow naming convention: lowercase, no spaces
+
+2. **Add Provider to `seed.ts`**
+   ```typescript
+   const providers = [
+     // ... existing providers ...
+     {
+       name: 'newprovider',
+       displayName: 'New Cloud Provider',
+       logoUrl: '/cloud-providers/newprovider.svg',
+     },
+   ];
+   ```
+
+3. **Reseed Database**
+   ```bash
+   # Development
+   npm run local:db:reseed
+
+   # Staging
+   npm run staging:db:reseed
+   ```
+
+### Modifying System Configurations
+
+1. **Add New Configuration**
+   ```typescript
+   const configs = [
+     // ... existing configs ...
+     {
+       key: 'NEW_CONFIG_KEY',
+       value: 'default_value',
+       description: 'Description of what this config does',
+     },
+   ];
+   ```
+
+2. **Update Existing Configuration**
+   - Find the configuration in the `configs` array
+   - Modify the `value` or `description`
+   - Reseed database to apply changes
+
+### Environment-Specific Seeding
+
+The script behaves differently based on `APP_ENV`:
+
+1. **Development/Staging**
+   - Seeds all providers
+   - Creates test users and votes
+   - Sets up system configurations
+   - Initializes vote counts
+
+2. **Production**
+   - Only seeds providers
+   - No test data
+   - Basic system configurations
+   - Zero vote counts
+
+### Safety Features
+
+1. **Data Protection**
+   ```typescript
+   if (process.env.APP_ENV === 'production') {
+     console.error('Seed command can only be run in development or staging mode');
+     process.exit(1);
+   }
+   ```
+
+2. **Transaction Safety**
+   - All operations are wrapped in transactions
+   - Rollback on failure
+   - Prevents partial seeding
+
+3. **Unique Constraints**
+   - Provider names must be unique
+   - System config keys must be unique
+   - Prevents duplicate entries
+
+### Troubleshooting Seed Issues
+
+1. **Schema Conflicts**
+   ```bash
+   # Reset schema and reseed
+   npm run local:db:push
+   npm run local:db:reseed
+   ```
+
+2. **Data Inconsistencies**
+   ```bash
+   # Clean and start fresh
+   npm run local:db:clean
+   npm run local:db:seed
+   ```
+
+3. **Common Errors**
+   - Duplicate provider names
+   - Invalid logo paths
+   - Missing environment variables
+
+For more details about the database structure and models, see [Voting System](voting.md#database-structure).
 
 ## Admin Interface
 

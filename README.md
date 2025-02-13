@@ -8,13 +8,12 @@ A secure voting platform that enables authenticated users to vote for their pref
 ```bash
 git clone https://github.com/yourusername/cloud-summit-2025.git
 cd cloud-summit-2025
-cp .env.example .env.local
 # Edit .env.local with your values
 ```
 
 2. **Setup and Run**
 ```bash
-npm run local:setup  # Installs dependencies, stops any running MongoDB instance, sets up fresh DB
+npm run local:setup  # Installs dependencies and mongodb locally, stops any running MongoDB instance, sets up fresh DB
 npm run dev         # Starts development server
 ```
 
@@ -22,24 +21,7 @@ Visit [http://localhost:3000](http://localhost:3000) to see the application.
 
 ## Detailed Setup Guide
 
-### 1. Prerequisites Installation
-
-1. **Install Node.js and npm**
-   - Download from [nodejs.org](https://nodejs.org)
-   - Recommended version: 18.x or later
-
-2. **Install Homebrew** (macOS)
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
-
-3. **Install MongoDB**
-   ```bash
-   brew tap mongodb/brew
-   brew install mongodb-community
-   ```
-
-### 2. Environment Configuration
+### 1. Environment Configuration
 
 1. **Create Environment File**
    ```bash
@@ -79,7 +61,7 @@ Visit [http://localhost:3000](http://localhost:3000) to see the application.
    DATABASE_URL=mongodb://localhost:27017/cloud-summit
    ```
 
-### 3. Database Setup
+### 2. Database Setup
 
 The `local:setup` command performs these steps:
 
@@ -113,7 +95,7 @@ You can run these steps manually if needed, or use the combined command:
 npm run local:setup
 ```
 
-### 4. Development Server
+### 3. Development Server
 
 1. **Start MongoDB** (if not running)
    ```bash
@@ -125,7 +107,7 @@ npm run local:setup
    npm run dev
    ```
 
-### 5. Verify Setup
+### 4. Verify Setup
 
 1. **Check MongoDB**
    ```bash
@@ -141,7 +123,7 @@ npm run local:setup
    - Try signing in with GitHub/Google
    - Verify admin access if configured
 
-### 6. Common Setup Issues
+### 5. Common Setup Issues
 
 1. **MongoDB Connection Failed**
    ```bash
@@ -165,6 +147,7 @@ For more detailed information about:
 - Database management: See [Database Management](docs/database.md)
 - Authentication setup: See [Authentication](docs/authentication.md)
 - System configuration: See [Voting System](docs/voting.md)
+- Contact luisheratm@gmail.com
 
 ## Project Structure
 
