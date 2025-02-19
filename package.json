@@ -32,7 +32,7 @@
     "staging:db:reseed": "npm run staging:db:clean && npm run staging:db:seed",
     "staging:deploy": "npm run staging:db:setup && npm run staging:db:seed && npm run staging:start",
 
-    "prod:build": "cross-env APP_ENV=production prisma generate && next build",
+    "prod:build": "cross-env APP_ENV=production prisma generate && cross-env APP_ENV=production prisma db push && next build",
     "prod:start": "cross-env APP_ENV=production next start"
   },
   "dependencies": {
