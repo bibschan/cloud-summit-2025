@@ -157,7 +157,7 @@ export default function Nav() {
 
   return (
     <nav className={`
-      w-full z-10 
+      w-full z-20
       ${isSignInPage || isVotePage || isAdminPage || isNominatePage 
         ? "absolute py-4" 
         : `fixed top-0 py-5 transition duration-300 ease-in-out ${!isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""}`

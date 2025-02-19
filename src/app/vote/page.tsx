@@ -54,16 +54,21 @@ export default function VotePage() {
   }, [status, router]);
 
   useEffect(() => {
+    let isSubscribed = true;
+    const controller = new AbortController();
+
     const fetchData = async () => {
       if (!session?.user) return;
       
       try {
         setError(null);
         const [providersRes, votesRes, userVoteRes] = await Promise.all([
-          fetch("/api/providers"),
-          fetch("/api/vote"),
-          fetch("/api/vote/current")
+          fetch("/api/providers", { signal: controller.signal }),
+          fetch("/api/vote", { signal: controller.signal }),
+          fetch("/api/vote/current", { signal: controller.signal })
         ]);
+        
+        if (!isSubscribed) return;
         
         if (!providersRes.ok || !votesRes.ok) {
           throw new Error("Failed to fetch voting data");
@@ -72,11 +77,14 @@ export default function VotePage() {
         const providers = await providersRes.json();
         const votes = await votesRes.json();
         
+        if (!isSubscribed) return;
         setProviders(providers);
         setVoteCounts(votes);
 
         if (userVoteRes.ok) {
           const data = await userVoteRes.json();
+          if (!isSubscribed) return;
+          
           if (data.vote) {
             setUserVote(data.vote.providerId);
           }
@@ -88,7 +96,9 @@ export default function VotePage() {
         } else if (userVoteRes.status !== 401) {
           console.error("Failed to fetch user vote:", await userVoteRes.text());
         }
-      } catch (error) {
+      } catch (error: unknown) {
+        if (error instanceof Error && error.name === 'AbortError') return;
+        if (!isSubscribed) return;
         console.error("Error fetching data:", error);
         setError("Failed to load voting data. Please try refreshing the page.");
         toast.error("Failed to load voting data. Please try refreshing the page.");
@@ -98,6 +108,11 @@ export default function VotePage() {
     if (status !== "loading") {
       fetchData();
     }
+
+    return () => {
+      isSubscribed = false;
+      controller.abort();
+    };
   }, [session, status]);
 
   const handleVote = async (providerId: string) => {

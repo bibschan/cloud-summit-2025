@@ -46,32 +46,54 @@ export function ProvidersTable() {
   const [activeTab, setActiveTab] = useState<string>('existing');
 
   useEffect(() => {
+    let isSubscribed = true;
+    const controller = new AbortController();
+
+    const fetchProviders = async () => {
+      try {
+        const response = await fetch('/api/admin/providers', {
+          signal: controller.signal
+        });
+        if (!isSubscribed) return;
+        
+        if (!response.ok) throw new Error('Failed to fetch cloud providers');
+        const data = await response.json();
+        
+        if (!isSubscribed) return;
+        setProviders(data);
+      } catch (error: unknown) {
+        if (error instanceof Error && error.name === 'AbortError') return;
+        if (!isSubscribed) return;
+        toast.error("Failed to fetch cloud providers");
+      } finally {
+        if (!isSubscribed) return;
+        setIsLoading(false);
+      }
+    };
+
     fetchProviders();
     fetchExistingLogos();
+
+    return () => {
+      isSubscribed = false;
+      controller.abort();
+    };
   }, []);
 
-  const fetchProviders = async () => {
-    try {
-      const response = await fetch('/api/admin/providers');
-      if (!response.ok) throw new Error('Failed to fetch cloud providers');
-      const data = await response.json();
-      setProviders(data);
-    } catch (error) {
-      toast.error("Failed to fetch cloud providers");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   const fetchExistingLogos = async () => {
+    const controller = new AbortController();
     try {
-      const response = await fetch('/api/admin/logos');
+      const response = await fetch('/api/admin/logos', {
+        signal: controller.signal
+      });
       if (!response.ok) throw new Error('Failed to fetch logos');
       const data = await response.json();
       setExistingLogos(data.logos);
-    } catch (error) {
+    } catch (error: unknown) {
+      if (error instanceof Error && error.name === 'AbortError') return;
       toast.error("Failed to fetch existing logos");
     }
+    return () => controller.abort();
   };
 
   const handleAddProvider = async (e: React.FormEvent<HTMLFormElement>) => {
