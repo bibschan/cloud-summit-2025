@@ -13,16 +13,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Provider model represents a service provider for the summit
-model Provider {
+// CloudProvider model stores information about each cloud provider
+// This is a reference table that's seeded with initial data for now
+// Matt will be in charge of this data
+model CloudProvider {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  // name is used as a unique identifier for the provider (e.g., 'aws', 'gcp')
   name        String   @unique
-  description String?
-  website     String?
-  imageUrl    String?
+  // displayName is the human-readable name (e.g., 'Amazon Web Services')
+  displayName String
+  // Path to the provider's logo in the public directory
+  logoUrl     String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  isActive    Boolean  @default(true)
 }
 
 // Vote model represents a user's vote for a cloud provider
@@ -55,21 +58,6 @@ model VoteHistory {
 
   // Index to improve query performance for daily vote limits
   @@index([userId, voteDate])
-}
-
-// CloudProvider model stores information about each cloud provider
-// This is a reference table that's seeded with initial data for now
-// Matt will be in charge of this data
-model CloudProvider {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  // name is used as a unique identifier for the provider (e.g., 'aws', 'gcp')
-  name        String   @unique
-  // displayName is the human-readable name (e.g., 'Amazon Web Services')
-  displayName String
-  // Path to the provider's logo in the public directory
-  logoUrl     String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
 }
 
 // VoteCount model maintains a running tally of votes for each provider
