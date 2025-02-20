@@ -34,6 +34,8 @@ export function ProviderCard({
   onVote,
 }: ProviderCardProps) {
   const [imageError, setImageError] = useState(false);
+  const useExternalNominationForm = process.env.NEXT_PUBLIC_USE_EXTERNAL_NOMINATION_FORM === "true";
+  const externalNominationFormUrl = process.env.NEXT_PUBLIC_EXTERNAL_NOMINATION_FORM_URL as string;
   const percentage = totalVotes > 0 
     ? ((voteCount / totalVotes) * 100).toFixed(1)
     : "0";
@@ -81,9 +83,19 @@ export function ProviderCard({
                     className="border-white/20 text-white hover:bg-white/10"
                     asChild
                   >
-                    <Link href="/nominate">
-                      Nominate a Provider
-                    </Link>
+                    {useExternalNominationForm ? (
+                      <Link 
+                        href={externalNominationFormUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Nominate a Provider
+                      </Link>
+                    ) : (
+                      <Link href="/nominate">
+                        Nominate a Provider
+                      </Link>
+                    )}
                   </Button>
                   <p className="text-sm text-white/60">
                     Your nominations help us make the platform more comprehensive.

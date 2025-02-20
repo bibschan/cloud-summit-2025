@@ -19,6 +19,8 @@ export default function Nav() {
   const isAdminPage = pathname === "/admin";
   const isNominatePage = pathname === "/nominate";
   const userIsAdmin = session?.user?.email ? isAdmin(session.user.email) : false;
+  const useExternalNominationForm = process.env.NEXT_PUBLIC_USE_EXTERNAL_NOMINATION_FORM === "true";
+  const externalNominationFormUrl = process.env.NEXT_PUBLIC_EXTERNAL_NOMINATION_FORM_URL as string;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -127,9 +129,20 @@ export default function Nav() {
                   </>
                 )}
               </div>
-              <Link href="/nominate" className="hover:text-sky-400">
-                Nominate
-              </Link>
+              {useExternalNominationForm ? (
+                <Link 
+                  href={externalNominationFormUrl}
+                  className="hover:text-sky-400"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Nominate
+                </Link>
+              ) : (
+                <Link href="/nominate" className="hover:text-sky-400">
+                  Nominate
+                </Link>
+              )}
               {userIsAdmin && (
                 <Link href="/admin" className="hover:text-sky-400">
                   Admin
