@@ -22,10 +22,13 @@ export const SponsorsSection = () => {
           Previous Sponsors
         </h2>
         <div className="relative">
-          {/* Left edge overlay */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
-          {/* Right edge overlay */}
-          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
+
+            {/* Left edge overlay */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-9" />
+            {/* Right edge overlay */}
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-9" />
+
+
 
           <div className="overflow-hidden">
             <div className={`flex ${styles.scrollContent}`}>
