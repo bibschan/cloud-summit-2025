@@ -204,7 +204,7 @@ export default function VotePage() {
     provider.displayName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  if (status === "loading" || !providers.length) {
+  if (status === "loading") {
     return <LoadingSkeleton />;
   }
 
@@ -224,6 +224,28 @@ export default function VotePage() {
           </Button>
         </div>
       </div>
+    );
+  }
+
+  if (!providers.length) {
+    return (
+      <main className="min-h-screen">
+        <div className="container mx-auto px-6 py-16">
+          <div className="max-w-2xl mx-auto text-center">
+            <h1 className="text-3xl font-bold tracking-tight text-white mb-6">
+              Coming Soon!
+            </h1>
+            <div className="bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-8">
+              <p className="text-xl text-white/80 mb-4">
+                We&apos;re preparing the list of cloud providers for voting.
+              </p>
+              <p className="text-lg text-white/60">
+                Check back soon to cast your vote for your favorite cloud provider!
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
     );
   }
 

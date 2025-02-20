@@ -20,7 +20,7 @@ export default function Nav() {
   const isNominatePage = pathname === "/nominate";
   const userIsAdmin = session?.user?.email ? isAdmin(session.user.email) : false;
   const useExternalNominationForm = process.env.NEXT_PUBLIC_USE_EXTERNAL_NOMINATION_FORM === "true";
-  const externalNominationFormUrl = process.env.NEXT_PUBLIC_EXTERNAL_NOMINATION_FORM_URL as string;
+  const externalNominationFormUrl = process.env.NEXT_PUBLIC_EXTERNAL_NOMINATION_FORM_URL || "#";
 
   useEffect(() => {
     const handleScroll = () => {

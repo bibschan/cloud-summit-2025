@@ -2,16 +2,12 @@ import { db } from '@/lib/db';
 import { NextResponse } from 'next/server';
 
 /**
- * This route uses revalidation instead of being dynamic because:
- * 1. Cloud providers rarely change (stable data)
- * 2. No user-specific content is returned
- * 3. Benefits from caching for better performance
- * 4. Same response for all users
- * 
- * Revalidation every hour provides a good balance between 
- * data freshness and performance.
+ * This route is dynamic because:
+ * 1. Cloud providers can be added/removed through admin panel
+ * 2. Changes should be reflected immediately
+ * 3. The performance impact is minimal due to low provider count
  */
-export const revalidate = 3600; // 1 hour
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   try {
