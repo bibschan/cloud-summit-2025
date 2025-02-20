@@ -215,3 +215,49 @@ export const MEDIA_CONFIG = {
     },
   ],
 };
+
+
+export const COMMUNITIES = [
+  {
+    id: 1,
+    name: "VanJS",
+    description:
+      "A monthly meetup for developers in Vancouver focusing on JavaScript, front-end technology, and the open web.",
+    url: "https://lu.ma/vanjs",
+  },
+  {
+    id: 2,
+    name: "AWS User Group Vancouver",
+    description:
+      "Vancouver's AWS community with monthly events and co-host of Vancouver's largest Cloud and AI Conference.",
+    url: "https://www.awsusergroups.com/",
+  },
+  {
+    id: 3,
+    name: "Azure Canada",
+    description:
+      "Vancouver Microsoft Azure User Group running quarterly events and co-hosting Western Canada's largest Cloud and AI Conference.",
+    url: "https://www.azurecanada.ca/",
+  },
+  {
+    id: 4,
+    name: "Cloud Native",
+    description:
+      "A community focused on cloud-native technologies, containerization, and microservices architecture.",
+    url: "https://lu.ma/p35u91p3",
+  },
+  {
+    id: 5,
+    name: "Vancouver AI Community",
+    description:
+      "Connect with AI enthusiasts, researchers, and practitioners in Vancouver.",
+    url: "https://lu.ma/p35u91p3",
+  },
+  {
+    id: 6,
+    name: "Linux User Group",
+    description:
+      "Vancouver Linux Users Group (VanLUG) - A community for Linux enthusiasts and open-source advocates.",
+    url: "https://www.meetup.com/vanlug-bc/",
+  },
+];

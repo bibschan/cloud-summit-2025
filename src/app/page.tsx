@@ -9,6 +9,7 @@ import { FAQSection } from "@/components/faq-section";
 import{ MediaLounge } from "@/components/media-lounge-section";
 import Footer from "@/components/footer";
 import CharitySection from "@/components/charity-section";
+import {CommunitiesList } from "@/components/communities"
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -20,6 +21,7 @@ export default function Home() {
         <MediaLounge/>
         <CommunitySection />
         <VenueSection />
+        <CommunitiesList/>
         <CharitySection />
         <FAQSection />
       </main>
