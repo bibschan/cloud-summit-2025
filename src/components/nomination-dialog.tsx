@@ -17,9 +17,18 @@ export function NominationDialog({ open, onOpenChange }: NominationDialogProps) 
   const { data: session } = useSession();
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const useExternalNominationForm = process.env.NEXT_PUBLIC_USE_EXTERNAL_NOMINATION_FORM === "true";
+  const externalNominationFormUrl = process.env.NEXT_PUBLIC_EXTERNAL_NOMINATION_FORM_URL as string;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    if (useExternalNominationForm) {
+      window.open(externalNominationFormUrl, '_blank');
+      onOpenChange(false);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -58,63 +67,84 @@ export function NominationDialog({ open, onOpenChange }: NominationDialogProps) 
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="px-6 py-4 space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="providerName" className="text-white">
-              Provider Name
-            </Label>
-            <Input
-              id="providerName"
-              name="providerName"
-              required
-              className="bg-white/5 border-white/10 text-white"
-              placeholder="e.g., Cloudflare"
-            />
-          </div>
+          {useExternalNominationForm ? (
+            <div className="flex justify-end gap-3 pt-4">
+              <Button 
+                type="button" 
+                variant="ghost" 
+                onClick={() => onOpenChange(false)}
+                className="text-white hover:bg-white/10 hover:text-white"
+              >
+                Cancel
+              </Button>
+              <Button 
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-600 text-white"
+              >
+                Continue to Form
+              </Button>
+            </div>
+          ) : (
+            <>
+              <div className="space-y-2">
+                <Label htmlFor="providerName" className="text-white">
+                  Provider Name
+                </Label>
+                <Input
+                  id="providerName"
+                  name="providerName"
+                  required
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="e.g., Cloudflare"
+                />
+              </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="providerWebsite" className="text-white">
-              Provider Website
-            </Label>
-            <Input
-              id="providerWebsite"
-              name="providerWebsite"
-              type="url"
-              required
-              className="bg-white/5 border-white/10 text-white"
-              placeholder="e.g., https://cloudflare.com"
-            />
-          </div>
+              <div className="space-y-2">
+                <Label htmlFor="providerWebsite" className="text-white">
+                  Provider Website
+                </Label>
+                <Input
+                  id="providerWebsite"
+                  name="providerWebsite"
+                  type="url"
+                  required
+                  className="bg-white/5 border-white/10 text-white"
+                  placeholder="e.g., https://cloudflare.com"
+                />
+              </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="reason" className="text-white">
-              Why should this provider be included?
-            </Label>
-            <Textarea
-              id="reason"
-              name="reason"
-              required
-              className="bg-white/5 border-white/10 text-white min-h-[100px]"
-              placeholder="Tell us why this provider would be a valuable addition..."
-            />
-          </div>
+              <div className="space-y-2">
+                <Label htmlFor="reason" className="text-white">
+                  Why should this provider be included?
+                </Label>
+                <Textarea
+                  id="reason"
+                  name="reason"
+                  required
+                  className="bg-white/5 border-white/10 text-white min-h-[100px]"
+                  placeholder="Tell us why this provider would be a valuable addition..."
+                />
+              </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-white/10">
-            <Button 
-              type="button" 
-              variant="ghost" 
-              onClick={() => onOpenChange(false)}
-              className="text-white hover:bg-white/10 hover:text-white"
-            >
-              Cancel
-            </Button>
-            <Button 
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Submitting..." : "Submit Nomination"}
-            </Button>
-          </div>
+              <div className="flex justify-end gap-3 pt-4 border-t border-white/10">
+                <Button 
+                  type="button" 
+                  variant="ghost" 
+                  onClick={() => onOpenChange(false)}
+                  className="text-white hover:bg-white/10 hover:text-white"
+                >
+                  Cancel
+                </Button>
+                <Button 
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-600 text-white"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit Nomination"}
+                </Button>
+              </div>
+            </>
+          )}
         </form>
       </DialogContent>
     </Dialog>
