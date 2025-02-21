@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -14,8 +14,10 @@ export default function NominatePage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const useExternalNominationForm = process.env.NEXT_PUBLIC_USE_EXTERNAL_NOMINATION_FORM === "true";
-  const externalNominationFormUrl = process.env.NEXT_PUBLIC_EXTERNAL_NOMINATION_FORM_URL as string;
+  const useExternalNominationForm =
+    process.env.NEXT_PUBLIC_USE_EXTERNAL_NOMINATION_FORM === "true";
+  const externalNominationFormUrl = process.env
+    .NEXT_PUBLIC_EXTERNAL_NOMINATION_FORM_URL as string;
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -35,19 +37,19 @@ export default function NominatePage() {
     try {
       const formData = new FormData(e.currentTarget);
       const data = {
-        providerName: formData.get('providerName'),
-        providerWebsite: formData.get('providerWebsite'),
-        reason: formData.get('reason'),
+        providerName: formData.get("providerName"),
+        providerWebsite: formData.get("providerWebsite"),
+        reason: formData.get("reason"),
         submitterEmail: session?.user?.email,
       };
 
       // TODO: Add Google Forms submission logic here
-      console.log('Form data:', data);
+      console.log("Form data:", data);
 
       toast.success("Thank you for your nomination! We'll review it shortly.");
-      router.push('/vote');
+      router.push("/vote");
     } catch (error) {
-      console.error('Error submitting nomination:', error);
+      console.error("Error submitting nomination:", error);
       toast.error("Failed to submit nomination. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -72,10 +74,10 @@ export default function NominatePage() {
         <div className="flex flex-col gap-8 max-w-xl mx-auto">
           <div className="flex flex-col gap-1.5">
             <h1 className="text-3xl font-bold tracking-tight text-white">
-              Nominate a Cloud Provider
+              Nominate a Local Canadian Tech Company
             </h1>
             <p className="text-lg text-white/60">
-              Know a great cloud provider that should be on our list? Let us know!
+              Know a great local company that deserves recognition? Let us know!
             </p>
           </div>
 
@@ -83,7 +85,7 @@ export default function NominatePage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="providerName" className="text-white">
-                  Provider Name
+                  Company Name
                 </Label>
                 <Input
                   id="providerName"
@@ -96,7 +98,7 @@ export default function NominatePage() {
 
               <div className="space-y-2">
                 <Label htmlFor="providerWebsite" className="text-white">
-                  Provider Website
+                  Company Website
                 </Label>
                 <Input
                   id="providerWebsite"
@@ -110,7 +112,7 @@ export default function NominatePage() {
 
               <div className="space-y-2">
                 <Label htmlFor="reason" className="text-white">
-                  Why should this provider be included?
+                  Why should this company be included?
                 </Label>
                 <Textarea
                   id="reason"
@@ -134,4 +136,4 @@ export default function NominatePage() {
       </div>
     </main>
   );
-} 
+}

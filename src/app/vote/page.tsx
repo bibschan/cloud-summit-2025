@@ -59,24 +59,24 @@ export default function VotePage() {
 
     const fetchData = async () => {
       if (!session?.user) return;
-      
+
       try {
         setError(null);
         const [providersRes, votesRes, userVoteRes] = await Promise.all([
           fetch("/api/providers", { signal: controller.signal }),
           fetch("/api/vote", { signal: controller.signal }),
-          fetch("/api/vote/current", { signal: controller.signal })
+          fetch("/api/vote/current", { signal: controller.signal }),
         ]);
-        
+
         if (!isSubscribed) return;
-        
+
         if (!providersRes.ok || !votesRes.ok) {
           throw new Error("Failed to fetch voting data");
         }
-        
+
         const providers = await providersRes.json();
         const votes = await votesRes.json();
-        
+
         if (!isSubscribed) return;
         setProviders(providers);
         setVoteCounts(votes);
@@ -84,7 +84,7 @@ export default function VotePage() {
         if (userVoteRes.ok) {
           const data = await userVoteRes.json();
           if (!isSubscribed) return;
-          
+
           if (data.vote) {
             setUserVote(data.vote.providerId);
           }
@@ -92,16 +92,22 @@ export default function VotePage() {
           if (data.dailyVotesRemaining !== undefined) {
             setRemainingVotes(data.dailyVotesRemaining);
           }
-          setDailyVoteCount(data.dailyVotesRemaining !== undefined ? data.dailyVotesRemaining : 0);
+          setDailyVoteCount(
+            data.dailyVotesRemaining !== undefined
+              ? data.dailyVotesRemaining
+              : 0
+          );
         } else if (userVoteRes.status !== 401) {
           console.error("Failed to fetch user vote:", await userVoteRes.text());
         }
       } catch (error: unknown) {
-        if (error instanceof Error && error.name === 'AbortError') return;
+        if (error instanceof Error && error.name === "AbortError") return;
         if (!isSubscribed) return;
         console.error("Error fetching data:", error);
         setError("Failed to load voting data. Please try refreshing the page.");
-        toast.error("Failed to load voting data. Please try refreshing the page.");
+        toast.error(
+          "Failed to load voting data. Please try refreshing the page."
+        );
       }
     };
 
@@ -124,33 +130,45 @@ export default function VotePage() {
     }
 
     if (remainingVotes === 0 && userVote !== providerId) {
-      toast.error("You have no more vote changes remaining today. Please try again tomorrow.");
+      toast.error(
+        "You have no more vote changes remaining today. Please try again tomorrow."
+      );
       return;
     }
-    
+
     setLoading(true);
     const oldVote = userVote;
     const oldVoteCounts = [...voteCounts];
-    
+
     try {
-      console.log('Attempting to vote for provider:', {
+      console.log("Attempting to vote for company:", {
         providerId,
-        provider: providers.find(p => p.id === providerId),
-        currentVote: userVote
+        provider: providers.find((p) => p.id === providerId),
+        currentVote: userVote,
       });
 
       setUserVote(providerId);
-      setVoteCounts(prev => {
+      setVoteCounts((prev) => {
         const newCounts = [...prev];
         if (oldVote) {
-          const oldIndex = newCounts.findIndex(vc => vc.providerId === oldVote);
+          const oldIndex = newCounts.findIndex(
+            (vc) => vc.providerId === oldVote
+          );
           if (oldIndex !== -1) {
-            newCounts[oldIndex] = { ...newCounts[oldIndex], count: Math.max(0, newCounts[oldIndex].count - 1) };
+            newCounts[oldIndex] = {
+              ...newCounts[oldIndex],
+              count: Math.max(0, newCounts[oldIndex].count - 1),
+            };
           }
         }
-        const newIndex = newCounts.findIndex(vc => vc.providerId === providerId);
+        const newIndex = newCounts.findIndex(
+          (vc) => vc.providerId === providerId
+        );
         if (newIndex !== -1) {
-          newCounts[newIndex] = { ...newCounts[newIndex], count: newCounts[newIndex].count + 1 };
+          newCounts[newIndex] = {
+            ...newCounts[newIndex],
+            count: newCounts[newIndex].count + 1,
+          };
         }
         return newCounts;
       });
@@ -163,36 +181,43 @@ export default function VotePage() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error('Vote failed:', errorData);
-        throw new Error(errorData.message || errorData.error || "Failed to cast vote");
+        console.error("Vote failed:", errorData);
+        throw new Error(
+          errorData.message || errorData.error || "Failed to cast vote"
+        );
       }
 
       const data = await response.json();
-      
+
       if (data.dailyVotesRemaining !== undefined) {
         setRemainingVotes(data.dailyVotesRemaining);
       }
-      
+
       if (data.changed) {
-        toast.success(data.message || (oldVote ? "Vote changed successfully!" : "Vote cast successfully!"));
-        
+        toast.success(
+          data.message ||
+            (oldVote ? "Vote changed successfully!" : "Vote cast successfully!")
+        );
+
         const votesRes = await fetch("/api/vote");
         if (votesRes.ok) {
           const votes = await votesRes.json();
           setVoteCounts(votes);
         }
       } else {
-        toast.success(data.message || "Already voted for this provider");
+        toast.success(data.message || "Already voted for this company");
       }
     } catch (error) {
-      console.error('Vote error:', {
+      console.error("Vote error:", {
         error,
         providerId,
-        provider: providers.find(p => p.id === providerId)
+        provider: providers.find((p) => p.id === providerId),
       });
       setUserVote(oldVote);
       setVoteCounts(oldVoteCounts);
-      toast.error(error instanceof Error ? error.message : "Failed to cast vote");
+      toast.error(
+        error instanceof Error ? error.message : "Failed to cast vote"
+      );
     } finally {
       setLoading(false);
     }
@@ -200,7 +225,7 @@ export default function VotePage() {
 
   const getTotalVotes = () => voteCounts.reduce((sum, vc) => sum + vc.count, 0);
 
-  const filteredProviders = providers.filter(provider =>
+  const filteredProviders = providers.filter((provider) =>
     provider.displayName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -213,7 +238,9 @@ export default function VotePage() {
     return (
       <div className="container mx-auto px-4 text-center">
         <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-8 max-w-xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-4">Oops! Something went wrong</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            Oops! Something went wrong
+          </h2>
           <p className="text-gray-200 mb-6">{error}</p>
           <Button
             onClick={() => window.location.reload()}
@@ -237,10 +264,11 @@ export default function VotePage() {
             </h1>
             <div className="bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-8">
               <p className="text-xl text-white/80 mb-4">
-                We&apos;re preparing the list of cloud providers for voting.
+                We&apos;re preparing the list of companies for voting.
               </p>
               <p className="text-lg text-white/60">
-                Check back soon to cast your vote for your favorite cloud provider!
+                Check back soon to cast your vote for your favorite local tech
+                companies!
               </p>
             </div>
           </div>
@@ -256,17 +284,21 @@ export default function VotePage() {
           {/* Header Section */}
           <div className="flex flex-col items-center text-center">
             <h1 className="text-3xl font-bold tracking-tight text-white mb-3">
-              Vote for Your Favorite Cloud Provider
+              Vote for Your Favorite Local Tech Company!
             </h1>
             <p className="text-lg text-white/60">
-              Cast your vote for your favorite cloud provider.
-              {voteLimitEnabled && remainingVotes !== null && dailyVoteCount > 0 && (
-                <span className="block mt-2 text-sm">
-                  {remainingVotes > 0 
-                    ? `You have ${remainingVotes} vote change${remainingVotes !== 1 ? 's' : ''} remaining today.`
-                    : "You have no more vote changes remaining today."}
-                </span>
-              )}
+              Cast your vote for your favorite company.
+              {voteLimitEnabled &&
+                remainingVotes !== null &&
+                dailyVoteCount > 0 && (
+                  <span className="block mt-2 text-sm">
+                    {remainingVotes > 0
+                      ? `You have ${remainingVotes} vote change${
+                          remainingVotes !== 1 ? "s" : ""
+                        } remaining today.`
+                      : "You have no more vote changes remaining today."}
+                  </span>
+                )}
             </p>
           </div>
 
@@ -275,9 +307,9 @@ export default function VotePage() {
             <SearchBar value={searchQuery} onChange={setSearchQuery} />
             {filteredProviders.length > 0 && (
               <p className="text-sm text-white/40 text-center mt-3">
-                Don&apos;t see your provider?{" "}
-                <button 
-                  onClick={() => setIsNominateOpen(true)} 
+                Don&apos;t see the company you&apos;re looking for?{" "}
+                <button
+                  onClick={() => setIsNominateOpen(true)}
                   className="text-white/60 hover:text-white transition-colors duration-200"
                 >
                   Nominate one →
@@ -285,24 +317,31 @@ export default function VotePage() {
               </p>
             )}
           </div>
-          
+
           {/* Vote Limit Warning */}
           {voteLimitEnabled && remainingVotes === 0 && (
             <div className="w-full max-w-2xl mx-auto">
               <VoteLimitWarning />
             </div>
           )}
-          
+
           {/* Content Section */}
           {filteredProviders.length > 0 ? (
-            <div className={cn(
-              "grid md:grid-cols-2 lg:grid-cols-3 gap-6",
-              voteLimitEnabled && remainingVotes === 0 && "pointer-events-none"
-            )}>
+            <div
+              className={cn(
+                "grid md:grid-cols-2 lg:grid-cols-3 gap-6",
+                voteLimitEnabled &&
+                  remainingVotes === 0 &&
+                  "pointer-events-none"
+              )}
+            >
               {filteredProviders.map((provider) => {
-                const voteCount = voteCounts.find(vc => vc.providerId === provider.id)?.count || 0;
+                const voteCount =
+                  voteCounts.find((vc) => vc.providerId === provider.id)
+                    ?.count || 0;
                 const isCurrentVote = userVote === provider.id;
-                const isDisabled = voteLimitEnabled && remainingVotes === 0 && !isCurrentVote;
+                const isDisabled =
+                  voteLimitEnabled && remainingVotes === 0 && !isCurrentVote;
 
                 return (
                   <ProviderCard
@@ -323,17 +362,17 @@ export default function VotePage() {
             <div className="max-w-xl mx-auto w-full">
               <div className="text-center py-12 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">
                 <h3 className="text-xl font-semibold text-white mb-2">
-                  Don&apos;t see your cloud provider?
+                  Don&apos;t see your favorite company?
                 </h3>
                 <p className="text-gray-300 mb-4">
-                  Help us expand our list by nominating a provider.
+                  Help us expand our list by nominating a local tech company.
                 </p>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-white/20 text-white hover:bg-white/10"
                   onClick={() => setIsNominateOpen(true)}
                 >
-                  Nominate a Provider
+                  Nominate a Local Tech Company
                 </Button>
               </div>
             </div>
@@ -341,10 +380,10 @@ export default function VotePage() {
         </div>
       </div>
 
-      <NominationDialog 
-        open={isNominateOpen} 
-        onOpenChange={setIsNominateOpen} 
+      <NominationDialog
+        open={isNominateOpen}
+        onOpenChange={setIsNominateOpen}
       />
     </main>
   );
-} 
+}
