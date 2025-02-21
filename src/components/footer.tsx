@@ -78,9 +78,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">
-              Resources
-            </h3>
+            <h3 className="text-lg font-semibold text-white mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -105,7 +103,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/2024"
+                  href="./2024.html"
                   className="hover:text-green-500 transition-colors"
                 >
                   Cloud Summit 2024
@@ -132,7 +130,8 @@ export default function Footer() {
                   ? " and "
                   : ""}
               </React.Fragment>
-            ))}.
+            ))}
+            .
           </p>
           <p>Powered by Vercel and v0.</p>
         </div>
