@@ -7,7 +7,7 @@
     "start": "npm run prod:start",
     "build": "npm run prod:build",
     "lint": "npm run local:lint",
-    
+
     "local:dev": "next dev",
     "local:start": "next start",
     "local:build": "next build",
@@ -23,7 +23,6 @@
     "local:db:clean": "cross-env APP_ENV=development ts-node --compiler-options '{\"module\":\"CommonJS\"}' prisma/seed.ts --clean",
     "local:db:reseed": "npm run local:db:clean && npm run local:db:seed",
     "local:db:studio": "cross-env APP_ENV=development prisma studio",
-    
     "staging:build": "cross-env APP_ENV=staging prisma generate && next build",
     "staging:start": "cross-env APP_ENV=staging next start",
     "staging:db:setup": "cross-env APP_ENV=staging prisma generate && cross-env APP_ENV=staging prisma db push",
@@ -31,10 +30,8 @@
     "staging:db:clean": "cross-env APP_ENV=staging ts-node --compiler-options '{\"module\":\"CommonJS\"}' prisma/seed.ts --clean",
     "staging:db:reseed": "npm run staging:db:clean && npm run staging:db:seed",
     "staging:deploy": "npm run staging:db:setup && npm run staging:db:seed && npm run staging:start",
-
     "prod:build": "cross-env APP_ENV=production prisma generate && cross-env APP_ENV=production prisma db push && next build",
     "prod:start": "cross-env APP_ENV=production next start",
-
     "vercel-build": "cross-env APP_ENV=production prisma generate && cross-env APP_ENV=production prisma db push && next build"
   },
   "dependencies": {
