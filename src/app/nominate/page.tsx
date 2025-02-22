@@ -51,10 +51,6 @@ export default function NominatePage() {
         mode: "no-cors",
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to submit nomination");
-      }
-
       toast.success("Thank you for your nomination! We'll review it shortly.");
       router.push("/vote");
     } catch (error) {
