@@ -36,15 +36,24 @@ export default function NominatePage() {
 
     try {
       const formData = new FormData(e.currentTarget);
-      const data = {
-        providerName: formData.get("providerName"),
-        providerWebsite: formData.get("providerWebsite"),
-        reason: formData.get("reason"),
-        submitterEmail: session?.user?.email,
-      };
+      const providerName = formData.get("providerName");
+      const providerWebsite = formData.get("providerWebsite");
+      const reason = formData.get("reason");
 
-      // TODO: Add Google Forms submission logic here
-      console.log("Form data:", data);
+      const googleFormsUrl = `https://docs.google.com/forms/d/e/1FAIpQLSdXLc2ueBF5azLrM05Cz9eNnG6duMVL8RH14EGOjAzDdmM8uQ/formResponse?&submit=Submit?usp=pp_url&entry.1692382468=${encodeURIComponent(
+        providerName as string
+      )}&entry.1758108843=${encodeURIComponent(
+        providerWebsite as string
+      )}&entry.1319184364=${encodeURIComponent(reason as string)}`;
+
+      const response = await fetch(googleFormsUrl, {
+        method: "GET",
+        mode: "no-cors",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit nomination");
+      }
 
       toast.success("Thank you for your nomination! We'll review it shortly.");
       router.push("/vote");
