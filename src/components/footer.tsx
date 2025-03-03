@@ -82,6 +82,15 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
+                  href="https://forms.gle/NECDLqn6T6qbmWXZ8"
+                  className="hover:text-green-500 transition-colors"
+                  target="_blank"
+                >
+                  Become a volunteer
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="#faq"
                   className="hover:text-green-500 transition-colors"
                 >

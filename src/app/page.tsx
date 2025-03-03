@@ -6,10 +6,10 @@ import { SponsorsSection } from "@/components/sponsors-section";
 import { CommunitySection } from "@/components/community-section";
 import { VenueSection } from "@/components/venue-section";
 import { FAQSection } from "@/components/faq-section";
-import{ MediaLounge } from "@/components/media-lounge-section";
+import { MediaLounge } from "@/components/media-lounge-section";
 import Footer from "@/components/footer";
 import CharitySection from "@/components/charity-section";
-import {CommunitiesList } from "@/components/communities"
+import { CommunitiesList } from "@/components/communities";
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -18,10 +18,10 @@ export default function Home() {
         <HeroSection />
         <HighlightsSection />
         <SponsorsSection />
-        <MediaLounge/>
-        <CommunitySection />
+        <MediaLounge />
+        {/* <CommunitySection /> */}
         <VenueSection />
-        <CommunitiesList/>
+        <CommunitiesList />
         <CharitySection />
         <FAQSection />
       </main>
