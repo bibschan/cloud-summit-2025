@@ -1,11 +1,13 @@
 "use client";
-
+import { EVENT_CONFIG } from "@/lib/constants";
+import Script from "next/script";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { isAdmin } from "@/lib/admin";
+import Image from "next/image";
 import styles from './nav.module.css';
 
 export default function Nav() {
@@ -61,7 +63,7 @@ export default function Nav() {
     if (isSignInPage || isVotePage || isAdminPage || isNominatePage) {
       return (
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <Link 
+          <Link
             href="/"
             className="text-white hover:text-sky-400 flex items-center gap-2 transition-colors"
           >
@@ -82,17 +84,26 @@ export default function Nav() {
 
     // Default nav content (homepage)
     return (
-      <div className="container mx-auto px-6 flex lg:justify-end justify-center">
-        <div className="flex space-x-4 sm:space-x-8 font-semibold text-sm md:text-base">
-          <Link href={getHomeLink("highlights")} className="hover:text-sky-400">
+      <div className="container mx-auto px-6 flex justify-evenly items-center">
+        <Link href='/' className="hover:text-sky-400 text-primary-50">
+          <Image
+            src="/Logo.svg"
+            alt='Cloud Summit 2025 logo'
+            width={147}
+            height={40}
+            className="block"
+            />
+        </Link>
+        <div className="flex space-x-4 sm:space-x-8 text-sm md:text-base ">
+          <Link href={getHomeLink("highlights")} className="hover:text-sky-400 text-primary-50">
             About
           </Link>
-          <Link href={getHomeLink("venue")} className="hover:text-sky-400">
+          <Link href={getHomeLink("venue")} className="hover:text-sky-400 text-primary-50">
             Schedule
           </Link>
           <Link
             href="https://forms.gle/6qjgftM5Uf4ZSNNP7"
-            className="hover:text-sky-400"
+            className="hover:text-sky-400 text-primary-50"
             target="_blank"
             passHref
           >
@@ -102,14 +113,14 @@ export default function Nav() {
             href="https://forms.gle/1XDU3sdR94UgbcUEA"
             target="_blank"
             passHref
-            className="hover:text-sky-400"
+            className="hover:text-sky-400 text-primary-50"
           >
             Sponsors
           </Link>
           {session ? (
             <>
               <div className="relative">
-                <Link href="/vote" className="hover:text-sky-400">
+                <Link href="/vote" className="hover:text-sky-400 text-primary-50">
                   Vote
                 </Link>
                 {isHomePage && !hasVoted && (
@@ -130,7 +141,7 @@ export default function Nav() {
                 )}
               </div>
               {useExternalNominationForm ? (
-                <Link 
+                <Link
                   href={externalNominationFormUrl}
                   className="hover:text-sky-400"
                   target="_blank"
@@ -156,14 +167,31 @@ export default function Nav() {
               </button>
             </>
           ) : (
-            <Link 
-              href="/auth/signin" 
+            <Link
+              href="/auth/signin"
               className="hover:text-sky-400"
             >
               Vote
             </Link>
           )}
         </div>
+        <div>
+          <a
+            href={EVENT_CONFIG.links.tickets}
+            className="min-w-[150px] h-9 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800"
+            data-luma-action="checkout"
+            data-luma-event-id="evt-cItbLfgBkf8na4n"
+          >
+            Get your tickets
+          </a>
+
+          <Script
+            id="luma-checkout"
+            src="https://embed.lu.ma/checkout-button.js"
+            strategy="lazyOnload"
+          />
+        </div>
+
       </div>
     );
   };
@@ -171,8 +199,8 @@ export default function Nav() {
   return (
     <nav className={`
       w-full z-20
-      ${isSignInPage || isVotePage || isAdminPage || isNominatePage 
-        ? "absolute py-4" 
+      ${isSignInPage || isVotePage || isAdminPage || isNominatePage
+        ? "absolute py-4"
         : `fixed top-0 py-5 transition duration-300 ease-in-out ${!isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""}`
       }
     `}>

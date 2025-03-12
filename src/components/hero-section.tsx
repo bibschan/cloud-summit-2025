@@ -39,7 +39,7 @@ export const HeroSection = () => {
         width={0}
         height={0}
         sizes="100vw"
-        className="w-[90%]  h-auto xl:w-[70%] 2xl:w-[60%] 3xl:w-[50%]"
+        className="w-[90%] mt-10 md:mt-20 h-auto xl:w-[70%] 2xl:w-[60%] 3xl:w-[50%]"
       />
 
       <Countdown
@@ -96,7 +96,7 @@ export const HeroSection = () => {
             data-luma-action="checkout"
             data-luma-event-id="evt-cItbLfgBkf8na4n"
           >
-            Get tickets
+            Get your tickets
           </a>
 
           <Script
