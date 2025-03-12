@@ -87,7 +87,7 @@ export default function Nav() {
     }
     // Default nav content (homepage)
     return (
-      <div className="container w-full px-6 flex justify-between items-center grow">
+      <div className="container w-full px-6 flex justify-between items-center grow mx-auto">
         <Link href='/' className="hover:text-sky-400 text-primary-50">
           <Image
             src="/Logo.svg"
