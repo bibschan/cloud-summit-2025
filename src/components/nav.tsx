@@ -61,7 +61,7 @@ export default function Nav() {
     if (isSignInPage || isVotePage || isAdminPage || isNominatePage) {
       return (
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <Link 
+          <Link
             href="/"
             className="text-white hover:text-sky-400 flex items-center gap-2 transition-colors"
           >
@@ -130,7 +130,7 @@ export default function Nav() {
                 )}
               </div>
               {useExternalNominationForm ? (
-                <Link 
+                <Link
                   href={externalNominationFormUrl}
                   className="hover:text-sky-400"
                   target="_blank"
@@ -156,8 +156,8 @@ export default function Nav() {
               </button>
             </>
           ) : (
-            <Link 
-              href="/auth/signin" 
+            <Link
+              href="/auth/signin"
               className="hover:text-sky-400"
             >
               Vote
@@ -170,9 +170,9 @@ export default function Nav() {
 
   return (
     <nav className={`
-      w-full z-20
-      ${isSignInPage || isVotePage || isAdminPage || isNominatePage 
-        ? "absolute py-4" 
+      w-full z-50
+      ${isSignInPage || isVotePage || isAdminPage || isNominatePage
+        ? "absolute py-4"
         : `fixed top-0 py-5 transition duration-300 ease-in-out ${!isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""}`
       }
     `}>
