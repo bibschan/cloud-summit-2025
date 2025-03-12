@@ -8,24 +8,9 @@ import { useRef, useEffect } from "react";
 import Countdown from 'react-countdown';
 
 export const HeroSection = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const CompletionMessage = () => (<h3 className="bg-[#313539] rounded-md flex text-4xl md:text-6xl">The Summit Has Begun! Join us in the clouds! ☁️</h3>);
+  const CompletionMessage = () => (<h3 className="bg-primary-800 rounded-md flex text-4xl md:text-6xl">The Summit Has Begun! Join us in the clouds! ☁️</h3>);
   const targetDate = new Date('2025-05-27T12:00:00');
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.play().catch(console.error);
-    }
-
-    return () => {
-      if (video) {
-        video.pause();
-        video.currentTime = 0;
-      }
-    };
-  }, []);
 
   const openVolunteersLink = () => {
     window.open(EVENT_CONFIG.links.volunteers, "_blank");

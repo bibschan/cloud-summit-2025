@@ -5,7 +5,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Menu, X } from "lucide-react";
 import { isAdmin } from "@/lib/admin";
 import Image from "next/image";
 import styles from './nav.module.css';
@@ -23,7 +23,11 @@ export default function Nav() {
   const userIsAdmin = session?.user?.email ? isAdmin(session.user.email) : false;
   const useExternalNominationForm = process.env.NEXT_PUBLIC_USE_EXTERNAL_NOMINATION_FORM === "true";
   const externalNominationFormUrl = process.env.NEXT_PUBLIC_EXTERNAL_NOMINATION_FORM_URL || "#";
+  const [isOpen, setIsOpen] = useState(false);
 
+  const handleNav = () => {
+    setIsOpen(false);
+  }
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY === 0) {
@@ -81,10 +85,9 @@ export default function Nav() {
         </div>
       );
     }
-
     // Default nav content (homepage)
     return (
-      <div className="container mx-auto px-6 flex justify-evenly items-center">
+      <div className="container w-full px-6 flex justify-between items-center grow">
         <Link href='/' className="hover:text-sky-400 text-primary-50">
           <Image
             src="/Logo.svg"
@@ -92,9 +95,64 @@ export default function Nav() {
             width={147}
             height={40}
             className="block"
-            />
+          />
         </Link>
-        <div className="flex space-x-4 sm:space-x-8 text-sm md:text-base ">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className='md:hidden'
+        >
+          <Menu className="w-6 h-6 hover:text-sky-400 text-primary-50" />
+        </button>
+        {isOpen && (
+          <div className="m-0 fixed top-0 left-0 w-screen h-screen z-50 bg-black/50 md:hidden">
+            <div className="h-full bg-primary-800 p-4 w-full flex">
+              <button className='absolute top-0 right-0 p-4' onClick={() => setIsOpen(false)}>
+                <X className="w-6 h-6 hover:text-sky-400 text-primary-50" />
+              </button>
+              <div className='grow flex flex-col items-center justify-center gap-10'>
+                <Link href={getHomeLink("highlights")} onClick={handleNav} className="hover:text-sky-400 text-primary-50">
+                  About
+                </Link>
+                <Link href={getHomeLink("venue")} onClick={handleNav} className="hover:text-sky-400 text-primary-50">
+                  Schedule
+                </Link>
+                <Link
+                  href="https://forms.gle/6qjgftM5Uf4ZSNNP7"
+                  onClick={handleNav}
+                  className="hover:text-sky-400 text-primary-50"
+                  target="_blank"
+                  passHref
+                >
+                  Speakers
+                </Link>
+                <Link
+                  href="https://forms.gle/1XDU3sdR94UgbcUEA"
+                  onClick={handleNav}
+                  target="_blank"
+                  passHref
+                  className="hover:text-sky-400 text-primary-50"
+                >
+                  Sponsors
+                </Link>
+                <a
+                  href={EVENT_CONFIG.links.tickets}
+                  className="min-w-[150px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800"
+                  data-luma-action="checkout"
+                  data-luma-event-id="evt-cItbLfgBkf8na4n"
+                >
+                  Get your tickets
+                </a>
+
+                <Script
+                  id="luma-checkout"
+                  src="https://embed.lu.ma/checkout-button.js"
+                  strategy="lazyOnload"
+                />
+              </div>
+            </div>
+          </div>
+        )}
+        <div className="hidden md:flex space-x-4 sm:space-x-8 text-sm md:text-base ">
           <Link href={getHomeLink("highlights")} className="hover:text-sky-400 text-primary-50">
             About
           </Link>
@@ -175,7 +233,7 @@ export default function Nav() {
             </Link>
           )}
         </div>
-        <div>
+        <div className="hidden md:flex items-center space-x-4">
           <a
             href={EVENT_CONFIG.links.tickets}
             className="min-w-[150px] h-9 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800"
