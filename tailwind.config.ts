@@ -8,7 +8,11 @@ const config: Config = {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('/background-pattern.svg')",
+      },
+    },
   },
   plugins: [require("tailwindcss-animate")],
 };

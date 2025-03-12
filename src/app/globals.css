@@ -56,6 +56,10 @@ html.vote-page body {
   h6 {
     @apply font-heading;
   }
+
+  p{
+    @apply font-body;
+  }
 }
 
 @layer components {
