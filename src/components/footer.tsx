@@ -4,16 +4,22 @@ import Link from "next/link";
 import { Instagram, Linkedin, Github } from "lucide-react";
 import { EVENT_CONFIG } from "@/lib/constants";
 import React from "react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 py-12 max-md:text-center">
+    <footer className="bg-primary-800 text-gray-400 py-12 max-md:text-center">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-md:place-items-center">
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">
-              {EVENT_CONFIG.title}
-            </h3>
+          <div className="flex flex-col items-center md:block">
+            <Image
+              src="/logo.svg"
+              alt="Cloud Summit 2025"
+              width={200}
+              height={50}
+              className="mb-4"
+            />
+
             <p className="mb-4">
               &copy; 2025 {EVENT_CONFIG.title}. All rights reserved.
             </p>
@@ -37,9 +43,9 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">
+            <p className="text-lg text-white mb-4">
               Quick Links
-            </h3>
+            </p>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -78,7 +84,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Resources</h3>
+            <p className="text-lg text-white mb-4">Resources</p>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -108,7 +114,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Archive</h3>
+            <p className="text-lg  text-white mb-4">Archive</p>
             <ul className="space-y-2">
               <li>
                 <Link
