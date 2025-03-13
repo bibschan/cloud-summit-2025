@@ -3,99 +3,85 @@
 import { Button } from "@/components/ui/button";
 import { EVENT_CONFIG } from "@/lib/constants";
 import Script from "next/script";
-import StatBanner from "./stat-banner";
 import Image from "next/image";
-import { heroProviders } from "@/lib/cloud-hero-providers";
 import { useRef, useEffect } from "react";
+import Countdown from 'react-countdown';
 
 export const HeroSection = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.play().catch(console.error);
-    }
-
-    return () => {
-      if (video) {
-        video.pause();
-        video.currentTime = 0;
-      }
-    };
-  }, []);
+  const CompletionMessage = () => (<h3 className="bg-primary-800 rounded-md flex text-4xl md:text-6xl">The Summit Has Begun! Join us in the clouds! ☁️</h3>);
+  const targetDate = new Date('2025-05-27T12:00:00');
 
   const openVolunteersLink = () => {
     window.open(EVENT_CONFIG.links.volunteers, "_blank");
   };
 
   return (
-    <div className="relative min-h-[900px] flex flex-col items-center justify-center overflow-hidden w-full bg-[#070B14] px-4 py-16 text-white">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/60"></div>
-        <video
-          ref={videoRef}
-          src="/main-banner/highlight-video.mp4"
-          autoPlay
-          muted
-          loop
-          className="mix-blend-overlay object-cover h-full w-full"
-        />
-      </div>
+    <div className="relative min-h-[900px] flex flex-col items-center justify-center gap-16  w-full bg-hero-pattern bg-no-repeat bg-center px-4 py-16 text-white">
+      <Image
+        src="/main-banner/banner.svg"
+        alt="Hero Logo"
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="w-[90%] mt-10 md:mt-20 h-auto xl:w-[70%] 2xl:w-[60%] 3xl:w-[50%]"
+      />
 
-      <div className="relative mx-auto flex flex-row flex-wrap justify-center gap-6">
-        {/* Logo and Subtitle */}
-        <div className="md:mb-8 text-center">
-          <h1 className="mb-4 hidden md:block font-bold tracking-tight md:text-6xl lg:text-7xl">
-            <span className="bg-gradient-to-r from-green-900 to-green-500 px-6">
-              {EVENT_CONFIG.title}
-            </span>
-          </h1>
-          <h1 className="mb-4 text-7xl font-bold tracking-tight md:hidden flex flex-wrap justify-center gap-2">
-            <span className="bg-gradient-to-r from-green-900 to-green-500 px-6">
-              Cloud
-            </span>
-            <span className="bg-gradient-to-r from-green-900 to-green-500 px-6">
-              Summit
-            </span>
-          </h1>
-          <h2 className="text-xl font-light md:text-2xl hidden md:block">
-            <span>Infrastructure</span>
-            <span className="mx-3 text-gray-500">|</span>
-            <span>Security</span>
-            <span className="mx-3 text-gray-500">|</span>
-            <span>DevOps</span>
-          </h2>
-        </div>
+      <Countdown
+        date={targetDate}
+        renderer={({ days, hours, minutes, seconds, completed }) => {
+          if (completed) {
+            return <CompletionMessage />;
+          }
+          return (
+            <article className="bg-[#313539] rounded-md flex">
+              <div className="flex flex-col items-center justify-center gap-1 md:gap-3 m-4 md:mx-6 pr-4 border-r border-[#4d4d4d]">
+                <h3 className="text-6xl md:text-8xl text-center text-white">
+                  {days}
+                </h3>
+                <p className="text-primary-400">Days</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-1 md:gap-3 my-4 mr-4 md:mr-6 pr-4 md:pr-6 border-r border-[#4d4d4d]">
+                <h3 className="text-6xl md:text-8xl text-center text-white">
+                  {hours}
+                </h3>
+                <p className="text-primary-400">Hours</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-1 md:gap-2 my-4 mr-4 md:mr-6 pr-4 md:pr-6 border-r border-[#4d4d4d]">
+                <h3 className="text-6xl md:text-8xl text-center text-white">
+                  {minutes}
+                </h3>
+                <p className="text-primary-400">Minutes</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-1 md:gap-2 my-4 mr-4 md:mr-6">
+                <h3 className="text-6xl md:text-8xl text-center text-white">
+                  {seconds}
+                </h3>
+                <p className="text-primary-400">Seconds</p>
+              </div>
 
-        {/* Event Dates */}
-        <div className="mb-8 flex flex-col items-center md:items-start justify-start -mt-1">
-          <div className="flex items-center gap-4 mb-3 rounded-full bg-gradient-to-r from-green-900 to-green-500 px-6 py-2">
-            <span className="font-bold">{EVENT_CONFIG.date}</span>
-            <span className="text-sm">{EVENT_CONFIG.venue}</span>
-          </div>
-          <div className="flex items-center gap-4 rounded-full border border-white/20 px-6 py-2">
-            <span className="font-bold">{EVENT_CONFIG.location.city}, {EVENT_CONFIG.location.province}</span>
-            <span className="text-sm">{EVENT_CONFIG.location.country}</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="relative mx-auto flex flex-col flex-wrap justify-center gap-6">
+            </article>
+          )
+        }}
+      />
+      <div className="relative mx-auto flex flex-col flex-wrap justify-center gap-10">
+        <p className="mx-auto max-w-3xl text-center text-xl text-gray-300 md:text-3xl font-bold uppercase">
+          {EVENT_CONFIG.date} at {EVENT_CONFIG.location.city} {EVENT_CONFIG.venue}
+        </p>
         {/* Description */}
-        <p className="mx-auto mb-8 max-w-3xl text-center text-lg text-gray-300 md:text-xl">
+        <p className="mx-auto max-w-3xl text-center text-md text-gray-300 md:text-xl">
           {EVENT_CONFIG.description}
         </p>
 
         {/* CTA Buttons */}
-        <div className="mb-2 md:mb-16 flex flex-col items-center justify-center gap-4 md:flex-row">
+        <div className="mb-2 md:mb-16 flex flex-row items-center justify-evenly md:justify-center gap-4 ">
           <a
             href={EVENT_CONFIG.links.tickets}
-            className="min-w-[200px] h-11 flex justify-center items-center rounded-md bg-gradient-to-r from-green-900 to-green-500 font-bold"
+            className="min-w-[150px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all"
             data-luma-action="checkout"
             data-luma-event-id="evt-cItbLfgBkf8na4n"
           >
-            Get Tickets
+            Get your tickets
           </a>
 
           <Script
@@ -107,39 +93,15 @@ export const HeroSection = () => {
           <Button
             size="lg"
             variant="outline"
-            className="min-w-[200px] border-white/20 text-white hover:bg-white/10 hidden md:block"
+            className="min-w-[150px] border-white/20 text-white hover:bg-white/10 h-11 md:block"
             onClick={openVolunteersLink}
           >
-            GET INVOLVED
+            Get involved
           </Button>
         </div>
-        
-        {/* Stats */}
-        <StatBanner />
       </div>
 
-      {/* Cloud Providers */}
-      <div className="grid grid-cols-4 gap-4 mt-4 md:mt-16 md:grid-cols-4 md:flex md:flex-row md:overflow-hidden md:whitespace-nowrap">
-        {heroProviders.map((provider) => (
-          <a
-            href={provider.link}
-            key={provider.name}
-            target="_blank"
-            className="relative"
-          >
-            <div className="relative w-14 h-14">
-              <Image
-                src={provider.icon}
-                alt={provider.name}
-                width={56}
-                height={56}
-                className="object-contain"
-                unoptimized
-              />
-            </div>
-          </a>
-        ))}
-      </div>
+
     </div>
   );
-}; 
+};

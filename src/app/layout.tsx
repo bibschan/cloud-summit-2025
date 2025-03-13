@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Squada_One, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { GoogleTagManager } from "@next/third-parties/google";
@@ -7,8 +7,6 @@ import { Providers } from "@/components/providers";
 import { Toaster } from "sonner";
 import Nav from '@/components/nav';
 import { headers } from 'next/headers';
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Cloud Summit 2025",
@@ -32,13 +30,14 @@ export const metadata: Metadata = {
   },
 };
 
-const fontHeading = Inter({
+const fontHeading = Squada_One({
+  weight: '400',
   subsets: ["latin"],
   display: "swap",
   variable: "--font-heading",
 });
 
-const fontBody = Inter({
+const fontBody = Noto_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
@@ -69,8 +68,8 @@ export default function RootLayout({
           <Nav />
           {children}
         </Providers>
-        <Toaster 
-          richColors 
+        <Toaster
+          richColors
           position="bottom-right"
           closeButton={false}
         />

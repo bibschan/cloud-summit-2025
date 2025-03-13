@@ -12,9 +12,9 @@ import CharitySection from "@/components/charity-section";
 import { CommunitiesList } from "@/components/communities";
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen text-white bg-[#1b221d]">
       <Nav />
-      <main>
+      <main >
         <HeroSection />
         <HighlightsSection />
         <SponsorsSection />
