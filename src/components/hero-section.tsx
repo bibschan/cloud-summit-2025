@@ -77,7 +77,7 @@ export const HeroSection = () => {
         <div className="mb-2 md:mb-16 flex flex-row items-center justify-evenly md:justify-center gap-4 ">
           <a
             href={EVENT_CONFIG.links.tickets}
-            className="min-w-[150px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800"
+            className="min-w-[150px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all"
             data-luma-action="checkout"
             data-luma-event-id="evt-cItbLfgBkf8na4n"
           >
@@ -93,7 +93,7 @@ export const HeroSection = () => {
           <Button
             size="lg"
             variant="outline"
-            className="min-w-[150px] border-white/20 text-white hover:bg-white/10  md:block"
+            className="min-w-[150px] border-white/20 text-white hover:bg-white/10 h-11 md:block"
             onClick={openVolunteersLink}
           >
             Get involved

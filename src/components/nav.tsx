@@ -236,7 +236,7 @@ export default function Nav() {
         <div className="hidden md:flex items-center space-x-4">
           <a
             href={EVENT_CONFIG.links.tickets}
-            className="min-w-[150px] h-9 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800"
+            className="min-w-[150px] h-9 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all"
             data-luma-action="checkout"
             data-luma-event-id="evt-cItbLfgBkf8na4n"
           >
