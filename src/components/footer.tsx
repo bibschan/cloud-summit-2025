@@ -128,7 +128,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-          <p className="mb-4">
+          <p className="mb-0">
             Built by{" "}
             {EVENT_CONFIG.team.members.map((member, index) => (
               <React.Fragment key={member.name}>
@@ -148,7 +148,6 @@ export default function Footer() {
             ))}
             .
           </p>
-          <p>Powered by Vercel and v0.</p>
         </div>
       </div>
     </footer>
