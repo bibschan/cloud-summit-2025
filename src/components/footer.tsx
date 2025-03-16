@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-md:place-items-center">
           <div className="flex flex-col items-center md:block">
             <Image
-              src="/logo.svg"
+              src="/Logo.svg"
               alt="Cloud Summit 2025"
               width={200}
               height={50}
