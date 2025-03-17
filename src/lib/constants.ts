@@ -223,7 +223,7 @@ export const COMMUNITIES = [
     name: "VanJS",
     description:
       "A monthly meetup for developers in Vancouver focusing on JavaScript, front-end technology, and the open web.",
-    url: "https://lu.ma/vanjs",
+    url: "https://www.vanjs.com/",
   },
   {
     id: 2,
@@ -251,13 +251,13 @@ export const COMMUNITIES = [
     name: "Vancouver AI Community",
     description:
       "Connect with AI enthusiasts, researchers, and practitioners in Vancouver.",
-    url: "https://lu.ma/p35u91p3",
+    url: "https://www.vancouveraimeetup.com/",
   },
   {
     id: 6,
     name: "Linux User Group",
     description:
       "Vancouver Linux Users Group (VanLUG) - A community for Linux enthusiasts and open-source advocates.",
-    url: "https://www.meetup.com/vanlug-bc/",
+    url: "https://vanlug.ca/",
   },
 ];
