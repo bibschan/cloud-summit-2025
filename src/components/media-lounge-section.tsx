@@ -7,7 +7,7 @@ import { MEDIA_CONFIG } from "@/lib/constants";
 
 export const MediaLounge = () => {
   return (
-    <section className="w-full bg-black pt-8 md:py-20" id="media-lounge">
+    <section className="w-full bg-primary-900 pt-8 md:py-20" id="media-lounge">
       <div className="container px-4 md:px-6 mx-auto">
         {/* Header Section */}
         <div className="flex flex-col items-center justify-center space-y-4 text-center pb-8">
