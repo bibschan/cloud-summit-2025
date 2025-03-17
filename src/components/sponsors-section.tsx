@@ -18,7 +18,7 @@ export const SponsorsSection = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 pb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+        <h2 className="ext-6xl md:text-8xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
           Previous Sponsors
         </h2>
         <div className="relative">

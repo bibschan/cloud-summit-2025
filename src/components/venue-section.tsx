@@ -11,9 +11,9 @@ import { EVENT_CONFIG } from "@/lib/constants";
 
 export const VenueSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-gray-900" id="venue">
+    <section className="py-20 bg-primary-900" id="venue">
       <div className="container mx-auto px-4 xl:max-w-[1100px]">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+        <h2 className="ext-6xl md:text-8xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
           {EVENT_CONFIG.sections.venue.title}
         </h2>
         <div className="flex flex-col md:flex-row items-center justify-center w-full gap-8">
@@ -49,4 +49,4 @@ export const VenueSection = () => {
       </div>
     </section>
   );
-}; 
+};
