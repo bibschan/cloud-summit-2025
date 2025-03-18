@@ -8,14 +8,12 @@ export default function CharitySection() {
   };
 
   return (
-    <section
-      className="py-20 md:px-4 bg-primary-900 w-full"
-      id="venue "
-    >
+    <section className="py-20 md:px-4 bg-primary-900 w-full" id="venue ">
       <article className="container px-4 mx-auto flex flex-col md:flex-row items-start justify-center w-full gap-8 mb-4 h-full  text-center">
-        <div className=" h-full flex flex-col items-center justify-between gap-8 lg:gap-16">
+        <div className="max-w-[900px] h-full flex flex-col items-center justify-between gap-8 lg:gap-16">
           <h2 className="text-6xl md:text-8xl  bg-clip-text text-white">
-          Make a Difference <span className="block text-brink-pink">Together</span>
+            Make a Difference{" "}
+            <span className="block text-brink-pink">Together</span>
           </h2>
           <p className="flex-grow text-2xl font-semibold  text-gray-600 dark:text-gray-300">
             {EVENT_CONFIG.sections.charity.description}

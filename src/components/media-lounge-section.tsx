@@ -13,7 +13,10 @@ export const MediaLounge = () => {
         <div className="flex flex-col items-center justify-center space-y-4 text-center pb-8">
           <div className="space-y-2">
             <h2 className="text-6xl md:text-8xl font-bold tracking-tighter text-white">
-              Explore the <span className="block text-lemon-lime ">{MEDIA_CONFIG.title}</span>
+              Explore the{" "}
+              <span className="block text-lemon-lime ">
+                {MEDIA_CONFIG.title}
+              </span>
             </h2>
           </div>
         </div>
@@ -23,8 +26,9 @@ export const MediaLounge = () => {
           {MEDIA_CONFIG.items.map((item, i) => (
             <div
               key={i}
-              className={`rounded-lg bg-primary-800 border-primary-700 border-2 shadow-md ${i === 1 ? "hidden md:block" : i === 2 ? "hidden lg:block" : ""
-                }`}
+              className={`rounded-lg bg-primary-800 border-primary-700 border-[1px] shadow-md ${
+                i === 1 ? "hidden md:block" : i === 2 ? "hidden lg:block" : ""
+              }`}
             >
               {/* Media Thumbnail */}
               <div className="aspect-video overflow-hidden rounded-lg relative">
@@ -49,7 +53,10 @@ export const MediaLounge = () => {
                 <Link
                   href={item.link}
                   target="_blank"
-                  className="text-xl font-bold text-white font-body">{item.title}</Link>
+                  className="text-xl font-bold text-white font-body"
+                >
+                  {item.title}
+                </Link>
                 <p className="mt-2 text-gray-400 mb-6">{item.description}</p>
               </div>
             </div>
