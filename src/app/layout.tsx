@@ -11,6 +11,9 @@ import { headers } from 'next/headers';
 export const metadata: Metadata = {
   title: "Cloud Summit 2025",
   description: "The premier cloud computing conference",
+  icons : {
+    icon: '/favicon-96x96.png',
+  },
   openGraph: {
     title: "Cloud Summit 2025 – Western Canada's Premier Cloud Event",
     description:

@@ -77,8 +77,9 @@ export const EVENT_CONFIG = {
     charity: {
       title: "Make a Difference Together",
       description:
-        "We're proud to announce that all proceeds from our conference will be donated to Union Gospel Mission! Union Gospel Mission has been feeding hope and changing the lives of men, women, youth, and children for 80 years. Through its seven locations in Metro Vancouver, the Fraser Valley and the Greater Victoria Region, UGM extends a wrap-around continuum of care to people who are struggling with poverty, homelessness, and addiction. Our comprehensive range of life-changing programs and services include: outreach, meals, chaplaincy, drop-ins, emergency shelter, family services, alcohol and drug recovery, second-stage recovery, employment services, and housing.",
-      charities: [
+        "We're proud to announce that all proceeds from our conference will be donated to Union Gospel Mission!",
+      content: "Union Gospel Mission has been feeding hope and changing the lives of men, women, youth, and children for 80 years. Through its seven locations in Metro Vancouver, the Fraser Valley and the Greater Victoria Region, UGM extends a wrap-around continuum of care to people who are struggling with poverty, homelessness, and addiction. Our comprehensive range of life-changing programs and services include: outreach, meals, chaplaincy, drop-ins, emergency shelter, family services, alcohol and drug recovery, second-stage recovery, employment services, and housing.",
+        charities: [
         {
           id: "ugm",
           name: "Union Gospel Mission",
@@ -222,7 +223,7 @@ export const COMMUNITIES = [
     name: "VanJS",
     description:
       "A monthly meetup for developers in Vancouver focusing on JavaScript, front-end technology, and the open web.",
-    url: "https://lu.ma/vanjs",
+    url: "https://www.vanjs.com/",
   },
   {
     id: 2,
@@ -250,13 +251,13 @@ export const COMMUNITIES = [
     name: "Vancouver AI Community",
     description:
       "Connect with AI enthusiasts, researchers, and practitioners in Vancouver.",
-    url: "https://lu.ma/p35u91p3",
+    url: "https://www.vancouveraimeetup.com/",
   },
   {
     id: 6,
     name: "Linux User Group",
     description:
       "Vancouver Linux Users Group (VanLUG) - A community for Linux enthusiasts and open-source advocates.",
-    url: "https://www.meetup.com/vanlug-bc/",
+    url: "https://vanlug.ca/",
   },
 ];
