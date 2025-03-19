@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import { ArrowLeft, Menu, X } from "lucide-react";
 import { isAdmin } from "@/lib/admin";
 import Image from "next/image";
-import styles from './nav.module.css';
+import styles from "./nav.module.css";
 
 export default function Nav() {
   const [isAtTop, setIsAtTop] = useState(true);
@@ -20,14 +20,18 @@ export default function Nav() {
   const isVotePage = pathname === "/vote";
   const isAdminPage = pathname === "/admin";
   const isNominatePage = pathname === "/nominate";
-  const userIsAdmin = session?.user?.email ? isAdmin(session.user.email) : false;
-  const useExternalNominationForm = process.env.NEXT_PUBLIC_USE_EXTERNAL_NOMINATION_FORM === "true";
-  const externalNominationFormUrl = process.env.NEXT_PUBLIC_EXTERNAL_NOMINATION_FORM_URL || "#";
+  const userIsAdmin = session?.user?.email
+    ? isAdmin(session.user.email)
+    : false;
+  const useExternalNominationForm =
+    process.env.NEXT_PUBLIC_USE_EXTERNAL_NOMINATION_FORM === "true";
+  const externalNominationFormUrl =
+    process.env.NEXT_PUBLIC_EXTERNAL_NOMINATION_FORM_URL || "#";
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNav = () => {
     setIsOpen(false);
-  }
+  };
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY === 0) {
@@ -46,11 +50,11 @@ export default function Nav() {
     if (isHomePage && session?.user) {
       const checkVoteStatus = async () => {
         try {
-          const response = await fetch('/api/vote/current');
+          const response = await fetch("/api/vote/current");
           const data = await response.json();
           setHasVoted(!!data.vote);
         } catch (error) {
-          console.error('Failed to check vote status:', error);
+          console.error("Failed to check vote status:", error);
         }
       };
 
@@ -88,32 +92,40 @@ export default function Nav() {
     // Default nav content (homepage)
     return (
       <div className="container w-full px-6 flex justify-between items-center grow mx-auto">
-        <Link href='/' className="hover:text-sky-400 text-primary-50">
+        <Link href="/" className="hover:text-sky-400 text-primary-50">
           <Image
             src="/Logo.svg"
-            alt='Cloud Summit 2025 logo'
+            alt="Cloud Summit 2025 logo"
             width={147}
             height={40}
             className="block"
           />
         </Link>
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className='md:hidden'
-        >
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
           <Menu className="w-6 h-6 hover:text-sky-400 text-primary-50" />
         </button>
         {isOpen && (
           <div className="m-0 fixed top-0 left-0 w-screen h-screen z-50 bg-black/50 md:hidden">
             <div className="h-full bg-primary-800 p-4 w-full flex">
-              <button className='absolute top-0 right-0 p-4' onClick={() => setIsOpen(false)}>
+              <button
+                className="absolute top-0 right-0 p-4"
+                onClick={() => setIsOpen(false)}
+              >
                 <X className="w-6 h-6 hover:text-sky-400 text-primary-50" />
               </button>
-              <div className='grow flex flex-col items-center justify-center gap-10'>
-                <Link href={getHomeLink("highlights")} onClick={handleNav} className="hover:text-sky-400 text-primary-50">
+              <div className="grow flex flex-col items-center justify-center gap-10">
+                <Link
+                  href={getHomeLink("highlights")}
+                  onClick={handleNav}
+                  className="hover:text-sky-400 text-primary-50"
+                >
                   About
                 </Link>
-                <Link href={getHomeLink("venue")} onClick={handleNav} className="hover:text-sky-400 text-primary-50">
+                <Link
+                  href={getHomeLink("venue")}
+                  onClick={handleNav}
+                  className="hover:text-sky-400 text-primary-50"
+                >
                   Schedule
                 </Link>
                 <Link
@@ -153,10 +165,16 @@ export default function Nav() {
           </div>
         )}
         <div className="hidden md:flex space-x-4 sm:space-x-8 text-sm md:text-base ">
-          <Link href={getHomeLink("highlights")} className="hover:text-sky-400 text-primary-50">
+          <Link
+            href={getHomeLink("highlights")}
+            className="hover:text-sky-400 text-primary-50"
+          >
             About
           </Link>
-          <Link href={getHomeLink("venue")} className="hover:text-sky-400 text-primary-50">
+          <Link
+            href={getHomeLink("venue")}
+            className="hover:text-sky-400 text-primary-50"
+          >
             Schedule
           </Link>
           <Link
@@ -178,7 +196,10 @@ export default function Nav() {
           {session ? (
             <>
               <div className="relative">
-                <Link href="/vote" className="hover:text-sky-400 text-primary-50">
+                <Link
+                  href="/vote"
+                  className="hover:text-sky-400 text-primary-50"
+                >
                   Vote
                 </Link>
                 {isHomePage && !hasVoted && (
@@ -191,7 +212,7 @@ export default function Nav() {
                       <div className={styles.floatingBubble}>
                         <div className="bg-sky-500 text-white px-4 py-2 rounded-md shadow-lg text-sm relative">
                           <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[6px] border-b-sky-500"></div>
-                          Cast your vote for your favorite cloud provider!
+                          Cast your vote for your favorite Canadian company!
                         </div>
                       </div>
                     </div>
@@ -217,18 +238,12 @@ export default function Nav() {
                   Admin
                 </Link>
               )}
-              <button
-                onClick={() => signOut()}
-                className="hover:text-sky-400"
-              >
+              <button onClick={() => signOut()} className="hover:text-sky-400">
                 Sign Out
               </button>
             </>
           ) : (
-            <Link
-              href="/auth/signin"
-              className="hover:text-sky-400"
-            >
+            <Link href="/auth/signin" className="hover:text-sky-400">
               Vote
             </Link>
           )}
@@ -249,19 +264,23 @@ export default function Nav() {
             strategy="lazyOnload"
           />
         </div>
-
       </div>
     );
   };
 
   return (
-    <nav className={`
+    <nav
+      className={`
       w-full z-20
-      ${isSignInPage || isVotePage || isAdminPage || isNominatePage
-        ? "absolute py-4"
-        : `fixed top-0 py-5 transition duration-300 ease-in-out ${!isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""}`
+      ${
+        isSignInPage || isVotePage || isAdminPage || isNominatePage
+          ? "absolute py-4"
+          : `fixed top-0 py-5 transition duration-300 ease-in-out ${
+              !isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""
+            }`
       }
-    `}>
+    `}
+    >
       {renderNavContent()}
     </nav>
   );
