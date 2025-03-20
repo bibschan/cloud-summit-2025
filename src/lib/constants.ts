@@ -25,7 +25,7 @@ export const EVENT_CONFIG = {
   },
   sections: {
     highlights: {
-      title: "Previous Event Highlights",
+      title: "Highlights",
       images: [
         {
           id: 1,
@@ -70,7 +70,7 @@ export const EVENT_CONFIG = {
       },
     },
     venue: {
-      title: "Venue Information",
+      title: "Venue",
       description:
         "Experience the Vancouver Cloud Summit like no technology conference you have been to before. Sophistication and elegance meets new age technology and engagement in an amazing venue in the heart of downtown Vancouver. 2 large stages, many intimate workshops and talks as well as a few surprises!",
     },

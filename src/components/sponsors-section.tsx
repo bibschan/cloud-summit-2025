@@ -34,25 +34,12 @@ export const SponsorsSection = () => {
           Thank You to <span className="block">Our <span className="text-brink-pink">Sponsors</span></span>
         </h2>
 
-        <SponsorsGrid sponsors={SPONSORS} />
+        <SponsorsGrid sponsors={SPONSORS as Sponsor[]} />
       </div>
     </section>
   );
 };
 
-function SponsorImage({ name, logo }: SponsorImageProps) {
-  return (
-    <div className="flex h-40 items-center justify-center rounded-lg p-6">
-      <Image
-        src={logo}
-        alt={`${name} logo`}
-        width={180}
-        height={100}
-        className="h-16 w-auto object-contain max-w-[180px] md:w-full md:max-h-14 lg:max-h-16 lg:min-h-14"
-      />
-    </div>
-  );
-}
 
 function BecomeSponsorCard() {
   return (
@@ -87,6 +74,7 @@ const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
     acc[sponsor.status].push(sponsor);
     return acc;
   }, {} as Record<SponsorStatus, Sponsor[]>);
+
   const renderGoldSponsors = () => {
     if (!groupedSponsors.gold || groupedSponsors.gold.length === 0) {
       return null;
@@ -182,38 +170,6 @@ const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
           <div className="flex justify-center w-full">
             <div className="flex flex-col w-full items-end ">
               {renderGoldSponsors()}
-              {/*
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-                {groupedSponsors.gold.map((sponsor, index) => (
-                  <Link
-                    key={index}
-                    href={sponsor.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="col-span-1 flex items-center justify-center bg-primary-800 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                  >
-                    <div className="relative h-16 w-full flex justify-center item-center">
-                      <Image
-                        src={sponsor.logo}
-                        alt={`${sponsor.name} logo`}
-                        width={180}
-                        height={100}
-                        className="object-contain"
-                      />
-                    </div>
-                  </Link>
-
-                ))}
-
-              </div>
-              <Image
-                src='/sponsors/gold.svg'
-                alt='word diamond and arrow pointing to diamond sponsors of the 2025 cloud summit'
-                width={150}
-                height={100}
-                className="grow-1"
-              />
-             */}
               <Image
                 src='/sponsors/gold.svg'
                 alt='word diamond and arrow pointing to diamond sponsors of the 2025 cloud summit'
