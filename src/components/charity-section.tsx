@@ -1,6 +1,7 @@
 "use client";
 import { EVENT_CONFIG } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function CharitySection() {
   const openCharityLink = () => {
@@ -15,6 +16,13 @@ export default function CharitySection() {
             Make a Difference{" "}
             <span className="block text-brink-pink">Together</span>
           </h2>
+          <Image
+            src='/charity/ugm.svg'
+            alt='five circles showcasing Union Gospel Mission(UGM). First circle is the UGM van. Second circle UGM volunteer passing out food. Third circle UGM logo. Fourth circle man handing out coffee. Fifth circle man and daughter sitting on steps smilling. '
+            width={380}
+            height={100}
+            className="w-full"
+          />
           <p className="flex-grow text-2xl font-semibold  text-gray-600 dark:text-gray-300">
             {EVENT_CONFIG.sections.charity.description}
           </p>
@@ -24,7 +32,7 @@ export default function CharitySection() {
           <Button
             onClick={openCharityLink}
             variant="outline"
-            className="w-[300px] bg-secondary-600 hover:text-black "
+            className="w-[300px] hover:bg-secondary-600 hover:text-black "
           >
             Learn More about {EVENT_CONFIG.sections.charity.charities[0].name}
           </Button>
