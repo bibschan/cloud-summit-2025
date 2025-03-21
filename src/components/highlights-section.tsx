@@ -10,9 +10,9 @@ import {
 
 export const HighlightsSection = () => {
   return (
-    <section className="py-20 bg-gray-900" id="highlights">
+    <section className="py-20 bg-primary-900" id="highlights">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
+        <h2 className="ext-6xl md:text-8xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
           {EVENT_CONFIG.sections.highlights.title}
         </h2>
 
@@ -55,4 +55,4 @@ export const HighlightsSection = () => {
       </div>
     </section>
   );
-}; 
+};

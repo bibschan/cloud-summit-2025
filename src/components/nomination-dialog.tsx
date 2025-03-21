@@ -22,7 +22,7 @@ export function NominationDialog({ open, onOpenChange }: NominationDialogProps) 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (useExternalNominationForm) {
       window.open(externalNominationFormUrl, '_blank');
       onOpenChange(false);
@@ -69,15 +69,15 @@ export function NominationDialog({ open, onOpenChange }: NominationDialogProps) 
         <form onSubmit={handleSubmit} className="px-6 py-4 space-y-6">
           {useExternalNominationForm ? (
             <div className="flex justify-end gap-3 pt-4">
-              <Button 
-                type="button" 
-                variant="ghost" 
+              <Button
+                type="button"
+                variant="ghost"
                 onClick={() => onOpenChange(false)}
                 className="text-white hover:bg-white/10 hover:text-white"
               >
                 Cancel
               </Button>
-              <Button 
+              <Button
                 type="submit"
                 className="bg-blue-500 hover:bg-blue-600 text-white"
               >
@@ -127,15 +127,15 @@ export function NominationDialog({ open, onOpenChange }: NominationDialogProps) 
               </div>
 
               <div className="flex justify-end gap-3 pt-4 border-t border-white/10">
-                <Button 
-                  type="button" 
-                  variant="ghost" 
+                <Button
+                  type="button"
+                  variant="ghost"
                   onClick={() => onOpenChange(false)}
                   className="text-white hover:bg-white/10 hover:text-white"
                 >
                   Cancel
                 </Button>
-                <Button 
+                <Button
                   type="submit"
                   className="bg-blue-500 hover:bg-blue-600 text-white"
                   disabled={isSubmitting}
@@ -149,4 +149,4 @@ export function NominationDialog({ open, onOpenChange }: NominationDialogProps) 
       </DialogContent>
     </Dialog>
   );
-} 
+}
