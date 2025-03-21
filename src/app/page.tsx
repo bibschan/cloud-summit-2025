@@ -14,18 +14,22 @@ import BannerSection from "@/components/banner";
 export default function Home() {
   return (
     <div className="min-h-screen text-white bg-[#1b221d]">
+      {/* TODO: Add Site-wide messaging section */}
       <Nav />
       <main >
         <HeroSection />
+        {/* add Cloud summit banner  */}
         <HighlightsSection />
-        <SponsorsSection />
-        <MediaLounge />
+        <SponsorsSection />  {/**Renamed this section to Providers in previous PR */}
+        {/* Need to add Actvities Section */}
         {/* <CommunitySection /> */}
-        <VenueSection />
+        {/* <VenueSection /> */}
+        {/* TODO: add nominate section */}
+        <CharitySection />
         <CommunitiesList />
         <BannerSection  />
-        <CharitySection />
         <FAQSection />
+        {/* TODO: Add sponsors */}
       </main>
       <Footer />
     </div>
