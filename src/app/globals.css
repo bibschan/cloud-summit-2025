@@ -70,4 +70,8 @@ html.vote-page body {
   .font-heading {
     font-family: var(--font-heading);
   }
+
+  .font-highlight{
+    font-family: var(--font-sofia-sans);;
+  }
 }
