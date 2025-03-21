@@ -12,6 +12,7 @@ export const EVENT_CONFIG = {
   },
   description:
     "Join cloud developers, architects, IT & infrastructure professionals and executives building the cloud ecosystem.",
+  about: 'As a non-profit organization, our purpose is to bring together & educate the local tech community about the cloud​ and support our local community through charity.',
   links: {
     tickets: "https://lu.ma/event/evt-cItbLfgBkf8na4n",
     speakers: "https://forms.gle/6qjgftM5Uf4ZSNNP7",
@@ -79,7 +80,7 @@ export const EVENT_CONFIG = {
       description:
         "We're proud to announce that all proceeds from our conference will be donated to Union Gospel Mission!",
       content: "Union Gospel Mission has been feeding hope and changing the lives of men, women, youth, and children for 80 years. Through its seven locations in Metro Vancouver, the Fraser Valley and the Greater Victoria Region, UGM extends a wrap-around continuum of care to people who are struggling with poverty, homelessness, and addiction. Our comprehensive range of life-changing programs and services include: outreach, meals, chaplaincy, drop-ins, emergency shelter, family services, alcohol and drug recovery, second-stage recovery, employment services, and housing.",
-        charities: [
+      charities: [
         {
           id: "ugm",
           name: "Union Gospel Mission",
