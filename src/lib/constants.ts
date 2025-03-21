@@ -124,7 +124,7 @@ export const EVENT_CONFIG = {
         {
           question: "Is the event accessible?",
           answer:
-            "Yes, there is both accessible ramps, elevators, and main stage seating.",
+            "Yes, there is both accessible ramps, elevators, and main stage seating. For more details check out the Vancouver Orpheum Theatre site for details https://vancouvercivictheatres.com/accessibility/#accessibility.",
         },
         {
           question: "Will I be able to watch the event online?",
