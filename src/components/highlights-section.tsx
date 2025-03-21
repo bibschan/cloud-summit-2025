@@ -66,7 +66,7 @@ export const HighlightsSection = () => {
             alt='Cloud Summit 2025 Logo with text under reading Cloud Summit'
             width={200}
             height={118}
-            className="w-full h-full rounded-2xl"
+            className="w-full h-full rounded-2xl object-cover"
           />
         </div>
         <div className="rounded-2xl bg-pink-500 p-4 col-span-2 row-span-1 flex flex-col justify-center text-center">
