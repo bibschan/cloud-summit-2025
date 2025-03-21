@@ -1,7 +1,7 @@
 export const EVENT_CONFIG = {
   title: "Cloud Summit",
-  date: "May 27, 2025",
-  venue: "Orpheum Theatre",
+  date: "May 27, 2025 at 12PM",
+  venue: "Orpheum",
   location: {
     city: "Vancouver",
     province: "BC",
@@ -11,7 +11,7 @@ export const EVENT_CONFIG = {
       "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10411.22242662249!2d-123.1204164!3d49.2800806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486717fcd9b875d%3A0x6f19bb45bb73289c!2sOrpheum!5e0!3m2!1sen!2sca!4v1729318806028!5m2!1sen!2sca",
   },
   description:
-    "Join cloud developers, architects, IT & infrastructure professionals and executives building the cloud ecosystem.",
+    "Join cloud developers, architects, IT & infrastructure professionals build the cloud ecosystem.",
   links: {
     tickets: "https://lu.ma/event/evt-cItbLfgBkf8na4n",
     speakers: "https://forms.gle/6qjgftM5Uf4ZSNNP7",
