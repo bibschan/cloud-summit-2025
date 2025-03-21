@@ -4,7 +4,7 @@ import { EVENT_CONFIG } from "@/lib/constants";
 import StatBanner from "../stat-banner";
 import { BackgroundVideo } from "./background-video";
 import { HeroTitle } from "./hero-title";
-import { EventDates } from "./event-dates";
+import { EventDates } from "./event-count-down";
 import { CTAButtons } from "./cta-buttons";
 import { CloudProvidersGrid } from "./cloud-providers-grid";
 
@@ -30,4 +30,4 @@ export const HeroSection = () => {
       <CloudProvidersGrid />
     </div>
   );
-}; 
+};
