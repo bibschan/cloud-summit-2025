@@ -45,7 +45,7 @@ function ActivitiesSection() {
                         loop
                         muted
                         controls
-                        className="object-cover h-full w-full px-6 pb-4"
+                        className="object-cover h-full w-full px-6 md:px-16 pb-4"
                     />
                     <p className="text-sm">Video trailer</p>
                 </div>
