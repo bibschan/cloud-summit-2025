@@ -54,6 +54,40 @@ export const EVENT_CONFIG = {
         },
       ],
     },
+    eventFeatures: {
+      activities: [
+        {
+          icon: "/activities/networking.svg", // You can replace this with an actual icon component or path
+          title: "Networking",
+          details: "Expand your connections with cloud professionals."
+        },
+        {
+          icon: "/activities/presentations.svg",
+          title: "Presentations",
+          details: "Get industry insights from cloud experts."
+        },
+        {
+          icon: "/activities/workshops.svg",
+          title: "Workshops",
+          details: "Watch product demos for tips & tricks."
+        },
+        {
+          icon: "/activities/tech_companies.svg",
+          title: "Tech Companies",
+          details: "Find cloud solutions for your business needs."
+        },
+        {
+          icon: "/activities/communities.svg",
+          title: "Communities",
+          details: "Explore & connect with local tech communities."
+        },
+        {
+          icon: "/activities/music.svg",
+          title: "Live Music & AI DJ",
+          details: "Enjoy the ambience with live music."
+        }
+      ]
+    },
     community: {
       title: "Join Our Community",
       speakers: {
@@ -79,7 +113,7 @@ export const EVENT_CONFIG = {
       description:
         "We're proud to announce that all proceeds from our conference will be donated to Union Gospel Mission!",
       content: "Union Gospel Mission has been feeding hope and changing the lives of men, women, youth, and children for 80 years. Through its seven locations in Metro Vancouver, the Fraser Valley and the Greater Victoria Region, UGM extends a wrap-around continuum of care to people who are struggling with poverty, homelessness, and addiction. Our comprehensive range of life-changing programs and services include: outreach, meals, chaplaincy, drop-ins, emergency shelter, family services, alcohol and drug recovery, second-stage recovery, employment services, and housing.",
-        charities: [
+      charities: [
         {
           id: "ugm",
           name: "Union Gospel Mission",

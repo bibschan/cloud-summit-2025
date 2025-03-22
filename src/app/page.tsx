@@ -11,6 +11,7 @@ import Footer from "@/components/footer";
 import CharitySection from "@/components/charity-section";
 import { CommunitiesList } from "@/components/communities";
 import BannerSection from "@/components/banner";
+import ActivitiesSection from "@/components/activities-section";
 export default function Home() {
   return (
     <div className="min-h-screen text-white bg-[#1b221d]">
@@ -19,6 +20,7 @@ export default function Home() {
         <HeroSection />
         <HighlightsSection />
         <SponsorsSection />
+        <ActivitiesSection />
         <MediaLounge />
         {/* <CommunitySection /> */}
         <VenueSection />
