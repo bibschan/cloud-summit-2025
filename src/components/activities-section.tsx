@@ -45,12 +45,12 @@ function ActivitiesSection() {
                         loop
                         muted
                         controls
-                        className="object-cover h-full w-full px-6 md:px-16 pb-4"
+                        className="object-cover h-full w-full px-6 md:px-16 md:w-4/5 aspect-video pb-4"
                     />
                     <p className="text-sm">Video trailer</p>
                 </div>
 
-                <div className='grid grid-cols-2 md:grid-cols-3 gap-8'>
+                <div className='grid grid-cols-2 md:grid-cols-3 gap-8 md:px-16'>
                     {EVENT_CONFIG.sections.eventFeatures.activities.map((feature, index) => (
                         <div key={index} className="text-center flex flex-col items-center gap-2">
                             <Image
