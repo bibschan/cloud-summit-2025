@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Squada_One, Noto_Sans } from "next/font/google";
+import { Squada_One, Noto_Sans, Sofia_Sans_Extra_Condensed, } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { GoogleTagManager } from "@next/third-parties/google";
@@ -32,6 +32,11 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+const sofiaSans = Sofia_Sans_Extra_Condensed({
+  subsets: ["latin"],
+  weight: ["400",'600', "700"],
+  variable: "--font-sofia-sans",
+});
 
 const fontHeading = Squada_One({
   weight: '400',
@@ -64,7 +69,8 @@ export default function RootLayout({
         className={cn(
           "antialiased",
           fontHeading.variable,
-          fontBody.variable
+          fontBody.variable,
+          sofiaSans.variable
         )}
       >
         <Providers>

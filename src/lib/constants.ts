@@ -1,7 +1,7 @@
 export const EVENT_CONFIG = {
   title: "Cloud Summit",
-  date: "May 27, 2025",
-  venue: "Orpheum Theatre",
+  date: "May 27, 2025 at 12PM",
+  venue: "Orpheum",
   location: {
     city: "Vancouver",
     province: "BC",
@@ -12,6 +12,8 @@ export const EVENT_CONFIG = {
   },
   description:
     "Join cloud developers, architects, IT & infrastructure professionals and executives building the cloud ecosystem.",
+  about:
+    "As a non-profit organization, our purpose is to bring together & educate the local tech community about the cloud​ and support our local community through charity.",
   links: {
     tickets: "https://lu.ma/event/evt-cItbLfgBkf8na4n",
     speakers: "https://forms.gle/6qjgftM5Uf4ZSNNP7",
@@ -25,7 +27,7 @@ export const EVENT_CONFIG = {
   },
   sections: {
     highlights: {
-      title: "Previous Event Highlights",
+      title: "Highlights",
       images: [
         {
           id: 1,
@@ -59,34 +61,34 @@ export const EVENT_CONFIG = {
         {
           icon: "/activities/networking.svg", // You can replace this with an actual icon component or path
           title: "Networking",
-          details: "Expand your connections with cloud professionals."
+          details: "Expand your connections with cloud professionals.",
         },
         {
           icon: "/activities/presentations.svg",
           title: "Presentations",
-          details: "Get industry insights from cloud experts."
+          details: "Get industry insights from cloud experts.",
         },
         {
           icon: "/activities/workshops.svg",
           title: "Workshops",
-          details: "Watch product demos for tips & tricks."
+          details: "Watch product demos for tips & tricks.",
         },
         {
           icon: "/activities/tech_companies.svg",
           title: "Tech Companies",
-          details: "Find cloud solutions for your business needs."
+          details: "Find cloud solutions for your business needs.",
         },
         {
           icon: "/activities/communities.svg",
           title: "Communities",
-          details: "Explore & connect with local tech communities."
+          details: "Explore & connect with local tech communities.",
         },
         {
           icon: "/activities/music.svg",
           title: "Live Music & AI DJ",
-          details: "Enjoy the ambience with live music."
-        }
-      ]
+          details: "Enjoy the ambience with live music.",
+        },
+      ],
     },
     community: {
       title: "Join Our Community",
@@ -104,7 +106,7 @@ export const EVENT_CONFIG = {
       },
     },
     venue: {
-      title: "Venue Information",
+      title: "Venue",
       description:
         "Experience the Vancouver Cloud Summit like no technology conference you have been to before. Sophistication and elegance meets new age technology and engagement in an amazing venue in the heart of downtown Vancouver. 2 large stages, many intimate workshops and talks as well as a few surprises!",
     },
@@ -112,7 +114,8 @@ export const EVENT_CONFIG = {
       title: "Make a Difference Together",
       description:
         "We're proud to announce that all proceeds from our conference will be donated to Union Gospel Mission!",
-      content: "Union Gospel Mission has been feeding hope and changing the lives of men, women, youth, and children for 80 years. Through its seven locations in Metro Vancouver, the Fraser Valley and the Greater Victoria Region, UGM extends a wrap-around continuum of care to people who are struggling with poverty, homelessness, and addiction. Our comprehensive range of life-changing programs and services include: outreach, meals, chaplaincy, drop-ins, emergency shelter, family services, alcohol and drug recovery, second-stage recovery, employment services, and housing.",
+      content:
+        "Union Gospel Mission has been feeding hope and changing the lives of men, women, youth, and children for 80 years. Through its seven locations in Metro Vancouver, the Fraser Valley and the Greater Victoria Region, UGM extends a wrap-around continuum of care to people who are struggling with poverty, homelessness, and addiction. Our comprehensive range of life-changing programs and services include: outreach, meals, chaplaincy, drop-ins, emergency shelter, family services, alcohol and drug recovery, second-stage recovery, employment services, and housing.",
       charities: [
         {
           id: "ugm",
@@ -158,7 +161,7 @@ export const EVENT_CONFIG = {
         {
           question: "Is the event accessible?",
           answer:
-            "Yes, there is both accessible ramps, elevators, and main stage seating.",
+            "Yes, there is both accessible ramps, elevators, and main stage seating. For more details check out the Vancouver Orpheum Theatre site for details https://vancouvercivictheatres.com/accessibility/#accessibility.",
         },
         {
           question: "Will I be able to watch the event online?",
@@ -186,34 +189,69 @@ export const EVENT_CONFIG = {
   },
 };
 
+export const CLOUDPLATFORMS = [
+  {
+    name: "AWS",
+    logo: "/providers/aws.svg",
+  },
+  {
+    name: "Azure",
+    logo: "/providers/azure.svg",
+  },
+  {
+    name: "Google Cloud Platform",
+    logo: "/providers/googlecloud.svg",
+  },
+  {
+    name: "IBM Cloud",
+    logo: "/providers/ibm.svg",
+  },
+  {
+    name: "Oracle Cloud Infrastructure",
+    logo: "/providers/oracle.svg",
+  },
+  {
+    name: "Alibaba Cloud",
+    logo: "/providers/alibaba.svg",
+  },
+];
+
 export const SPONSORS = [
   {
     name: "Couchbase",
-    logo: "/sponsors/couchbase.svg",
+    status: "diamond",
+    logo: "/sponsors/couchbase-white.svg",
+    link: "https://www.couchbase.com/",
   },
   {
-    name: "SUSE",
-    logo: "/sponsors/suse.svg",
+    name: "Datadog",
+    status: "diamond",
+    logo: "/sponsors/datadog.svg",
+    link: "https://www.datadoghq.com/",
   },
   {
-    name: "Sophos",
-    logo: "/sponsors/sophos.svg",
+    name: "Ronin",
+    status: "diamond",
+    logo: "/sponsors/ronin.svg",
+    link: "https://ronin.cloud/",
   },
   {
-    name: "Veeam",
-    logo: "/sponsors/veeam.svg",
+    name: "Fortinet",
+    status: "diamond",
+    logo: "/sponsors/fortinet.svg",
+    link: "https://www.fortinet.com/",
   },
   {
-    name: "Microsoft",
-    logo: "/sponsors/microsoft.svg",
+    name: "Greydata",
+    status: "gold",
+    logo: "/sponsors/greydata.svg",
+    link: "https://greydata.ca/",
   },
   {
-    name: "Google",
-    logo: "/sponsors/google.svg",
-  },
-  {
-    name: "AWS",
-    logo: "/sponsors/aws.svg",
+    name: "Elastic",
+    status: "gold",
+    logo: "/sponsors/elastic.svg",
+    link: "https://www.elastic.co/",
   },
 ];
 
