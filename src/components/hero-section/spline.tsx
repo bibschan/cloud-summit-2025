@@ -23,10 +23,8 @@ export default function Home() {
       const canvas = containerRef.current?.querySelector("canvas");
       if (canvas) {
         // Make the canvas behave like a background
-        canvas.style.position = "relativa";
+        canvas.style.position = "relative";
         canvas.style.zIndex = "-1";
-        // canvas.style.width = "100%";
-        // canvas.style.height = "100%";
         canvas.style.top = "0";
         canvas.style.left = "0";
       }
