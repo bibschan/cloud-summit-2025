@@ -25,7 +25,7 @@ export const EVENT_CONFIG = {
   },
   sections: {
     highlights: {
-      title: "Previous Event Highlights",
+      title: "Highlights",
       images: [
         {
           id: 1,
@@ -70,7 +70,7 @@ export const EVENT_CONFIG = {
       },
     },
     venue: {
-      title: "Venue Information",
+      title: "Venue",
       description:
         "Experience the Vancouver Cloud Summit like no technology conference you have been to before. Sophistication and elegance meets new age technology and engagement in an amazing venue in the heart of downtown Vancouver. 2 large stages, many intimate workshops and talks as well as a few surprises!",
     },
@@ -124,7 +124,7 @@ export const EVENT_CONFIG = {
         {
           question: "Is the event accessible?",
           answer:
-            "Yes, there is both accessible ramps, elevators, and main stage seating.",
+            "Yes, there is both accessible ramps, elevators, and main stage seating. For more details check out the Vancouver Orpheum Theatre site for details https://vancouvercivictheatres.com/accessibility/#accessibility.",
         },
         {
           question: "Will I be able to watch the event online?",
@@ -152,34 +152,69 @@ export const EVENT_CONFIG = {
   },
 };
 
+export const CLOUDPLATFORMS = [
+  {
+    name: "AWS",
+    logo: "/providers/aws.svg",
+  },
+  {
+    name: "Azure",
+    logo: "/providers/azure.svg",
+  },
+  {
+    name: "Google Cloud Platform",
+    logo: "/providers/googlecloud.svg",
+  },
+  {
+    name: "IBM Cloud",
+    logo: "/providers/ibm.svg",
+  },
+  {
+    name: "Oracle Cloud Infrastructure",
+    logo: "/providers/oracle.svg",
+  },
+  {
+    name: "Alibaba Cloud",
+    logo: "/providers/alibaba.svg",
+  },
+];
+
 export const SPONSORS = [
   {
     name: "Couchbase",
-    logo: "/sponsors/couchbase.svg",
+    status: 'diamond',
+    logo: "/sponsors/couchbase-white.svg",
+    link: 'https://www.couchbase.com/',
   },
   {
-    name: "SUSE",
-    logo: "/sponsors/suse.svg",
+    name: "Datadog",
+    status: 'diamond',
+    logo: "/sponsors/datadog.svg",
+    link: 'https://www.datadoghq.com/',
   },
   {
-    name: "Sophos",
-    logo: "/sponsors/sophos.svg",
+    name: "Ronin",
+    status: 'diamond',
+    logo: "/sponsors/ronin.svg",
+    link: 'https://ronin.cloud/',
   },
   {
-    name: "Veeam",
-    logo: "/sponsors/veeam.svg",
+    name: "Fortinet",
+    status: 'diamond',
+    logo: "/sponsors/fortinet.svg",
+    link: 'https://www.fortinet.com/',
   },
   {
-    name: "Microsoft",
-    logo: "/sponsors/microsoft.svg",
+    name: "Greydata",
+    status: 'gold',
+    logo: "/sponsors/greydata.svg",
+    link: 'https://greydata.ca/',
   },
   {
-    name: "Google",
-    logo: "/sponsors/google.svg",
-  },
-  {
-    name: "AWS",
-    logo: "/sponsors/aws.svg",
+    name: "Elastic",
+    status: 'gold',
+    logo: "/sponsors/elastic.svg",
+    link: 'https://www.elastic.co/',
   },
 ];
 
