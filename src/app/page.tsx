@@ -11,6 +11,7 @@ import Footer from "@/components/footer";
 import CharitySection from "@/components/charity-section";
 import { CommunitiesList } from "@/components/communities";
 import BannerSection from "@/components/banner";
+import ActivitiesSection from "@/components/activities-section";
 import CloudInfoBanner from "@/components/cloud-info-banner-section";
 import { ProvidersSection } from "@/components/providers-section";
 
@@ -24,6 +25,7 @@ export default function Home() {
         <HighlightsSection />
         <SponsorsSection />
         <ProvidersSection />
+        <ActivitiesSection />
         <MediaLounge />
         {/* <CommunitySection /> */}
         <VenueSection />
