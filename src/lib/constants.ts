@@ -11,7 +11,9 @@ export const EVENT_CONFIG = {
       "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10411.22242662249!2d-123.1204164!3d49.2800806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5486717fcd9b875d%3A0x6f19bb45bb73289c!2sOrpheum!5e0!3m2!1sen!2sca!4v1729318806028!5m2!1sen!2sca",
   },
   description:
-    "Join cloud developers, architects, IT & infrastructure professionals build the cloud ecosystem.",
+    "Join cloud developers, architects, IT & infrastructure professionals and executives building the cloud ecosystem.",
+  about:
+    "As a non-profit organization, our purpose is to bring together & educate the local tech community about the cloud​ and support our local community through charity.",
   links: {
     tickets: "https://lu.ma/event/evt-cItbLfgBkf8na4n",
     speakers: "https://forms.gle/6qjgftM5Uf4ZSNNP7",
@@ -78,8 +80,9 @@ export const EVENT_CONFIG = {
       title: "Make a Difference Together",
       description:
         "We're proud to announce that all proceeds from our conference will be donated to Union Gospel Mission!",
-      content: "Union Gospel Mission has been feeding hope and changing the lives of men, women, youth, and children for 80 years. Through its seven locations in Metro Vancouver, the Fraser Valley and the Greater Victoria Region, UGM extends a wrap-around continuum of care to people who are struggling with poverty, homelessness, and addiction. Our comprehensive range of life-changing programs and services include: outreach, meals, chaplaincy, drop-ins, emergency shelter, family services, alcohol and drug recovery, second-stage recovery, employment services, and housing.",
-        charities: [
+      content:
+        "Union Gospel Mission has been feeding hope and changing the lives of men, women, youth, and children for 80 years. Through its seven locations in Metro Vancouver, the Fraser Valley and the Greater Victoria Region, UGM extends a wrap-around continuum of care to people who are struggling with poverty, homelessness, and addiction. Our comprehensive range of life-changing programs and services include: outreach, meals, chaplaincy, drop-ins, emergency shelter, family services, alcohol and drug recovery, second-stage recovery, employment services, and housing.",
+      charities: [
         {
           id: "ugm",
           name: "Union Gospel Mission",
@@ -182,39 +185,39 @@ export const CLOUDPLATFORMS = [
 export const SPONSORS = [
   {
     name: "Couchbase",
-    status: 'diamond',
+    status: "diamond",
     logo: "/sponsors/couchbase-white.svg",
-    link: 'https://www.couchbase.com/',
+    link: "https://www.couchbase.com/",
   },
   {
     name: "Datadog",
-    status: 'diamond',
+    status: "diamond",
     logo: "/sponsors/datadog.svg",
-    link: 'https://www.datadoghq.com/',
+    link: "https://www.datadoghq.com/",
   },
   {
     name: "Ronin",
-    status: 'diamond',
+    status: "diamond",
     logo: "/sponsors/ronin.svg",
-    link: 'https://ronin.cloud/',
+    link: "https://ronin.cloud/",
   },
   {
     name: "Fortinet",
-    status: 'diamond',
+    status: "diamond",
     logo: "/sponsors/fortinet.svg",
-    link: 'https://www.fortinet.com/',
+    link: "https://www.fortinet.com/",
   },
   {
     name: "Greydata",
-    status: 'gold',
+    status: "gold",
     logo: "/sponsors/greydata.svg",
-    link: 'https://greydata.ca/',
+    link: "https://greydata.ca/",
   },
   {
     name: "Elastic",
-    status: 'gold',
+    status: "gold",
     logo: "/sponsors/elastic.svg",
-    link: 'https://www.elastic.co/',
+    link: "https://www.elastic.co/",
   },
 ];
 
