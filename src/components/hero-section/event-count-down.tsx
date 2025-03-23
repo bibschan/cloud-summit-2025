@@ -1,10 +1,14 @@
 "use client";
-import Countdown from 'react-countdown';
+
+import Countdown from "react-countdown";
 
 export const EventCountDown = () => {
-
-  const CompletionMessage = () => (<h3 className="bg-primary-800 rounded-md flex text-4xl md:text-6xl">The Summit Has Begun! Join us in the clouds! ☁️</h3>);
-  const targetDate = new Date('2025-05-27T12:00:00');
+  const CompletionMessage = () => (
+    <h3 className="bg-primary-800 rounded-md flex text-4xl md:text-6xl">
+      The Summit Has Begun! Join us in the clouds! ☁️
+    </h3>
+  );
+  const targetDate = new Date("2025-05-27T12:00:00");
   return (
     <div className="mb-8 flex flex-col items-center justify-start -mt-1">
       <Countdown
@@ -39,9 +43,8 @@ export const EventCountDown = () => {
                 </h3>
                 <p className="text-primary-400 text-sm md:text-md">Seconds</p>
               </div>
-
             </article>
-          )
+          );
         }}
       />
     </div>

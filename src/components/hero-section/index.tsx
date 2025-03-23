@@ -4,7 +4,7 @@ import { EVENT_CONFIG } from "@/lib/constants";
 import StatBanner from "../stat-banner";
 import { BackgroundVideo } from "./background-video";
 import { HeroTitle } from "./hero-title";
-import { EventDates } from "./event-count-down";
+// import { EventDates } from "./event-count-down";
 import { CTAButtons } from "./cta-buttons";
 import { CloudProvidersGrid } from "./cloud-providers-grid";
 
@@ -15,7 +15,7 @@ export const HeroSection = () => {
 
       <div className="relative mx-auto flex flex-row flex-wrap justify-center gap-6">
         <HeroTitle />
-        <EventDates />
+        {/* <EventDates /> */}
       </div>
 
       <div className="relative mx-auto flex flex-col flex-wrap justify-center gap-6">
