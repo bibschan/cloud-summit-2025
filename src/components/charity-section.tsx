@@ -17,15 +17,17 @@ export default function CharitySection() {
             <span className="block text-brink-pink">Together</span>
           </h2>
           <Image
-            src='/charity/ugm.svg'
-            alt='five circles showcasing Union Gospel Mission(UGM). First circle is the UGM van. Second circle UGM volunteer passing out food. Third circle UGM logo. Fourth circle man handing out coffee. Fifth circle man and daughter sitting on steps smilling. '
+            src="/charity/ugm.svg"
+            alt="five circles showcasing Union Gospel Mission(UGM). First circle is the UGM van. Second circle UGM volunteer passing out food. Third circle UGM logo. Fourth circle man handing out coffee. Fifth circle man and daughter sitting on steps smilling. "
             width={380}
             height={100}
             className="w-full"
           />
           <p className="flex-grow text-xl md:text-2xl font-semibold  text-gray-600 dark:text-gray-300">
-            We're proud to announce that
-            <span className="font-heading text-brink-pink block text-2xl md:text-4xl uppercase">All profits from CLOUD SUMMIT will be donated</span>
+            We&apos;re proud to announce that
+            <span className="font-heading text-brink-pink block text-2xl md:text-4xl uppercase">
+              All profits from CLOUD SUMMIT will be donated
+            </span>
             to Union Gospel Mission.
           </p>
           <p className="flex-grow text-md text-gray-600 dark:text-gray-300">
