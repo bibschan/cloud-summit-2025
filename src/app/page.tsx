@@ -13,9 +13,9 @@ import { CommunitiesList } from "@/components/communities";
 import BannerSection from "@/components/banner";
 export default function Home() {
   return (
-    <div className="min-h-screen text-white bg-[#1b221d]">
+    <div className="min-h-screen text-white ">
       <Nav />
-      <main >
+      <main>
         <HeroSection />
         <HighlightsSection />
         <SponsorsSection />
@@ -23,7 +23,7 @@ export default function Home() {
         {/* <CommunitySection /> */}
         <VenueSection />
         <CommunitiesList />
-        <BannerSection  />
+        <BannerSection />
         <CharitySection />
         <FAQSection />
       </main>
