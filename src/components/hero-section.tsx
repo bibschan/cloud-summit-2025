@@ -10,17 +10,16 @@ import Link from "next/link";
 
 export const HeroSection = () => {
   const today = new Date();
-  const earlyBirdDeadline = new Date('2025-05-14T00:00:00');
-  const ticketMessage = today < earlyBirdDeadline
-    ? "Get Early-Bird Tickets!"
-    : "Get your tickets!";
+  const earlyBirdDeadline = new Date("2025-05-14T00:00:00");
+  const ticketMessage =
+    today < earlyBirdDeadline ? "Get Early-Bird Tickets!" : "Get your tickets!";
 
   const openVolunteersLink = () => {
     window.open(EVENT_CONFIG.links.volunteers, "_blank");
   };
 
   return (
-    <section className=" min-h-[900px] w-full my-8 ">
+    <section className="min-h-[500px] md:min-h-[900px] w-full">
       {/* <Spline
         scene="https://prod.spline.design/XcVcNyVdPNzGkCee/scene.splinecode"
         className="z-10"
@@ -36,13 +35,13 @@ export const HeroSection = () => {
           className="w-[90%] mt-10 md:mt-20 h-auto xl:w-[70%] 2xl:w-[60%] 3xl:w-[50%] mx-auto mb-6"
         />
         <div className="md:mb-4">
-          <p className="mx-auto max-w-3xl text-center text-xl text-gray-300 md:text-3xl font-semibold uppercase">
+          <p className="mx-auto max-w-3xl text-center text-xl text-white md:text-3xl font-semibold uppercase">
             save the date
           </p>
-          <h3 className="mx-auto max-w-3xl text-center text-4xl md:text-7xl text-gray-300 font-bold uppercase">
+          <h3 className="mx-auto max-w-3xl text-center text-4xl md:text-7xl  text-white font-bold uppercase">
             {EVENT_CONFIG.date}
           </h3>
-          <p className="mx-auto max-w-3xl text-center text-xl text-gray-300 md:text-3xl font-semibold uppercase">
+          <p className="mx-auto max-w-3xl text-center text-xl  text-white md:text-3xl font-semibold uppercase">
             at the {EVENT_CONFIG.location.city} {EVENT_CONFIG.venue}
           </p>
         </div>
@@ -50,9 +49,8 @@ export const HeroSection = () => {
         <EventCountDown />
 
         <div className="relative mx-auto flex flex-col flex-wrap justify-center gap-4 md:gap-10 z-10">
-
           {/* Description */}
-          <p className="mx-auto max-w-3xl text-center text-sm md:text-xl text-gray-300 ">
+          <p className="mx-auto max-w-3xl text-center text-sm md:text-xl  text-white ">
             {EVENT_CONFIG.description}
           </p>
 
@@ -83,14 +81,13 @@ export const HeroSection = () => {
             </Button>
           </div>
           <Link
-            href='/justification-letter'
-            className="mx-auto underline hover:font-bold transition-all text-sm md:text-xl ">
+            href="/justification-letter"
+            className="mx-auto underline hover:font-bold transition-all text-sm md:text-xl "
+          >
             Need help convincing? Use our justification letter!
           </Link>
         </div>
       </div>
-
-
     </section>
   );
 };
