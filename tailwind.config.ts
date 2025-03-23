@@ -51,7 +51,7 @@ const config: Config = {
           800: "#376B99",
           900: "#244766",
         },
-        lilac: "#E694FF",
+        "lilac": "#E694FF",
         "lemon-lime": "#A8FB5A",
         "brink-pink": "#FF5C7F",
         "pale-gold": "#FDDE6C",
