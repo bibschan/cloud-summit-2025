@@ -12,22 +12,29 @@ import CharitySection from "@/components/charity-section";
 import { CommunitiesList } from "@/components/communities";
 import BannerSection from "@/components/banner";
 import { NominateSection } from "@/components/nominate-section";
+import ActivitiesSection from "@/components/activities-section";
+import CloudInfoBanner from "@/components/cloud-info-banner-section";
+import { ProvidersSection } from "@/components/providers-section";
+
 export default function Home() {
   return (
-    <div className="min-h-screen text-white bg-[#1b221d]">
+    <div className="min-h-screen text-white ">
       <Nav />
-      <main >
+      <main>
         <HeroSection />
+        <CloudInfoBanner />
         <HighlightsSection />
-        <SponsorsSection />
+        <ProvidersSection />
+        <ActivitiesSection />
         <MediaLounge />
         {/* <CommunitySection /> */}
         <NominateSection />
         <VenueSection />
         <CommunitiesList />
-        <BannerSection  />
+        <BannerSection />
         <CharitySection />
         <FAQSection />
+        <SponsorsSection />
       </main>
       <Footer />
     </div>
