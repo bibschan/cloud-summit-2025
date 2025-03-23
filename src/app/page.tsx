@@ -23,7 +23,6 @@ export default function Home() {
         <HeroSection />
         <CloudInfoBanner />
         <HighlightsSection />
-        <SponsorsSection />
         <ProvidersSection />
         <ActivitiesSection />
         <MediaLounge />
@@ -33,6 +32,7 @@ export default function Home() {
         <BannerSection />
         <CharitySection />
         <FAQSection />
+        <SponsorsSection />
       </main>
       <Footer />
     </div>

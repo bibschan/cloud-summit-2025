@@ -13,7 +13,7 @@ interface SponsorImageProps {
   logo: string;
 }
 
-type SponsorStatus = 'diamond' | 'gold' | 'silver' | 'bronze';
+type SponsorStatus = "diamond" | "gold" | "silver" | "bronze";
 
 interface Sponsor {
   name: string;
@@ -31,7 +31,7 @@ export const SponsorsSection = () => {
     <section className=" bg-primary-900">
       <div className="container mx-auto px-4 pb-12">
         <h2 className="text-6xl md:text-8xl font-bold mb-12 text-center White">
-          Thank You to <span className="block">Our <span className="text-brink-pink">Sponsors</span></span>
+          Thank You <span className="text-brink-pink">Sponsors</span>
         </h2>
 
         <SponsorsGrid sponsors={SPONSORS as Sponsor[]} />
@@ -39,7 +39,6 @@ export const SponsorsSection = () => {
     </section>
   );
 };
-
 
 function BecomeSponsorCard() {
   return (
@@ -67,13 +66,16 @@ function BecomeSponsorCard() {
 
 const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
   // Group sponsors by their status tier
-  const groupedSponsors = sponsors.reduce<Record<SponsorStatus, Sponsor[]>>((acc, sponsor) => {
-    if (!acc[sponsor.status]) {
-      acc[sponsor.status] = [];
-    }
-    acc[sponsor.status].push(sponsor);
-    return acc;
-  }, {} as Record<SponsorStatus, Sponsor[]>);
+  const groupedSponsors = sponsors.reduce<Record<SponsorStatus, Sponsor[]>>(
+    (acc, sponsor) => {
+      if (!acc[sponsor.status]) {
+        acc[sponsor.status] = [];
+      }
+      acc[sponsor.status].push(sponsor);
+      return acc;
+    },
+    {} as Record<SponsorStatus, Sponsor[]>
+  );
 
   const renderGoldSponsors = () => {
     if (!groupedSponsors.gold || groupedSponsors.gold.length === 0) {
@@ -85,11 +87,15 @@ const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
     const goldSponsors = groupedSponsors.gold;
 
     // Calculate how many placeholders we need on each side
-    const placeholdersPerSide = Math.floor((totalCols - goldSponsors.length) / 2);
+    const placeholdersPerSide = Math.floor(
+      (totalCols - goldSponsors.length) / 2
+    );
 
     // Create placeholder array
-    const leftPlaceholders = placeholdersPerSide > 0 ? Array(placeholdersPerSide).fill(null) : [];
-    const rightPlaceholders = placeholdersPerSide > 0 ? Array(placeholdersPerSide).fill(null) : [];
+    const leftPlaceholders =
+      placeholdersPerSide > 0 ? Array(placeholdersPerSide).fill(null) : [];
+    const rightPlaceholders =
+      placeholdersPerSide > 0 ? Array(placeholdersPerSide).fill(null) : [];
 
     // Adjust right placeholders if odd number of remaining spots
     if ((totalCols - goldSponsors.length) % 2 !== 0) {
@@ -100,7 +106,10 @@ const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 w-full">
         {/* Left placeholders */}
         {leftPlaceholders.map((_, index) => (
-          <div key={`left-placeholder-${index}`} className="col-span-1 hidden lg:block"></div>
+          <div
+            key={`left-placeholder-${index}`}
+            className="col-span-1 hidden lg:block"
+          ></div>
         ))}
 
         {/* Gold sponsors */}
@@ -110,7 +119,7 @@ const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
             href={sponsor.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="col-span-1 flex items-center justify-center bg-primary-800 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 w-full"
+            className="col-span-1  flex items-center justify-center bg-primary-800 p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 w-full"
           >
             <div className="relative h-16 w-full">
               <Image
@@ -125,20 +134,23 @@ const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
 
         {/* Right placeholders */}
         {rightPlaceholders.map((_, index) => (
-          <div key={`right-placeholder-${index}`} className="col-span-1 hidden lg:block"></div>
+          <div
+            key={`right-placeholder-${index}`}
+            className="col-span-1 hidden lg:block"
+          ></div>
         ))}
       </div>
     );
   };
 
   return (
-    <div className="sponsors-container max-w-7xl mx-auto px-4 py-12">
+    <div className="sponsors-container container max-w-4xl mx-auto px-4 py-12">
       {/* Diamond sponsors - each takes 2 columns */}
       {groupedSponsors.diamond && groupedSponsors.diamond.length > 0 && (
         <div className="mb-12">
           <Image
-            src='/sponsors/diamond.svg'
-            alt='word diamond and arrow pointing to diamond sponsors of the 2025 cloud summit'
+            src="/sponsors/diamond.svg"
+            alt="word diamond and arrow pointing to diamond sponsors of the 2025 cloud summit"
             width={180}
             height={100}
           />
@@ -149,14 +161,14 @@ const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
                 href={sponsor.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="col-span-2 flex items-center justify-center bg-primary-800 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+                className="col-span-2 max-w-[450px] flex items-center justify-center bg-primary-800 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300"
               >
                 <div className="relative h-24 w-full">
                   <Image
                     src={sponsor.logo}
                     alt={`${sponsor.name} logo`}
                     fill
-                    className="object-contain"
+                    className="object-contain max-w-[250px] m-auto"
                   />
                 </div>
               </Link>
@@ -171,15 +183,14 @@ const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
             <div className="flex flex-col w-full items-end ">
               {renderGoldSponsors()}
               <Image
-                src='/sponsors/gold.svg'
-                alt='word diamond and arrow pointing to diamond sponsors of the 2025 cloud summit'
+                src="/sponsors/gold.svg"
+                alt="word diamond and arrow pointing to diamond sponsors of the 2025 cloud summit"
                 width={150}
                 height={100}
                 className="grow-1"
               />
             </div>
           </div>
-
         </div>
       )}
     </div>
