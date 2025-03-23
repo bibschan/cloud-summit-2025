@@ -49,7 +49,7 @@ export const FAQSection = () => {
 
   return (
     <section className="py-20 bg-primary-900" id="faq">
-      <div className="container mx-auto px-4 xl:max-w-[1100px]">
+      <div className="max-w-[900px] mx-auto px-4 ">
         <h2 className="text-6xl md:text-8xl  mb-10 text-center bg-clip-text text-white">
           Some{" "}
           <span className="text-secondary-600">

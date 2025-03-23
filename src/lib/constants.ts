@@ -1,3 +1,5 @@
+import { Description } from "@radix-ui/react-toast";
+
 export const EVENT_CONFIG = {
   title: "Cloud Summit",
   date: "May 27, 2025 at 12PM",
@@ -109,6 +111,10 @@ export const EVENT_CONFIG = {
       title: "Venue",
       description:
         "Experience the Vancouver Cloud Summit like no technology conference you have been to before. Sophistication and elegance meets new age technology and engagement in an amazing venue in the heart of downtown Vancouver. 2 large stages, many intimate workshops and talks as well as a few surprises!",
+    },
+    nominate:{
+      description: 'We aim to recognize excellence within the Canadian tech community by celebrating organizations that drive positive community impact, foster growth, and showcase technical innovation through the use of cloud technology.',
+      cta: 'Nominate a company that you love that best reflects these values and vote for them! The winner of this award will be announced and recognized at the event!'
     },
     charity: {
       title: "Make a Difference Together",

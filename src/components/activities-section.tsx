@@ -27,8 +27,8 @@ function ActivitiesSection() {
     };
   }, []);
   return (
-    <section className="py-20 ">
-      <div className="container mx-auto px-4 pb-12">
+    <section className="py-20 bg-[#1B221D]">
+      <div className="max-w-[1100px] mx-auto px-4 pb-12">
         <div className="flex flex-col items-center justify-center space-y-4 text-center pb-8">
           <div className="space-y-2">
             <h2 className="text-6xl md:text-8xl tracking-tighter text-white">
