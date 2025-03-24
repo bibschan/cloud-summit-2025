@@ -20,7 +20,7 @@ import { SiteWideMessage } from "@/components/site-wide-section";
 
 
 export default function Home() {
-  const [showMessage, setShowMessage] = useState(true);
+  const [showMessage, setShowMessage] = useState(false);
 
   return (
     <div className="min-h-screen text-white ">
