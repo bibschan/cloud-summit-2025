@@ -28,7 +28,7 @@ export const ProvidersSection = () => {
 
 
                     <div className="overflow-hidden">
-                        <div className='scrollContent'>
+                        <div className='scrollContent '>
                             {duplicatedProviders.map((provider, index) => (
                                 <div
                                     key={`${provider.name}-${index}`}

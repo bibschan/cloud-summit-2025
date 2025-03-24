@@ -94,3 +94,8 @@ html.vote-page body {
     animation-duration: 20s;
   }
 }
+
+.scrollContent:hover {
+  animation-play-state: paused;
+
+}
