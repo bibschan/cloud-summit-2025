@@ -71,7 +71,7 @@ export default function Nav({ showMessage = false }: NavProps) {
 
   // Render different nav content based on route
   const renderNavContent = () => {
-    if (isSignInPage || isVotePage || isAdminPage || isNominatePage) {
+    if (isSignInPage || isAdminPage || isNominatePage) {
       return (
         <div className="container mx-auto px-6 flex justify-between items-center">
           <Link
@@ -247,7 +247,7 @@ export default function Nav({ showMessage = false }: NavProps) {
             </>
           ) : (
             <Link href="/auth/signin" className="hover:text-sky-400">
-              Vote
+
             </Link>
           )}
         </div>
