@@ -185,7 +185,15 @@ export const EVENT_CONFIG = {
     },
   },
   team: {
-    members: [
+    image: "/CloudSummit_2025_Committee_Lego.png",
+    description: "Bringing the Cloud Summit to life takes creativity, dedication, and teamwork. With the expertise and passion of the 2025 team, we’re excited to deliver an unforgettable event. Get ready to connect, learn, and innovate at this year’s Cloud Summit!",
+    volunteers: [
+      { name: "Kota", link: "https://github.com/boooocchi" },
+      { name: "Sophia", link: "https://github.com/Sophia-G-Chan" },
+      { name: "Luis", link: "https://github.com/luisher98" },
+      { name: "Madhuja", link: "https://github.com/madhujamitra" },
+    ],
+    webMembers: [
       { name: "Kota", github: "https://github.com/boooocchi" },
       { name: "Sophia", github: "https://github.com/Sophia-G-Chan" },
       { name: "Luis", github: "https://github.com/luisher98" },
