@@ -302,6 +302,7 @@ export const COMMUNITIES = [
     description:
       "A monthly meetup for developers in Vancouver focusing on JavaScript, front-end technology, and the open web.",
     url: "https://www.vanjs.com/",
+    image: "/communities/vanjs.svg",
   },
   {
     id: 2,
@@ -309,6 +310,7 @@ export const COMMUNITIES = [
     description:
       "Vancouver's AWS community with monthly events and co-host of Vancouver's largest Cloud and AI Conference.",
     url: "https://www.awsusergroups.com/",
+    image: "/communities/aws.svg",
   },
   {
     id: 3,
@@ -316,6 +318,7 @@ export const COMMUNITIES = [
     description:
       "Vancouver Microsoft Azure User Group running quarterly events and co-hosting Western Canada's largest Cloud and AI Conference.",
     url: "https://www.azurecanada.ca/",
+    image: "/communities/azurecanada.svg",
   },
   {
     id: 4,
@@ -323,6 +326,7 @@ export const COMMUNITIES = [
     description:
       "A community focused on cloud-native technologies, containerization, and microservices architecture.",
     url: "https://lu.ma/p35u91p3",
+    image: "/communities/cloudnative.svg",
   },
   {
     id: 5,
@@ -330,12 +334,14 @@ export const COMMUNITIES = [
     description:
       "Connect with AI enthusiasts, researchers, and practitioners in Vancouver.",
     url: "https://www.vancouveraimeetup.com/",
+    image: "/communities/vanai.svg",
   },
   {
     id: 6,
-    name: "Linux User Group",
+    name: "Google Developer Group",
     description:
-      "Vancouver Linux Users Group (VanLUG) - A community for Linux enthusiasts and open-source advocates.",
-    url: "https://vanlug.ca/",
+      "A diverse and inclusive tech community where everyone, regardless of their experience level, feels empowered to learn, share, and grow.",
+    url: "https://gdg.community.dev/gdg-surrey/",
+    image: "/communities/gdg.svg",
   },
 ];
