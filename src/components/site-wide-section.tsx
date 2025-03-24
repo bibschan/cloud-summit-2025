@@ -32,7 +32,7 @@ export const SiteWideMessage: React.FC<SiteWideMessageProps> = ({
         <div
             className={`fixed top-0 left-0 w-full z-50 p-4 } flex items-center justify-between shadow-md transition-all duration-300 ease-in-out animate-slide-down bg-brink-pink`}
         >
-            <div className="flex-grow mr-4">
+            <div className="text-center flex-grow mr-4">
                 {message}
             </div>
             <button
