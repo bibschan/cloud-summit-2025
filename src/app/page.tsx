@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import Nav from "@/components/nav";
 import { HeroSection } from "@/components/hero-section";
 import { HighlightsSection } from "@/components/highlights-section";
@@ -15,11 +16,21 @@ import { NominateSection } from "@/components/nominate-section";
 import ActivitiesSection from "@/components/activities-section";
 import CloudInfoBanner from "@/components/cloud-info-banner-section";
 import { ProvidersSection } from "@/components/providers-section";
+import { SiteWideMessage } from "@/components/site-wide-section";
+
 
 export default function Home() {
+  const [showMessage, setShowMessage] = useState(false);
+
   return (
     <div className="min-h-screen text-white ">
-      <Nav />
+      <SiteWideMessage
+        message="Welcome to our site!"
+        isVisible={showMessage}
+        onClose={() => setShowMessage(false)}
+
+      />
+      <Nav showMessage={showMessage}/>
       <main>
         <HeroSection />
         <CloudInfoBanner />

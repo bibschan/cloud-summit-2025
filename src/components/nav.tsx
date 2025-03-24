@@ -9,8 +9,11 @@ import { ArrowLeft, Menu, X } from "lucide-react";
 import { isAdmin } from "@/lib/admin";
 import Image from "next/image";
 import styles from "./nav.module.css";
+interface NavProps {
+  showMessage?: boolean;
+}
 
-export default function Nav() {
+export default function Nav({ showMessage = false }: NavProps) {
   const [isAtTop, setIsAtTop] = useState(true);
   const [hasVoted, setHasVoted] = useState(true);
   const { data: session } = useSession();
@@ -275,7 +278,7 @@ export default function Nav() {
       ${
         isSignInPage || isVotePage || isAdminPage || isNominatePage
           ? "absolute py-4"
-          : `fixed top-0 py-5 transition duration-300 ease-in-out ${
+          : `fixed ${showMessage ? 'top-16' : 'top-0'} py-5 transition duration-300 ease-in-out ${
               !isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""
             }`
       }
