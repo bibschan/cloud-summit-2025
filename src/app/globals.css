@@ -75,3 +75,22 @@ html.vote-page body {
     font-family: var(--font-sofia-sans);;
   }
 }
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.scrollContent {
+  display: flex;
+  animation: scroll 40s linear infinite;
+  width: fit-content;
+
+  @media (max-width: 768px){
+    animation-duration: 20s;
+  }
+}

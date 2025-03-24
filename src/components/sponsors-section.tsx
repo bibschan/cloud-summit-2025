@@ -28,13 +28,14 @@ interface SponsorsGridProps {
 
 export const SponsorsSection = () => {
   return (
-    <section className=" bg-primary-900">
-      <div className="container mx-auto px-4 pb-12">
+    <section className=" bg-primary-900 ">
+      <div className="container mx-auto px-4 pb-12 ">
         <h2 className="text-6xl md:text-8xl font-bold mb-12 text-center White">
-          Thank You <span className="text-brink-pink">Sponsors</span>
+          Thank You <span className="text-lemon-lime">Sponsors</span>
         </h2>
 
         <SponsorsGrid sponsors={SPONSORS as Sponsor[]} />
+        <p className="text-center text-3xl mb-12">This event would not be possible without your support!</p>
       </div>
     </section>
   );
@@ -108,7 +109,7 @@ const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
         {leftPlaceholders.map((_, index) => (
           <div
             key={`left-placeholder-${index}`}
-            className="col-span-1 hidden lg:block"
+            className="col-span-1 hidden  bg-primary-800 rounded-lg lg:block"
           ></div>
         ))}
 
@@ -136,7 +137,7 @@ const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
         {rightPlaceholders.map((_, index) => (
           <div
             key={`right-placeholder-${index}`}
-            className="col-span-1 hidden lg:block"
+            className="col-span-1 bg-primary-800 rounded-lg lg:block"
           ></div>
         ))}
       </div>
@@ -178,7 +179,7 @@ const SponsorsGrid: React.FC<SponsorsGridProps> = ({ sponsors }) => {
       )}
 
       {groupedSponsors.gold && groupedSponsors.gold.length > 0 && (
-        <div className="mb-12 1-full">
+        <div className=" 1-full">
           <div className="flex justify-center w-full">
             <div className="flex flex-col w-full items-end ">
               {renderGoldSponsors()}
