@@ -188,11 +188,11 @@ export const EVENT_CONFIG = {
   },
   team: {
     members: [
-      { name: "Byte Quest", github: "https://www.linkedin.com/company/bytequestllc/" },
-      { name: "Sophia", github: "https://github.com/Sophia-G-Chan" },
-      { name: "Luis", github: "https://github.com/luisher98" },
       { name: "Bibi", github: "https://github.com/bibschan" },
+      { name: "Byte Quest", github: "https://www.linkedin.com/company/bytequestllc/" },
       { name: "Jackie", github: "https://jackieho.ca/" },
+      { name: "Luis", github: "https://github.com/luisher98" },
+      { name: "Sophia", github: "https://github.com/Sophia-G-Chan" },
     ],
   },
 };
