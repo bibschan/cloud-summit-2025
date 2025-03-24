@@ -35,7 +35,7 @@ export const SponsorsSection = () => {
         </h2>
 
         <SponsorsGrid sponsors={SPONSORS as Sponsor[]} />
-        <p className="text-center text-3xl mb-12">This event would not be possible without your support!</p>
+        <p className="text-center text-xl md:text-3xl mb-12">This event would not be possible without your support!</p>
       </div>
     </section>
   );
