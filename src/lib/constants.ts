@@ -14,8 +14,10 @@ export const EVENT_CONFIG = {
   },
   description:
     "Join cloud developers, architects, IT & infrastructure professionals and executives building the cloud ecosystem.",
+  slogan:
+    "Western Canada's Largest Multi-Cloud Event",
   about:
-    "As a non-profit organization, our purpose is to bring together & educate the local tech community about the cloud​ and support our local community through charity.",
+    "As a non-profit organization, our purpose is to bring together & educate the local tech community about the cloud and support our local community through charity.",
   links: {
     tickets: "https://lu.ma/event/evt-cItbLfgBkf8na4n",
     speakers: "https://forms.gle/6qjgftM5Uf4ZSNNP7",
@@ -186,11 +188,11 @@ export const EVENT_CONFIG = {
   },
   team: {
     members: [
-      { name: "Kota", github: "https://github.com/boooocchi" },
+      { name: "Byte Quest", github: "https://www.linkedin.com/company/bytequestllc/" },
       { name: "Sophia", github: "https://github.com/Sophia-G-Chan" },
       { name: "Luis", github: "https://github.com/luisher98" },
       { name: "Bibi", github: "https://github.com/bibschan" },
-      { name: "Madhuja", github: "https://github.com/madhujamitra" },
+      { name: "Jackie", github: "https://jackieho.ca/" },
     ],
   },
 };
