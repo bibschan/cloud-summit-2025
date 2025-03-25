@@ -222,6 +222,15 @@ export const CLOUDPLATFORMS = [
     name: "Alibaba Cloud",
     logo: "/providers/alibaba.svg",
   },
+  {
+    name: "Tencent Cloud",
+    logo: "/providers/Tencent_Cloud.svg",
+  },
+  {
+    name: "Huawei Cloud",
+    logo: "/providers/huawei.svg",
+  },
+
 ];
 
 export const SPONSORS = [
