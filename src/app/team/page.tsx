@@ -3,14 +3,24 @@ import React, { useState } from "react";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import Image from "next/image";
-import { EVENT_CONFIG } from "@/lib/constants";
-
+import { EVENT_CONFIG, teamAreas } from "@/lib/constants";
 import { cn } from "@/lib/utils"
 
+const convertCoordsToPercentage = (coords: string) => {
+    const [x1, y1, x2, y2] = coords.split(',').map(Number);
+    return {
+        left: `${(x1 / 1200) * 100}%`,
+        top: `${(y1 / 630) * 100}%`,
+        width: `${((x2 - x1) / 1200) * 100}%`,
+        height: `${((y2 - y1) / 630) * 100}%`,
+    };
+};
 export default function TeamPage() {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const mapName = `image-map-${Math.random().toString(36).substring(7)}`;
 
-    // Colors for hover state only
+    const [hoveredArea, setHoveredArea] = useState<number | null>(null);
+
     const hoverColors = [
         "text-pink-400",
         "text-yellow-400",
@@ -23,6 +33,8 @@ export default function TeamPage() {
         "text-cyan-400",
         "text-indigo-400",
     ]
+
+
     return (
         <div className="min-h-screen text-white ">
             <Nav />
@@ -51,7 +63,28 @@ export default function TeamPage() {
                                 alt='Lego depiction of team members'
                                 fill
                                 className="w-full h-auto"
+                                useMap={`#${mapName}`}
                             />
+                            {teamAreas.map((area, index) => {
+                                const style = convertCoordsToPercentage(area.coords);
+
+                                return (
+                                    <a
+                                        key={index}
+                                        href={area.href || "#"}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={cn(
+                                            "absolute block transition-all duration-200",
+                                            hoveredArea === index ? "bg-gradient-to-t from-white/10 to-transparent rounded-lg" : "bg-transparent rounded-lg"
+                                        )}
+                                        style={style}
+                                        onMouseEnter={() => setHoveredArea(index)}
+                                        onMouseLeave={() => setHoveredArea(null)}
+                                        title={area.title}
+                                    />
+                                );
+                            })}
                         </div>
 
                     </section>
@@ -64,7 +97,7 @@ export default function TeamPage() {
                                 <a
                                     key={index}
                                     className={cn(
-                                        "text-xl font-medium cursor-pointer transition-colors duration-300 hover:text-3xl transition-all",
+                                        "text-xl font-medium cursor-pointer  duration-300 hover:text-3xl transition-all",
                                         hoveredIndex === index ? hoverColors[index % hoverColors.length] : "text-white",
                                     )}
                                     onMouseEnter={() => setHoveredIndex(index)}
