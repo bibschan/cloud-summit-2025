@@ -14,8 +14,7 @@ export const EVENT_CONFIG = {
   },
   description:
     "Join cloud developers, architects, IT & infrastructure professionals and executives building the cloud ecosystem.",
-  slogan:
-    "Western Canada's Largest Multi-Cloud Event",
+  slogan: "Western Canada's Largest Multi-Cloud Event",
   about:
     "As a non-profit organization, our purpose is to bring together & educate the local tech community about the cloud and support our local community through charity.",
   links: {
@@ -114,9 +113,10 @@ export const EVENT_CONFIG = {
       description:
         "Experience the Vancouver Cloud Summit like no technology conference you have been to before. Sophistication and elegance meets new age technology and engagement in an amazing venue in the heart of downtown Vancouver. 2 large stages, many intimate workshops and talks as well as a few surprises!",
     },
-    nominate:{
-      description: 'We aim to recognize excellence within the Canadian tech community by celebrating organizations that drive positive community impact, foster growth, and showcase technical innovation through the use of cloud technology.',
-      cta: 'Nominate a company that you love that best reflects these values and vote for them! The winner of this award will be announced and recognized at the event!'
+    nominate: {
+      description:
+        "We aim to recognize excellence within the Canadian tech community by celebrating organizations that drive positive community impact, foster growth, and showcase technical innovation through the use of cloud technology.",
+      cta: "Nominate a company that you love that best reflects these values and vote for them! The winner of this award will be announced and recognized at the event!",
     },
     charity: {
       title: "Make a Difference Together",
@@ -189,7 +189,10 @@ export const EVENT_CONFIG = {
   team: {
     members: [
       { name: "Bibi", github: "https://github.com/bibschan" },
-      { name: "Byte Quest", github: "https://www.linkedin.com/company/bytequestllc/" },
+      {
+        name: "Byte Quest",
+        github: "https://www.linkedin.com/company/bytequestllc/",
+      },
       { name: "Jackie", github: "https://jackieho.ca/" },
       { name: "Luis", github: "https://github.com/luisher98" },
       { name: "Sophia", github: "https://github.com/Sophia-G-Chan" },
@@ -230,7 +233,6 @@ export const CLOUDPLATFORMS = [
     name: "Huawei Cloud",
     logo: "/providers/huawei.svg",
   },
-
 ];
 
 export const SPONSORS = [
@@ -257,6 +259,12 @@ export const SPONSORS = [
     status: "diamond",
     logo: "/sponsors/fortinet.svg",
     link: "https://www.fortinet.com/",
+  },
+  {
+    name: "The Upgrade AI",
+    status: "gold",
+    logo: "/sponsors/the-upgrade.webp",
+    link: "https://www.theupgrade.ai/",
   },
   {
     name: "Greydata",
