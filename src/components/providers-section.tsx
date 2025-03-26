@@ -2,11 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { Sprout } from "lucide-react";
-import { Card, CardContent } from "./ui/card";
-import { Button } from "./ui/button";
-import styles from "./sponsors-section.module.css";
 import { CLOUDPLATFORMS } from "@/lib/constants";
 
 interface SponsorImageProps {
@@ -15,11 +10,14 @@ interface SponsorImageProps {
 }
 
 export const ProvidersSection = () => {
+
+    const duplicatedProviders = [...CLOUDPLATFORMS, ...CLOUDPLATFORMS];
+
     return (
         <section className="py-20 bg-primary-900">
             <div className="container mx-auto px-4 pb-12">
                 <h2 className="text-6xl md:text-8xl font-bold mb-12 text-center White">
-                    Cloud <span className="text-pale-gold">Platforms</span>
+                    Explore Cloud <span className="text-lilac">Platforms</span>
                 </h2>
                 <div className="relative">
 
@@ -29,13 +27,12 @@ export const ProvidersSection = () => {
                     <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-primary-900 to-transparent z-9" />
 
 
-
                     <div className="overflow-hidden">
-                        <div className={`flex ${styles.scrollContent}`}>
-                            {[...CLOUDPLATFORMS, ...CLOUDPLATFORMS].map((provider, index) => (
+                        <div className='scrollContent '>
+                            {duplicatedProviders.map((provider, index) => (
                                 <div
                                     key={`${provider.name}-${index}`}
-                                    className="w-3/5 md:w-2/5 lg:w-1/4 shrink-0 px-2 md:px-4"
+                                    className="w-[200px] shrink-0 px-2 md:px-4"
                                 >
                                     <ProviderImage name={provider.name} logo={provider.logo} />
                                 </div>
@@ -50,7 +47,7 @@ export const ProvidersSection = () => {
 
 function ProviderImage({ name, logo }: SponsorImageProps) {
     return (
-        <div className="flex h-40 items-center justify-center rounded-lg p-6">
+        <div className="flex h-40 items-center justify-center rounded-lg md:p-6">
             <Image
                 src={logo}
                 alt={`${name} logo`}
