@@ -40,8 +40,6 @@ function ActivitiesSection() {
           <video
             ref={videoRef}
             src="/main-banner/highlight-video.mp4"
-            autoPlay
-            loop
             muted
             controls
             className="object-cover h-full w-full px-6 md:px-16 md:w-4/5 aspect-video pb-4"
