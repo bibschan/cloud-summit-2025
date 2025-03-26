@@ -112,7 +112,7 @@ export const EVENT_CONFIG = {
       description:
         "Experience the Vancouver Cloud Summit like no technology conference you have been to before. Sophistication and elegance meets new age technology and engagement in an amazing venue in the heart of downtown Vancouver. 2 large stages, many intimate workshops and talks as well as a few surprises!",
     },
-    nominate:{
+    nominate: {
       description: 'We aim to recognize excellence within the Canadian tech community by celebrating organizations that drive positive community impact, foster growth, and showcase technical innovation through the use of cloud technology.',
       cta: 'Nominate a company that you love that best reflects these values and vote for them! The winner of this award will be announced and recognized at the event!'
     },
@@ -187,6 +187,92 @@ export const EVENT_CONFIG = {
   team: {
     image: "/CloudSummit_2025_Committee_Lego.png",
     description: "Bringing the Cloud Summit to life takes creativity, dedication, and teamwork. With the expertise and passion of the 2025 team, we’re excited to deliver an unforgettable event. Get ready to connect, learn, and innovate at this year’s Cloud Summit!",
+    commitee: [
+      {
+        image: "/team/Audrey.png",
+        title: "Andrey Barkov",
+        href: "https://www.linkedin.com/in/andreybarkov/",
+
+      },
+      {
+        image: "/team/Bibi.png",
+        title: "Bibi Souza",
+        href: "https://www.linkedin.com/in/bibschan/",
+
+      },
+      {
+        image: "/team/Devreet.png",
+        title: "Devreet Dulay",
+        href: "https://www.linkedin.com/in/devreet-dulay/",
+
+      },
+      {
+        image: "/team/Dom.png",
+        title: "Dom Beckers",
+        href: "https://www.linkedin.com/in/dominikbeckers/",
+
+      },
+      {
+        image: "/team/Fernando.png",
+        title: "Fernando Stoelting",
+        href: "https://www.linkedin.com/in/fstoelting/",
+
+      },
+      {
+        image: "/team/Gabi.png",
+        title: "Gabriela Arno",
+        href: "https://www.linkedin.com/in/gabriela-arno-a7b55b163/",
+
+      },
+      {
+        image: "/team/Jackie.png",
+        title: "Jackie Ho",
+        href: "https://www.linkedin.com/in/jackiehyho/",
+
+      },
+      {
+        image: "/team/Kris.png",
+        title: "Kris Krug",
+        href: "https://www.linkedin.com/in/kriskrug/",
+      },
+      {
+        image: "/team/Matt.png",
+        title: "Matt Carolan",
+        href: "https://www.linkedin.com/in/matthewcarolan/",
+
+      },
+      {
+        image: "/team/Mattias.png",
+        title: "Mattias Andersson",
+        href: "https://www.linkedin.com/in/mattias-andersson/",
+
+      },
+      {
+        image: "/team/Mike.png",
+        title: "Mike Hoff",
+        href: "https://www.linkedin.com/in/mikehoff321/",
+      },
+      {
+        image: "/team/Mohsen.png",
+        title: "Mohsen Akhavan",
+        href: "https://www.linkedin.com/in/themohsenakhavan/",
+      },
+      {
+        image: "/team/Shanky.png",
+        title: "Shanky Silva",
+        href: "https://www.linkedin.com/in/shankyjs/",
+      },
+      {
+        image: "/team/Umer.png",
+        title: "Umer Khalid",
+        href: "https://www.linkedin.com/in/umerkhalid1/",
+      },
+      {
+        image: "/team/Will.png",
+        title: "Will Sheldon",
+        href: "https://www.linkedin.com/in/wills/",
+      }
+    ],
     volunteers: [
       { name: "Kota", link: "https://github.com/boooocchi" },
       { name: "Sophia", link: "https://github.com/Sophia-G-Chan" },
@@ -349,123 +435,123 @@ export const COMMUNITIES = [
 ];
 export const teamAreas = [
   {
-      target: "_blank",
-      alt: "Andrey Barkov",
-      title: "Andrey Barkov",
-      href: "https://www.linkedin.com/in/andreybarkov/",
-      coords: "342,28,501,217",
-      shape: "rect"
+    target: "_blank",
+    alt: "Andrey Barkov",
+    title: "Andrey Barkov",
+    href: "https://www.linkedin.com/in/andreybarkov/",
+    coords: "342,28,501,217",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Bibi Souza",
-      title: "Bibi Souza",
-      href: "https://www.linkedin.com/in/bibschan/",
-      coords: "510,28,662,217",
-      shape: "rect"
+    target: "_blank",
+    alt: "Bibi Souza",
+    title: "Bibi Souza",
+    href: "https://www.linkedin.com/in/bibschan/",
+    coords: "510,28,662,217",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Devreet Dulay",
-      title: "Devreet Dulay",
-      href: "https://www.linkedin.com/in/devreet-dulay/",
-      coords: "674,28,839,217",
-      shape: "rect"
+    target: "_blank",
+    alt: "Devreet Dulay",
+    title: "Devreet Dulay",
+    href: "https://www.linkedin.com/in/devreet-dulay/",
+    coords: "674,28,839,217",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Dom Beckers",
-      title: "Dom Beckers",
-      href: "",
-      coords: "858,28,1008,217",
-      shape: "rect"
+    target: "_blank",
+    alt: "Dom Beckers",
+    title: "Dom Beckers",
+    href: "",
+    coords: "858,28,1008,217",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Fernando Stoelting",
-      title: "Fernando Stoelting",
-      href: "https://www.linkedin.com/in/fstoelting/",
-      coords: "1009,28,1169,217",
-      shape: "rect"
+    target: "_blank",
+    alt: "Fernando Stoelting",
+    title: "Fernando Stoelting",
+    href: "https://www.linkedin.com/in/fstoelting/",
+    coords: "1009,28,1169,217",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Gabriela Arno",
-      title: "Gabriela Arno",
-      href: "https://www.linkedin.com/in/gabriela-arno-a7b55b163/",
-      coords: "346,231,500,410",
-      shape: "rect"
+    target: "_blank",
+    alt: "Gabriela Arno",
+    title: "Gabriela Arno",
+    href: "https://www.linkedin.com/in/gabriela-arno-a7b55b163/",
+    coords: "346,231,500,410",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Jackie Ho",
-      title: "Jackie Ho",
-      href: "https://www.linkedin.com/in/jackiehyho/",
-      coords: "512,231,665,410",
-      shape: "rect"
+    target: "_blank",
+    alt: "Jackie Ho",
+    title: "Jackie Ho",
+    href: "https://www.linkedin.com/in/jackiehyho/",
+    coords: "512,231,665,410",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Kris Krug",
-      title: "Kris Krug",
-      href: "https://www.linkedin.com/in/kriskrug/",
-      coords: "669,231,830,410",
-      shape: "rect"
+    target: "_blank",
+    alt: "Kris Krug",
+    title: "Kris Krug",
+    href: "https://www.linkedin.com/in/kriskrug/",
+    coords: "669,231,830,410",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Matt Carolan",
-      title: "Matt Carolan",
-      href: "https://www.linkedin.com/in/matthewcarolan/",
-      coords: "840,231,1005,410",
-      shape: "rect"
+    target: "_blank",
+    alt: "Matt Carolan",
+    title: "Matt Carolan",
+    href: "https://www.linkedin.com/in/matthewcarolan/",
+    coords: "840,231,1005,410",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Mattias Andersson",
-      title: "Mattias Andersson",
-      href: "https://www.linkedin.com/in/mattias-andersson/",
-      coords: "1005,231,1169,410",
-      shape: "rect"
+    target: "_blank",
+    alt: "Mattias Andersson",
+    title: "Mattias Andersson",
+    href: "https://www.linkedin.com/in/mattias-andersson/",
+    coords: "1005,231,1169,410",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Mike Hoff",
-      title: "Mike Hoff",
-      href: "https://www.linkedin.com/in/mikehoff321/",
-      coords: "348,420,497,594",
-      shape: "rect"
+    target: "_blank",
+    alt: "Mike Hoff",
+    title: "Mike Hoff",
+    href: "https://www.linkedin.com/in/mikehoff321/",
+    coords: "348,420,497,594",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Mohsen Akhavan",
-      title: "Mohsen Akhavan",
-      href: "https://www.linkedin.com/in/themohsenakhavan/",
-      coords: "509,423,668,594",
-      shape: "rect"
+    target: "_blank",
+    alt: "Mohsen Akhavan",
+    title: "Mohsen Akhavan",
+    href: "https://www.linkedin.com/in/themohsenakhavan/",
+    coords: "509,423,668,594",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Shanky Silva",
-      title: "Shanky Silva",
-      href: "",
-      coords: "677,421,830,592",
-      shape: "rect"
+    target: "_blank",
+    alt: "Shanky Silva",
+    title: "Shanky Silva",
+    href: "",
+    coords: "677,421,830,592",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Umer Khalid",
-      title: "Umer Khalid",
-      href: "https://www.linkedin.com/in/umerkhalid1/",
-      coords: "844,422,997,596",
-      shape: "rect"
+    target: "_blank",
+    alt: "Umer Khalid",
+    title: "Umer Khalid",
+    href: "https://www.linkedin.com/in/umerkhalid1/",
+    coords: "844,422,997,596",
+    shape: "rect"
   },
   {
-      target: "_blank",
-      alt: "Will Sheldon",
-      title: "Will Sheldon",
-      href: "",
-      coords: "1011,424,1161,598",
-      shape: "rect"
+    target: "_blank",
+    alt: "Will Sheldon",
+    title: "Will Sheldon",
+    href: "",
+    coords: "1011,424,1161,598",
+    shape: "rect"
   }
 ];

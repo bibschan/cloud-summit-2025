@@ -39,7 +39,7 @@ export default function TeamPage() {
         <div className="min-h-screen text-white ">
             <Nav />
             <main className="w-full bg-primary-900 pt-8 md:py-20" id="team">
-                <div className="container px-4 md:px-6 mx-auto space-y-8">
+                <div className="max-w-[1100px] container px-4 md:px-6 mx-auto space-y-8">
                     {/* Header Section */}
                     <section className="flex flex-col items-center justify-center space-y-4 text-center">
                         <div className="space-y-2">
@@ -55,34 +55,34 @@ export default function TeamPage() {
                             </p>
                         </div>
                     </section>
-                    <section>
+                    <section className="mx-auto">
                         <p className="text-lg md:text-3xl text-center  text-primary-50">Committee</p>
-                        <div className="relative w-full h-auto aspect-video">
-                            <Image
+                        <div className="grid grid-cols-3 md:grid-cols-5 w-full h-auto ">
+                            {/* <Image
                                 src={EVENT_CONFIG.team.image}
                                 alt='Lego depiction of team members'
                                 fill
                                 className="w-full h-auto"
                                 useMap={`#${mapName}`}
-                            />
-                            {teamAreas.map((area, index) => {
-                                const style = convertCoordsToPercentage(area.coords);
-
+                            /> */}
+                            {EVENT_CONFIG.team.commitee.map((member, index) => {
                                 return (
                                     <a
                                         key={index}
-                                        href={area.href || "#"}
+                                        href={member.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={cn(
-                                            "absolute block transition-all duration-200",
-                                            hoveredArea === index ? "bg-gradient-to-t from-white/10 to-transparent rounded-lg" : "bg-transparent rounded-lg"
-                                        )}
-                                        style={style}
-                                        onMouseEnter={() => setHoveredArea(index)}
-                                        onMouseLeave={() => setHoveredArea(null)}
-                                        title={area.title}
-                                    />
+                                        className="w-auto flex flex-col justify-center"
+                                    >
+                                        <Image
+                                            src={member.image}
+                                            alt={member.title}
+                                            width={100}
+                                            height={200}
+                                            className=""
+                                        />
+                                        <h4 className="max-w-[100px] text-center">{member.title}</h4>
+                                    </a>
                                 );
                             })}
                         </div>
@@ -92,6 +92,7 @@ export default function TeamPage() {
                         <p className="text-lg md:text-3xl text-primary-50 text-center mb-6">
                             Our Amazing Volunteers
                         </p>
+                        <h3 className="doto-text font-bold">Website & Design Team</h3>
                         <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 max-w-5xl mx-auto font-bold">
                             {EVENT_CONFIG.team.volunteers.map((volunteer, index) => (
                                 <a
