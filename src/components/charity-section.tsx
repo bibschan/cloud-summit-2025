@@ -36,7 +36,7 @@ export default function CharitySection() {
           <Button
             onClick={openCharityLink}
             variant="outline"
-            className="w-[300px] hover:bg-secondary-600 hover:text-black "
+            className="w-[300px] hover:bg-brink-pink hover:text-black "
           >
             Learn More about {EVENT_CONFIG.sections.charity.charities[0].name}
           </Button>
