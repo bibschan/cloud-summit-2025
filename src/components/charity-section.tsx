@@ -23,14 +23,14 @@ export default function CharitySection() {
             height={100}
             className="w-full"
           />
-          <p className="flex-grow text-xl md:text-2xl font-semibold  text-gray-600 dark:text-gray-300">
+          <p className="flex-grow text-xl md:text-2xl font-semibold  text-white ">
             We&apos;re proud to announce that
             <span className="font-heading text-brink-pink block text-2xl md:text-4xl uppercase">
               All profits from CLOUD SUMMIT will be donated
             </span>
             to Union Gospel Mission.
           </p>
-          <p className="flex-grow text-md text-gray-600 dark:text-gray-300">
+          <p className="flex-grow text-md text-white">
             {EVENT_CONFIG.sections.charity.content}
           </p>
           <Button
