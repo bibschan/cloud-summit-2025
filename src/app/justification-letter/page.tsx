@@ -43,7 +43,7 @@ export default function JustificationLetter() {
         easily fill out the form and save/print it to send to your manager. Just
         fill out the fields below
       </p>
-      <div className="flex flex-col md:flex-row gap-4 md:mx-2 md:w-auto justify-center px-4">
+      <div className="flex flex-col md:flex-row gap-4 md:mx-2 md:w-auto justify-center px-4 mb-8">
         <JustificationLetterForm
           formData={formData}
           setFormData={setFormData}
