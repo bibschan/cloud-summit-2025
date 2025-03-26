@@ -32,7 +32,7 @@ export default function JustificationLetter() {
   });
 
   return (
-    <main className=" py-20 bg-gray-900 text-white pb-6 w-full">
+    <main className=" pt-20 bg-gray-900 text-white w-full">
       <Nav />
       <h1 className="bg-gray-900 mb-4 px-4 sm:px-8 text-4xl md:text-5xl md:mb-8 text-center font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
         Conference Attendance Justification Letter
