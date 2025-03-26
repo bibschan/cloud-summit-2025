@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { X } from 'lucide-react'
 
 interface SiteWideMessageProps {
@@ -9,23 +9,17 @@ interface SiteWideMessageProps {
     onClose?: () => void;
 }
 
-export const SiteWideMessage: React.FC<SiteWideMessageProps> = ({
-    message,
-    isVisible = true,
-    onClose,
-}) => {
-    const [visible, setVisible] = useState(isVisible);
+export const SiteWideMessage: React.FC = () => {
+    const message = process.env.NEXT_PUBLIC_MESSAGE_CONTENT || 'Default message';
+    const initialVisibility = process.env.NEXT_PUBLIC_SHOW_MESSAGE === 'true';
 
-    useEffect(() => {
-        setVisible(isVisible);
-    }, [isVisible]);
+    const [visible, setVisible] = useState(initialVisibility);
 
     const handleClose = () => {
         setVisible(false);
-        onClose && onClose();
     };
 
-    if (!visible) return null;
+    if (!visible || !initialVisibility) return null;
 
 
     return (
