@@ -101,7 +101,7 @@ export const FAQSection = () => {
           ))}
         </Accordion>
         <div className="flex flex-col justify-center">
-          <p className="text-lg md:text-3xl font-semibold text-center my-10">Got more questions for us?</p>
+          <p className="text-lg md:text-3xl font-semibold text-center my-8">Got more questions for us?</p>
           <Link href="/contact" className="mx-auto">
             <Button
               variant="outline"
