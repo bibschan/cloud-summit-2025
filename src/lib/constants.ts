@@ -203,7 +203,7 @@ export const EVENT_CONFIG = {
 export const CLOUDPLATFORMS = [
   {
     name: "AWS",
-    logo: "/providers/aws.svg",
+    logo: "/cloud-providers/aws-white.svg",
   },
   {
     name: "Azure",

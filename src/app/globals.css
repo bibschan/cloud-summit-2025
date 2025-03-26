@@ -91,7 +91,7 @@ html.vote-page body {
   width: fit-content;
 
   @media (max-width: 768px){
-    animation-duration: 20s;
+    animation-duration: 25s;
   }
 }
 
