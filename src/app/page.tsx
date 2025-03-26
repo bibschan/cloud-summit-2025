@@ -20,15 +20,18 @@ import { SiteWideMessage } from "@/components/site-wide-section";
 
 
 export default function Home() {
-  const [showMessage, setShowMessage] = useState(false);
+  const initialBanner = process.env.NEXT_PUBLIC_SHOW_MESSAGE === 'true';
+  const [showMessage, setShowMessage] = useState(initialBanner);
+
+  const handleCloseMessage = () => {
+    setShowMessage(false);
+};
 
   return (
     <div className="min-h-screen text-white ">
       <SiteWideMessage
-        message="Welcome to our site!"
         isVisible={showMessage}
-        onClose={() => setShowMessage(false)}
-
+        handleClose={handleCloseMessage}
       />
       <Nav showMessage={showMessage}/>
       <main>

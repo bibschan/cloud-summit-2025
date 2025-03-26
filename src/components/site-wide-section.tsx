@@ -2,25 +2,15 @@
 
 import React, { useState } from 'react';
 import { X } from 'lucide-react'
-
 interface SiteWideMessageProps {
-    message: string;
     isVisible: boolean;
-    onClose?: () => void;
-}
+    handleClose: () => void;
+  }
 
-export const SiteWideMessage: React.FC = () => {
-    const message = process.env.NEXT_PUBLIC_MESSAGE_CONTENT || 'Default message';
-    const initialVisibility = process.env.NEXT_PUBLIC_SHOW_MESSAGE === 'true';
+export const SiteWideMessage: React.FC<SiteWideMessageProps> = ({ isVisible, handleClose }) => {
+    const message = process.env.NEXT_PUBLIC_BANNER_MESSAGE || 'Default message';
 
-    const [visible, setVisible] = useState(initialVisibility);
-
-    const handleClose = () => {
-        setVisible(false);
-    };
-
-    if (!visible || !initialVisibility) return null;
-
+    if (!isVisible) return null;
 
     return (
         <div
