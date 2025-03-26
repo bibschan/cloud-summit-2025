@@ -30,7 +30,7 @@ export default function CharitySection() {
             </span>
             to Union Gospel Mission.
           </p>
-          <p className="flex-grow text-md text-white">
+          <p className="flex-grow text-sm md:text-lg text-white">
             {EVENT_CONFIG.sections.charity.content}
           </p>
           <Button
