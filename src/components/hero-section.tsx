@@ -19,11 +19,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-[500px] md:min-h-[900px] w-full">
-      {/* <Spline
-        scene="https://prod.spline.design/XcVcNyVdPNzGkCee/scene.splinecode"
-        className="z-10"
-      /> */}
+    <section className="min-h-[500px] md:min-h-[900px] w-full ">
       <SplineSection />
       <div className="relative z-10 min-h-screen flex flex-col flex-wrap item-center justify-center gap-2">
         <Image
@@ -82,7 +78,7 @@ export const HeroSection = () => {
           </div>
           <Link
             href="/justification-letter"
-            className="mx-auto underline hover:font-bold transition-all text-sm md:text-xl "
+            className="mx-auto underline hover:font-bold transition-all text-sm md:text-xl  mb-6"
           >
             Need help convincing? Use our justification letter!
           </Link>
