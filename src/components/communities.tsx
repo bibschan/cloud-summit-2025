@@ -5,6 +5,7 @@ import { Card, CardHeader, CardDescription } from "@/components/ui/card";
 import { COMMUNITIES } from "@/lib/constants";
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 
 
@@ -20,10 +21,8 @@ export function CommunitiesList() {
         text-foreground
       "
     >
-      <div className="container px-4 md:px-6 mx-auto space-y-12">
-
+      <div className="container px-4 md:px-6 mx-auto space-y-12 flex flex-col items-center">
         <div className="text-center space-y-4">
-
           <h2
             className="
               text-6xl md:text-8xl  mb-4
@@ -35,8 +34,6 @@ export function CommunitiesList() {
 
         </div>
         <div className="space-y-4">
-
-
           <div
             className={`grid gap-4 ${isGridView
               ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
@@ -67,7 +64,12 @@ export function CommunitiesList() {
         <p className="text-xl text-primary-50 max-w-2xl mx-auto text-center font-semibold">
           Got a tech community interested in this event?
         </p>
-
+        <Link href='/contact' className="mx-auto  text-center">
+          <Button
+            size="lg"
+            variant="outline"
+            className="w-[150px] border-white/20 text-white hover:bg-pale-gold hover:text-primary-900 transition-all">Join Us</Button>
+        </Link>
       </div>
     </section>
   );
