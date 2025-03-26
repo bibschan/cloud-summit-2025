@@ -24,7 +24,7 @@ export const HeroSection = () => {
       <div className="max-w-[1100px] mx-auto relative z-10 min-h-screen flex flex-col flex-wrap item-center justify-center gap-2">
         <h1 className="hidden">Western Canada's Premiere Cloud Summit 2025</h1>
         <Image
-          src="/main-banner/banner.svg"
+          src="/main-banner/updated-banner.png"
           alt="Hero Logo"
           width={0}
           height={0}
