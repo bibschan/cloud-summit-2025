@@ -86,12 +86,12 @@ export const HighlightsSection = () => {
             className="w-full h-full rounded-2xl object-cover"
           />
         </div>
-        <div className="rounded-2xl bg-pink-500 p-4 col-span-2 row-span-1 flex flex-col justify-center text-center">
+        <div className="rounded-2xl bg-brink-pink p-4 col-span-2 row-span-1 flex flex-col justify-center text-center text-black">
           <h3 className={`font-highlight text-xl md:text-8xl font-semibold`}>
-            21+
+            12+
           </h3>
           <p className="font-semibold text-sm md:text-lg">
-            Presentations & Workshops
+            Sponsors & Communities
           </p>
         </div>
       </div>
