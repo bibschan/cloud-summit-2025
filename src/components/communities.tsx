@@ -21,7 +21,7 @@ export function CommunitiesList() {
         text-foreground
       "
     >
-      <div className="container px-4 md:px-6 mx-auto space-y-12 flex flex-col items-center">
+      <div className="max-w-[1100px] container px-4 md:px-6 mx-auto space-y-12 flex flex-col items-center">
         <div className="text-center space-y-4">
           <h2
             className="
