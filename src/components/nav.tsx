@@ -9,8 +9,11 @@ import { ArrowLeft, Menu, X } from "lucide-react";
 import { isAdmin } from "@/lib/admin";
 import Image from "next/image";
 import styles from "./nav.module.css";
+interface NavProps {
+  showMessage?: string;
+}
 
-export default function Nav() {
+export default function Nav({ showMessage = 'hidden' }: NavProps) {
   const [isAtTop, setIsAtTop] = useState(true);
   const [hasVoted, setHasVoted] = useState(true);
   const { data: session } = useSession();
@@ -68,7 +71,7 @@ export default function Nav() {
 
   // Render different nav content based on route
   const renderNavContent = () => {
-    if (isSignInPage || isVotePage || isAdminPage || isNominatePage) {
+    if (isSignInPage || isAdminPage || isNominatePage) {
       return (
         <div className="container mx-auto px-6 flex justify-between items-center">
           <Link
@@ -244,7 +247,7 @@ export default function Nav() {
             </>
           ) : (
             <Link href="/auth/signin" className="hover:text-sky-400">
-              Vote
+
             </Link>
           )}
         </div>
@@ -275,7 +278,7 @@ export default function Nav() {
       ${
         isSignInPage || isVotePage || isAdminPage || isNominatePage
           ? "absolute py-4"
-          : `fixed top-0 py-5 transition duration-300 ease-in-out ${
+          : `fixed ${showMessage === 'visible' ? 'top-16' : 'top-0'} py-5 transition duration-300 ease-in-out ${
               !isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""
             }`
       }
