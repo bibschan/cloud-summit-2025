@@ -10,7 +10,7 @@ export default function CharitySection() {
 
   return (
     <section className="py-20 md:px-4 bg-primary-900 w-full" id="venue ">
-      <article className="container px-4 mx-auto flex flex-col md:flex-row items-start justify-center w-full gap-8 mb-4 h-full  text-center">
+      <article className="max-w-[900px] container px-4 mx-auto flex flex-col md:flex-row items-start justify-center w-full gap-8 mb-4 h-full  text-center">
         <div className="max-w-[900px] h-full flex flex-col items-center justify-between gap-6 lg:gap-10">
           <h2 className="text-6xl md:text-8xl  bg-clip-text text-white">
             Make a Difference{" "}
@@ -30,7 +30,7 @@ export default function CharitySection() {
             </span>
             to Union Gospel Mission.
           </p>
-          <p className="flex-grow text-md text-white">
+          <p className="flex-grow text-sm md:text-lg text-white">
             {EVENT_CONFIG.sections.charity.content}
           </p>
           <Button

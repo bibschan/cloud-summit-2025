@@ -10,9 +10,9 @@ import {
 
 export const HighlightsSection = () => {
   return (
-    <section className=" py-20  bg-primary-900" id="highlights">
+    <section className="py-20  bg-primary-900" id="highlights">
       <div
-        className="container mx-auto flex flex-col md:grid grid-cols-6 grid-rows-5 gap-4 p-4"
+        className="max-w-[900px] container mx-auto flex flex-col md:grid grid-cols-6 grid-rows-5 gap-4 p-4"
         aria-label="Highlights for the 2025 cloud summit"
       >
         <div className="hidden md:block rounded-2xl row-span-3">
