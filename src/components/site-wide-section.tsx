@@ -2,15 +2,16 @@
 
 import React, { useState } from 'react';
 import { X } from 'lucide-react'
+
 interface SiteWideMessageProps {
-    isVisible: boolean;
+    isVisible: string;
     handleClose: () => void;
   }
 
 export const SiteWideMessage: React.FC<SiteWideMessageProps> = ({ isVisible, handleClose }) => {
     const message = process.env.NEXT_PUBLIC_BANNER_MESSAGE || 'Default message';
 
-    if (!isVisible) return null;
+    if (isVisible === 'hidden' || isVisible === 'initial') return null;
 
     return (
         <div
@@ -21,8 +22,7 @@ export const SiteWideMessage: React.FC<SiteWideMessageProps> = ({ isVisible, han
             </div>
             <button
                 onClick={handleClose}
-                className="
-            hover:bg-gray-200 rounded-full p-1 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                className="rounded-full p-1 transition-colors duration-200 "
                 aria-label="Close message"
             >
                 <X size={24} />

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "@/components/nav";
 import { HeroSection } from "@/components/hero-section";
 import { HighlightsSection } from "@/components/highlights-section";
@@ -17,14 +17,33 @@ import ActivitiesSection from "@/components/activities-section";
 import CloudInfoBanner from "@/components/cloud-info-banner-section";
 import { ProvidersSection } from "@/components/providers-section";
 import { SiteWideMessage } from "@/components/site-wide-section";
-
+type BannerState = 'initial' | 'visible' | 'hidden';
 
 export default function Home() {
-  const initialBanner = process.env.NEXT_PUBLIC_SHOW_MESSAGE === 'true';
-  const [showMessage, setShowMessage] = useState(initialBanner);
+  const [showMessage, setShowMessage] = useState<BannerState>('initial');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedState = sessionStorage.getItem('bannerState');
+      const envInitialState = process.env.NEXT_PUBLIC_SHOW_MESSAGE === 'true';
+
+      if (storedState === 'hidden') {
+        setShowMessage('hidden');
+      } else if (envInitialState) {
+        setShowMessage('visible');
+        sessionStorage.setItem('bannerState', 'visible');
+      } else {
+        setShowMessage('hidden');
+      }
+    }
+  }, []);
+
 
   const handleCloseMessage = () => {
-    setShowMessage(false);
+    setShowMessage('hidden');
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('bannerState', 'hidden');
+    }
 };
 
   return (
