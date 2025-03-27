@@ -117,7 +117,7 @@ export default function Footer() {
             </p>
             <p className="mb-0">
               Built by{" "}
-              {EVENT_CONFIG.team.members.map((member, index) => (
+              {EVENT_CONFIG.team.webMembers.map((member, index) => (
                 <React.Fragment key={member.name}>
                   <a
                     href={member.github}
@@ -126,9 +126,9 @@ export default function Footer() {
                   >
                     {member.name}
                   </a>
-                  {index < EVENT_CONFIG.team.members.length - 2
+                  {index < EVENT_CONFIG.team.webMembers.length - 2
                     ? ", "
-                    : index === EVENT_CONFIG.team.members.length - 2
+                    : index === EVENT_CONFIG.team.webMembers.length - 2
                       ? " and "
                       : ""}
                 </React.Fragment>
