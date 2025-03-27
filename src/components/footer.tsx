@@ -64,6 +64,14 @@ export default function Footer() {
                   Sponsors
                 </Link>
               </li>
+              <li>
+                <Link
+                  href='/team'
+                  className="hover:text-green-500 transition-colors"
+                >
+                  Team
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
