@@ -6,20 +6,8 @@ import Image from "next/image";
 import { EVENT_CONFIG, teamAreas } from "@/lib/constants";
 import { cn } from "@/lib/utils"
 
-const convertCoordsToPercentage = (coords: string) => {
-    const [x1, y1, x2, y2] = coords.split(',').map(Number);
-    return {
-        left: `${(x1 / 1200) * 100}%`,
-        top: `${(y1 / 630) * 100}%`,
-        width: `${((x2 - x1) / 1200) * 100}%`,
-        height: `${((y2 - y1) / 630) * 100}%`,
-    };
-};
 export default function TeamPage() {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-    const mapName = `image-map-${Math.random().toString(36).substring(7)}`;
-
-    const [hoveredArea, setHoveredArea] = useState<number | null>(null);
 
     const hoverColors = [
         "text-pink-400",
