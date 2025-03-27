@@ -9,8 +9,11 @@ import { ArrowLeft, Menu, X } from "lucide-react";
 import { isAdmin } from "@/lib/admin";
 import Image from "next/image";
 import styles from "./nav.module.css";
+interface NavProps {
+  showMessage?: string;
+}
 
-export default function Nav() {
+export default function Nav({ showMessage = 'hidden' }: NavProps) {
   const [isAtTop, setIsAtTop] = useState(true);
   const [hasVoted, setHasVoted] = useState(true);
   const { data: session } = useSession();
@@ -20,6 +23,10 @@ export default function Nav() {
   const isVotePage = pathname === "/vote";
   const isAdminPage = pathname === "/admin";
   const isNominatePage = pathname === "/nominate";
+  const today = new Date();
+  const earlyBirdDeadline = new Date("2025-05-14T00:00:00");
+  const ticketMessage =
+    today < earlyBirdDeadline ? "Get Early-Bird Tickets!" : "Get your tickets!";
   const userIsAdmin = session?.user?.email
     ? isAdmin(session.user.email)
     : false;
@@ -68,7 +75,7 @@ export default function Nav() {
 
   // Render different nav content based on route
   const renderNavContent = () => {
-    if (isSignInPage || isVotePage || isAdminPage || isNominatePage) {
+    if (isSignInPage || isAdminPage || isNominatePage) {
       return (
         <div className="container mx-auto px-6 flex justify-between items-center">
           <Link
@@ -148,11 +155,11 @@ export default function Nav() {
                 </Link>
                 <a
                   href={EVENT_CONFIG.links.tickets}
-                  className="min-w-[150px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800"
+                  className="min-w-[190px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800"
                   data-luma-action="checkout"
                   data-luma-event-id="evt-cItbLfgBkf8na4n"
                 >
-                  Get your tickets
+                  {ticketMessage}
                 </a>
 
                 <Script
@@ -244,18 +251,18 @@ export default function Nav() {
             </>
           ) : (
             <Link href="/auth/signin" className="hover:text-sky-400">
-              Vote
+
             </Link>
           )}
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <a
             href={EVENT_CONFIG.links.tickets}
-            className="min-w-[150px] h-9 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all"
+            className="min-w-[190px] h-9 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all"
             data-luma-action="checkout"
             data-luma-event-id="evt-cItbLfgBkf8na4n"
           >
-            Get your tickets
+            {ticketMessage}
           </a>
 
           <Script
@@ -271,11 +278,11 @@ export default function Nav() {
   return (
     <nav
       className={`
-      w-full z-20
+      w-full z-50
       ${
         isSignInPage || isVotePage || isAdminPage || isNominatePage
           ? "absolute py-4"
-          : `fixed top-0 py-5 transition duration-300 ease-in-out ${
+          : `fixed ${showMessage === 'visible' ? 'top-16' : 'top-0'} py-5 transition duration-300 ease-in-out ${
               !isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""
             }`
       }

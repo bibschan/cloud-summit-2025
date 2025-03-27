@@ -14,8 +14,9 @@ export const EVENT_CONFIG = {
   },
   description:
     "Join cloud developers, architects, IT & infrastructure professionals and executives building the cloud ecosystem.",
+  slogan: "Western Canada's Largest Multi-Cloud Event",
   about:
-    "As a non-profit organization, our purpose is to bring together & educate the local tech community about the cloud​ and support our local community through charity.",
+    "As a non-profit organization, our purpose is to bring together & educate the local tech community about the cloud and support our local community through charity.",
   links: {
     tickets: "https://lu.ma/event/evt-cItbLfgBkf8na4n",
     speakers: "https://forms.gle/6qjgftM5Uf4ZSNNP7",
@@ -112,9 +113,10 @@ export const EVENT_CONFIG = {
       description:
         "Experience the Vancouver Cloud Summit like no technology conference you have been to before. Sophistication and elegance meets new age technology and engagement in an amazing venue in the heart of downtown Vancouver. 2 large stages, many intimate workshops and talks as well as a few surprises!",
     },
-    nominate:{
-      description: 'We aim to recognize excellence within the Canadian tech community by celebrating organizations that drive positive community impact, foster growth, and showcase technical innovation through the use of cloud technology.',
-      cta: 'Nominate a company that you love that best reflects these values and vote for them! The winner of this award will be announced and recognized at the event!'
+    nominate: {
+      description:
+        "We aim to recognize excellence within the Canadian tech community by celebrating organizations that drive positive community impact, foster growth, and showcase technical innovation through the use of cloud technology.",
+      cta: "Nominate a company that you love that best reflects these values and vote for them! The winner of this award will be announced and recognized at the event!",
     },
     charity: {
       title: "Make a Difference Together",
@@ -167,7 +169,7 @@ export const EVENT_CONFIG = {
         {
           question: "Is the event accessible?",
           answer:
-            "Yes, there is both accessible ramps, elevators, and main stage seating. For more details check out the Vancouver Orpheum Theatre site for details https://vancouvercivictheatres.com/accessibility/#accessibility.",
+            "Yes, there is both accessible ramps, elevators, and main stage seating. For more details check out the Vancouver Orpheum Theatre site for details https://vancouvercivictheatres.com/accessibility/.",
         },
         {
           question: "Will I be able to watch the event online?",
@@ -186,11 +188,14 @@ export const EVENT_CONFIG = {
   },
   team: {
     members: [
-      { name: "Kota", github: "https://github.com/boooocchi" },
-      { name: "Sophia", github: "https://github.com/Sophia-G-Chan" },
-      { name: "Luis", github: "https://github.com/luisher98" },
       { name: "Bibi", github: "https://github.com/bibschan" },
-      { name: "Madhuja", github: "https://github.com/madhujamitra" },
+      {
+        name: "Byte Quest",
+        github: "https://www.linkedin.com/company/bytequestllc/",
+      },
+      { name: "Jackie", github: "https://jackieho.ca/" },
+      { name: "Luis", github: "https://github.com/luisher98" },
+      { name: "Sophia", github: "https://github.com/Sophia-G-Chan" },
     ],
   },
 };
@@ -198,7 +203,7 @@ export const EVENT_CONFIG = {
 export const CLOUDPLATFORMS = [
   {
     name: "AWS",
-    logo: "/providers/aws.svg",
+    logo: "/cloud-providers/aws-white.svg",
   },
   {
     name: "Azure",
@@ -219,6 +224,14 @@ export const CLOUDPLATFORMS = [
   {
     name: "Alibaba Cloud",
     logo: "/providers/alibaba.svg",
+  },
+  {
+    name: "Tencent Cloud",
+    logo: "/cloud-providers/tencent-white.svg",
+  },
+  {
+    name: "Huawei Cloud",
+    logo: "/cloud-providers/huawei.svg",
   },
 ];
 
@@ -246,6 +259,12 @@ export const SPONSORS = [
     status: "diamond",
     logo: "/sponsors/fortinet.svg",
     link: "https://www.fortinet.com/",
+  },
+  {
+    name: "The Upgrade AI",
+    status: "gold",
+    logo: "/sponsors/the-upgrade.webp",
+    link: "https://www.theupgrade.ai/",
   },
   {
     name: "Greydata",
@@ -302,6 +321,7 @@ export const COMMUNITIES = [
     description:
       "A monthly meetup for developers in Vancouver focusing on JavaScript, front-end technology, and the open web.",
     url: "https://www.vanjs.com/",
+    image: "/communities/vanjs.svg",
   },
   {
     id: 2,
@@ -309,6 +329,7 @@ export const COMMUNITIES = [
     description:
       "Vancouver's AWS community with monthly events and co-host of Vancouver's largest Cloud and AI Conference.",
     url: "https://www.awsusergroups.com/",
+    image: "/communities/aws.svg",
   },
   {
     id: 3,
@@ -316,6 +337,7 @@ export const COMMUNITIES = [
     description:
       "Vancouver Microsoft Azure User Group running quarterly events and co-hosting Western Canada's largest Cloud and AI Conference.",
     url: "https://www.azurecanada.ca/",
+    image: "/communities/azurecanada.svg",
   },
   {
     id: 4,
@@ -323,6 +345,7 @@ export const COMMUNITIES = [
     description:
       "A community focused on cloud-native technologies, containerization, and microservices architecture.",
     url: "https://lu.ma/p35u91p3",
+    image: "/communities/cloudnative.svg",
   },
   {
     id: 5,
@@ -330,12 +353,14 @@ export const COMMUNITIES = [
     description:
       "Connect with AI enthusiasts, researchers, and practitioners in Vancouver.",
     url: "https://www.vancouveraimeetup.com/",
+    image: "/communities/vanai.svg",
   },
   {
     id: 6,
-    name: "Linux User Group",
+    name: "Google Developer Group",
     description:
-      "Vancouver Linux Users Group (VanLUG) - A community for Linux enthusiasts and open-source advocates.",
-    url: "https://vanlug.ca/",
+      "A diverse and inclusive tech community where everyone, regardless of their experience level, feels empowered to learn, share, and grow.",
+    url: "https://gdg.community.dev/gdg-surrey/",
+    image: "/communities/gdg.svg",
   },
 ];
