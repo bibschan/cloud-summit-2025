@@ -40,11 +40,10 @@ export default function TeamPage() {
             <Nav />
             <main className="w-full bg-primary-900 pt-8 md:py-20" id="team">
                 <div className="max-w-[1100px] container px-4 md:px-6 mx-auto space-y-8">
-                    {/* Header Section */}
                     <section className="flex flex-col items-center justify-center space-y-4 text-center">
                         <div className="space-y-2">
-                            <h2 className="text-6xl md:text-8xl tracking-tighter text-white">
-                                Meet the &nbsp;
+                            <h2 className="text-6xl md:text-8xl  text-white">
+                                Meet the&nbsp;
                                 <span className=" text-secondary-600 ">
                                     Dream Team
                                 </span>
@@ -56,15 +55,8 @@ export default function TeamPage() {
                         </div>
                     </section>
                     <section className="mx-auto">
-                        <p className="text-lg md:text-3xl text-center  text-primary-50">Committee</p>
-                        <div className="grid grid-cols-3 md:grid-cols-5 w-full h-auto ">
-                            {/* <Image
-                                src={EVENT_CONFIG.team.image}
-                                alt='Lego depiction of team members'
-                                fill
-                                className="w-full h-auto"
-                                useMap={`#${mapName}`}
-                            /> */}
+                        <h3 className="doto-text text-lg md:text-3xl text-center  text-secondary-600 uppercase">2025 Committee Members</h3>
+                        <div className="grid grid-cols-3 md:grid-cols-5 w-full h-auto gap-4 px-8">
                             {EVENT_CONFIG.team.commitee.map((member, index) => {
                                 return (
                                     <a
@@ -72,14 +64,14 @@ export default function TeamPage() {
                                         href={member.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-auto flex flex-col justify-center"
+                                        className="w-auto flex flex-col justify-top items-center "
                                     >
                                         <Image
                                             src={member.image}
                                             alt={member.title}
                                             width={100}
                                             height={200}
-                                            className=""
+                                            className="mb-4"
                                         />
                                         <h4 className="max-w-[100px] text-center">{member.title}</h4>
                                     </a>
@@ -88,11 +80,18 @@ export default function TeamPage() {
                         </div>
 
                     </section>
-                    <section>
-                        <p className="text-lg md:text-3xl text-primary-50 text-center mb-6">
-                            Our Amazing Volunteers
-                        </p>
-                        <h3 className="doto-text font-bold">Website & Design Team</h3>
+
+                    <section className="flex flex-col items-center justify-center space-y-4 text-center">
+                        <div className="space-y-2">
+                            <h2 className="text-6xl md:text-8xl  text-white text-center mb-6">
+                                Our Amazing <span className="text-pale-gold">Volunteers</span>
+                            </h2>
+                            <p className="text-gray-300 text-center max-w-2xl mx-auto mb-12">
+                                Meet the talented people behind the scenes.
+                            </p>
+                        </div>
+
+                        <h3 className="doto-text font-bold uppercase text-pale-gold text-3xl text-center">Website & Design Team</h3>
                         <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 max-w-5xl mx-auto font-bold">
                             {EVENT_CONFIG.team.volunteers.map((volunteer, index) => (
                                 <a
@@ -110,6 +109,8 @@ export default function TeamPage() {
                             ))}
                         </div>
                     </section>
+
+
                 </div>
             </main >
             <Footer />

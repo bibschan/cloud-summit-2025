@@ -1,13 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap");
+@font-face {
+  font-family: 'Doto';
+  src: url('/fonts/Doto-VariableFont_ROND,wght.ttf') format('truetype');
+  font-weight: 100 600 700 900;
+  font-style: normal;
+}
 
 .doto-text {
-  font-family: "Doto", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  font-variation-settings:
+  font-family: 'Doto', sans-serif;
+  font-variation-settings: 'wght' 700, 'ROND' 0;
 }
 
 :root {

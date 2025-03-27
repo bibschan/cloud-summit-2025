@@ -30,10 +30,7 @@ export const metadata: Metadata = {
     ],
     locale: "en_CA",
     type: "website",
-  },
-  other: {
-    "google-fonts": "https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap",
-  },
+  }
 };
 const sofiaSans = Sofia_Sans_Extra_Condensed({
   subsets: ["latin"],
