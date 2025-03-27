@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-800 text-gray-400 py-12 max-md:text-center">
+    <footer className="bg-primary-800 text-primary-100 py-12 max-md:text-center">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-md:place-items-center">
           <div className="flex flex-col items-center md:block">
@@ -19,34 +19,17 @@ export default function Footer() {
               height={50}
               className="mb-4"
             />
-
-            <p className="mb-4">
-              &copy; 2025 {EVENT_CONFIG.title}. All rights reserved.
+            <p className="mb-4 font-semibold ">
+              {EVENT_CONFIG.slogan}.
             </p>
-            <div className="flex space-x-4 max-md:justify-center">
-              <a
-                target="_blank"
-                href={EVENT_CONFIG.links.social.instagram}
-                className="text-gray-400 hover:text-green-500 transition-colors"
-              >
-                <Instagram className="h-6 w-6" />
-                <span className="sr-only">Instagram</span>
-              </a>
-              <a
-                target="_blank"
-                href={EVENT_CONFIG.links.social.linkedin}
-                className="text-gray-400 hover:text-green-500 transition-colors"
-              >
-                <Linkedin className="h-6 w-6" />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-            </div>
+
+
           </div>
           <div>
             <p className="text-lg text-white mb-4">
               Quick Links
             </p>
-            <ul className="space-y-2">
+            <ul className="space-y-2 ">
               <li>
                 <Link
                   href="#about"
@@ -127,27 +110,51 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-          <p className="mb-0">
-            Built by{" "}
-            {EVENT_CONFIG.team.webMembers.map((member, index) => (
-              <React.Fragment key={member.name}>
-                <a
-                  href={member.github}
-                  target="_blank"
-                  className="text-green-500 hover:text-green-400"
-                >
-                  {member.name}
-                </a>
-                {index < EVENT_CONFIG.team.webMembers.length - 2
-                  ? ", "
-                  : index === EVENT_CONFIG.team.webMembers.length - 2
-                  ? " and "
-                  : ""}
-              </React.Fragment>
-            ))}
-            .
-          </p>
+        <div className="mt-8 pt-8 border-t border-gray-800 flex justify-between flex-col gap-6 md:flex-row">
+          <div>
+            <p className="mb-4">
+              &copy; 2025 {EVENT_CONFIG.title}. All rights reserved.
+            </p>
+            <p className="mb-0">
+              Built by{" "}
+              {EVENT_CONFIG.team.members.map((member, index) => (
+                <React.Fragment key={member.name}>
+                  <a
+                    href={member.github}
+                    target="_blank"
+                    className="text-green-500 hover:text-green-400"
+                  >
+                    {member.name}
+                  </a>
+                  {index < EVENT_CONFIG.team.members.length - 2
+                    ? ", "
+                    : index === EVENT_CONFIG.team.members.length - 2
+                      ? " and "
+                      : ""}
+                </React.Fragment>
+              ))}
+              .
+            </p>
+          </div>
+
+          <div className="flex space-x-4 max-md:justify-center">
+            <a
+              target="_blank"
+              href={EVENT_CONFIG.links.social.instagram}
+              className="text-gray-400 hover:text-green-500 transition-colors"
+            >
+              <Instagram className="h-6 w-6" />
+              <span className="sr-only">Instagram</span>
+            </a>
+            <a
+              target="_blank"
+              href={EVENT_CONFIG.links.social.linkedin}
+              className="text-gray-400 hover:text-green-500 transition-colors"
+            >
+              <Linkedin className="h-6 w-6" />
+              <span className="sr-only">LinkedIn</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
