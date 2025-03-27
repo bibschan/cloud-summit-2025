@@ -32,7 +32,7 @@ export const HeroSection = () => {
           width={0}
           height={0}
           sizes="100vw"
-          className="w-[90%] mt-10 md:mt-20 h-auto xl:w-[70%] 2xl:w-[60%] 3xl:w-[50%] mx-auto mb-6"
+          className="w-[90%] mt-10 md:mt-28 h-auto xl:w-[70%] 2xl:w-[60%] 3xl:w-[50%] mx-auto mb-6"
         />
         <div className="md:mb-4">
           <p className="mx-auto max-w-3xl text-center text-xl text-white md:text-3xl font-semibold uppercase">
