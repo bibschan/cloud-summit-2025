@@ -73,7 +73,7 @@ export default function TeamPage() {
                         </div>
                     </section>
 
-                    <section className="flex flex-col items-center justify-center space-y-4 text-center ">
+                    <section className="flex flex-col items-center justify-center space-y-4 text-center px-8">
                         <div className="space-y-2">
                             <h2 className="text-6xl md:text-8xl  text-white text-center mb-6">
                                 Our Amazing <span className="text-pale-gold">Volunteers</span>
@@ -84,7 +84,7 @@ export default function TeamPage() {
                         </div>
 
                         <h3 className="doto-text font-bold uppercase text-pale-gold text-2xl md:text-3xl  text-center">Website & Design Team</h3>
-                        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-x-10 max-w-5xl mx-auto font-bold">
+                        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-x-14 max-w-5xl mx-auto font-bold px-8">
                             {EVENT_CONFIG.team.volunteers.map((volunteer, index) => (
                                 <a
                                     key={index}

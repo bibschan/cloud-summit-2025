@@ -276,12 +276,14 @@ export const EVENT_CONFIG = {
       }
     ],
     volunteers: [
+      { name: "Ayda Esmradi", link: "https://www.linkedin.com/in/aydaesmradi/", team:'webAndDesign' },
+      { name: "Byte Quest", link: "https://www.linkedin.com/company/bytequestllc/", team:'webAndDesign' },
       { name: "Jess Jaen", link: "https://www.linkedin.com/in/jess-jaen-creative-graphic-designer/", team:'webAndDesign'},
       { name: "Kota Ito", link: "https://www.linkedin.com/in/kota-ito-%EF%BC%A0041212/", team:'webAndDesign' },
       { name: "Luis Hernandez", link: "https://github.com/luisher98", team:'webAndDesign' },
       { name: "Madhuja Mitra", link: "https://www.linkedin.com/in/madhuja-mitra/", team:'webAndDesign' },
+      { name: "Mostafa Davoodi", link: "https://www.linkedin.com/in/mostafa-davoodi/", team:'webAndDesign' },
       { name: "Sophia Chan", link: "https://www.linkedin.com/in/sophia-g-chan/", team:'webAndDesign' },
-      { name: "Byte Quest", link: "https://www.linkedin.com/company/bytequestllc/", team:'webAndDesign' },
     ],
     webMembers: [
       { name: "Bibi", github: "https://github.com/bibschan" },
