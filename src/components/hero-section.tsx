@@ -22,7 +22,9 @@ export const HeroSection = () => {
     <section className="min-h-[500px] md:min-h-[900px] w-full ">
       <SplineSection />
       <div className="max-w-[1100px] mx-auto relative z-10 min-h-screen flex flex-col flex-wrap item-center justify-center gap-2">
-        <h1 className="hidden">Western Canada's Premiere Cloud Summit 2025</h1>
+        <h1 className="hidden">
+          Western Canada&apos;s Premiere Cloud Summit 2025
+        </h1>
         <Image
           src="/main-banner/updated-banner.png"
           alt="Hero Logo"
