@@ -203,7 +203,7 @@ export const EVENT_CONFIG = {
 export const CLOUDPLATFORMS = [
   {
     name: "AWS",
-    logo: "/providers/aws.svg",
+    logo: "/cloud-providers/aws-white.svg",
   },
   {
     name: "Azure",
@@ -227,11 +227,11 @@ export const CLOUDPLATFORMS = [
   },
   {
     name: "Tencent Cloud",
-    logo: "/providers/Tencent_Cloud.svg",
+    logo: "/cloud-providers/tencent-white.svg",
   },
   {
     name: "Huawei Cloud",
-    logo: "/providers/huawei.svg",
+    logo: "/cloud-providers/huawei.svg",
   },
 ];
 

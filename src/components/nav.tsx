@@ -23,6 +23,10 @@ export default function Nav({ showMessage = 'hidden' }: NavProps) {
   const isVotePage = pathname === "/vote";
   const isAdminPage = pathname === "/admin";
   const isNominatePage = pathname === "/nominate";
+  const today = new Date();
+  const earlyBirdDeadline = new Date("2025-05-14T00:00:00");
+  const ticketMessage =
+    today < earlyBirdDeadline ? "Get Early-Bird Tickets!" : "Get your tickets!";
   const userIsAdmin = session?.user?.email
     ? isAdmin(session.user.email)
     : false;
@@ -151,11 +155,11 @@ export default function Nav({ showMessage = 'hidden' }: NavProps) {
                 </Link>
                 <a
                   href={EVENT_CONFIG.links.tickets}
-                  className="min-w-[150px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800"
+                  className="min-w-[190px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800"
                   data-luma-action="checkout"
                   data-luma-event-id="evt-cItbLfgBkf8na4n"
                 >
-                  Get your tickets
+                  {ticketMessage}
                 </a>
 
                 <Script
@@ -254,11 +258,11 @@ export default function Nav({ showMessage = 'hidden' }: NavProps) {
         <div className="hidden md:flex items-center space-x-4">
           <a
             href={EVENT_CONFIG.links.tickets}
-            className="min-w-[150px] h-9 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all"
+            className="min-w-[190px] h-9 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all"
             data-luma-action="checkout"
             data-luma-event-id="evt-cItbLfgBkf8na4n"
           >
-            Get your tickets
+            {ticketMessage}
           </a>
 
           <Script
