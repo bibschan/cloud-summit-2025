@@ -40,13 +40,13 @@ export default function Home() {
         <HighlightsSection />
         <ProvidersSection />
         <ActivitiesSection />
-        <MediaLounge />
+        {/* <MediaLounge /> */}
         {/* <CommunitySection /> */}
         <NominateSection />
-        <VenueSection />
+        <CharitySection />
         <CommunitiesList />
         <BannerSection />
-        <CharitySection />
+
         <FAQSection />
         <SponsorsSection />
       </main>

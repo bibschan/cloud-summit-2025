@@ -274,7 +274,7 @@ export default function Nav({ showMessage = false }: NavProps) {
   return (
     <nav
       className={`
-      w-full z-20
+      w-full z-50
       ${
         isSignInPage || isVotePage || isAdminPage || isNominatePage
           ? "absolute py-4"
