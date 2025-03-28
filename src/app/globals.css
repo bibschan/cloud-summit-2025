@@ -1,31 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'Doto';
+  src: url('/fonts/Doto-VariableFont_ROND,wght.ttf') format('truetype');
+  font-weight: 100 600 700 900;
+  font-style: normal;
+}
 
-@layer base {
-  :root {
-    --background: 210 100% 97%;
-    --foreground: 339 20% 20%;
-    --primary: 308 56% 85%;
-    --primary-foreground: 210 22% 22%;
-    --secondary: 196 75% 88%;
-    --secondary-foreground: 210 22% 22%;
-    --accent: 211 86% 70%;
-    --accent-foreground: 210 22% 22%;
-    --destructive: 0 93% 73%;
-    --destructive-foreground: 210 22% 22%;
-    --muted: 210 100% 95%;
-    --muted-foreground: 210 22% 22%;
-    --card: 210 100% 97%;
-    --card-foreground: 210 22% 22%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 341 20% 22%;
-    --border: 210 40% 80%;
-    --input: 210 40% 56%;
-    --ring: 210 40% 60%;
-    --radius: 1rem;
-    scroll-behavior: smooth;
-  }
+.doto-text {
+  font-family: 'Doto', sans-serif;
+  font-variation-settings: 'wght' 700, 'ROND' 0;
+}
+
+:root {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --primary: 308 56% 85%;
+  --primary-foreground: 210 22% 22%;
+  --secondary: 196 75% 88%;
+  --secondary-foreground: 210 22% 22%;
+  --accent: 211 86% 70%;
+  --accent-foreground: 210 22% 22%;
+  --destructive: 0 93% 73%;
+  --destructive-foreground: 210 22% 22%;
+  --muted: 210 100% 95%;
+  --muted-foreground: 210 22% 22%;
+  --card: 210 100% 97%;
+  --card-foreground: 210 22% 22%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 341 20% 22%;
+  --border: 210 40% 80%;
+  --input: 210 40% 56%;
+  --ring: 210 40% 60%;
+  --radius: 1rem;
+  scroll-behavior: smooth;
+}
+
+html {
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: rgb(3, 7, 17);
+}
+
+body {
+  min-height: 100vh;
+  background-color: rgb(3, 7, 17);
+  color: rgb(var(--foreground));
+}
+
+/* Vote page specific styles */
+html.vote-page {
+  @apply bg-gradient-to-b from-blue-700 to-blue-300 !important;
+}
+
+html.vote-page body {
+  background: none;
 }
 
 @layer base {
@@ -37,6 +67,10 @@
   h6 {
     @apply font-heading;
   }
+
+  p{
+    @apply font-body;
+  }
 }
 
 @layer components {
@@ -47,4 +81,32 @@
   .font-heading {
     font-family: var(--font-heading);
   }
+
+  .font-highlight{
+    font-family: var(--font-sofia-sans);;
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.scrollContent {
+  display: flex;
+  animation: scroll 40s linear infinite;
+  width: fit-content;
+
+  @media (max-width: 768px){
+    animation-duration: 25s;
+  }
+}
+
+.scrollContent:hover {
+  animation-play-state: paused;
+
 }

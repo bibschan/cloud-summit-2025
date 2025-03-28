@@ -10,49 +10,91 @@ import {
 
 export const HighlightsSection = () => {
   return (
-    <section className="py-20 bg-gray-900" id="highlights">
-      <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-500">
-          {EVENT_CONFIG.sections.highlights.title}
-        </h2>
+    <section className="py-20  bg-primary-900" id="highlights">
+      <div
+        className="max-w-[900px] container mx-auto flex flex-col md:grid grid-cols-6 grid-rows-5 gap-4 p-4"
+        aria-label="Highlights for the 2025 cloud summit"
+      >
+        <div className="hidden md:block rounded-2xl row-span-3">
+          <Image
+            src="/past-events/awsDay-6.svg"
+            alt="Two men looking at ipad"
+            width={100}
+            height={100}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="rounded-2xl bg-lemon-lime p-4 col-span-3 row-span-2 text-black flex flex-col justify-center text-center">
+          <h3 className={`font-highlight text-xl md:text-8xl font-semibold`}>
+            $10,000+
+          </h3>
+          <p className="font-semibold text-sm md:text-lg">
+            Charity Donation Goal
+          </p>
+        </div>
+        <div className="hidden md:block rounded-2xl col-span-2 row-span-2">
+          <Image
+            src="/past-events/AWSDay-7.svg"
+            alt="Two men looking at ipad"
+            width={100}
+            height={100}
+            className="w-full h-full rounded-2xl object-cover"
+          />
+        </div>
+        <div className="hidden md:block rounded-2xl bg-pale-gold p-4 "></div>
+        <div className="order-first md:order-none rounded-2xl bg-primary-800 p-4 col-span-2 row-span-3 flex justify-center">
+          <Image
+            src="/past-events/cloud-logo.svg"
+            alt="Cloud Summit 2025 Logo with text under reading Cloud Summit"
+            width={192}
+            height={177}
+            className="m-auto"
+          />
+        </div>
+        <div className="rounded-2xl bg-secondary-600 p-4 col-span-2 row-span-2 text-white flex flex-col justify-center text-center">
+          <h3 className={`font-highlight text-xl md:text-8xl font-semibold`}>
+            780+
+          </h3>
+          <p className="font-semibold text-sm md:text-lg">
+            In-Person Attendees
+          </p>
+        </div>
+        <div className="rounded-2xl bg-lilac p-4 col-span-2 row-span-2 flex flex-col justify-center text-center">
+          <h3 className={`font-highlight text-xl md:text-8xl font-semibold`}>
+            21+
+          </h3>
+          <p className="font-semibold text-sm md:text-lg">
+            Presentations & Workshops
+          </p>
+        </div>
+        <div className="hidden md:block rounded-2xl col-span-2 row-span-2">
+          <Image
+            src="/past-events/AWSDay-9.svg"
+            alt="Three men standing smiling at each other"
+            width={200}
+            height={118}
+            className="w-full h-full rounded-2xl object-cover"
+          />
+        </div>
 
-        <div className="w-full mx-auto px-4 md:py-6 py-4">
-          <div className="relative flex justify-center">
-            <Carousel
-              className="md:w-full w-[90%]"
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-            >
-              <CarouselContent className="-ml-4">
-                {EVENT_CONFIG.sections.highlights.images.map((image) => (
-                  <CarouselItem
-                    key={image.id}
-                    className="lg:basis-1/4 md:basis-1/3 sm:basis-1/2"
-                  >
-                    <div className="relative h-64 rounded-lg group">
-                      <Image
-                        src={image.path}
-                        alt={`Event Photo ${image.id}`}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-110 rounded-lg"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <p className="text-white text-lg font-semibold">
-                          {image.caption}
-                        </p>
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="absolute lg:-left-5 -left-7 top-1/2 transform -translate-y-1/2 bg-primary/90 hover:bg-primary text-white border border-white p-4" />
-              <CarouselNext className="absolute lg:-right-5 -right-7 top-1/2 transform -translate-y-1/2 bg-primary/90 hover:bg-primary text-white rounded-full border border-white p-4" />
-            </Carousel>
-          </div>
+        <div className="hidden md:block  rounded-2xl col-span-2 row-span-1 overflow-hidden">
+          <Image
+            src="/past-events/cloudsummit.png"
+            alt="Cloud Summit 2025 Logo with text under reading Cloud Summit"
+            width={200}
+            height={118}
+            className="w-full h-full rounded-2xl object-cover"
+          />
+        </div>
+        <div className="rounded-2xl bg-brink-pink p-4 col-span-2 row-span-1 flex flex-col justify-center text-center text-black">
+          <h3 className={`font-highlight text-xl md:text-8xl font-semibold`}>
+            12+
+          </h3>
+          <p className="font-semibold text-sm md:text-lg">
+            Sponsors & Communities
+          </p>
         </div>
       </div>
     </section>
   );
-}; 
+};
