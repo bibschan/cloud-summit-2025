@@ -153,6 +153,13 @@ export default function Nav({ showMessage = 'hidden' }: NavProps) {
                 >
                   Sponsors
                 </Link>
+                <Link
+                  href='/team'
+                  onClick={handleNav}
+                  className="hover:text-sky-400 text-primary-50"
+                >
+                  Team
+                </Link>
                 <a
                   href={EVENT_CONFIG.links.tickets}
                   className="min-w-[190px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800"
@@ -200,6 +207,13 @@ export default function Nav({ showMessage = 'hidden' }: NavProps) {
           >
             Sponsors
           </Link>
+          <Link
+                  href='/team'
+                  onClick={handleNav}
+                  className="hover:text-sky-400 text-primary-50"
+                >
+                  Team
+                </Link>
           {session ? (
             <>
               <div className="relative">
