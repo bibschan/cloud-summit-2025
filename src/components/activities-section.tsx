@@ -16,7 +16,8 @@ function ActivitiesSection() {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      video.play().catch(console.error);
+      video.pause();
+      video.currentTime=0;
     }
 
     return () => {
