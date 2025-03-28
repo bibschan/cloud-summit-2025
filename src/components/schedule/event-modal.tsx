@@ -66,11 +66,11 @@ export function EventModal({ event, position }: EventModalProps) {
 
   return (
     <div
-      className="fixed bg-gray-900/95 border border-gray-800 rounded-lg shadow-2xl p-4 z-50 w-72 pointer-events-none"
+      className="fixed border border-gray-800 rounded-lg shadow-2xl p-4 z-50 w-72 pointer-events-none"
       style={style}
     >
       <div className="flex items-start space-x-4">
-        <div className="relative w-[50px] h-[50px] rounded-full bg-gray-800 overflow-hidden flex-shrink-0">
+        <div className="relative w-[50px] h-[50px] rounded-full overflow-hidden flex-shrink-0">
           <Image
             src={imageSrc}
             alt={event.speaker.name}
@@ -99,4 +99,4 @@ export function EventModal({ event, position }: EventModalProps) {
       </div>
     </div>
   )
-} 
+}

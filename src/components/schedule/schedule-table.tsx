@@ -66,8 +66,8 @@ export function ScheduleTable() {
           ))}
         </div>
         <div className="hidden md:grid md:grid-cols-2 col-start-2 md:col-start-2 md:col-span-2 row-start-1 h-16 bg-gray-900/80 backdrop-blur-sm border-b border-white/10 sticky top-0 z-10">
-          <div className="flex items-center justify-center font-medium text-white">Stage 1</div>
-          <div className="flex items-center justify-center font-medium text-white border-l border-white/10">Stage 2</div>
+          <div className="flex items-center justify-center font-medium text-white">Main Stage</div>
+          <div className="flex items-center justify-center font-medium text-white border-l border-white/10">Grand Hall</div>
         </div>
         {[1, 2].map((stage) => (
           <div
@@ -86,7 +86,7 @@ export function ScheduleTable() {
                   key={event.id}
                   className={cn(
                     "absolute left-2 right-2 p-2 rounded-md cursor-pointer",
-                    "transition-colors duration-200",
+                    "transition-colors duration-200 ",
                     event.color
                   )}
                   style={{
@@ -96,7 +96,7 @@ export function ScheduleTable() {
                   onMouseEnter={() => handleMouseEnter(event)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <h3 className="font-medium text-sm truncate text-white">{event.title}</h3>
+                  <h3 className="font-medium text-sm truncate text-white ">{event.title}</h3>
                   <p className="text-xs text-white/80">
                     {event.startTime} - {event.endTime}
                   </p>
@@ -108,4 +108,4 @@ export function ScheduleTable() {
       {activeEvent && <EventModal event={activeEvent} position={mousePosition} />}
     </div>
   )
-} 
+}
