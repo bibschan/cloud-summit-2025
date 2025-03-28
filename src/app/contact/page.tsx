@@ -123,7 +123,7 @@ export default function ContactPage() {
 
                                 <button type="submit">Submit Form</button>
                             </Button>
-                            {errorMessage && <p style={{ color: "red" }}>All fields are required.</p>}
+
                         </form>
                         <div className={`${errorMessage ? " p-4 rounded-lg bg-primary-700 flex gap-2" : "hidden"}`}>
                             <MessageCircleX className="text-red-400" />

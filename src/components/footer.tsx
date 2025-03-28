@@ -25,11 +25,11 @@ export default function Footer() {
 
 
           </div>
-          <div>
+          <div className=" w-full">
             <p className="text-lg text-white mb-4">
               Quick Links
             </p>
-            <ul className="space-y-2 ">
+            <ul className=" grid grid-cols-2 gap-4 md:gap-2 md:grid-cols-1 ">
               <li>
                 <Link
                   href="#about"
@@ -62,6 +62,15 @@ export default function Footer() {
                   target="_blank"
                 >
                   Sponsors
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href='/contact'
+                  className="hover:text-green-500 transition-colors"
+                  target="_blank"
+                >
+                  Contact
                 </Link>
               </li>
             </ul>
