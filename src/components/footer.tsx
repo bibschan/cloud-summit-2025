@@ -19,16 +19,10 @@ export default function Footer() {
               height={50}
               className="mb-4"
             />
-            <p className="mb-4 font-semibold ">
-              {EVENT_CONFIG.slogan}.
-            </p>
-
-
+            <p className="mb-4 font-semibold ">{EVENT_CONFIG.slogan}.</p>
           </div>
           <div className=" w-full">
-            <p className="text-lg text-white mb-4">
-              Quick Links
-            </p>
+            <p className="text-lg text-white mb-4">Quick Links</p>
             <ul className=" grid grid-cols-2 gap-4 md:gap-2 md:grid-cols-1 ">
               <li>
                 <Link
@@ -66,11 +60,19 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href='/contact'
+                  href="/contact"
                   className="hover:text-green-500 transition-colors"
                   target="_blank"
                 >
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/team"
+                  className="hover:text-green-500 transition-colors"
+                >
+                  Team
                 </Link>
               </li>
             </ul>
@@ -126,7 +128,7 @@ export default function Footer() {
             </p>
             <p className="mb-0">
               Built by{" "}
-              {EVENT_CONFIG.team.members.map((member, index) => (
+              {EVENT_CONFIG.team.webMembers.map((member, index) => (
                 <React.Fragment key={member.name}>
                   <a
                     href={member.github}
@@ -135,11 +137,11 @@ export default function Footer() {
                   >
                     {member.name}
                   </a>
-                  {index < EVENT_CONFIG.team.members.length - 2
+                  {index < EVENT_CONFIG.team.webMembers.length - 2
                     ? ", "
-                    : index === EVENT_CONFIG.team.members.length - 2
-                      ? " and "
-                      : ""}
+                    : index === EVENT_CONFIG.team.webMembers.length - 2
+                    ? " and "
+                    : ""}
                 </React.Fragment>
               ))}
               .

@@ -13,7 +13,7 @@ interface NavProps {
   showMessage?: string;
 }
 
-export default function Nav({ showMessage = 'hidden' }: NavProps) {
+export default function Nav({ showMessage = "hidden" }: NavProps) {
   const [isAtTop, setIsAtTop] = useState(true);
   const [hasVoted, setHasVoted] = useState(true);
   const { data: session } = useSession();
@@ -154,11 +154,18 @@ export default function Nav({ showMessage = 'hidden' }: NavProps) {
                   Sponsors
                 </Link>
                 <Link
-                  href='/contact'
+                  href="/contact"
                   onClick={handleNav}
                   className="hover:text-sky-400 text-primary-50"
                 >
                   Contact
+                </Link>
+                <Link
+                  href="/team"
+                  onClick={handleNav}
+                  className="hover:text-sky-400 text-primary-50"
+                >
+                  Team
                 </Link>
                 <a
                   href={EVENT_CONFIG.links.tickets}
@@ -208,12 +215,19 @@ export default function Nav({ showMessage = 'hidden' }: NavProps) {
             Sponsors
           </Link>
           <Link
-                  href='/contact'
-                  onClick={handleNav}
-                  className="hover:text-sky-400 text-primary-50"
-                >
-                  Contact
-                </Link>
+            href="/contact"
+            onClick={handleNav}
+            className="hover:text-sky-400 text-primary-50"
+          >
+            Contact
+          </Link>
+          <Link
+            href="/team"
+            onClick={handleNav}
+            className="hover:text-sky-400 text-primary-50"
+          >
+            Team
+          </Link>
           {session ? (
             <>
               <div className="relative">
@@ -264,9 +278,7 @@ export default function Nav({ showMessage = 'hidden' }: NavProps) {
               </button>
             </>
           ) : (
-            <Link href="/auth/signin" className="hover:text-sky-400">
-
-            </Link>
+            <Link href="/auth/signin" className="hover:text-sky-400"></Link>
           )}
         </div>
         <div className="hidden md:flex items-center space-x-4">
@@ -296,7 +308,9 @@ export default function Nav({ showMessage = 'hidden' }: NavProps) {
       ${
         isSignInPage || isVotePage || isAdminPage || isNominatePage
           ? "absolute py-4"
-          : `fixed ${showMessage === 'visible' ? 'top-16' : 'top-0'} py-5 transition duration-300 ease-in-out ${
+          : `fixed ${
+              showMessage === "visible" ? "top-16" : "top-0"
+            } py-5 transition duration-300 ease-in-out ${
               !isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""
             }`
       }

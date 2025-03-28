@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Squada_One, Noto_Sans, Sofia_Sans_Extra_Condensed, } from "next/font/google";
+import { Squada_One, Noto_Sans, Sofia_Sans_Extra_Condensed } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { GoogleTagManager } from "@next/third-parties/google";
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     ],
     locale: "en_CA",
     type: "website",
-  },
+  }
 };
 const sofiaSans = Sofia_Sans_Extra_Condensed({
   subsets: ["latin"],
