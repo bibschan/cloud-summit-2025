@@ -19,7 +19,6 @@ export type EventType = {
   startTime: string
   endTime: string
   description: string
-  color: string
   speaker: {
     name: string
     photo: string
@@ -28,152 +27,361 @@ export type EventType = {
 }
 
 export const timeSlots = [
-  "09:00", "09:30", "10:00", "10:30", 
-  "11:00", "11:30", "12:00", "12:30",
-  "13:00", "13:30", "14:00", "14:30",
-  "15:00", "15:30", "16:00", "16:30",
-  "17:00"
+  "12:00",
+  "13:00", "14:00",
+  "15:00",  "16:00",
+  "17:00",
 ]
-
 export const events: EventType[] = [
   {
     id: 1,
     stage: 1,
-    title: "Opening Ceremony",
-    startTime: "09:00",
-    endTime: "09:30",
-    description: "Welcome to Cloud Summit 2025! Join us for the opening ceremony where we'll set the stage for an incredible day of cloud computing insights and innovations.",
-    color: COLORS.BLUE,
+    title: "Keynote - CEO of Netlify (Tentative)",
+    startTime: "12:00",
+    endTime: "12:30",
+    description: "Opening keynote address from the CEO of Netlify, discussing the latest innovations in cloud computing and web development.",
     speaker: {
-      name: "Matt Damon",
-      photo: "/speakers/matt-damon.jpg"
+      name: "CEO of Netlify",
+      photo: "/speakers/netlify-ceo.jpg"
     },
-    tags: ["Opening", "Welcome"]
+    tags: ["Keynote", "Web Development", "Cloud"]
   },
   {
     id: 2,
     stage: 1,
-    title: "The Future of Cloud Computing",
-    startTime: "09:30",
-    endTime: "10:30",
-    description: "An inspiring keynote on the future of cloud computing, emerging trends, and how organizations can prepare for the next wave of innovation.",
-    color: COLORS.PURPLE,
+    title: "Sponsor Talk",
+    startTime: "12:30",
+    endTime: "13:00",
+    description: "Insights and innovations from one of our valued sponsors.",
     speaker: {
-      name: "Sarah Chen",
-      photo: "/speakers/sarah-chen.jpg"
+      name: "Sponsor Speaker",
+      photo: "/speakers/sponsor-speaker.jpg"
     },
-    tags: ["Keynote", "Future Tech", "Innovation"]
+    tags: ["Sponsor", "Industry Insights"]
   },
   {
     id: 3,
-    stage: 2,
-    title: "Cloud Security Best Practices",
-    startTime: "09:30",
-    endTime: "10:30",
-    description: "Learn essential security practices for cloud environments, including threat detection, compliance, and zero-trust architecture.",
-    color: COLORS.RED,
+    stage: 1,
+    title: "Sponsor Talk",
+    startTime: "13:00",
+    endTime: "13:30",
+    description: "Valuable information and updates from one of our key sponsors.",
     speaker: {
-      name: "Michael Rodriguez",
-      photo: "/speakers/michael-rodriguez.jpg"
+      name: "Sponsor Speaker",
+      photo: "/speakers/sponsor-speaker-2.jpg"
     },
-    tags: ["Security", "Best Practices", "Compliance"]
+    tags: ["Sponsor", "Cloud Solutions"]
   },
   {
     id: 4,
     stage: 1,
-    title: "Kubernetes in Production",
-    startTime: "11:00",
-    endTime: "12:00",
-    description: "Real-world experiences and best practices for running Kubernetes in production environments at scale.",
-    color: COLORS.GREEN,
+    title: "Break",
+    startTime: "13:30",
+    endTime: "13:40",
+    description: "Short break to refresh and network with other attendees.",
     speaker: {
-      name: "Emily Johnson",
-      photo: "/speakers/emily-johnson.jpg"
+      name: "Break",
+      photo: "/speakers/break.jpg"
     },
-    tags: ["Kubernetes", "DevOps", "Production"]
+    tags: ["Break", "Networking"]
   },
   {
     id: 5,
-    stage: 2,
-    title: "Serverless Architecture Patterns",
-    startTime: "11:00",
-    endTime: "12:00",
-    description: "Explore common patterns and anti-patterns in serverless architecture, with real-world examples and implementation strategies.",
-    color: COLORS.AMBER,
+    stage: 1,
+    title: "Sponsor Talk",
+    startTime: "13:40",
+    endTime: "14:10",
+    description: "Learn about cutting-edge solutions from one of our premier sponsors.",
     speaker: {
-      name: "David Kim",
-      photo: "/speakers/david-kim.jpg"
+      name: "Sponsor Speaker",
+      photo: "/speakers/sponsor-speaker-3.jpg"
     },
-    tags: ["Serverless", "Architecture", "AWS Lambda"]
+    tags: ["Sponsor", "Technology"]
   },
   {
     id: 6,
     stage: 1,
-    title: "Cloud Cost Optimization",
-    startTime: "13:30",
-    endTime: "14:30",
-    description: "Strategies and tools for optimizing cloud costs while maintaining performance and reliability.",
-    color: COLORS.CYAN,
+    title: "Panel Discussion",
+    startTime: "14:10",
+    endTime: "14:40",
+    description: "An engaging panel discussion featuring industry experts discussing current trends and future directions in cloud computing.",
     speaker: {
-      name: "Rachel Martinez",
-      photo: "/speakers/rachel-martinez.jpg"
+      name: "Panel Moderator & Guests",
+      photo: "/speakers/panel.jpg"
     },
-    tags: ["FinOps", "Optimization", "Cost Management"]
+    tags: ["Panel", "Discussion", "Industry Trends"]
   },
   {
     id: 7,
-    stage: 2,
-    title: "Multi-Cloud Strategies",
-    startTime: "13:30",
-    endTime: "14:30",
-    description: "Learn how to effectively implement and manage multi-cloud environments for enhanced resilience and flexibility.",
-    color: COLORS.TEAL,
+    stage: 1,
+    title: "Break",
+    startTime: "14:40",
+    endTime: "14:50",
+    description: "Short break to refresh and network with other attendees.",
     speaker: {
-      name: "Alex Thompson",
-      photo: "/speakers/alex-thompson.jpg"
+      name: "Break",
+      photo: "/speakers/break.jpg"
     },
-    tags: ["Multi-Cloud", "Strategy", "Architecture"]
+    tags: ["Break", "Networking"]
   },
   {
     id: 8,
     stage: 1,
-    title: "AI/ML in the Cloud",
-    startTime: "15:00",
-    endTime: "16:00",
-    description: "Discover how to leverage cloud platforms for AI and machine learning workloads effectively.",
-    color: COLORS.PINK,
+    title: "Special Presentation",
+    startTime: "14:50",
+    endTime: "15:20",
+    description: "A special presentation featuring multiple speakers sharing insights on cloud innovation.",
     speaker: {
-      name: "Lisa Wong",
-      photo: "/speakers/lisa-wong.jpg"
+      name: "Featured Speakers",
+      photo: "/speakers/featured-speakers.jpg"
     },
-    tags: ["AI", "Machine Learning", "Innovation"]
+    tags: ["Innovation", "Cloud Technology"]
   },
   {
     id: 9,
-    stage: 2,
-    title: "DevOps Transformation",
-    startTime: "15:00",
-    endTime: "16:00",
-    description: "A comprehensive guide to implementing DevOps practices in cloud environments.",
-    color: COLORS.ROSE,
+    stage: 1,
+    title: "Sponsor Talk",
+    startTime: "15:20",
+    endTime: "15:50",
+    description: "Valuable insights from one of our sponsor partners.",
     speaker: {
-      name: "James Wilson",
-      photo: "/speakers/james-wilson.jpg"
+      name: "Sponsor Speaker",
+      photo: "/speakers/sponsor-speaker-4.jpg"
     },
-    tags: ["DevOps", "Culture", "Automation"]
+    tags: ["Sponsor", "Cloud Solutions"]
   },
   {
     id: 10,
     stage: 1,
-    title: "Closing Keynote",
+    title: "Break",
+    startTime: "15:50",
+    endTime: "16:00",
+    description: "Short break to refresh and network with other attendees.",
+    speaker: {
+      name: "Break",
+      photo: "/speakers/break.jpg"
+    },
+    tags: ["Break", "Networking"]
+  },
+  {
+    id: 11,
+    stage: 1,
+    title: "The State of LLMs",
+    startTime: "16:00",
+    endTime: "16:30",
+    description: "Dr. Ryan Rad presents the current state of Large Language Models and their impact on cloud computing and AI development.",
+    speaker: {
+      name: "Dr. Ryan Rad",
+      photo: "/speakers/dr-ryan-rad.jpg"
+    },
+    tags: ["AI", "LLMs", "Machine Learning"]
+  },
+  {
+    id: 12,
+    stage: 1,
+    title: "Sponsor Talk",
     startTime: "16:30",
     endTime: "17:00",
-    description: "Wrap up the day with insights into the future of cloud computing and key takeaways from the summit.",
-    color: COLORS.INDIGO,
+    description: "TBA",
     speaker: {
-      name: "Michelle Lee",
-      photo: "/speakers/michelle-lee.jpg"
+      name: "TBA",
+      photo: "/speakers/dr-ryan-rad.jpg"
     },
-    tags: ["Keynote", "Closing", "Future"]
+    tags: ["AI", "LLMs", "Machine Learning"]
+  },
+  {
+    id: 13,
+    stage: 2,
+    title: "Azure Docker & Python in AWS",
+    startTime: "12:00",
+    endTime: "12:15",
+    description: "A lightning talk on integrating Azure Docker with Python in AWS environments by AWS Community Builder Adetokunbo.",
+    speaker: {
+      name: "Adetokunbo",
+      photo: "/speakers/adetokunbo.jpg"
+    },
+    tags: ["Azure", "Docker", "Python", "AWS"]
+  },
+  {
+    id: 14,
+    stage: 2,
+    title: "Driving Cloud Cost Efficiency",
+    startTime: "12:15",
+    endTime: "12:30",
+    description: "Aiman shares strategies for optimizing cloud costs and improving efficiency in cloud deployments.",
+    speaker: {
+      name: "Aiman",
+      photo: "/speakers/aiman.jpg"
+    },
+    tags: ["FinOps", "Cost Optimization", "Cloud Efficiency"]
+  },
+  {
+    id: 15,
+    stage: 2,
+    title: "Cyber Wizard Sponsor Talk",
+    startTime: "12:30",
+    endTime: "13:00",
+    description: "Insights on cybersecurity in cloud environments from our sponsor Cyber Wizard.",
+    speaker: {
+      name: "Cyber Wizard Representative",
+      photo: "/speakers/cyber-wizard.jpg"
+    },
+    tags: ["Sponsor", "Cybersecurity", "Cloud Security"]
+  },
+  {
+    id: 16,
+    stage: 2,
+    title: "Sponsor Talk",
+    startTime: "13:00",
+    endTime: "13:30",
+    description: "Valuable insights from one of our sponsor partners.",
+    speaker: {
+      name: "Sponsor Speaker",
+      photo: "/speakers/sponsor-speaker-6.jpg"
+    },
+    tags: ["Sponsor", "Cloud Technology"]
+  },
+  {
+    id: 17,
+    stage: 2,
+    title: "Break",
+    startTime: "13:30",
+    endTime: "13:40",
+    description: "Short break to refresh and network with other attendees.",
+    speaker: {
+      name: "Break",
+      photo: "/speakers/break.jpg"
+    },
+    tags: ["Break", "Networking"]
+  },
+  {
+    id: 18,
+    stage: 2,
+    title: "How to Become a Cloud/DevOps Engineer from Zero to AWS Hero",
+    startTime: "13:40",
+    endTime: "14:10",
+    description: "Denis Astahov shares his journey and practical advice on becoming a successful Cloud/DevOps Engineer and reaching AWS Hero status.",
+    speaker: {
+      name: "Denis Astahov",
+      photo: "/speakers/denis-astahov.jpg"
+    },
+    tags: ["Career Development", "DevOps", "AWS"]
+  },
+  {
+    id: 19,
+    stage: 2,
+    title: "Sponsor Talk",
+    startTime: "14:10",
+    endTime: "14:40",
+    description: "Valuable insights from one of our sponsor partners.",
+    speaker: {
+      name: "Sponsor Speaker",
+      photo: "/speakers/sponsor-speaker-5.jpg"
+    },
+    tags: ["Sponsor", "Cloud Technology"]
+  },
+  {
+    id: 20,
+    stage: 2,
+    title: "Break",
+    startTime: "14:40",
+    endTime: "14:50",
+    description: "Short break to refresh and network with other attendees.",
+    speaker: {
+      name: "Break",
+      photo: "/speakers/break.jpg"
+    },
+    tags: ["Break", "Networking"]
+  },
+  {
+    id: 21,
+    stage: 2,
+    title: "Microservices - Diversity/Women in Tech",
+    startTime: "14:50",
+    endTime: "15:20",
+    description: "Niti Jain discusses microservices architecture while highlighting the importance of diversity and women in the tech industry.",
+    speaker: {
+      name: "Niti Jain",
+      photo: "/speakers/niti-jain.jpg"
+    },
+    tags: ["Microservices", "Diversity", "Women in Tech"]
+  },
+  {
+    id: 22,
+    stage: 2,
+    title: "AWS Sponsor Talk",
+    startTime: "15:20",
+    endTime: "15:50",
+    description: "The latest innovations and services from AWS to enhance your cloud infrastructure.",
+    speaker: {
+      name: "AWS Representative",
+      photo: "/speakers/aws-rep.jpg"
+    },
+    tags: ["Sponsor", "AWS", "Cloud Services"]
+  },
+  {
+    id: 23,
+    stage: 2,
+    title: "Break",
+    startTime: "15:50",
+    endTime: "16:00",
+    description: "Short break to refresh and network with other attendees.",
+    speaker: {
+      name: "Break",
+      photo: "/speakers/break.jpg"
+    },
+    tags: ["Break", "Networking"]
+  },
+  {
+    id: 24,
+    stage: 2,
+    title: "Building Your Startup in the Cloud",
+    startTime: "16:00",
+    endTime: "16:30",
+    description: "Farzad shares practical insights on leveraging cloud technologies to build and scale your startup efficiently.",
+    speaker: {
+      name: "Farzad",
+      photo: "/speakers/farzad.jpg"
+    },
+    tags: ["Startup", "Cloud Infrastructure", "Scaling"]
+  },
+  {
+    id: 25,
+    stage: 2,
+    title: "Microsoft Sponsor Talk",
+    startTime: "16:30",
+    endTime: "17:00",
+    description: "Microsoft presents their latest cloud solutions and technologies.",
+    speaker: {
+      name: "Microsoft Representative",
+      photo: "/speakers/microsoft-rep.jpg"
+    },
+    tags: ["Sponsor", "Microsoft", "Cloud Technology"]
+  },
+  {
+    id: 26,
+    stage: 1,
+    title: "Networking, Food & Entertainment",
+    startTime: "17:00",
+    endTime: "18:00",
+    description: "Join us for food, drinks, live music, dancing, and networking. Diamond sponsors will have pop-up booths available.",
+    speaker: {
+      name: "All Attendees",
+      photo: "/speakers/networking.jpg"
+    },
+    tags: ["Networking", "Entertainment", "Food"]
+  },
+  {
+    id: 27,
+    stage: 2,
+    title: "Networking, Food & Entertainment",
+    startTime: "17:00",
+    endTime: "18:00",
+    description: "Join us for food, drinks, live music, dancing, and networking. Diamond sponsors will have pop-up booths available.",
+    speaker: {
+      name: "All Attendees",
+      photo: "/speakers/networking.jpg"
+    },
+    tags: ["Networking", "Entertainment", "Food"]
   }
-] 
+]
