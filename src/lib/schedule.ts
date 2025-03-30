@@ -14,12 +14,12 @@ export const COLORS = {
 
 export type EventType = {
   id: number
-  stage: 1 | 2
+  stage: number
   title: string
   startTime: string
   endTime: string
-  description: string
-  speaker: {
+  description?: string
+  speaker?: {
     name: string
     photo: string
   }
@@ -32,7 +32,7 @@ export const timeSlots = [
   "15:00",  "16:00",
   "17:00",
 ]
-export const events: EventType[] = [
+export const speakerEvents: EventType[] = [
   {
     id: 1,
     stage: 1,
@@ -49,12 +49,12 @@ export const events: EventType[] = [
   {
     id: 2,
     stage: 1,
-    title: "Sponsor Talk",
+    title: "Speaker To Be Announced",
     startTime: "12:30",
     endTime: "13:00",
     description: "Insights and innovations from one of our valued sponsors.",
     speaker: {
-      name: "Sponsor Speaker",
+      name: "TBA",
       photo: "/speakers/sponsor-speaker.jpg"
     },
     tags: ["Sponsor", "Industry Insights"]
@@ -62,12 +62,12 @@ export const events: EventType[] = [
   {
     id: 3,
     stage: 1,
-    title: "Sponsor Talk",
+    title: "Speaker To Be Announced",
     startTime: "13:00",
     endTime: "13:30",
     description: "Valuable information and updates from one of our key sponsors.",
     speaker: {
-      name: "Sponsor Speaker",
+      name: "TBA",
       photo: "/speakers/sponsor-speaker-2.jpg"
     },
     tags: ["Sponsor", "Cloud Solutions"]
@@ -88,12 +88,12 @@ export const events: EventType[] = [
   {
     id: 5,
     stage: 1,
-    title: "Sponsor Talk",
+    title: "Speaker To Be Announced",
     startTime: "13:40",
     endTime: "14:10",
     description: "Learn about cutting-edge solutions from one of our premier sponsors.",
     speaker: {
-      name: "Sponsor Speaker",
+      name: "TBA",
       photo: "/speakers/sponsor-speaker-3.jpg"
     },
     tags: ["Sponsor", "Technology"]
@@ -103,7 +103,7 @@ export const events: EventType[] = [
     stage: 1,
     title: "Panel Discussion",
     startTime: "14:10",
-    endTime: "14:40",
+    endTime: "14:50",
     description: "An engaging panel discussion featuring industry experts discussing current trends and future directions in cloud computing.",
     speaker: {
       name: "Panel Moderator & Guests",
@@ -115,8 +115,8 @@ export const events: EventType[] = [
     id: 7,
     stage: 1,
     title: "Break",
-    startTime: "14:40",
-    endTime: "14:50",
+    startTime: "14:50",
+    endTime: "15:00",
     description: "Short break to refresh and network with other attendees.",
     speaker: {
       name: "Break",
@@ -124,34 +124,23 @@ export const events: EventType[] = [
     },
     tags: ["Break", "Networking"]
   },
+
+
   {
     id: 8,
     stage: 1,
-    title: "Special Presentation",
-    startTime: "14:50",
-    endTime: "15:20",
-    description: "A special presentation featuring multiple speakers sharing insights on cloud innovation.",
+    title: "Panel Discussion",
+    startTime: "15:00",
+    endTime: "15:50",
+    description: "An engaging panel discussion featuring industry experts discussing current trends and future directions in cloud computing.",
     speaker: {
-      name: "Featured Speakers",
-      photo: "/speakers/featured-speakers.jpg"
+      name: "Panel Moderator & Guests",
+      photo: "/speakers/panel.jpg"
     },
-    tags: ["Innovation", "Cloud Technology"]
+    tags: ["Panel", "Discussion", "Industry Trends"]
   },
   {
     id: 9,
-    stage: 1,
-    title: "Sponsor Talk",
-    startTime: "15:20",
-    endTime: "15:50",
-    description: "Valuable insights from one of our sponsor partners.",
-    speaker: {
-      name: "Sponsor Speaker",
-      photo: "/speakers/sponsor-speaker-4.jpg"
-    },
-    tags: ["Sponsor", "Cloud Solutions"]
-  },
-  {
-    id: 10,
     stage: 1,
     title: "Break",
     startTime: "15:50",
@@ -164,11 +153,24 @@ export const events: EventType[] = [
     tags: ["Break", "Networking"]
   },
   {
+    id: 10,
+    stage: 1,
+    title: "Speaker To Be Announced",
+    startTime: "16:00",
+    endTime: "16:30",
+    description: "TBA",
+    speaker: {
+      name: "TBA",
+      photo: "/speakers/dr-ryan-rad.jpg"
+    },
+    tags: ["AI", "LLMs", "Machine Learning"]
+  },
+  {
     id: 11,
     stage: 1,
     title: "The State of LLMs",
-    startTime: "16:00",
-    endTime: "16:30",
+    startTime: "16:30",
+    endTime: "17:00",
     description: "Dr. Ryan Rad presents the current state of Large Language Models and their impact on cloud computing and AI development.",
     speaker: {
       name: "Dr. Ryan Rad",
@@ -178,21 +180,8 @@ export const events: EventType[] = [
   },
   {
     id: 12,
-    stage: 1,
-    title: "Sponsor Talk",
-    startTime: "16:30",
-    endTime: "17:00",
-    description: "TBA",
-    speaker: {
-      name: "TBA",
-      photo: "/speakers/dr-ryan-rad.jpg"
-    },
-    tags: ["AI", "LLMs", "Machine Learning"]
-  },
-  {
-    id: 13,
     stage: 2,
-    title: "Azure Docker & Python in AWS",
+    title: "Azure, Docker & Python in AWS",
     startTime: "12:00",
     endTime: "12:15",
     description: "A lightning talk on integrating Azure Docker with Python in AWS environments by AWS Community Builder Adetokunbo.",
@@ -203,7 +192,7 @@ export const events: EventType[] = [
     tags: ["Azure", "Docker", "Python", "AWS"]
   },
   {
-    id: 14,
+    id: 13,
     stage: 2,
     title: "Driving Cloud Cost Efficiency",
     startTime: "12:15",
@@ -216,11 +205,11 @@ export const events: EventType[] = [
     tags: ["FinOps", "Cost Optimization", "Cloud Efficiency"]
   },
   {
-    id: 15,
+    id: 14,
     stage: 2,
-    title: "Cyber Wizard Sponsor Talk",
+    title: "Cyber Wizard Talk",
     startTime: "12:30",
-    endTime: "13:00",
+    endTime: "13:30",
     description: "Insights on cybersecurity in cloud environments from our sponsor Cyber Wizard.",
     speaker: {
       name: "Cyber Wizard Representative",
@@ -228,21 +217,9 @@ export const events: EventType[] = [
     },
     tags: ["Sponsor", "Cybersecurity", "Cloud Security"]
   },
+
   {
-    id: 16,
-    stage: 2,
-    title: "Sponsor Talk",
-    startTime: "13:00",
-    endTime: "13:30",
-    description: "Valuable insights from one of our sponsor partners.",
-    speaker: {
-      name: "Sponsor Speaker",
-      photo: "/speakers/sponsor-speaker-6.jpg"
-    },
-    tags: ["Sponsor", "Cloud Technology"]
-  },
-  {
-    id: 17,
+    id: 15,
     stage: 2,
     title: "Break",
     startTime: "13:30",
@@ -255,7 +232,7 @@ export const events: EventType[] = [
     tags: ["Break", "Networking"]
   },
   {
-    id: 18,
+    id: 16,
     stage: 2,
     title: "How to Become a Cloud/DevOps Engineer from Zero to AWS Hero",
     startTime: "13:40",
@@ -268,20 +245,20 @@ export const events: EventType[] = [
     tags: ["Career Development", "DevOps", "AWS"]
   },
   {
-    id: 19,
+    id: 17,
     stage: 2,
-    title: "Sponsor Talk",
+    title: "Speaker To Be Announced",
     startTime: "14:10",
     endTime: "14:40",
     description: "Valuable insights from one of our sponsor partners.",
     speaker: {
-      name: "Sponsor Speaker",
+      name: "TBA",
       photo: "/speakers/sponsor-speaker-5.jpg"
     },
     tags: ["Sponsor", "Cloud Technology"]
   },
   {
-    id: 20,
+    id: 18,
     stage: 2,
     title: "Break",
     startTime: "14:40",
@@ -294,7 +271,7 @@ export const events: EventType[] = [
     tags: ["Break", "Networking"]
   },
   {
-    id: 21,
+    id: 19,
     stage: 2,
     title: "Microservices - Diversity/Women in Tech",
     startTime: "14:50",
@@ -307,7 +284,7 @@ export const events: EventType[] = [
     tags: ["Microservices", "Diversity", "Women in Tech"]
   },
   {
-    id: 22,
+    id: 20,
     stage: 2,
     title: "AWS Sponsor Talk",
     startTime: "15:20",
@@ -320,7 +297,7 @@ export const events: EventType[] = [
     tags: ["Sponsor", "AWS", "Cloud Services"]
   },
   {
-    id: 23,
+    id: 21,
     stage: 2,
     title: "Break",
     startTime: "15:50",
@@ -333,7 +310,7 @@ export const events: EventType[] = [
     tags: ["Break", "Networking"]
   },
   {
-    id: 24,
+    id: 22,
     stage: 2,
     title: "Building Your Startup in the Cloud",
     startTime: "16:00",
@@ -346,7 +323,7 @@ export const events: EventType[] = [
     tags: ["Startup", "Cloud Infrastructure", "Scaling"]
   },
   {
-    id: 25,
+    id: 23,
     stage: 2,
     title: "Microsoft Sponsor Talk",
     startTime: "16:30",
@@ -359,7 +336,7 @@ export const events: EventType[] = [
     tags: ["Sponsor", "Microsoft", "Cloud Technology"]
   },
   {
-    id: 26,
+    id: 24,
     stage: 1,
     title: "Networking, Food & Entertainment",
     startTime: "17:00",
@@ -372,7 +349,7 @@ export const events: EventType[] = [
     tags: ["Networking", "Entertainment", "Food"]
   },
   {
-    id: 27,
+    id: 25,
     stage: 2,
     title: "Networking, Food & Entertainment",
     startTime: "17:00",
@@ -384,4 +361,21 @@ export const events: EventType[] = [
     },
     tags: ["Networking", "Entertainment", "Food"]
   }
+]
+
+export const workshopEvents = [
+  {
+    id: 1,
+    stage: 3,
+    title: "Workshops Coming Soon",
+    startTime: "12:00",
+    endTime: "13:00",
+    description: "Stay tuned for our workshop schedule!",
+    speaker: {
+      name: "TBA",
+      photo: ""
+    },
+    tags: ["Workshop", "Web Development", "Cloud"]
+  },
+
 ]

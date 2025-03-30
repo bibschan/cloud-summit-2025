@@ -3,7 +3,8 @@ import { useState, useCallback } from "react"
 import { cn } from "@/lib/utils"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { EventModal } from "./event-modal"
-import { events, timeSlots, type EventType } from "@/lib/schedule"
+import { timeSlots, type EventType } from "@/lib/schedule"
+import { useMediaQuery } from "@/hooks/use-media-query"
 
 const TIME_SLOT_HEIGHT = 250;
 const EVENT_GAP = 2;
@@ -20,10 +21,19 @@ const isShortTalk = (startTime: string, endTime: string) => {
   return endMinutes - startMinutes <= 15;
 }
 
-export function ScheduleTable() {
+
+type ScheduleTableProps = {
+  events: EventType[];
+  stages: Array<{ id: number; name: string }>;
+  mode: 'schedule' | 'workshops';
+}
+
+export function ScheduleTable({ events, stages, mode = 'schedule' }: ScheduleTableProps) {
   const [activeEvent, setActiveEvent] = useState<EventType | null>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [activeStage, setActiveStage] = useState("1");
+
+  const isMobile = useMediaQuery("(max-width: 768px)")
 
   const handleMouseEnter = useCallback((event: EventType) => {
     setActiveEvent(event)
@@ -37,6 +47,13 @@ export function ScheduleTable() {
     setMousePosition({ x: e.clientX, y: e.clientY })
   }, [])
 
+  const handleEventClick = useCallback((event: EventType) => {
+    setActiveEvent(event)
+  }, [])
+
+  const handleCloseModal = useCallback(() => {
+    setActiveEvent(null)
+  }, [])
   const calculateEventPosition = (event: EventType, index: number) => {
     const startMinutes = timeToMinutes(event.startTime);
     const endMinutes = timeToMinutes(event.endTime);
@@ -54,30 +71,37 @@ export function ScheduleTable() {
     };
   };
 
+  const isSingleColumn = mode === 'workshops' || stages.length === 1;
+
   return (
     <div
-      className="w-full bg-primary-900 rounded-2xl shadow-2xl"
+      className="w-full bg-primary-900 rounded-2xl "
       onMouseMove={handleMouseMove}
     >
-      <div className="md:hidden sticky top-0 z-20 bg-primary-800 p-4">
-        <Tabs value={activeStage} onValueChange={setActiveStage} className="w-full">
-          <TabsList className="grid w-full grid-cols-2 bg-gray-900">
-            <TabsTrigger
-              value="1"
-              className="data-[state=active]:bg-gray-800 data-[state=active]:text-gray-100 text-gray-400"
-            >
-              Main Stage
-            </TabsTrigger>
-            <TabsTrigger
-              value="2"
-              className="data-[state=active]:bg-gray-800 data-[state=active]:text-gray-100 text-gray-400"
-            >
-              Grand Hall
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
-      </div>
-      <div className="grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_1fr] min-w-[300px] md:min-w-[600px]">
+      {stages.length > 0 && (
+        <div className="md:hidden sticky top-0 z-20 md:bg-primary-800  pt-4 md:p-4">
+          <Tabs value={activeStage} onValueChange={setActiveStage} className="w-full">
+            <TabsList className={`grid w-full grid-cols-${stages.length} bg-primary-900`}>
+              {stages.map(stage => (
+                <TabsTrigger
+                  key={stage.id}
+                  value={stage.id.toString()}
+                  className="data-[state=active]:bg-primary-800 data-[state=active]:text-pale-gold text-gray-400"
+                >
+                  {stage.name}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
+        </div>
+      )}
+
+      <div className={cn(
+        "grid min-w-[300px] md:min-w-[600px]",
+        isSingleColumn
+          ? "grid-cols-[auto_1fr]"
+          : "grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_1fr]"
+      )}>
         <div className="col-start-1 row-start-1 flex flex-col">
           <div className="h-[68px] md:h-[70px]"></div>
           {timeSlots.map((time) => (
@@ -91,22 +115,38 @@ export function ScheduleTable() {
           ))}
 
         </div>
-        <div className="hidden md:grid md:grid-cols-2 col-start-2 md:col-start-2 md:col-span-2 row-start-1 h-16 gap-2 sticky top-0 z-10 ">
-          <div className="flex items-center justify-center font-bold text-xl text-pale-gold bg-primary-800 mx-1">Main Stage</div>
-          <div className="flex items-center justify-center font-bold text-xl text-pale-gold bg-primary-800 mr-2">Grand Hall</div>
-        </div>
-        {[1, 2].map((stage) => {
+        {stages.length > 0 && (
+          <div
+            className={cn(
+              "hidden md:grid md:grid-cols-2 col-start-2 md:col-start-2 md:col-span-2 row-start-1 h-16 gap-2 sticky top-0 z-10",
+              stages.length > 1 ? "md:grid-cols-2 md:col-span-2" : "md:grid-cols-1"
+            )}
+          >
+            {stages.map((stage, index) => (
+              <div
+                key={stage.id}
+                className={cn(
+                  "flex items-center justify-center font-bold text-xl text-pale-gold bg-primary-800 ",
+                  index === 0 ? "mx-1" : "mr-2"
+                )}
+              >
+                {stage.name}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {stages.map((stage, stageIndex) => {
           const stageEvents = events
-            .filter((event) => event.stage === stage)
+            .filter((event) => event.stage === stage.id)
             .sort((a, b) => timeToMinutes(a.startTime) - timeToMinutes(b.startTime));
 
           return (
             <div
-              key={stage}
-              className={cn(
-                "col-start-2 row-start-1 relative",
-                stage === 2 && "md:col-start-3",
-                stage.toString() !== activeStage && "hidden md:block"
+              key={stage.id}
+              className={cn("col-start-2 row-start-1 relative",
+              stageIndex === 1 && !isSingleColumn && "md:col-start-3",
+              stage.id.toString() !== activeStage && stages.length > 1 && "hidden md:block"
               )}
             >
               <div className="absolute inset-0"></div>
@@ -129,22 +169,19 @@ export function ScheduleTable() {
                     }}
                     onMouseEnter={() => handleMouseEnter(event)}
                     onMouseLeave={handleMouseLeave}
+                    onClick={() => handleEventClick(event)}
                   >
                     {!isBreak && !isShort && (
-                      <p className="text-sm md:text-md  text-secondary-500">
+                      <p className="text-sm md:text-md text-secondary-500">
                         {event.startTime} - {event.endTime}
                       </p>
                     )}
-                    <h3 className={cn(
-                      "font-body font-bold text-md md:text-xl text-center text-white",
-                    )}>
+                    <h3 className="font-body font-bold text-md md:text-xl text-center text-white">
                       {event.title}
                     </h3>
                     {!isBreak && (
-                      <p className={cn(
-                        "text-sm md:text-md text-center text-lemon-lime"
-                      )}>
-                        {event.speaker.name}
+                      <p className="text-sm md:text-md text-center text-lemon-lime">
+                        {event.speaker?.name}
                       </p>
                     )}
                   </div>
@@ -154,7 +191,14 @@ export function ScheduleTable() {
           );
         })}
       </div>
-      {activeEvent && <EventModal event={activeEvent} position={mousePosition} />}
+      {activeEvent && (
+    <EventModal
+      event={activeEvent}
+      position={mousePosition}
+      onClose={handleCloseModal}
+      isMobile={isMobile}
+    />
+  )}
     </div>
   )
 }
