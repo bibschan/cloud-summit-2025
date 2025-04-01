@@ -9,135 +9,116 @@ export const COLORS = {
   AMBER: "bg-amber-500/80 hover:bg-amber-500/90",
   INDIGO: "bg-indigo-500/80 hover:bg-indigo-500/90",
   TEAL: "bg-teal-500/80 hover:bg-teal-500/90",
-  ROSE: "bg-rose-500/80 hover:bg-rose-500/90"
-} as const
+  ROSE: "bg-rose-500/80 hover:bg-rose-500/90",
+} as const;
 
 export type EventType = {
-  id: number
-  stage: number
-  title: string
-  startTime: string
-  endTime: string
-  description?: string
+  id: number;
+  stage: number;
+  title: string;
+  startTime: string;
+  endTime: string;
+  description?: string;
   speaker?: {
-    name: string
-    photo: string
-  }
-  tags: string[]
-}
+    name: string;
+    photo: string;
+  };
+  tags: string[];
+};
 
-export const timeSlots = [
-  "12:00",
-  "13:00", "14:00",
-  "15:00",  "16:00",
-  "17:00",
-]
+export const timeSlots = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
 export const speakerEvents: EventType[] = [
   {
     id: 1,
     stage: 1,
-    title: "Keynote - CEO of Netlify (Tentative)",
+    title: "Keynote - Speaker To Be Announced",
     startTime: "12:00",
-    endTime: "12:30",
-    description: "Opening keynote address from the CEO of Netlify, discussing the latest innovations in cloud computing and web development.",
+    endTime: "12:35",
+    description: "Opening keynote",
     speaker: {
-      name: "CEO of Netlify",
-      photo: "/speakers/netlify-ceo.jpg"
+      name: "TBA",
+      photo: "/speakers/tba.jpg",
     },
-    tags: ["Keynote", "Web Development", "Cloud"]
+    tags: ["Keynote", "Web Development", "Cloud"],
   },
   {
     id: 2,
     stage: 1,
     title: "Speaker To Be Announced",
-    startTime: "12:30",
-    endTime: "13:00",
-    description: "Insights and innovations from one of our valued sponsors.",
+    startTime: "12:35",
+    endTime: "13:10",
+    description: "Speaker To Be Announced",
     speaker: {
       name: "TBA",
-      photo: "/speakers/sponsor-speaker.jpg"
+      photo: "/speakers/sponsor-speaker.jpg",
     },
-    tags: ["Sponsor", "Industry Insights"]
+    tags: ["Sponsor", "Industry Insights"],
   },
   {
     id: 3,
     stage: 1,
-    title: "Speaker To Be Announced",
-    startTime: "13:00",
-    endTime: "13:30",
-    description: "Valuable information and updates from one of our key sponsors.",
+    title: "Break",
+    startTime: "13:10",
+    endTime: "13:20",
+    description: "Short break to refresh and network with other attendees.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/sponsor-speaker-2.jpg"
+      name: "Break",
+      photo: "/speakers/break.jpg",
     },
-    tags: ["Sponsor", "Cloud Solutions"]
+    tags: ["Break", "Networking"],
   },
   {
     id: 4,
     stage: 1,
-    title: "Break",
-    startTime: "13:30",
-    endTime: "13:40",
-    description: "Short break to refresh and network with other attendees.",
+    title: "Speaker To Be Announced",
+    startTime: "13:20",
+    endTime: "13:55",
+    description: "Speaker To Be Announced",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg"
+      name: "TBA",
+      photo: "/speakers/sponsor-speaker-2.jpg",
     },
-    tags: ["Break", "Networking"]
+    tags: ["Sponsor", "Cloud Solutions"],
   },
   {
     id: 5,
     stage: 1,
     title: "Speaker To Be Announced",
-    startTime: "13:40",
-    endTime: "14:10",
-    description: "Learn about cutting-edge solutions from one of our premier sponsors.",
+    startTime: "13:55",
+    endTime: "14:30",
+    description: "Speaker To Be Announced",
     speaker: {
       name: "TBA",
-      photo: "/speakers/sponsor-speaker-3.jpg"
+      photo: "/speakers/sponsor-speaker-3.jpg",
     },
-    tags: ["Sponsor", "Technology"]
+    tags: ["Sponsor", "Technology"],
   },
   {
     id: 6,
     stage: 1,
-    title: "Panel Discussion",
-    startTime: "14:10",
-    endTime: "14:50",
-    description: "An engaging panel discussion featuring industry experts discussing current trends and future directions in cloud computing.",
+    title: "Break",
+    startTime: "14:30",
+    endTime: "14:40",
+    description: "Short break to refresh and network with other attendees.",
     speaker: {
-      name: "Panel Moderator & Guests",
-      photo: "/speakers/panel.jpg"
+      name: "Break",
+      photo: "/speakers/break.jpg",
     },
-    tags: ["Panel", "Discussion", "Industry Trends"]
+    tags: ["Break", "Networking"],
   },
   {
     id: 7,
     stage: 1,
-    title: "Break",
-    startTime: "14:50",
-    endTime: "15:00",
-    description: "Short break to refresh and network with other attendees.",
-    speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg"
-    },
-    tags: ["Break", "Networking"]
-  },
-
-
-  {
-    id: 8,
-    stage: 1,
     title: "Panel Discussion",
-    startTime: "15:00",
+    startTime: "14:40",
     endTime: "15:50",
-    description: "An engaging panel discussion featuring industry experts discussing current trends and future directions in cloud computing.",
+    description:
+      "An engaging panel discussion featuring industry experts discussing current trends and future directions in cloud computing.",
     speaker: {
       name: "Panel Moderator & Guests",
-      photo: "/speakers/panel.jpg"
+      photo: "/speakers/panel.jpg",
     },
-    tags: ["Panel", "Discussion", "Industry Trends"]
+    tags: ["Panel", "Discussion", "Industry Trends"],
   },
   {
     id: 9,
@@ -148,156 +129,142 @@ export const speakerEvents: EventType[] = [
     description: "Short break to refresh and network with other attendees.",
     speaker: {
       name: "Break",
-      photo: "/speakers/break.jpg"
+      photo: "/speakers/break.jpg",
     },
-    tags: ["Break", "Networking"]
+    tags: ["Break", "Networking"],
   },
   {
     id: 10,
     stage: 1,
     title: "Speaker To Be Announced",
     startTime: "16:00",
-    endTime: "16:30",
+    endTime: "16:35",
     description: "TBA",
     speaker: {
       name: "TBA",
-      photo: "/speakers/dr-ryan-rad.jpg"
+      photo: "/speakers/TBA.jpg",
     },
-    tags: ["AI", "LLMs", "Machine Learning"]
+    tags: ["AI", "LLMs", "Machine Learning"],
   },
   {
     id: 11,
     stage: 1,
-    title: "The State of LLMs",
-    startTime: "16:30",
-    endTime: "17:00",
-    description: "Dr. Ryan Rad presents the current state of Large Language Models and their impact on cloud computing and AI development.",
+    title: "Speaker To Be Announced",
+    startTime: "16:35",
+    endTime: "17:10",
+    description: "Speaker To Be Announced",
     speaker: {
-      name: "Dr. Ryan Rad",
-      photo: "/speakers/dr-ryan-rad.jpg"
+      name: "Speaker To Be Announced",
+      photo: "/speakers/tba.jpg",
     },
-    tags: ["AI", "LLMs", "Machine Learning"]
+    tags: ["AI", "LLMs", "Machine Learning"],
   },
   {
     id: 12,
     stage: 2,
-    title: "Azure, Docker & Python in AWS",
-    startTime: "12:00",
-    endTime: "12:15",
-    description: "A lightning talk on integrating Azure Docker with Python in AWS environments by AWS Community Builder Adetokunbo.",
+    title: "Lightning Talks",
+    startTime: "12:45",
+    endTime: "13:10",
+    description: "Speaker To Be Announced",
     speaker: {
-      name: "Adetokunbo",
-      photo: "/speakers/adetokunbo.jpg"
+      name: "Speaker To Be Announced",
+      photo: "/speakers/Speaker To Be Announced.jpg",
     },
-    tags: ["Azure", "Docker", "Python", "AWS"]
+    tags: ["Azure", "Docker", "Python", "AWS"],
   },
   {
     id: 13,
     stage: 2,
-    title: "Driving Cloud Cost Efficiency",
-    startTime: "12:15",
-    endTime: "12:30",
-    description: "Aiman shares strategies for optimizing cloud costs and improving efficiency in cloud deployments.",
+    title: "Break",
+    startTime: "13:10",
+    endTime: "13:20",
+    description: "Short break to refresh and network with other attendees.",
     speaker: {
-      name: "Aiman",
-      photo: "/speakers/aiman.jpg"
+      name: "Break",
+      photo: "/speakers/break.jpg",
     },
-    tags: ["FinOps", "Cost Optimization", "Cloud Efficiency"]
+    tags: ["Break", "Networking"],
   },
   {
     id: 14,
     stage: 2,
-    title: "Cyber Wizard Talk",
-    startTime: "12:30",
-    endTime: "13:30",
-    description: "Insights on cybersecurity in cloud environments from our sponsor Cyber Wizard.",
+    title: "Speaker To Be Announced",
+    startTime: "13:20",
+    endTime: "13:55",
+    description: "Speaker To Be Announced",
     speaker: {
-      name: "Cyber Wizard Representative",
-      photo: "/speakers/cyber-wizard.jpg"
+      name: "Speaker To Be Announced",
+      photo: "/speakers/Speaker To Be Announced.jpg",
     },
-    tags: ["Sponsor", "Cybersecurity", "Cloud Security"]
+    tags: ["FinOps", "Cost Optimization", "Cloud Efficiency"],
   },
-
   {
     id: 15,
     stage: 2,
-    title: "Break",
-    startTime: "13:30",
-    endTime: "13:40",
-    description: "Short break to refresh and network with other attendees.",
+    title: "Speaker To Be Announced",
+    startTime: "13:55",
+    endTime: "14:30",
+    description: "Speaker To Be Announced",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg"
+      name: "Speaker To Be Announced",
+      photo: "/speakers/cyber-wizard.jpg",
     },
-    tags: ["Break", "Networking"]
+    tags: ["Sponsor", "Cybersecurity", "Cloud Security"],
   },
   {
     id: 16,
     stage: 2,
-    title: "How to Become a Cloud/DevOps Engineer from Zero to AWS Hero",
-    startTime: "13:40",
-    endTime: "14:10",
-    description: "Denis Astahov shares his journey and practical advice on becoming a successful Cloud/DevOps Engineer and reaching AWS Hero status.",
+    title: "Break",
+    startTime: "14:30",
+    endTime: "14:40",
+    description: "Short break to refresh and network with other attendees.",
     speaker: {
-      name: "Denis Astahov",
-      photo: "/speakers/denis-astahov.jpg"
+      name: "Break",
+      photo: "/speakers/break.jpg",
     },
-    tags: ["Career Development", "DevOps", "AWS"]
+    tags: ["Break", "Networking"],
   },
   {
     id: 17,
     stage: 2,
-    title: "Speaker To Be Announced",
-    startTime: "14:10",
-    endTime: "14:40",
-    description: "Valuable insights from one of our sponsor partners.",
+    title: "Lightning Talks",
+    startTime: "14:40",
+    endTime: "15:03",
+    description: "Speaker To Be Announced",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/sponsor-speaker-5.jpg"
+      name: "Speaker To Be Announced",
+      photo: "/speakers/denis-astahov.jpg",
     },
-    tags: ["Sponsor", "Cloud Technology"]
+    tags: ["Career Development", "DevOps", "AWS"],
   },
   {
     id: 18,
     stage: 2,
-    title: "Break",
-    startTime: "14:40",
-    endTime: "14:50",
-    description: "Short break to refresh and network with other attendees.",
+    title: "Lightning Talks",
+    startTime: "15:03",
+    endTime: "15:26",
+    description: "Speaker To Be Announced",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg"
+      name: "TBA",
+      photo: "/speakers/sponsor-speaker-5.jpg",
     },
-    tags: ["Break", "Networking"]
+    tags: ["Sponsor", "Cloud Technology"],
   },
   {
     id: 19,
     stage: 2,
-    title: "Microservices - Diversity/Women in Tech",
-    startTime: "14:50",
-    endTime: "15:20",
-    description: "Niti Jain discusses microservices architecture while highlighting the importance of diversity and women in the tech industry.",
+    title: "Lightning Talks",
+    startTime: "15:26",
+    endTime: "15:50",
+    description: "Speaker To Be Announced.",
     speaker: {
-      name: "Niti Jain",
-      photo: "/speakers/niti-jain.jpg"
+      name: "Speaker To Be Announced",
+      photo: "/speakers/niti-jain.jpg",
     },
-    tags: ["Microservices", "Diversity", "Women in Tech"]
+    tags: ["Microservices", "Diversity", "Women in Tech"],
   },
   {
     id: 20,
-    stage: 2,
-    title: "AWS Sponsor Talk",
-    startTime: "15:20",
-    endTime: "15:50",
-    description: "The latest innovations and services from AWS to enhance your cloud infrastructure.",
-    speaker: {
-      name: "AWS Representative",
-      photo: "/speakers/aws-rep.jpg"
-    },
-    tags: ["Sponsor", "AWS", "Cloud Services"]
-  },
-  {
-    id: 21,
     stage: 2,
     title: "Break",
     startTime: "15:50",
@@ -305,63 +272,66 @@ export const speakerEvents: EventType[] = [
     description: "Short break to refresh and network with other attendees.",
     speaker: {
       name: "Break",
-      photo: "/speakers/break.jpg"
+      photo: "/speakers/break.jpg",
     },
-    tags: ["Break", "Networking"]
+    tags: ["Break", "Networking"],
+  },
+  {
+    id: 21,
+    stage: 2,
+    title: "Speaker To Be Announced",
+    startTime: "16:00",
+    endTime: "16:35",
+    description: "Speaker To Be Announced.",
+    speaker: {
+      name: "Speaker To Be Announced",
+      photo: "/speakers/Speaker To Be Announced-rep.jpg",
+    },
+    tags: ["Sponsor", "Cloud Services"],
   },
   {
     id: 22,
     stage: 2,
-    title: "Building Your Startup in the Cloud",
-    startTime: "16:00",
-    endTime: "16:30",
-    description: "Farzad shares practical insights on leveraging cloud technologies to build and scale your startup efficiently.",
+    title: "Speaker To Be Announced",
+    startTime: "16:35",
+    endTime: "17:10",
+    description: "Speaker To Be Announced",
     speaker: {
-      name: "Farzad",
-      photo: "/speakers/farzad.jpg"
+      name: "Speaker To Be Announced",
+      photo: "/speakers/tba.jpg",
     },
-    tags: ["Startup", "Cloud Infrastructure", "Scaling"]
+    tags: ["Startup", "Cloud Infrastructure", "Scaling"],
   },
-  {
-    id: 23,
-    stage: 2,
-    title: "Microsoft Sponsor Talk",
-    startTime: "16:30",
-    endTime: "17:00",
-    description: "Microsoft presents their latest cloud solutions and technologies.",
-    speaker: {
-      name: "Microsoft Representative",
-      photo: "/speakers/microsoft-rep.jpg"
-    },
-    tags: ["Sponsor", "Microsoft", "Cloud Technology"]
-  },
+
   {
     id: 24,
     stage: 1,
     title: "Networking, Food & Entertainment",
-    startTime: "17:00",
+    startTime: "17:10",
     endTime: "18:00",
-    description: "Join us for food, drinks, live music, dancing, and networking. Diamond sponsors will have pop-up booths available.",
+    description:
+      "Join us for food, drinks, live music, dancing, and networking. Diamond sponsors will have pop-up booths available.",
     speaker: {
       name: "All Attendees",
-      photo: "/speakers/networking.jpg"
+      photo: "/speakers/networking.jpg",
     },
-    tags: ["Networking", "Entertainment", "Food"]
+    tags: ["Networking", "Entertainment", "Food"],
   },
   {
     id: 25,
     stage: 2,
     title: "Networking, Food & Entertainment",
-    startTime: "17:00",
+    startTime: "17:10",
     endTime: "18:00",
-    description: "Join us for food, drinks, live music, dancing, and networking. Diamond sponsors will have pop-up booths available.",
+    description:
+      "Join us for food, drinks, live music, dancing, and networking. Diamond sponsors will have pop-up booths available.",
     speaker: {
       name: "All Attendees",
-      photo: "/speakers/networking.jpg"
+      photo: "/speakers/networking.jpg",
     },
-    tags: ["Networking", "Entertainment", "Food"]
-  }
-]
+    tags: ["Networking", "Entertainment", "Food"],
+  },
+];
 
 export const workshopEvents = [
   {
@@ -369,13 +339,12 @@ export const workshopEvents = [
     stage: 3,
     title: "Workshops Coming Soon",
     startTime: "12:00",
-    endTime: "13:00",
+    endTime: "18:00",
     description: "Stay tuned for our workshop schedule!",
     speaker: {
       name: "TBA",
-      photo: ""
+      photo: "",
     },
-    tags: ["Workshop", "Web Development", "Cloud"]
+    tags: ["Workshop", "Web Development", "Cloud"],
   },
-
-]
+];

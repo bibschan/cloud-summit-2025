@@ -1,65 +1,69 @@
-"use client"
-import { useState, useCallback } from "react"
-import { cn } from "@/lib/utils"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { EventModal } from "./event-modal"
-import { timeSlots, type EventType } from "@/lib/schedule"
-import { useMediaQuery } from "@/hooks/use-media-query"
+"use client";
+import { useState, useCallback } from "react";
+import { cn } from "@/lib/utils";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { EventModal } from "./event-modal";
+import { timeSlots, type EventType } from "@/lib/schedule";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 const TIME_SLOT_HEIGHT = 250;
 const EVENT_GAP = 2;
 
 const timeToMinutes = (time: string) => {
-  const [hours, minutes] = time.split(':').map(Number);
+  const [hours, minutes] = time.split(":").map(Number);
   return hours * 60 + minutes;
-}
+};
 const firstSlotMinutes = timeToMinutes(timeSlots[0]);
 
 const isShortTalk = (startTime: string, endTime: string) => {
   const startMinutes = timeToMinutes(startTime);
   const endMinutes = timeToMinutes(endTime);
   return endMinutes - startMinutes <= 15;
-}
-
+};
 
 type ScheduleTableProps = {
   events: EventType[];
   stages: Array<{ id: number; name: string }>;
-  mode: 'schedule' | 'workshops';
-}
+  mode: "schedule" | "workshops";
+};
 
-export function ScheduleTable({ events, stages, mode = 'schedule' }: ScheduleTableProps) {
-  const [activeEvent, setActiveEvent] = useState<EventType | null>(null)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+export function ScheduleTable({
+  events,
+  stages,
+  mode = "schedule",
+}: ScheduleTableProps) {
+  const [activeEvent, setActiveEvent] = useState<EventType | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeStage, setActiveStage] = useState("1");
 
-  const isMobile = useMediaQuery("(max-width: 768px)")
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const handleMouseEnter = useCallback((event: EventType) => {
-    setActiveEvent(event)
-  }, [])
+    setActiveEvent(event);
+  }, []);
 
   const handleMouseLeave = useCallback(() => {
-    setActiveEvent(null)
-  }, [])
+    setActiveEvent(null);
+  }, []);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    setMousePosition({ x: e.clientX, y: e.clientY })
-  }, [])
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  }, []);
 
   const handleEventClick = useCallback((event: EventType) => {
-    setActiveEvent(event)
-  }, [])
+    setActiveEvent(event);
+  }, []);
 
   const handleCloseModal = useCallback(() => {
-    setActiveEvent(null)
-  }, [])
+    setActiveEvent(null);
+  }, []);
+
   const calculateEventPosition = (event: EventType, index: number) => {
     const startMinutes = timeToMinutes(event.startTime);
     const endMinutes = timeToMinutes(event.endTime);
     const minutesSinceStart = startMinutes - firstSlotMinutes;
-    const duration = endMinutes - startMinutes
-    const top = (minutesSinceStart / 60) * TIME_SLOT_HEIGHT + 70
+    const duration = endMinutes - startMinutes;
+    const top = (minutesSinceStart / 60) * TIME_SLOT_HEIGHT + 70;
     const rawHeight = (duration / 60) * TIME_SLOT_HEIGHT;
     const gapAdjustment = index > 0 ? EVENT_GAP : 0;
 
@@ -67,11 +71,11 @@ export function ScheduleTable({ events, stages, mode = 'schedule' }: ScheduleTab
       ...event,
       top: top + gapAdjustment,
 
-      height: Math.max(rawHeight - gapAdjustment, 20)
+      height: Math.max(rawHeight - gapAdjustment, 20),
     };
   };
 
-  const isSingleColumn = mode === 'workshops' || stages.length === 1;
+  const isSingleColumn = mode === "workshops" || stages.length === 1;
 
   return (
     <div
@@ -80,9 +84,15 @@ export function ScheduleTable({ events, stages, mode = 'schedule' }: ScheduleTab
     >
       {stages.length > 0 && (
         <div className="md:hidden sticky top-0 z-20 md:bg-primary-800  pt-4 md:p-4">
-          <Tabs value={activeStage} onValueChange={setActiveStage} className="w-full">
-            <TabsList className={`grid w-full grid-cols-${stages.length} bg-primary-900`}>
-              {stages.map(stage => (
+          <Tabs
+            value={activeStage}
+            onValueChange={setActiveStage}
+            className="w-full"
+          >
+            <TabsList
+              className={`grid w-full grid-cols-${stages.length} bg-primary-900`}
+            >
+              {stages.map((stage) => (
                 <TabsTrigger
                   key={stage.id}
                   value={stage.id.toString()}
@@ -96,12 +106,14 @@ export function ScheduleTable({ events, stages, mode = 'schedule' }: ScheduleTab
         </div>
       )}
 
-      <div className={cn(
-        "grid min-w-[300px] md:min-w-[600px]",
-        isSingleColumn
-          ? "grid-cols-[auto_1fr]"
-          : "grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_1fr]"
-      )}>
+      <div
+        className={cn(
+          "grid min-w-[300px] md:min-w-[600px]",
+          isSingleColumn
+            ? "grid-cols-[auto_1fr]"
+            : "grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_1fr]"
+        )}
+      >
         <div className="col-start-1 row-start-1 flex flex-col">
           <div className="h-[68px] md:h-[70px]"></div>
           {timeSlots.map((time) => (
@@ -113,13 +125,14 @@ export function ScheduleTable({ events, stages, mode = 'schedule' }: ScheduleTab
               {time}
             </div>
           ))}
-
         </div>
         {stages.length > 0 && (
           <div
             className={cn(
               "hidden md:grid md:grid-cols-2 col-start-2 md:col-start-2 md:col-span-2 row-start-1 h-16 gap-2 sticky top-0 z-10",
-              stages.length > 1 ? "md:grid-cols-2 md:col-span-2" : "md:grid-cols-1"
+              stages.length > 1
+                ? "md:grid-cols-2 md:col-span-2"
+                : "md:grid-cols-1"
             )}
           >
             {stages.map((stage, index) => (
@@ -139,14 +152,19 @@ export function ScheduleTable({ events, stages, mode = 'schedule' }: ScheduleTab
         {stages.map((stage, stageIndex) => {
           const stageEvents = events
             .filter((event) => event.stage === stage.id)
-            .sort((a, b) => timeToMinutes(a.startTime) - timeToMinutes(b.startTime));
+            .sort(
+              (a, b) => timeToMinutes(a.startTime) - timeToMinutes(b.startTime)
+            );
 
           return (
             <div
               key={stage.id}
-              className={cn("col-start-2 row-start-1 relative",
-              stageIndex === 1 && !isSingleColumn && "md:col-start-3",
-              stage.id.toString() !== activeStage && stages.length > 1 && "hidden md:block"
+              className={cn(
+                "col-start-2 row-start-1 relative",
+                stageIndex === 1 && !isSingleColumn && "md:col-start-3",
+                stage.id.toString() !== activeStage &&
+                  stages.length > 1 &&
+                  "hidden md:block"
               )}
             >
               <div className="absolute inset-0"></div>
@@ -191,14 +209,14 @@ export function ScheduleTable({ events, stages, mode = 'schedule' }: ScheduleTab
           );
         })}
       </div>
-      {activeEvent && (
-    <EventModal
-      event={activeEvent}
-      position={mousePosition}
-      onClose={handleCloseModal}
-      isMobile={isMobile}
-    />
-  )}
+      {activeEvent && !isMobile && (
+        <EventModal
+          event={activeEvent}
+          position={mousePosition}
+          onClose={handleCloseModal}
+          isMobile={isMobile}
+        />
+      )}
     </div>
-  )
+  );
 }
