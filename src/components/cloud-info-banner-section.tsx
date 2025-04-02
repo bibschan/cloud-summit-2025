@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function CloudInfoBanner() {
   return (
-    <section className="bg-secondary-600 w-full p-6 lg:h-[320px] flex mx-auto justify-center item-center">
+    <section className="bg-secondary-600 w-full p-6 lg:h-[320px] flex mx-auto justify-center item-center" id='about'>
       <div className="max-w-[1100px] container flex mx-auto justify-center item-center gap-4 md:gap-12 z-20">
         <Image
           src="/cloud-logo-white.svg"
