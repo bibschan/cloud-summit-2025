@@ -30,8 +30,8 @@ export default function VotePage() {
                 </span>
               </h1>
               <p className="text-sm md:text-md text-gray-300 text-center max-w-2xl mx-auto">
-                Vote for outstanding Canadian tech companies that drive community impact, foster growth, and showcase innovation through cloud technology.
-
+                Vote for outstanding Canadian tech companies that drive community impact, foster growth, and showcase innovation through cloud technology.{" "}
+                <span>Professional Services are excluded.</span>
               </p>
               <p className="text-sm md:text-md text-gray-300 text-center max-w-2xl mx-auto ">
                 The winning company will be recognized at the Cloud Summit 2025 event!
