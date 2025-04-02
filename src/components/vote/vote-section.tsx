@@ -244,7 +244,7 @@ export default function Vote({ setToggle }: ToggleProps ) {
 
     if (!providers.length) {
         return (
-            <main className="min-h-screen">
+            <section>
                 <div className="container mx-auto px-6 py-16">
                     <div className="max-w-2xl mx-auto text-center">
                         <h1 className="text-3xl font-bold tracking-tight text-white mb-6">
@@ -261,7 +261,7 @@ export default function Vote({ setToggle }: ToggleProps ) {
                         </div>
                     </div>
                 </div>
-            </main>
+            </section>
         );
     }
 

@@ -62,13 +62,13 @@ export default function Nominate() {
 
     if (status === "loading") {
         return (
-            <main className="min-h-screen">
+            <section >
                 <div className="container mx-auto px-6 py-24">
                     <div className="flex items-center justify-center">
                         <p className="text-white/60">Loading...</p>
                     </div>
                 </div>
-            </main>
+            </section>
         );
     }
 
