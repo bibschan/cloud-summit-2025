@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
@@ -52,7 +51,7 @@ export default function Nominate() {
             });
 
             toast.success("Thank you for your nomination! We'll review it shortly.");
-            router.push("/vote");
+
         } catch (error) {
             console.error("Error submitting nomination:", error);
             toast.error("Failed to submit nomination. Please try again.");
@@ -77,7 +76,7 @@ export default function Nominate() {
         <section className='my-0' >
             <div className="container mx-auto px-6">
                 <div className="flex flex-col gap-8 max-w-xl mx-auto">
-                    <div className="flex flex-col gap-1.5">
+                    <div className="flex flex-col gap-1.5 text-center">
                         <h1 className="text-3xl font-bold tracking-tight text-white">
                             Nominate a Local Canadian Tech Company
                         </h1>
