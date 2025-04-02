@@ -154,6 +154,13 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
                   Sponsors
                 </Link>
                 <Link
+                  href="/venue"
+                  onClick={handleNav}
+                  className="hover:text-sky-400 text-primary-50"
+                >
+                  Venue
+                </Link>
+                <Link
                   href="/contact"
                   onClick={handleNav}
                   className="hover:text-sky-400 text-primary-50"
@@ -167,6 +174,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
                 >
                   Team
                 </Link>
+
                 <a
                   href={EVENT_CONFIG.links.tickets}
                   className="min-w-[190px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800"
@@ -215,6 +223,13 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
             Sponsors
           </Link>
           <Link
+                  href="/venue"
+                  onClick={handleNav}
+                  className="hover:text-sky-400 text-primary-50"
+                >
+                  Venue
+                </Link>
+          <Link
             href="/contact"
             onClick={handleNav}
             className="hover:text-sky-400 text-primary-50"
@@ -228,6 +243,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
           >
             Team
           </Link>
+
           {session ? (
             <>
               <div className="relative">
