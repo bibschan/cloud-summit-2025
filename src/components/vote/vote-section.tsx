@@ -245,7 +245,7 @@ export default function Vote({ setToggle }: ToggleProps ) {
     if (!providers.length) {
         return (
             <section>
-                <div className="container mx-auto px-6 py-16">
+                <div className="container mx-auto px-6 py-0">
                     <div className="max-w-2xl mx-auto text-center">
                         <h1 className="text-3xl font-bold tracking-tight text-white mb-6">
                             Coming Soon!
