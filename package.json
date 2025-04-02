@@ -33,6 +33,7 @@
     "vercel-build": "cross-env APP_ENV=production prisma generate && cross-env APP_ENV=production prisma db push && next build"
   },
   "dependencies": {
+    "@next/font": "^14.2.15",
     "@next/third-parties": "^15.1.6",
     "@prisma/client": "^6.3.0",
     "@radix-ui/react-accordion": "^1.2.1",

@@ -1,5 +1,5 @@
 "use client";
-
+import { Button } from "./ui/button";
 import Link from "next/link";
 import React from "react";
 import {
@@ -44,7 +44,28 @@ export const FAQSection = () => {
         </>
       );
     }
-    return answer;
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    const parts = answer.split(urlRegex);
+
+    return (
+      <>
+        {parts.map((part, index) =>
+          urlRegex.test(part) ? (
+            <a
+              key={index}
+              href={part}
+              target="_blank"
+              rel="noopener noreferrer"
+              className=" underline"
+            >
+              {part}
+            </a>
+          ) : (
+            part
+          )
+        )}
+      </>
+    );
   };
 
   return (
@@ -79,6 +100,18 @@ export const FAQSection = () => {
             </AccordionItem>
           ))}
         </Accordion>
+        <div className="flex flex-col justify-center">
+          <p className="text-lg md:text-3xl font-semibold text-center my-8">Got more questions for us?</p>
+          <Link href="/contact" className="mx-auto">
+            <Button
+              variant="outline"
+              className="w-[150px]  hover:bg-secondary-600 hover:text-primary-900 transition-all font-bold"
+            >
+              Contact us here!
+            </Button>
+          </Link>
+        </div>
+
       </div>
     </section>
   );

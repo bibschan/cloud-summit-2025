@@ -2,7 +2,7 @@ import { Description } from "@radix-ui/react-toast";
 
 export const EVENT_CONFIG = {
   title: "Cloud Summit",
-  date: "May 27, 2025 at 12PM",
+  date: "May 27, 2025 at 11AM",
   venue: "Orpheum",
   location: {
     city: "Vancouver",
@@ -169,7 +169,7 @@ export const EVENT_CONFIG = {
         {
           question: "Is the event accessible?",
           answer:
-            "Yes, there is both accessible ramps, elevators, and main stage seating. For more details check out the Vancouver Orpheum Theatre site for details https://vancouvercivictheatres.com/accessibility/#accessibility.",
+            "Yes, there is both accessible ramps, elevators, and main stage seating. For more details check out the Vancouver Orpheum Theatre site for details https://vancouvercivictheatres.com/accessibility/.",
         },
         {
           question: "Will I be able to watch the event online?",
@@ -187,7 +187,129 @@ export const EVENT_CONFIG = {
     },
   },
   team: {
-    members: [
+    image: "/CloudSummit_2025_Committee_Lego.png",
+    description:
+      "Bringing the Cloud Summit to life takes creativity, dedication, and teamwork. With the expertise and passion of the 2025 team, we’re excited to deliver an unforgettable event. Get ready to connect, learn, and innovate at this year’s Cloud Summit!",
+    commitee: [
+      {
+        image: "/team/Audrey.png",
+        title: "Andrey Barkov",
+        href: "https://www.linkedin.com/in/andreybarkov/",
+      },
+      {
+        image: "/team/Bibi.png",
+        title: "Bibi Souza",
+        href: "https://www.linkedin.com/in/bibschan/",
+      },
+      {
+        image: "/team/Devreet.png",
+        title: "Devreet Dulay",
+        href: "https://www.linkedin.com/in/devreet-dulay/",
+      },
+      {
+        image: "/team/Dom.png",
+        title: "Dom Beckers",
+        href: "https://www.linkedin.com/in/dominikbeckers/",
+      },
+      {
+        image: "/team/Fernando.png",
+        title: "Fernando Stoelting",
+        href: "https://www.linkedin.com/in/fstoelting/",
+      },
+      {
+        image: "/team/Gabi.png",
+        title: "Gabriela Arno",
+        href: "https://www.linkedin.com/in/gabriela-arno-a7b55b163/",
+      },
+      {
+        image: "/team/Jackie.png",
+        title: "Jackie Ho",
+        href: "https://www.linkedin.com/in/jackiehyho/",
+      },
+      {
+        image: "/team/Kris.png",
+        title: "Kris Krug",
+        href: "https://www.linkedin.com/in/kriskrug/",
+      },
+      {
+        image: "/team/Matt.png",
+        title: "Matt Carolan",
+        href: "https://www.linkedin.com/in/matthewcarolan/",
+      },
+      {
+        image: "/team/Mattias.png",
+        title: "Mattias Andersson",
+        href: "https://www.linkedin.com/in/mattias-andersson/",
+      },
+      {
+        image: "/team/Mike.png",
+        title: "Mike Hoff",
+        href: "https://www.linkedin.com/in/mikehoff321/",
+      },
+      {
+        image: "/team/Mohsen.png",
+        title: "Mohsen Akhavan",
+        href: "https://www.linkedin.com/in/themohsenakhavan/",
+      },
+      {
+        image: "/team/Shanky.png",
+        title: "Shanky Silva",
+        href: "https://www.linkedin.com/in/shankyjs/",
+      },
+      {
+        image: "/team/Umer.png",
+        title: "Umer Khalid",
+        href: "https://www.linkedin.com/in/umerkhalid1/",
+      },
+      {
+        image: "/team/Will.png",
+        title: "Will Sheldon",
+        href: "https://www.linkedin.com/in/wills/",
+      },
+    ],
+    volunteers: [
+      {
+        name: "Ayda Esmradi",
+        link: "https://www.linkedin.com/in/aydaesmradi/",
+        team: "webAndDesign",
+      },
+      {
+        name: "Byte Quest",
+        link: "https://www.linkedin.com/company/bytequestllc/",
+        team: "webAndDesign",
+      },
+      {
+        name: "Jess Jaen",
+        link: "https://www.linkedin.com/in/jess-jaen-creative-graphic-designer/",
+        team: "webAndDesign",
+      },
+      {
+        name: "Kota Ito",
+        link: "https://www.linkedin.com/in/kota-ito-%EF%BC%A0041212/",
+        team: "webAndDesign",
+      },
+      {
+        name: "Luis Hernandez",
+        link: "https://github.com/luisher98",
+        team: "webAndDesign",
+      },
+      {
+        name: "Madhuja Mitra",
+        link: "https://www.linkedin.com/in/madhuja-mitra/",
+        team: "webAndDesign",
+      },
+      {
+        name: "Mostafa Davoodi",
+        link: "https://www.linkedin.com/in/mostafa-davoodi/",
+        team: "webAndDesign",
+      },
+      {
+        name: "Sophia Chan",
+        link: "https://www.linkedin.com/in/sophia-g-chan/",
+        team: "webAndDesign",
+      },
+    ],
+    webMembers: [
       { name: "Bibi", github: "https://github.com/bibschan" },
       {
         name: "Byte Quest",
@@ -203,7 +325,7 @@ export const EVENT_CONFIG = {
 export const CLOUDPLATFORMS = [
   {
     name: "AWS",
-    logo: "/providers/aws.svg",
+    logo: "/cloud-providers/aws-white.svg",
   },
   {
     name: "Azure",
@@ -227,11 +349,11 @@ export const CLOUDPLATFORMS = [
   },
   {
     name: "Tencent Cloud",
-    logo: "/providers/Tencent_Cloud.svg",
+    logo: "/cloud-providers/tencent-white.svg",
   },
   {
     name: "Huawei Cloud",
-    logo: "/providers/huawei.svg",
+    logo: "/cloud-providers/huawei.svg",
   },
 ];
 
@@ -321,6 +443,7 @@ export const COMMUNITIES = [
     description:
       "A monthly meetup for developers in Vancouver focusing on JavaScript, front-end technology, and the open web.",
     url: "https://www.vanjs.com/",
+    image: "/communities/vanjs.svg",
   },
   {
     id: 2,
@@ -328,6 +451,7 @@ export const COMMUNITIES = [
     description:
       "Vancouver's AWS community with monthly events and co-host of Vancouver's largest Cloud and AI Conference.",
     url: "https://www.awsusergroups.com/",
+    image: "/communities/aws.svg",
   },
   {
     id: 3,
@@ -335,6 +459,7 @@ export const COMMUNITIES = [
     description:
       "Vancouver Microsoft Azure User Group running quarterly events and co-hosting Western Canada's largest Cloud and AI Conference.",
     url: "https://www.azurecanada.ca/",
+    image: "/communities/azurecanada.svg",
   },
   {
     id: 4,
@@ -342,6 +467,7 @@ export const COMMUNITIES = [
     description:
       "A community focused on cloud-native technologies, containerization, and microservices architecture.",
     url: "https://lu.ma/p35u91p3",
+    image: "/communities/cloudnative.svg",
   },
   {
     id: 5,
@@ -349,12 +475,136 @@ export const COMMUNITIES = [
     description:
       "Connect with AI enthusiasts, researchers, and practitioners in Vancouver.",
     url: "https://www.vancouveraimeetup.com/",
+    image: "/communities/vanai.svg",
   },
   {
     id: 6,
-    name: "Linux User Group",
+    name: "Google Developer Group",
     description:
-      "Vancouver Linux Users Group (VanLUG) - A community for Linux enthusiasts and open-source advocates.",
-    url: "https://vanlug.ca/",
+      "A diverse and inclusive tech community where everyone, regardless of their experience level, feels empowered to learn, share, and grow.",
+    url: "https://gdg.community.dev/gdg-surrey/",
+    image: "/communities/gdg.svg",
+  },
+];
+export const teamAreas = [
+  {
+    target: "_blank",
+    alt: "Andrey Barkov",
+    title: "Andrey Barkov",
+    href: "https://www.linkedin.com/in/andreybarkov/",
+    coords: "342,28,501,217",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Bibi Souza",
+    title: "Bibi Souza",
+    href: "https://www.linkedin.com/in/bibschan/",
+    coords: "510,28,662,217",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Devreet Dulay",
+    title: "Devreet Dulay",
+    href: "https://www.linkedin.com/in/devreet-dulay/",
+    coords: "674,28,839,217",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Dom Beckers",
+    title: "Dom Beckers",
+    href: "",
+    coords: "858,28,1008,217",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Fernando Stoelting",
+    title: "Fernando Stoelting",
+    href: "https://www.linkedin.com/in/fstoelting/",
+    coords: "1009,28,1169,217",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Gabriela Arno",
+    title: "Gabriela Arno",
+    href: "https://www.linkedin.com/in/gabriela-arno-a7b55b163/",
+    coords: "346,231,500,410",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Jackie Ho",
+    title: "Jackie Ho",
+    href: "https://www.linkedin.com/in/jackiehyho/",
+    coords: "512,231,665,410",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Kris Krug",
+    title: "Kris Krug",
+    href: "https://www.linkedin.com/in/kriskrug/",
+    coords: "669,231,830,410",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Matt Carolan",
+    title: "Matt Carolan",
+    href: "https://www.linkedin.com/in/matthewcarolan/",
+    coords: "840,231,1005,410",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Mattias Andersson",
+    title: "Mattias Andersson",
+    href: "https://www.linkedin.com/in/mattias-andersson/",
+    coords: "1005,231,1169,410",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Mike Hoff",
+    title: "Mike Hoff",
+    href: "https://www.linkedin.com/in/mikehoff321/",
+    coords: "348,420,497,594",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Mohsen Akhavan",
+    title: "Mohsen Akhavan",
+    href: "https://www.linkedin.com/in/themohsenakhavan/",
+    coords: "509,423,668,594",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Shanky Silva",
+    title: "Shanky Silva",
+    href: "",
+    coords: "677,421,830,592",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Umer Khalid",
+    title: "Umer Khalid",
+    href: "https://www.linkedin.com/in/umerkhalid1/",
+    coords: "844,422,997,596",
+    shape: "rect",
+  },
+  {
+    target: "_blank",
+    alt: "Will Sheldon",
+    title: "Will Sheldon",
+    href: "",
+    coords: "1011,424,1161,598",
+    shape: "rect",
   },
 ];
