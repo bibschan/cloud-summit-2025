@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
-import { motion, useTransform, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export const HighlightsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
