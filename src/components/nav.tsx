@@ -254,20 +254,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
                   </>
                 )}
               </div>
-              {useExternalNominationForm ? (
-                <Link
-                  href={externalNominationFormUrl}
-                  className="hover:text-sky-400"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Nominate
-                </Link>
-              ) : (
-                <Link href="/nominate" className="hover:text-sky-400">
-                  Nominate
-                </Link>
-              )}
+
               {userIsAdmin && (
                 <Link href="/admin" className="hover:text-sky-400">
                   Admin

@@ -74,7 +74,7 @@ export default function NominatePage() {
   }
 
   return (
-    <main className="min-h-screen">
+    <section className="min-h-screen">
       <div className="container mx-auto px-6 py-24">
         <div className="flex flex-col gap-8 max-w-xl mx-auto">
           <div className="flex flex-col gap-1.5">
@@ -139,6 +139,6 @@ export default function NominatePage() {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

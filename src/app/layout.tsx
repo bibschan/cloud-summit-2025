@@ -74,7 +74,6 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <Nav />
           {children}
         </Providers>
         <Toaster
