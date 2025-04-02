@@ -20,10 +20,10 @@ export default function VotePage() {
     <div className="min-h-screen text-white ">
       <Nav />
       <main className="w-full bg-primary-900 py-10 md:py-20" id="team">
-        <div className="max-w-[1100px] container px-4 md:px-6 mx-auto space-y-12">
-          <section className="flex flex-col items-center justify-center space-y-6 text-center my-8">
+        <div className="max-w-[1100px] container px-4 md:px-6 mx-auto space-y-6">
+          <section className="flex flex-col items-center justify-center space-y-6 text-center mt-8 md:my-8">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl mb-8">
+              <h1 className="text-4xl md:text-6xl md:mb-8">
                 2025 Canadian Cloud {" "}
                 <span className="block text-pale-gold">
                   Award

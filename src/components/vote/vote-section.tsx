@@ -4,13 +4,9 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import Nav from "@/components/nav";
 import { ProviderCard } from "@/components/vote/provider-card";
 import { SearchBar } from "@/components/vote/search-bar";
 import { LoadingSkeleton } from "@/components/vote/loading-skeleton";
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
-import { NominationDialog } from "@/components/nomination-dialog";
 import { cn } from "@/lib/utils";
 import { VoteLimitWarning } from "@/components/vote/vote-limit-warning";
 
@@ -32,10 +28,10 @@ interface Vote {
     userId: string;
 }
 type ToggleProps = {
-    setToggle: React.Dispatch<React.SetStateAction<string>>;
-  };
+    setToggle: React.Dispatch<React.SetStateAction<'vote' | 'nominate'>>;
+};
 
-export default function Vote({ setToggle }: ToggleProps ) {
+export default function Vote({ setToggle }: ToggleProps) {
     const { data: session, status } = useSession();
     const router = useRouter();
     const [providers, setProviders] = useState<CloudProvider[]>([]);
@@ -224,7 +220,7 @@ export default function Vote({ setToggle }: ToggleProps ) {
 
     if (error) {
         return (
-            <div className="container mx-auto px-4 text-center">
+            <div className="container mx-auto px-4 text-center py-0">
                 <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-8 max-w-xl mx-auto">
                     <h2 className="text-2xl font-bold text-white mb-4">
                         Oops! Something went wrong
@@ -244,17 +240,17 @@ export default function Vote({ setToggle }: ToggleProps ) {
 
     if (!providers.length) {
         return (
-            <section>
+            <section className="py-0 mt-0">
                 <div className="container mx-auto px-6 py-0">
                     <div className="max-w-2xl mx-auto text-center">
                         <h1 className="text-3xl font-bold tracking-tight text-white mb-6">
                             Coming Soon!
                         </h1>
                         <div className="bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl p-8">
-                            <p className="text-xl text-white/80 mb-4">
+                            <p className="text-md md:text-xl text-white mb-4">
                                 We&apos;re preparing the list of companies for voting.
                             </p>
-                            <p className="text-lg text-white/60">
+                            <p className="text-md md:text-lg text-white">
                                 Check back soon to cast your vote for your favorite local tech
                                 companies!
                             </p>
@@ -266,7 +262,7 @@ export default function Vote({ setToggle }: ToggleProps ) {
     }
 
     return (
-        <section>
+        <section className="py-0">
             <div className="container mx-auto px-6 py-0">
                 <div className="flex flex-col gap-12">
                     {/* Header Section */}

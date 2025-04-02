@@ -77,10 +77,10 @@ export default function Nominate() {
             <div className="container mx-auto px-6">
                 <div className="flex flex-col gap-8 max-w-xl mx-auto">
                     <div className="flex flex-col gap-1.5 text-center">
-                        <h1 className="text-3xl font-bold tracking-tight text-white">
+                        <h2 className="text-3xl font-bold tracking-tight text-white">
                             Nominate a Local Canadian Tech Company
-                        </h1>
-                        <p className="text-lg text-white/60">
+                        </h2>
+                        <p className="text-md md:text-lg text-white/60">
                             Know a great local company that deserves recognition? Let us know!
                         </p>
                     </div>
