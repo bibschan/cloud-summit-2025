@@ -37,31 +37,40 @@ export default function VotePage() {
                 The winning company will be recognized at the Cloud Summit 2025 event!
               </p>
             </div>
-            <div className="flex gap-4 mb-4 bg-primary-800 rounded-full">
-              <Button
-                variant='outline'
-                onClick={() => setToggle('vote')}
-                className={`rounded-full text-white transition-all ${toggle === 'vote' ? "bg-blue-500 " : "bg-primary-800 border-none "}`}
-              >
-                Vote
-              </Button>
-              <Button
-                variant='outline'
-                onClick={() => setToggle('nominate')}
-                className={`rounded-full text-white transition-all ${toggle === 'nominate' ? "bg-blue-500 text-white" : "bg-primary-800 border-none "}`}
-              >
-                Nominate
-              </Button>
-              {userIsAdmin && (
-                <Link href="/admin" className="text-sm py-2 px-4 hover:text-sky-400">
-                  Admin
-                </Link>
-              )}
+            <div className="flex flex-col gap-2">
+              <div className="flex gap-4 bg-primary-800 rounded-full my-auto">
+                <Button
+                  variant='outline'
+                  onClick={() => setToggle('vote')}
+                  className={`rounded-full text-white transition-all ${toggle === 'vote' ? "bg-blue-500 " : "bg-primary-800 border-none "}`}
+                >
+                  Vote
+                </Button>
+                <Button
+                  variant='outline'
+                  onClick={() => setToggle('nominate')}
+                  className={`rounded-full text-white transition-all ${toggle === 'nominate' ? "bg-blue-500 text-white" : "bg-primary-800 border-none "}`}
+                >
+                  Nominate
+                </Button>
+                {userIsAdmin && (
+                  <Link href="/admin" className="text-sm py-2 px-4 hover:text-sky-400">
+                    Admin
+                  </Link>
+                )}
+              </div>
+              <div className=" my-auto" >
+                {session && (
+                  <button onClick={() => signOut()} className="my-auto text-sm hover:text-sky-400 text-primary-50">
+                    Sign Out
+                  </button>
+                )}
+              </div>
             </div>
           </section>
           {
             toggle === 'vote' ?
-              <Vote setToggle={setToggle}/>
+              <Vote setToggle={setToggle} />
               :
               <Nominate />
           }

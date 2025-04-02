@@ -4,7 +4,7 @@ import { EVENT_CONFIG } from "@/lib/constants";
 import Script from "next/script";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { useSession, signOut } from "next-auth/react";
+
 import { usePathname } from "next/navigation";
 import { ArrowLeft, Menu, X } from "lucide-react";
 import Image from "next/image";
@@ -22,7 +22,6 @@ interface NavLink {
 
 export default function Nav({ showMessage = "hidden" }: NavProps) {
   const [isAtTop, setIsAtTop] = useState(true);
-  const { data: session } = useSession();
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const isSignInPage = pathname === "/auth/signin";
@@ -86,14 +85,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
             <ArrowLeft className="w-5 h-5" />
             Back
           </Link>
-          {session && (
-            <button
-              onClick={() => signOut()}
-              className="text-white hover:text-sky-400 font-semibold text-sm md:text-base"
-            >
-              Sign Out
-            </button>
-          )}
+
         </div>
       );
     }
@@ -125,11 +117,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
               </button>
               <div className="grow flex flex-col items-center justify-center gap-10">
                 {navLinks.map(link => renderNavLink(link, handleNav))}
-                {session && (
-                  <button onClick={() => signOut()} className="hover:text-sky-400 text-primary-50">
-                    Sign Out
-                  </button>
-                )}
+
                 <a
                   href={EVENT_CONFIG.links.tickets}
                   className="min-w-[190px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 text-white"
@@ -152,11 +140,6 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
         <div className="hidden md:flex space-x-4 sm:space-x-8 text-sm md:text-base">
           {navLinks.map(link => renderNavLink(link))}
 
-          {session && (
-            <button onClick={() => signOut()} className="hover:text-sky-400 text-primary-50">
-              Sign Out
-            </button>
-          )}
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <a
