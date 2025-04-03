@@ -49,7 +49,7 @@ export const HeroSection = () => {
 
         <div className="relative mx-auto flex flex-col flex-wrap justify-center gap-4 md:gap-10 z-10">
           {/* Description */}
-          <p className="mx-auto max-w-3xl text-center text-sm md:text-xl  text-white ">
+          <p className="mx-auto max-w-3xl text-center text-sm md:text-xl  text-white px-4">
             {EVENT_CONFIG.description}
           </p>
 

@@ -192,10 +192,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
           >
             About
           </Link>
-          <Link
-            href={getHomeLink("venue")}
-            className="hover:text-sky-400 text-primary-50"
-          >
+          <Link href="/schedule" className="hover:text-sky-400 text-primary-50">
             Schedule
           </Link>
           <Link
@@ -284,7 +281,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
         <div className="hidden md:flex items-center space-x-4">
           <a
             href={EVENT_CONFIG.links.tickets}
-            className="min-w-[190px] h-9 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all"
+            className="min-w-[190px] h-9 flex justify-center items-center rounded-md bg-secondary-600 text-primary-50 hover:bg-secondary-800 transition-all"
             data-luma-action="checkout"
             data-luma-event-id="evt-cItbLfgBkf8na4n"
           >
