@@ -6,6 +6,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import { Providers } from "@/components/providers";
 import { Toaster } from "sonner";
 import Nav from '@/components/nav';
+import Footer from "@/components/footer";
 import { headers } from 'next/headers';
 
 export const metadata: Metadata = {
@@ -74,8 +75,9 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <Nav />
+
           {children}
+
         </Providers>
         <Toaster
           richColors
