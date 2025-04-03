@@ -256,7 +256,7 @@ export function ScheduleTable({
           })}
         </div>
       )}
-      {activeEvent && !isMobile && (
+      {activeEvent  && (
         <EventModal
           event={activeEvent}
           position={mousePosition}
