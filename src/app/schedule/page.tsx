@@ -11,7 +11,7 @@ const scheduleStages = [
   { id: 2, name: "Second Stage" },
 ];
 
-const workshopStages = [{ id: 3, name: "Workshop Schedule Coming Soon" }];
+const workshopStages = [{ id: 3, name: "Activities" }];
 
 export default function SchedulePage() {
   const [mode, setMode] = useState<"speakers" | "workshops">("speakers");
@@ -20,7 +20,7 @@ export default function SchedulePage() {
     <>
       <Nav />
       <main className="min-h-screen bg-primary-900 ">
-        <div className="container mx-auto px-6 py-24">
+        <div className="max-w-[1100px] container mx-auto px-6 py-24">
           <section className="flex flex-col items-center justify-center space-y-4 text-center my-8">
             <div className="space-y-2">
               <h1 className="text-6xl md:text-8xl  text-white">
@@ -29,9 +29,9 @@ export default function SchedulePage() {
                   Schedule
                 </span>
               </h1>
-              <p className="text-sm md:text-md text-gray-300 text-center max-w-2xl mx-auto mb-12">
+              <p className="text-sm md:text-lg text-gray-300 text-center max-w-2xl mx-auto mb-12">
                 Explore the Event Schedule – Toggle between speakers and
-                workshops.
+                activities for the day.
               </p>
             </div>
             <div className="flex gap-4 mb-4 bg-primary-800 rounded-full">
@@ -55,7 +55,7 @@ export default function SchedulePage() {
                     : "bg-primary-800 border-none "
                 }`}
               >
-                Workshops
+                Event Overview
               </Button>
             </div>
             {mode === "speakers" ? (

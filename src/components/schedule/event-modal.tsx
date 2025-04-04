@@ -19,6 +19,7 @@ const PADDING = 16 // Padding from window edges
 const CURSOR_OFFSET = 2 // Offset from cursor
 
 export function EventModal({ event, position, onClose, isMobile }: EventModalProps) {
+  console.log(event)
   const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 })
   const [imageError, setImageError] = useState(false)
 
@@ -76,49 +77,62 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
   if (isMobile) {
     return (
       <div className="fixed inset-0 z-50 flex flex-col bg-black bg-opacity-80 text-left">
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="w-full h-full max-w-md mx-auto bg-primary-800 overflow-auto flex flex-col gap-4">
-            <div className="sticky top-0 flex justify-end p-4 bg-primary-800 ">
+        <div className="text-xs text-gray-500 mb-2">
+          Has tags: {event.tags ? 'Yes' : 'No'},
+          Includes Activities: {event.tags && event.tags.includes("Activities") ? 'Yes' : 'No'}
+        </div>
+        <div className="fixed inset-0 z-50 flex items-center justify-center ">
+          <div className="w-full h-full max-w-md mx-auto bg-primary-800 overflow-auto flex flex-col gap-4 px-6">
+            <div className="sticky top-0 flex justify-end p-4 bg-primary-800 px-0">
               <button
                 onClick={handleClose}
-                className="text-gray-400 hover:text-white p-2"
+                className="text-gray-400 hover:text-white py-2"
               >
                 <X size={24} />
               </button>
             </div>
-
-            <div className="p-6 grow my-auto flex flex-col gap-2">
-              <div className="flex flex-col items-start justify-center gap-4 ">
-                <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden flex-shrink-0">
-                  <Image
-                    src={imageSrc || ""}
-                    alt={event.speaker?.name || ""}
-                    fill
-                    className="object-cover"
-                    onError={handleImageError}
-                    priority
-                    sizes="60px"
-                  />
-                </div>
+            {event.tags.includes("Activities") ? (
+              <div className="flex flex-col items-center gap-4">
                 <div className="flex-1 space-y-1">
                   <h3 className="font-body text-xl font-semibold text-gray-100">{event.title}</h3>
-                  <p className="text-md text-gray-400">{event.speaker?.name}</p>
-                  <p className="mt-1 text-md text-secondary-600">
-                    {event.startTime} - {event.endTime}
-                  </p>
                 </div>
+                <p className="mt-4 text-md text-gray-300">{event.description}</p>
               </div>
+            ) : (
+              <>
+                <div className="flex items-start gap-4">
+                  <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src={imageSrc || ""}
+                      alt={event.speaker?.name || ""}
+                      fill
+                      className="object-cover"
+                      onError={handleImageError}
+                      priority
+                      sizes="60px"
+                    />
+                  </div>
+                  <div className="flex-1 space-y-1">
+                    <h3 className="font-body text-xl font-semibold text-gray-100">{event.title}</h3>
+                    <p className="text-md text-gray-400">{event.speaker?.name}</p>
+                    <p className="mt-1 text-md text-secondary-600">
+                      {event.startTime} - {event.endTime}
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-4 text-md text-gray-300">{event.description}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {event.tags?.map((tag, index) => (
+                    <span key={index} className="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </>
 
-              <p className="mt-4 text-md text-gray-300">{event.description}</p>
+            )}
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                {event.tags?.map((tag, index) => (
-                  <span key={index} className="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
@@ -135,7 +149,47 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
       }}
     >
       <div className="flex items-start justify-start space-x-4 bg-primary-800 text-left">
-        <div className="relative w-[50px] h-[50px] rounded-full overflow-hidden flex-shrink-0">
+        {event.tags.includes("Activities") ? (
+          <div className="flex flex-col items-start gap-4">
+
+            <h3 className="font-body text-xl font-semibold text-gray-100">{event.title}</h3>
+
+            <p className="mt-4 text-md text-gray-300">{event.description}</p>
+          </div>
+        ) : (
+          <div className="flex flex-col items-start justify-start space-x-4 bg-primary-800 text-left">
+            <div className="flex items-start gap-4">
+              <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden flex-shrink-0">
+                <Image
+                  src={imageSrc || ""}
+                  alt={event.speaker?.name || ""}
+                  fill
+                  className="object-cover"
+                  onError={handleImageError}
+                  priority
+                  sizes="60px"
+                />
+              </div>
+              <div className="flex-1 space-y-1">
+                <h3 className="font-body text-xl font-semibold text-gray-100">{event.title}</h3>
+                <p className="text-md text-gray-400">{event.speaker?.name}</p>
+                <p className="mt-1 text-md text-secondary-600">
+                  {event.startTime} - {event.endTime}
+                </p>
+              </div>
+            </div>
+            <p className="mt-4 text-md text-gray-300">{event.description}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {event.tags?.map((tag, index) => (
+                <span key={index} className="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+        )}
+        {/* <div className="relative w-[50px] h-[50px] rounded-full overflow-hidden flex-shrink-0">
           <Image
             src={imageSrc || ""}
             alt={event.speaker?.name || ""}
@@ -164,6 +218,7 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
             {tag}
           </span>
         ))}
+      </div> */}
       </div>
     </div>
   )
