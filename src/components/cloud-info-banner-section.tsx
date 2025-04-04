@@ -12,7 +12,7 @@ function CloudInfoBanner() {
           width={150}
           height={150}
         />
-        <h2 className="w-3/4 h-auto lg:text-2xl my-auto lg:leading-[70px]">
+        <h2 className="w-3/4 h-auto lg:text-4xl my-auto lg:leading-[70px]">
           {EVENT_CONFIG.about}
         </h2>
       </div>

@@ -148,7 +148,7 @@ export const speakerEvents: EventType[] = [
   {
     id: 10,
     stage: 1,
-    title: "Panel Discussion",
+    title: "Venture Capitalist Panel Discussion",
     startTime: "14:40",
     endTime: "15:40",
     description:
@@ -426,14 +426,99 @@ export const workshopEvents = [
   {
     id: 1,
     stage: 3,
-    title: "Workshops Coming Soon",
-    startTime: "12:00",
-    endTime: "18:00",
-    description: "Stay tuned for our workshop schedule!",
+    title: "Doors Open and Registration",
+    startTime: "11:00",
+    endTime: "12:00",
+    description:
+      "Arrive early to register and receive exclusive event swag while supplies last.",
     speaker: {
       name: "TBA",
       photo: "",
     },
-    tags: ["Workshop", "Web Development", "Cloud"],
+    tags: ["Activities", "Web Development", "Cloud"],
+  },
+  {
+    id: 2,
+    stage: 3,
+    title: "Main Stage Talks & AI DJ",
+    startTime: "12:00",
+    endTime: "17:00",
+    description:
+      "Enjoy engaging presentations on the main stage accompanied by music from our innovative AI DJ.",
+    speaker: {
+      name: "TBA",
+      photo: "",
+    },
+    tags: ["Activities", "Web Development", "Cloud"],
+  },
+  {
+    id: 3,
+    stage: 3,
+    title: "Second Stage Talks & Live Band",
+    startTime: "12:00",
+    endTime: "17:00",
+    description:
+      "Experience additional presentations on our second stage while a live band provides entertainment.",
+    speaker: {
+      name: "TBA",
+      photo: "",
+    },
+    tags: ["Activities", "Web Development", "Cloud"],
+  },
+  {
+    id: 4,
+    stage: 3,
+    title: "Sponsors & Community Booths",
+    startTime: "12:00",
+    endTime: "17:00",
+    description:
+      "Visit our sponsors and community booths to network and learn about the latest technologies and opportunities.",
+    speaker: {
+      name: "TBA",
+      photo: "",
+    },
+    tags: ["Activities", "Web Development", "Cloud"],
+  },
+  {
+    id: 5,
+    stage: 3,
+    title: "Lego Swap Stand",
+    startTime: "12:00",
+    endTime: "17:00",
+    description:
+      "Trade Lego swag and donate to UGM Charity at our interactive Lego Swap Stand.",
+    speaker: {
+      name: "TBA",
+      photo: "",
+    },
+    tags: ["Activities", "Web Development", "Cloud"],
+  },
+  {
+    id: 6,
+    stage: 3,
+    title: "Interview Lounge",
+    startTime: "13:00",
+    endTime: "17:00",
+    description:
+      "Join CBC Radio personality Kris Krug for exclusive interviews with speakers and special guests.",
+    speaker: {
+      name: "TBA",
+      photo: "",
+    },
+    tags: ["Activities", "Web Development", "Cloud"],
+  },
+  {
+    id: 7,
+    stage: 3,
+    title: "Closing Reception",
+    startTime: "17:00",
+    endTime: "18:00",
+    description:
+      "Celebrate with a live band, food, and drinks. All refreshments are included in your ticket price.",
+    speaker: {
+      name: "",
+      photo: "",
+    },
+    tags: ["Activities", "Web Development", "Cloud"],
   },
 ];
