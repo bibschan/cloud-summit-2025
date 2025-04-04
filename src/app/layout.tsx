@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
-import { Squada_One, Noto_Sans, Sofia_Sans_Extra_Condensed } from "next/font/google";
+import {
+  Squada_One,
+  Noto_Sans,
+  Sofia_Sans_Extra_Condensed,
+} from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Providers } from "@/components/providers";
 import { Toaster } from "sonner";
-import Nav from '@/components/nav';
-import { headers } from 'next/headers';
+import Nav from "@/components/nav";
+import Footer from "@/components/footer";
+import { headers } from "next/headers";
 
 export const metadata: Metadata = {
   title: "Cloud Summit 2025",
   description: "The premier cloud computing conference",
-  icons : {
-    icon: '/favicon-96x96.png',
+  icons: {
+    icon: "/favicon-96x96.png",
   },
   openGraph: {
     title: "Cloud Summit 2025 – Western Canada's Premier Cloud Event",
@@ -30,16 +35,16 @@ export const metadata: Metadata = {
     ],
     locale: "en_CA",
     type: "website",
-  }
+  },
 };
 const sofiaSans = Sofia_Sans_Extra_Condensed({
   subsets: ["latin"],
-  weight: ["400",'600', "700"],
+  weight: ["400", "600", "700"],
   variable: "--font-sofia-sans",
 });
 
 const fontHeading = Squada_One({
-  weight: '400',
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
   variable: "--font-heading",
@@ -61,10 +66,10 @@ export default function RootLayout({
   const isVotePage = pathname === "/vote";
 
   return (
-    <html lang="en" className={cn(
-      "scroll-smooth",
-      isVotePage && "bg-blue-700"
-    )}>
+    <html
+      lang="en"
+      className={cn("scroll-smooth", isVotePage && "bg-blue-700")}
+    >
       <body
         className={cn(
           "antialiased",
@@ -73,14 +78,8 @@ export default function RootLayout({
           sofiaSans.variable
         )}
       >
-        <Providers>
-          {children}
-        </Providers>
-        <Toaster
-          richColors
-          position="bottom-right"
-          closeButton={false}
-        />
+        <Providers>{children}</Providers>
+        <Toaster richColors position="bottom-right" closeButton={false} />
         <GoogleTagManager gtmId="GTM-56TFJ6TC" />
       </body>
     </html>

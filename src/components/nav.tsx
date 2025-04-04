@@ -30,7 +30,8 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
 
   const today = new Date();
   const earlyBirdDeadline = new Date("2025-05-14T00:00:00");
-  const ticketMessage = today < earlyBirdDeadline ? "Get Early-Bird Tickets!" : "Get your tickets!";
+  const ticketMessage =
+    today < earlyBirdDeadline ? "Get Early-Bird Tickets!" : "Get your tickets!";
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -51,12 +52,11 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
     return isHomePage ? `#${section}` : `/#${section}`;
   };
 
-
   const navLinks: NavLink[] = [
     { label: "About", href: getHomeLink("about") },
-    { label: "Schedule", href: '/schedule' },
-    { label: "Speakers", href: '/speakers' },
-    { label: "Venue", href: '/venue' },
+    { label: "Schedule", href: "/schedule" },
+    { label: "Speakers", href: "/speakers" },
+    { label: "Venue", href: "/venue" },
     { label: "Contact", href: "/contact" },
     { label: "Team", href: "/team" },
   ];
@@ -67,7 +67,9 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
       href={link.href}
       onClick={onClick}
       className="hover:text-sky-400 text-primary-50"
-      {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      {...(link.isExternal
+        ? { target: "_blank", rel: "noopener noreferrer" }
+        : {})}
     >
       {link.label}
     </Link>
@@ -85,7 +87,6 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
             <ArrowLeft className="w-5 h-5" />
             Back
           </Link>
-
         </div>
       );
     }
@@ -116,7 +117,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
                 <X className="w-6 h-6 hover:text-sky-400 text-primary-50" />
               </button>
               <div className="grow flex flex-col items-center justify-center gap-10">
-                {navLinks.map(link => renderNavLink(link, handleNav))}
+                {navLinks.map((link) => renderNavLink(link, handleNav))}
 
                 <a
                   href={EVENT_CONFIG.links.tickets}
@@ -138,8 +139,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
 
         {/* tablet and desktop nav bar */}
         <div className="hidden md:flex space-x-4 sm:space-x-8 text-sm md:text-base">
-          {navLinks.map(link => renderNavLink(link))}
-
+          {navLinks.map((link) => renderNavLink(link))}
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <a
@@ -164,12 +164,15 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
     <nav
       className={`
       w-full z-50
-      ${isSignInPage || isAdminPage || isNominatePage
+      ${
+        isSignInPage || isAdminPage || isNominatePage
           ? "absolute py-4"
-          : `fixed ${showMessage === "visible" ? "top-16" : "top-0"
-          } py-5 transition duration-300 ease-in-out ${!isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""
-          }`
-        }
+          : `fixed ${
+              showMessage === "visible" ? "top-16" : "top-0"
+            } py-5 transition duration-300 ease-in-out ${
+              !isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""
+            }`
+      }
     `}
     >
       {renderNavContent()}
