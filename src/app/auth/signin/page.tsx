@@ -31,7 +31,7 @@ function SignInButtons() {
     <div className="space-y-4">
       <Button
         className="w-full flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100"
-        onClick={() => signIn("google", { callbackUrl: "/" })}
+        onClick={() => signIn("google", { callbackUrl: "/vote" })}
       >
         <Image
           src="/google.svg"
@@ -44,11 +44,11 @@ function SignInButtons() {
       </Button>
       <Button
         className="w-full flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100"
-        onClick={() => signIn("github", { callbackUrl: "/" })}
+        onClick={() => signIn("github", { callbackUrl: "/vote" })}
       >
         <Github className="w-5 h-5" />
         Sign in with GitHub
       </Button>
     </div>
   );
-} 
+}
