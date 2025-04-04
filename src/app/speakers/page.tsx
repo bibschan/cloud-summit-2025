@@ -1,17 +1,6 @@
 "use client";
-import { useState } from "react";
-import { ScheduleTable } from "@/components/schedule/schedule-table";
-import { Button } from "@/components/ui/button";
-import { speakerEvents, workshopEvents } from "@/lib/schedule";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
-
-const scheduleStages = [
-    { id: 1, name: "Main Stage" },
-    { id: 2, name: "Second Stage" },
-];
-
-const workshopStages = [{ id: 3, name: "Activities" }];
 
 export default function SpeakersPage() {
 
