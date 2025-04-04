@@ -5,8 +5,16 @@ import { Instagram, Linkedin, Github } from "lucide-react";
 import { EVENT_CONFIG } from "@/lib/constants";
 import React from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
+
+  const getHomeLink = (section: string) => {
+    return isHomePage ? `#${section}` : `/#${section}`;
+  };
+
   return (
     <footer className="bg-primary-800 text-primary-100 py-12 max-md:text-center">
       <div className="container mx-auto px-4">
@@ -26,7 +34,7 @@ export default function Footer() {
             <ul className=" grid grid-cols-2 gap-4 md:gap-2 md:grid-cols-1 ">
               <li>
                 <Link
-                  href="#about"
+                  href={getHomeLink("about")}
                   className="hover:text-green-500 transition-colors"
                 >
                   About Us
@@ -43,7 +51,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#venue"
+                  href="/venue"
                   className="hover:text-green-500 transition-colors"
                 >
                   Schedule
@@ -91,7 +99,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="#faq"
+                  href={getHomeLink("faq")}
                   className="hover:text-green-500 transition-colors"
                 >
                   FAQs
@@ -103,6 +111,14 @@ export default function Footer() {
                   className="hover:text-green-500 transition-colors"
                 >
                   Justification Letter
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/media"
+                  className="hover:text-green-500 transition-colors"
+                >
+                  Media Lounge
                 </Link>
               </li>
             </ul>
