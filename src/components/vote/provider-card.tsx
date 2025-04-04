@@ -36,7 +36,7 @@ export function ProviderCard({
   const [imageError, setImageError] = useState(false);
   const useExternalNominationForm = process.env.NEXT_PUBLIC_USE_EXTERNAL_NOMINATION_FORM === "true";
   const externalNominationFormUrl = process.env.NEXT_PUBLIC_EXTERNAL_NOMINATION_FORM_URL as string;
-  const percentage = totalVotes > 0 
+  const percentage = totalVotes > 0
     ? ((voteCount / totalVotes) * 100).toFixed(1)
     : "0";
 
@@ -45,8 +45,8 @@ export function ProviderCard({
       "border-white/5 backdrop-blur-sm",
       !disabled && "transition-all duration-200 hover:bg-gray-900/50 hover:scale-[1.02] hover:-translate-y-0.5",
       isSelected && "ring-2 ring-green-400",
-      disabled 
-        ? "opacity-40 bg-gray-900/20 cursor-not-allowed saturate-50" 
+      disabled
+        ? "opacity-40 bg-gray-900/20 cursor-not-allowed saturate-50"
         : "bg-gray-900/40"
     )}>
       <CardHeader>
@@ -62,59 +62,27 @@ export function ProviderCard({
                 alt={provider.displayName}
                 width={40}
                 height={40}
-                className={cn(
-                  "object-contain",
-                  disabled && "grayscale"
-                )}
+                className={cn("object-contain", disabled && "grayscale")}
                 onError={() => setImageError(true)}
                 unoptimized
               />
             ) : (
-              <div className="text-center py-12 bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  Don&apos;t see your cloud provider?
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  Help us expand our list by nominating a provider.
-                </p>
-                <div className="flex flex-col items-center gap-3">
-                  <Button 
-                    variant="outline" 
-                    className="border-white/20 text-white hover:bg-white/10"
-                    asChild
-                  >
-                    {useExternalNominationForm ? (
-                      <Link 
-                        href={externalNominationFormUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Nominate a Provider
-                      </Link>
-                    ) : (
-                      <Link href="/nominate">
-                        Nominate a Provider
-                      </Link>
-                    )}
-                  </Button>
-                  <p className="text-sm text-white/60">
-                    Your nominations help us make the platform more comprehensive.
-                  </p>
-                </div>
+              <div className="w-10 h-10 flex items-center justify-center bg-gray-200 rounded">
+                <span className="text-xs text-gray-500">No Logo</span>
               </div>
             )}
           </div>
         </div>
       </CardHeader>
       <CardContent>
-        <Progress 
-          value={parseFloat(percentage)} 
+        <Progress
+          value={parseFloat(percentage)}
           className={cn(
             "mb-2",
-            isSelected 
-              ? "bg-green-500/20" 
-              : disabled 
-                ? "bg-gray-700/10" 
+            isSelected
+              ? "bg-green-500/20"
+              : disabled
+                ? "bg-gray-700/10"
                 : "bg-gray-700/30"
           )}
         />
@@ -123,7 +91,7 @@ export function ProviderCard({
             "text-sm",
             disabled ? "text-white/50" : "text-white/80"
           )}>
-            {voteCount > 0 
+            {voteCount > 0
               ? `${voteCount} vote${voteCount !== 1 ? 's' : ''} (${percentage}%)`
               : 'No votes yet - be the first!'
             }
@@ -139,11 +107,11 @@ export function ProviderCard({
         </div>
       </CardContent>
       <CardFooter>
-        <Button 
+        <Button
           className={cn(
             "w-full",
-            isSelected 
-              ? "bg-green-500 hover:bg-green-600 text-white" 
+            isSelected
+              ? "bg-green-500 hover:bg-green-600 text-white"
               : disabled
                 ? "bg-gray-600 text-white/70 cursor-not-allowed hover:bg-gray-600"
                 : "bg-blue-500 hover:bg-blue-600 text-white"
@@ -156,4 +124,4 @@ export function ProviderCard({
       </CardFooter>
     </Card>
   );
-} 
+}
