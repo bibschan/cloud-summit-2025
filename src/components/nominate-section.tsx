@@ -33,7 +33,7 @@ export const NominateSection = () => {
             <p className="text-sm md:text-lg">
               {EVENT_CONFIG.sections.nominate.cta}
             </p>
-            <Link href="/nominate" className="">
+            <Link href="/vote" className="">
               <Button
                 variant="outline"
                 className="w-[300px]  hover:bg-pale-gold hover:text-primary-900 transition-all font-bold"
