@@ -56,15 +56,7 @@ export default function Footer() {
                   Schedule
                 </Link>
               </li>
-              <li>
-                <Link
-                  href={EVENT_CONFIG.links.sponsors}
-                  className="hover:text-green-500 transition-colors"
-                  target="_blank"
-                >
-                  Sponsors
-                </Link>
-              </li>
+
               <li>
                 <Link
                   href="/contact"
@@ -79,6 +71,15 @@ export default function Footer() {
                   className="hover:text-green-500 transition-colors"
                 >
                   Team
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={EVENT_CONFIG.links.sponsors}
+                  className="hover:text-green-500 transition-colors"
+                  target="_blank"
+                >
+                  Sponsor
                 </Link>
               </li>
             </ul>
