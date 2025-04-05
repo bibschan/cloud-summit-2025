@@ -42,16 +42,15 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href={EVENT_CONFIG.links.speakers}
+                  href='/speakers'
                   className="hover:text-green-500 transition-colors"
-                  target="_blank"
                 >
                   Speakers
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/venue"
+                  href="/schedule"
                   className="hover:text-green-500 transition-colors"
                 >
                   Schedule
@@ -70,7 +69,6 @@ export default function Footer() {
                 <Link
                   href="/contact"
                   className="hover:text-green-500 transition-colors"
-                  target="_blank"
                 >
                   Contact
                 </Link>
