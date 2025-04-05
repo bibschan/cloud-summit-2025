@@ -16,9 +16,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-primary-800 text-primary-100 py-12 max-md:text-center">
+    <footer className="bg-primary-800 text-primary-100 py-6 md:py-10 max-md:text-center">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-md:place-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 max-md:place-items-center">
           <div className="flex flex-col items-center md:block">
             <Image
               src="/Logo.svg"
@@ -30,7 +30,7 @@ export default function Footer() {
             <p className="mb-4 font-semibold ">{EVENT_CONFIG.slogan}.</p>
           </div>
           <div className=" w-full">
-            <p className="text-lg text-white mb-4">Quick Links</p>
+            <p className="text-lg text-white mb-2 md:mb-4">Quick Links</p>
             <ul className=" grid grid-cols-2 gap-4 md:gap-2 md:grid-cols-1 ">
               <li>
                 <Link
@@ -42,35 +42,25 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href={EVENT_CONFIG.links.speakers}
+                  href='/speakers'
                   className="hover:text-green-500 transition-colors"
-                  target="_blank"
                 >
                   Speakers
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/venue"
+                  href="/schedule"
                   className="hover:text-green-500 transition-colors"
                 >
                   Schedule
                 </Link>
               </li>
-              <li>
-                <Link
-                  href={EVENT_CONFIG.links.sponsors}
-                  className="hover:text-green-500 transition-colors"
-                  target="_blank"
-                >
-                  Sponsors
-                </Link>
-              </li>
+
               <li>
                 <Link
                   href="/contact"
                   className="hover:text-green-500 transition-colors"
-                  target="_blank"
                 >
                   Contact
                 </Link>
@@ -83,18 +73,27 @@ export default function Footer() {
                   Team
                 </Link>
               </li>
+              <li>
+                <Link
+                  href={EVENT_CONFIG.links.sponsors}
+                  className="hover:text-green-500 transition-colors"
+                  target="_blank"
+                >
+                  Sponsor
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
-            <p className="text-lg text-white mb-4">Resources</p>
-            <ul className="space-y-2">
+            <p className="text-lg text-white  mb-2 md:mb-4">Resources</p>
+            <ul className="grid grid-cols-2 gap-4 md:gap-2 md:grid-cols-1">
               <li>
                 <Link
                   href="https://forms.gle/NECDLqn6T6qbmWXZ8"
                   className="hover:text-green-500 transition-colors"
                   target="_blank"
                 >
-                  Become a volunteer
+                  Volunteer
                 </Link>
               </li>
               <li>
@@ -124,7 +123,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <p className="text-lg  text-white mb-4">Archive</p>
+            <p className="text-lg  text-white  mb-2 md:mb-4">Archive</p>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -137,26 +136,26 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 flex justify-between flex-col gap-6 md:flex-row">
+        <div className="mt-4 md:mt-8 pt-4 md:pt-8 border-t border-gray-800 flex justify-between flex-col gap-6 md:flex-row">
           <div>
-            <p className="mb-4">
+            <p className="mb-4 text-sm md:text-md">
               &copy; 2025 {EVENT_CONFIG.title}. All rights reserved.
             </p>
-            <p className="mb-0">
+            <p className="text-sm md:text-md mb-0">
               Built by{" "}
               {EVENT_CONFIG.team.webMembers.map((member, index) => (
                 <React.Fragment key={member.name}>
                   <a
                     href={member.github}
                     target="_blank"
-                    className="text-green-500 hover:text-green-400"
+                    className=" text-green-500 hover:text-green-400"
                   >
                     {member.name}
                   </a>
                   {index < EVENT_CONFIG.team.webMembers.length - 2
                     ? ", "
                     : index === EVENT_CONFIG.team.webMembers.length - 2
-                    ? " and "
+                    ? " & "
                     : ""}
                 </React.Fragment>
               ))}
