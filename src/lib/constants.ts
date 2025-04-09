@@ -705,6 +705,8 @@ export const SPEAKERS = [
     company: 'Salesforce',
     tag: "speaker",
     bio: "Niti works at Salesforce in the Identity space, focusing on scalable authentication and authorization. With 7 years of experience, she is deeply interested in distributed systems and machine learning. She also leads...",
+    talk_title: "Scaling Microservices: Mastering Zero-Downtime Data Migration Using Cloudflare",
+    talk_summary: "",
     image: "/speakers/niti.png"
   },
   {
