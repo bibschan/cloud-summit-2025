@@ -110,3 +110,7 @@ html.vote-page body {
   animation-play-state: paused;
 
 }
+.text-force-justify {
+  text-align: justify;
+  text-align-last: justify;
+}

@@ -20,6 +20,7 @@ export default function SpeakerSection() {
     const [selectedSpeakerId, setSelectedSpeakerId] = useState<number | null>(null);
     const keynoteSpeaker = SPEAKERS.find(speaker => speaker.name === "Matt Billman");
 
+
     const handleSpeakerClick = (id: number) => {
         setSelectedSpeakerId(id === selectedSpeakerId ? null : id);
     };
@@ -49,6 +50,20 @@ export default function SpeakerSection() {
                         )}
                     </section>
                     {/* TODO: Featured Speaker Section */}
+                        {SPEAKERS
+                            .filter((feature) => feature.tag === 'featured')
+                            .map((expert, index) => (
+                                <SpeakersCard
+                                    key={expert.id}
+                                    speaker={expert}
+                                    variant="alternating"
+                                    position={index % 2 === 0 ? 'right' : 'left'}
+                                    className="my-6"
+                                />
+                        ))}
+                    <section>
+
+                    </section>
                 </div>
                 <div>
                     <Link href="/speakers" className="">
