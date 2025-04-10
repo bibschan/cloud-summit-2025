@@ -8,8 +8,8 @@ import { EVENT_CONFIG } from "@/lib/constants";
 
 export const NominateSection = () => {
   return (
-    <section className="w-full bg-primary-900 pt-8 md:py-20 z-20" id="nominate">
-      <div className="max-w-[900px] px-4 md:px-6 mx-auto">
+    <section className="w-full bg-primary-900 pt-8 md:py-20 z-20 " id="nominate">
+      <div className="max-w-[900px] px-4 md:px-6 mx-auto ">
         <div className="flex flex-col items-center justify-center space-y-4 text-center pb-8">
           <div className="space-y-2">
             <h2 className="text-6xl md:text-8xl tracking-tighter text-white">
@@ -19,7 +19,7 @@ export const NominateSection = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-4 animate-fade-in">
           <div className="flex flex-col gap-8 mb-8 md:max-w-[600px] mx-auto text-center md:text-left">
             <h3 className="text-3xl md:text-5xl">
               Nominate Your Company for the{" "}
@@ -47,7 +47,7 @@ export const NominateSection = () => {
             alt="Cloud Summit Award in blue with yellow sparkles"
             width={234}
             height={400}
-            className="mx-auto order-first md:order-none w-full max-w-[134px] min-w-0 h-auto"
+            className="mx-auto order-first md:order-none w-full max-w-[134px] min-w-0 h-auto "
           />
         </div>
       </div>

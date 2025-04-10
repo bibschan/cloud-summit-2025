@@ -114,14 +114,16 @@ html.vote-page body {
   animation-play-state: paused;
 
 }
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fade-in{
+    to {scale: 1; opacity: 1;}
+  }
 
-select {
-  width: 100%;
-
-}
-
-select option {
-  background-color: red;
-  color: white;
-  margin-right: 0.5rem;
+  .animate-fade-in {
+    scale: .8; opacity: 0;
+    animation: fade-in linear forwards;
+    animation-timeline: view();
+    animation-range-start: cover;
+    animation-range-end: contain;
+  }
 }
