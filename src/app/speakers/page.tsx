@@ -27,7 +27,7 @@ export default function SpeakersPage() {
         <>
             <Nav />
             <main className="min-h-screen bg-primary-900 ">
-                <div className="max-w-[1100px] container mx-auto px-6 pt-24">
+                <div className="max-w-[1000px] container mx-auto px-6 py-24 text-white">
                     <section className="flex flex-col items-center justify-center space-y-4 text-center my-8">
                         <div className="space-y-2">
                             <h1 className="text-6xl md:text-8xl  text-white">
@@ -38,17 +38,13 @@ export default function SpeakersPage() {
                             </h1>
                         </div>
                     </section>
-                </div>
-                <div className="container mx-auto px-4 py-8 text-white">
-
-                    {/* All Speakers Section */}
                     <section>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {SPEAKERS.map(speaker => (
                                 <div
                                     key={speaker.id}
                                     onMouseEnter={() => handleSpeakerClick(speaker.id)}
-                                    onMouseLeave={() => handleSpeakerClick(null)}
+                                    onMouseLeave={() => handleSpeakerClick(0)}
                                     className="cursor-pointer transition-all duration-300  p-4 rounded-lg"
                                 >
                                     <SpeakersCard

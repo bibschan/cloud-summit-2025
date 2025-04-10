@@ -20,14 +20,13 @@ export default function SpeakerSection() {
     const [selectedSpeakerId, setSelectedSpeakerId] = useState<number | null>(null);
     const keynoteSpeaker = SPEAKERS.find(speaker => speaker.name === "Matt Billman");
 
-
     const handleSpeakerClick = (id: number) => {
         setSelectedSpeakerId(id === selectedSpeakerId ? null : id);
     };
     return (
         <>
             <section className="min-h-screen bg-primary-900 text-center">
-                <div className="max-w-[1100px] container mx-auto px-6 py-2">
+                <div className="max-w-[900px] container mx-auto px-6 py-2">
                     <section className="flex flex-col items-center justify-center space-y-4 text-center my-8">
                         <div className="space-y-2">
                             <h1 className="text-6xl md:text-8xl  text-white">
