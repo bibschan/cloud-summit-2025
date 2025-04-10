@@ -34,16 +34,18 @@ export default function SpeakerSection() {
                         </div>
                     </section>
                 </div>
-                <div className="container mx-auto px-4 py-2 text-white mb-16">
+                <div className="container mx-auto px-4 py-2 text-white  space-y-4">
                     {/* Keynote Speaker Section */}
-                    <section className="mb-8">
+                    <article className="mb-8">
                         {keynoteSpeaker && (
                             <SpeakersCard
                                 speaker={keynoteSpeaker}
                                 variant="keynote"
                             />
                         )}
-                    </section>
+
+                    </article>
+                    <article>
                         {SPEAKERS
                             .filter((feature) => feature.tag === 'featured')
                             .map((expert, index) => (
@@ -54,21 +56,20 @@ export default function SpeakerSection() {
                                     position={index % 2 === 0 ? 'right' : 'left'}
                                     className="my-6"
                                 />
-                        ))}
-                    <section>
+                            ))}
+                    </article>
+                    <div className="pb-16">
+                        <Link href="/speakers" >
+                            <Button
+                                variant="outline"
+                                className=" mx-auto w-[150px]  hover:bg-secondary-600 hover:text-primary-900 transition-all"
+                            >
+                                View All Speakers
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
 
-                    </section>
-                </div>
-                <div>
-                    <Link href="/speakers" className="">
-                        <Button
-                            variant="outline"
-                            className=" mx-auto w-[150px]  hover:bg-secondary-600 hover:text-primary-900 transition-all"
-                        >
-                            View All Speakers
-                        </Button>
-                    </Link>
-                </div>
             </section>
         </>
     );

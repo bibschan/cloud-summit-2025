@@ -33,14 +33,14 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
 
     const cardStyles = {
         keynote: "flex flex-col items-center text-center max-w-lg mx-auto",
-        list: "flex flex-col items-center text-center max-w-xs",
-        selected: "flex flex-col items-center text-center max-w-xs",
-        focused: "flex flex-col items-center text-center max-w-xs",
+        list: "flex flex-col items-center text-center max-w-xs min-h-[410px]",
+        selected: "flex flex-col items-center text-center max-w-xs min-h-[410px]",
+        focused: "flex flex-col items-center text-center max-w-xs min-h-[410px]",
         alternating: "flex items-center justify-center w-full"
     };
 
     const imageSizes = {
-        keynote: 400,
+        keynote: 350,
         list: 200,
         selected: 200,
         focused: 200,
@@ -56,7 +56,7 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
     };
 
     const talkTitleStyles = {
-        keynote: "text-xl md:text-6xl font-bold ",
+        keynote: "text-4xl md:text-6xl font-bold ",
         list: "text-lg font-bold my-3 text-white ",
         selected: "text-lg font-bold my-3 text-white",
         focused: "text-lg font-bold my-3 text-white",
@@ -64,7 +64,7 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
     };
 
     const nameStyles = {
-        keynote: "text-lg md:text-xl font-semibold mt-3 text-white",
+        keynote: "text-md md:text-xl font-semibold mt-3 text-white",
         list: "font-body text-lg font-medium mt-2 text-white",
         selected: "font-body text-lg font-medium mt-2 text-white",
         focused: "font-body text-lg font-medium mt-2 text-white",
@@ -72,7 +72,7 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
     };
 
     const titleStyles = {
-        keynote: "",
+        keynote: "text-xl",
         list: "text-lg ",
         selected: "text-lg",
         focused: "text-lg",
@@ -107,7 +107,7 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
     };
 
     const renderSpeakerImage = (size: number, containerStyle: string) => (
-        <div className={`h-full relative rounded-full overflow-hidden ${containerStyle}`} style={{ width: size, height: size }}>
+        <div className={`relative rounded-full overflow-hidden ${containerStyle}`} style={{ width: size, height: size }}>
             <div className="aspect-square relative  overflow-hidden">
                 {image ? (
                     <Image
@@ -231,7 +231,7 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
         <ClickableWrapper>
             <div className={`${cardStyles[variant]} ${className} transition-transform h-full`}>
                 {renderSpeakerImage(imageSizes[variant], imageContainerStyles[variant])}
-                <div className={`h-1/2 mt-2 flex flex-col ${variant !== 'focused' ? "justify-between" : ""}`}>
+                <div className={`h-1/2 mt-2 flex flex-col ${variant !== 'focused' ? "justify-start md:justify-between" : ""}`}>
                     {getContent()}
                 </div>
             </div>
