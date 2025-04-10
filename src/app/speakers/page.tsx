@@ -4,6 +4,7 @@ import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import { SPEAKERS } from "@/lib/constants";
 import SpeakersCard from "@/components/speakers/speaker-card";
+import SpeakerModal from "@/components/speakers/speaker-modal";
 interface Speaker {
     id: number;
     name: string;
@@ -17,11 +18,25 @@ interface Speaker {
 
 
 export default function SpeakersPage() {
-    const [selectedSpeakerId, setSelectedSpeakerId] = useState<number | null>(null);
-    const keynoteSpeaker = SPEAKERS.find(speaker => speaker.name === "Matt Billman");
+    const [hoveredSpeakerId, setHoveredSpeakerId] = useState<number>(0);
+    const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleSpeakerClick = (id: number) => {
-        setSelectedSpeakerId(id === selectedSpeakerId ? null : id);
+    const handleSpeakerSelect = (speaker: Speaker) => {
+        setSelectedSpeaker(speaker);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleNavigate = (speaker: Speaker) => {
+        setSelectedSpeaker(speaker);
+    };
+
+    const handleSpeakerHover = (speakerId: number) => {
+        setHoveredSpeakerId(speakerId);
     };
     return (
         <>
@@ -43,17 +58,27 @@ export default function SpeakersPage() {
                             {SPEAKERS.map(speaker => (
                                 <div
                                     key={speaker.id}
-                                    onMouseEnter={() => handleSpeakerClick(speaker.id)}
-                                    onMouseLeave={() => handleSpeakerClick(0)}
-                                    className="cursor-pointer transition-all duration-300  p-4 rounded-lg"
+                                    onMouseEnter={() => handleSpeakerHover(speaker.id)}
+                                    onMouseLeave={() => handleSpeakerHover(0)}
                                 >
                                     <SpeakersCard
                                         speaker={speaker}
-                                        variant={selectedSpeakerId === speaker.id ? 'selected' : 'list'}
+                                        variant={hoveredSpeakerId === speaker.id ? "selected" : "list"}
+                                        onSpeakerSelect={handleSpeakerSelect}
                                     />
                                 </div>
                             ))}
+
                         </div>
+                        {isModalOpen && selectedSpeaker && (
+                            <SpeakerModal
+                                isModalOpen={isModalOpen}
+                                closeModal={handleCloseModal}
+                                speaker={selectedSpeaker}
+                                allSpeakers={SPEAKERS}
+                                onNavigate={handleNavigate}
+                            />
+                        )}
                     </section>
                 </div>
             </main>

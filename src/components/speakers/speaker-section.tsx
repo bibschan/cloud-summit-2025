@@ -17,15 +17,11 @@ interface Speaker {
 
 
 export default function SpeakerSection() {
-    const [selectedSpeakerId, setSelectedSpeakerId] = useState<number | null>(null);
-    const keynoteSpeaker = SPEAKERS.find(speaker => speaker.name === "Matt Billman");
+    const keynoteSpeaker = SPEAKERS.find(speaker => speaker.tag === 'keynote');
 
-    const handleSpeakerClick = (id: number) => {
-        setSelectedSpeakerId(id === selectedSpeakerId ? null : id);
-    };
     return (
         <>
-            <section className="min-h-screen bg-primary-900 text-center">
+            <section className="min-h-screen bg-primary-900 text-center" id='speakers'>
                 <div className="max-w-[900px] container mx-auto px-6 py-2">
                     <section className="flex flex-col items-center justify-center space-y-4 text-center my-8">
                         <div className="space-y-2">
@@ -38,9 +34,9 @@ export default function SpeakerSection() {
                         </div>
                     </section>
                 </div>
-                <div className="container mx-auto px-4 py-2 text-white">
+                <div className="container mx-auto px-4 py-2 text-white mb-16">
                     {/* Keynote Speaker Section */}
-                    <section className="mb-16">
+                    <section className="mb-8">
                         {keynoteSpeaker && (
                             <SpeakersCard
                                 speaker={keynoteSpeaker}
@@ -48,7 +44,6 @@ export default function SpeakerSection() {
                             />
                         )}
                     </section>
-                    {/* TODO: Featured Speaker Section */}
                         {SPEAKERS
                             .filter((feature) => feature.tag === 'featured')
                             .map((expert, index) => (
