@@ -230,7 +230,7 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
 
                     <div className="h-1/2 mt-2 flex flex-col justify-between ">{renderContent()}</div>
                 </div>
-                <SpeakerModal isModalOpen={isModalOpen} closeModal={closeModal} name={name} title={title} />
+                <SpeakerModal isModalOpen={isModalOpen} closeModal={closeModal} speaker={speaker} />
             </>
         );
     }
@@ -242,7 +242,7 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
             >
                 {renderContent()}
             </div>
-            <SpeakerModal />
+            <SpeakerModal isModalOpen={isModalOpen} closeModal={closeModal} speaker={speaker} />
         </>
     );
 };
