@@ -684,7 +684,7 @@ export const SPEAKERS = [
     tag: "keynote",
     bio: "Coming Soon",
     talk_title: "AX and Why It Matters",
-    talk_summary: "AI agents are reshaping software development, but today's infrastructure wasn't built for them. For AI agents to truly be effective, we need to design our...",
+    talk_summary: "AI agents are reshaping software development, but today’s infrastructure wasn’t built for them. For AI agents to truly be effective, we need to design our infrastructure with Agent Experience (AX) in mind. AX is about building the shortest path for an agent to go from user input to a URL in production. This requires primitives and APIs designed for LLMs and workflows that enable seamless developer-agent collaboration. This talk will offer a new perspective on AI-driven development, key architectural principles for supporting AI agents, and a glimpse into the not-so-far off future where AI isn't just a coding assistant but an active participant in software creation.",
     image: "/speakers/matt.jpg"
   },
   {
@@ -712,7 +712,7 @@ export const SPEAKERS = [
   {
     id: 10,
     name: "Sarang",
-    title: "TBD",
+    title: "",
     company: '',
     tag: "speaker",
     bio: "Coming Soon",

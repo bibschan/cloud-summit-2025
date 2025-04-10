@@ -97,7 +97,7 @@ const SpeakerModal: React.FC<SpeakerModalProps> = ({
                                         <p className="mb-2">{talk_title}</p>
                                     </AccordionTrigger>
                                     <AccordionContent>
-                                        <p className="text-white">{talk_summary}</p>
+                                        <p className="text-white">{talk_summary || "Talk summary coming soon."}</p>
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="bio">
