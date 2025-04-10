@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @font-face {
   font-family: 'Doto';
   src: url('/fonts/Doto-VariableFont_ROND,wght.ttf') format('truetype');
@@ -59,6 +60,7 @@ html.vote-page body {
 }
 
 @layer base {
+
   h1,
   h2,
   h3,
@@ -68,7 +70,7 @@ html.vote-page body {
     @apply font-heading;
   }
 
-  p{
+  p {
     @apply font-body;
   }
 }
@@ -82,8 +84,9 @@ html.vote-page body {
     font-family: var(--font-heading);
   }
 
-  .font-highlight{
-    font-family: var(--font-sofia-sans);;
+  .font-highlight {
+    font-family: var(--font-sofia-sans);
+    ;
   }
 }
 
@@ -91,6 +94,7 @@ html.vote-page body {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -101,7 +105,7 @@ html.vote-page body {
   animation: scroll 40s linear infinite;
   width: fit-content;
 
-  @media (max-width: 768px){
+  @media (max-width: 768px) {
     animation-duration: 25s;
   }
 }
@@ -109,4 +113,15 @@ html.vote-page body {
 .scrollContent:hover {
   animation-play-state: paused;
 
+}
+
+select {
+  width: 100%;
+
+}
+
+select option {
+  background-color: red;
+  color: white;
+  margin-right: 0.5rem;
 }

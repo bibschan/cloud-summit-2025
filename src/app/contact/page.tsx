@@ -81,7 +81,7 @@ export default function ContactPage() {
                   required
                   placeholder="Your name"
                   onChange={(e) => setName(e.target.value)}
-                  className="px-3 py-1 rounded-xl placeholder-primary-600 text-primary-900"
+                  className="px-3 py-1 rounded bg-primary-800 border-2 border-primary-500  placeholder-primary-200 text-white"
                 />
               </div>
               <div className="flex flex-col item-start gap-2 mb-4">
@@ -91,9 +91,8 @@ export default function ContactPage() {
                   value={questionType}
                   onChange={(e) => setQuestionType(e.target.value)}
                   required
-                  className={`px-3 py-1 rounded-xl ${
-                    questionType ? "text-primary-900 " : "text-primary-600 "
-                  }`}
+                  className={`px-3 py-1 rounded bg-primary-800 border-2 border-primary-500 ${questionType ? "text-white " : "text-primary-200 "
+                    }`}
                 >
                   <option value="">Select Question Type</option>
                   <option value="general">General Inquiry</option>
@@ -109,7 +108,7 @@ export default function ContactPage() {
                   required
                   placeholder="email@example.com"
                   onChange={(e) => setEmail(e.target.value)}
-                  className="px-3 py-1 rounded-xl placeholder-primary-600 text-primary-900"
+                  className="px-3 py-1 rounded bg-primary-800 border-2 border-primary-500  placeholder-primary-200 text-white"
                 />
               </div>
               <div className="flex flex-col item-start gap-2 mb-4">
@@ -120,22 +119,25 @@ export default function ContactPage() {
                   rows={6}
                   placeholder="Enter Message"
                   onChange={(e) => setMessage(e.target.value)}
-                  className="px-3 py-1 rounded-xl placeholder-primary-600 text-primary-900"
+                  className="px-3 py-1 rounded bg-primary-800 border-2 border-primary-500  placeholder-primary-200 text-white"
                 ></textarea>
               </div>
-              <Button
-                variant="outline"
-                className="hover:bg-lilac hover:text-primary-900"
-              >
-                <button type="submit">Submit Form</button>
-              </Button>
+              <div className="mx-auto flex justify-center">
+                <Button
+                  type='submit'
+                  variant="outline"
+                  className="hover:bg-lilac hover:text-primary-900"
+                >
+                  Submit Form
+                </Button>
+              </div>
+
             </form>
             <div
-              className={`${
-                errorMessage
-                  ? " p-4 rounded-lg bg-primary-700 flex gap-2"
-                  : "hidden"
-              }`}
+              className={`${errorMessage
+                ? " p-4 rounded-lg bg-primary-700 flex gap-2"
+                : "hidden"
+                }`}
             >
               <MessageCircleX className="text-red-400" />
               <p className=" ">
