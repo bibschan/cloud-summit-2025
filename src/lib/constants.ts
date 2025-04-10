@@ -614,3 +614,117 @@ export const teamAreas = [
     shape: "rect",
   },
 ];
+
+export const SPEAKERS = [
+  {
+    id: 7,
+    name: "Matt Billman",
+    title: "CEO and Co-Founder",
+    company: "Netlify",
+    tag: "keynote",
+    bio: "Coming Soon",
+    talk_title: "AX and Why It Matters",
+    talk_summary: "AI agents are reshaping software development, but today’s infrastructure wasn’t built for them. For AI agents to truly be effective, we need to design our infrastructure with Agent Experience (AX) in mind. AX is about building the shortest path for an agent to go from user input to a URL in production. This requires primitives and APIs designed for LLMs and workflows that enable seamless developer-agent collaboration. This talk will offer a new perspective on AI-driven development, key architectural principles for supporting AI agents, and a glimpse into the not-so-far off future where AI isn't just a coding assistant but an active participant in software creation.",
+    image: "/speakers/matt.jpg"
+  },
+  {
+    id: 1,
+    name: "Adetokunbo Ige",
+    title: "Sr. DevOps Engineer",
+    company: 'Planview',
+    tag: "featured",
+    bio: "Adetokunbo Ige is a seasoned platform engineer and Certified ISO 22301 Lead Implementer in Business Continuity. With extensive expertise spanning software engineering, enterprise application management, server infrastructure, database administration, incident response, and cloud engineering, he brings a wealth of technical knowledge to the conference. Adetokunbo holds a B.Sc in Computer Science from Babcock University and an M.Sc in Business Information Technology from Middlesex University, where he graduated with distinction. His technical arsenal includes proficiency in SQL Server, Oracle, MySQL, Docker, Kubernetes, and numerous scripting languages.",
+    talk_title: "Build and Deploy Dockerize Python Application to Azure Container Instances (ACI) using Azure DevOps",
+    talk_summary: "",
+    image: "/speakers/adetokunbo.jpeg"
+  },
+  {
+    id: 2,
+    name: "Aiman Parvaiz",
+    title: "Director of DevOps",
+    company: "NimbusStack",
+    tag: "speaker",
+    bio: "Aiman Parvaiz brings over a decade of hands-on experience in DevOps and cloud infrastructure, primarily across the US & Canada. Having held leadership positions at prominent companies including Fliapagram/TikTok, SHIFT, and MNTN, Aiman has spearheaded cloud transformations, led high-performing DevOps teams, and implemented large-scale infrastructure projects with significant business impact. As the founder of NimbusStack, he now focuses on helping organizations streamline DevOps practices and optimize AWS infrastructure. His impressive portfolio includes over 50 successful DevOps projects that have helped companies save more than $2 million in cloud costs while reducing time to market by 35%.",
+    talk_title: "Driving Cloud Cost Efficiency: Multi-Cloud Strategies and the Culture of Cost-Conscious Engineering",
+    talk_summary: "",
+    image: "/speakers/aiman.jpeg"
+  },
+  {
+    id: 3,
+    name: "Denis Astahov",
+    title: "Solutions Architect",
+    company: "OpsGuru",
+    tag: "speaker",
+    bio: "Denis Astahov serves as a Solutions Architect at OpsGuru and was recognized as an AWS Community Hero in 2021. He is the creator behind the ADV-IT YouTube channel, which boasts over 100,000 subscribers, where he shares valuable insights on Cloud and DevOps technologies to help professionals advance their careers in DevOps and Cloud Engineering. Denis holds an impressive collection of 15 cloud certifications, including 12 from AWS, demonstrating his deep expertise and commitment to the field.",
+    talk_title: "How to become Cloud/DevOps Engineer from Zero",
+    talk_summary: "",
+    image: "/speakers/denis.jpg"
+  },
+  {
+    id: 4,
+    name: "Dr. Ryan Rad",
+    title: "Asst. Professor Computer Science",
+    company: "Northeastern University",
+    tag: "featured",
+    bio: "Dr. Ryan Rad is a Professor at Northeastern University's Khoury College of Computer Sciences and an adjunct professor at the University of British Columbia. With over a decade of experience in AI, he combines academic depth with industry expertise, having held research, engineering, and leadership roles at both startups and tech giants like Microsoft. Passionate about education, Dr. Rad has taught courses in Machine Learning, Computer Vision, Generative AI, and Data Science across five universities. His research focuses on leveraging AI for social good, with impactful projects in healthcare, sustainability, and beyond. A respected thought leader, he has delivered more than 50 talks and research papers at prestigious conferences and institutions worldwide.",
+    talk_title: "The State of LLMs: Breakthroughs, Barriers, and the Road Ahead",
+    talk_summary: "",
+    image: "/speakers/ryan.JPG"
+  },
+  {
+    id: 5,
+    name: "Eric Johnson",
+    title: "Principal Developer Advocate",
+    company: "Amazon Web Services (AWS)",
+    tag: "featured",
+    bio: "Coming Soon",
+    talk_title: "Coming Soon",
+    talk_summary: "",
+    image: ""
+  },
+  {
+    id: 6,
+    name: "Farzad Khandan",
+    title: "CTO & Co-Founder",
+    company: "Innovimia Technologies",
+    tag: "speaker",
+    bio: "Farzad Khandan is a futurist, AI/ML architect, and entrepreneur with deep expertise in artificial intelligence, cloud computing, and emerging technologies. Combining a background in software engineering with a Ph.D. in Futures Studies, he has successfully designed and delivered large-scale AI/ML solutions leveraging advanced machine learning, data engineering, and cloud architectures. Farzad has led high-performance teams and launched multiple startups, including Innovimia Technologies, where he develops AI-powered SaaS solutions. He is also the founder of the Future Human Foundation (Fuman.org), a nonprofit dedicated to advancing education in AI, space, and future technologies. Currently, he is developing Hadish Social Assistant, an AI-driven content automation app that empowers users to elevate their social media presence effortlessly.",
+    talk_title: "Building your Startups in the Cloud? Dos and Don'ts",
+    talk_summary: "",
+    image: "/speakers/farzad.jpeg"
+  },
+
+  {
+    id: 8,
+    name: "Morohito (Moro) Arakaki",
+    title: "Business Development Engineer",
+    company: '',
+    tag: "speaker",
+    bio: "Coming Soon",
+    talk_title: "Coming Soon",
+    talk_summary: "Coming Soon",
+    image: ""
+  },
+  {
+    id: 9,
+    name: "Niti Jain",
+    title: "Lead Software Engineer",
+    company: 'Salesforce',
+    tag: "speaker",
+    bio: "Niti Jain is a Lead Software Engineer and Scrum Leader at Salesforce with seven years of industry experience. At Salesforce, she specializes in the Identity space, focusing on authorization and authentication at scale. Her technical interests encompass distributed systems, identity, and machine learning. A trailblazing tech leader, Niti combines deep technical expertise with a passionate commitment to community building. She serves on the advisory board for the University of Wisconsin, Madison, and leads the Vancouver hub for AnitaB.org, demonstrating her dedication to advancing diversity in technology.",
+    talk_title: "Scaling Microservices: Mastering Zero-Downtime Data Migration Using Cloudflare",
+    talk_summary: "",
+    image: "/speakers/niti.png"
+  },
+  {
+    id: 10,
+    name: "Sarang",
+    title: "",
+    company: '',
+    tag: "speaker",
+    bio: "Coming Soon",
+    talk_title: "Scaling Microservices: Mastering Zero-Downtime Data Migration Using Cloudflare",
+    talk_summary: "",
+    image: ""
+  }
+];
