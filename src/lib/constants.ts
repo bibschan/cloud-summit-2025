@@ -65,31 +65,37 @@ export const EVENT_CONFIG = {
           icon: "/activities/networking.svg", // You can replace this with an actual icon component or path
           title: "Networking",
           details: "Expand your connections with cloud professionals.",
+          link: ""
         },
         {
           icon: "/activities/presentations.svg",
           title: "Presentations",
           details: "Get industry insights from cloud experts.",
-        },
-        {
-          icon: "/activities/workshops.svg",
-          title: "Workshops",
-          details: "Watch product demos for tips & tricks.",
-        },
-        {
+          link: ""
+        }, {
           icon: "/activities/tech_companies.svg",
           title: "Tech Companies",
           details: "Find cloud solutions for your business needs.",
+          link: ""
         },
+        {
+          icon: "/activities/workshops.svg",
+          title: "Live Interviews",
+          details: "Share your thoughts on Cloud & AI.",
+          link: "/media"
+        },
+
         {
           icon: "/activities/communities.svg",
           title: "Communities",
           details: "Explore & connect with local tech communities.",
+          link: "/#community-section"
         },
         {
           icon: "/activities/music.svg",
           title: "Live Music & AI DJ",
           details: "Enjoy the ambience with live music.",
+          link: ""
         },
       ],
     },

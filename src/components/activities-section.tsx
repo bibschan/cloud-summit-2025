@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import { EVENT_CONFIG } from "@/lib/constants";
 import Image from "next/image";
+import Link from "next/link";
 
 type EventFeature = {
   icon: string;
@@ -17,7 +18,7 @@ function ActivitiesSection() {
     const video = videoRef.current;
     if (video) {
       video.pause();
-      video.currentTime=0;
+      video.currentTime = 0;
     }
 
     return () => {
@@ -49,10 +50,28 @@ function ActivitiesSection() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:px-16">
-          {EVENT_CONFIG.sections.eventFeatures.activities.map(
-            (feature, index) => (
+          {EVENT_CONFIG.sections.eventFeatures.activities.map((feature, index) => (
+            feature.link ? (
+              <Link
+                key={index}  // Make sure each element in the map has a unique key
+                href={feature.link}
+                className="text-center flex flex-col items-center gap-2 mt-9 cursor-pointer"
+              >
+                <Image
+                  src={feature.icon}
+                  alt={feature.title}
+                  width={48}
+                  height={48}
+                  className="mx-auto"
+                />
+                <p className="font-bold text-xl md:text-2xl">{feature.title}</p>
+                <p className="md:w-1/2 md:line-clamp-2 text-sm md:text-md">
+                  {feature.details}
+                </p>
+              </Link>
+            ) : (
               <div
-                key={index}
+                key={index}  // Same here, ensure a unique key for each element in the list
                 className="text-center flex flex-col items-center gap-2 mt-9"
               >
                 <Image
@@ -62,16 +81,13 @@ function ActivitiesSection() {
                   height={48}
                   className="mx-auto"
                 />
-                <div className="icon">
-                  {/* Replace with actual icon rendering logic */}
-                </div>
                 <p className="font-bold text-xl md:text-2xl">{feature.title}</p>
                 <p className="md:w-1/2 md:line-clamp-2 text-sm md:text-md">
                   {feature.details}
                 </p>
               </div>
             )
-          )}
+          ))}
         </div>
       </div>
     </section>
