@@ -139,7 +139,11 @@ export default function JustificationLetterPDF({
     doc.setFont("helvetica", "normal");
     doc.text(
       `• Registration Fee: ${
-        currentDate > new Date("2025-03-01") ? "$60" : "$30"
+        currentDate > new Date("2025-04-28")
+          ? "$30"
+          : currentDate > new Date("2025-05-14")
+          ? "$26"
+          : "$19.80"
       }`,
       margin + 5,
       yPos
