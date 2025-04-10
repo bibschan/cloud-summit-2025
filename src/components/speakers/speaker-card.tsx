@@ -108,7 +108,7 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
 
     const renderSpeakerImage = (size: number, containerStyle: string) => (
         <div className={`h-full relative rounded-full overflow-hidden ${containerStyle}`} style={{ width: size, height: size }}>
-            <div className="aspect-square relative rounded-full overflow-hidden">
+            <div className="aspect-square relative  overflow-hidden">
                 {image ? (
                     <Image
                         src={image}
