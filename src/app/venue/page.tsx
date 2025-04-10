@@ -27,15 +27,19 @@ export default function VenuePage() {
                 <div className=" max-w-[1100px] container px-4 md:px-6 mx-auto space-y-8">
                     <h1 className="text-6xl md:text-8xl font-bold mb-12 text-center text-white">
                         {EVENT_CONFIG.sections.venue.title}{" "}
-                        <span className="text-lilac">Information</span>
+                        <span className="text-lemon-lime">Information</span>
                     </h1>
                     <VenueSection />
 
                     <div className="w-full flex flex-col item-center justify-center gap-4  mb-8 " aria-label="Venue Maps contains one large image of the selected floor and a list of the floor from Main, 2nd floor, and 3rd floor.">
+                        <h2 className="text-4xl md:text-6xl font-bold mt-12 text-center text-white">
+                            Event{" "}
+                            <span className="text-pale-gold">Floor Plan</span>
+                        </h2>
                         <div className="relative w-full max-w-4xl h-auto aspect-video mx-auto ">
                             <Image src={selectedImage} alt="Selected" fill className="object-cover rounded-lg" />
                         </div>
-                        <ul className="flex gap-4 justify-center md:flex-row max-w-4xl w-full mx-auto overflow-x-scroll">
+                        <ul className="flex gap-4 justify-center md:flex-row max-w-4xl w-full mx-auto overflow-x-scroll md:overflow-hidden">
                             {images.map((img, index) => (
                                 <li key={index} className=" w-4/6 md:w-64 h-auto cursor-pointer aspect-video flex flex-col items-center"
                                     onClick={() => setSelectedImage(img.src)}
