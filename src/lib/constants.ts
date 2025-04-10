@@ -616,7 +616,7 @@ export const SPEAKERS = [
     title: "Sr. DevOps Engineer",
     company: 'Planview',
     tag: "featured",
-    bio: "Adetokunbo Ige, A seasoned platform engineer and a Certified ISO 22301 Lead Implementer in Business Continuity, he brings a wealth of experience in software engineering, enterprise application management, server infrastructure management, database management, incident management, and cloud engineering. He holds a B.Sc in computer science from Babcock University and an M.Sc in business information technology from Middlesex University, where he graduated with distinction. His technical proficiencies span various programming languages and tools including SQL Server, Oracle, MySQL, Docker, Kubernetes, and numerous scripting languages.",
+    bio: "Adetokunbo Ige is a seasoned platform engineer and Certified ISO 22301 Lead Implementer in Business Continuity. With extensive expertise spanning software engineering, enterprise application management, server infrastructure, database administration, incident response, and cloud engineering, he brings a wealth of technical knowledge to the conference. Adetokunbo holds a B.Sc in Computer Science from Babcock University and an M.Sc in Business Information Technology from Middlesex University, where he graduated with distinction. His technical arsenal includes proficiency in SQL Server, Oracle, MySQL, Docker, Kubernetes, and numerous scripting languages.",
     talk_title: "Build and Deploy Dockerize Python Application to Azure Container Instances (ACI) using Azure DevOps",
     talk_summary: "",
     image: "/speakers/adetokunbo.jpeg"
@@ -627,7 +627,7 @@ export const SPEAKERS = [
     title: "Director of DevOps",
     company: "NimbusStack",
     tag: "speaker",
-    bio: "I have over a decade of hands-on experience in the DevOps and cloud infrastructure industry, primarily in the US & Canada, having held leadership roles at notable companies like Fliapagram/TikTok, SHIFT, and MNTN. His journey includes driving cloud transformations, leading DevOps teams, and implementing large-scale infrastructure projects, which have greatly benefited these companies. Now as the founder of NimbusStack, I am focused on helping businesses streamline DevOps practices and optimize AWS infrastructure. With a portfolio of 50+ successful DevOps projects, I've helped companies save over $2 million in cloud costs, slash time to market by 35%.",
+    bio: "Aiman Parvaiz brings over a decade of hands-on experience in DevOps and cloud infrastructure, primarily across the US & Canada. Having held leadership positions at prominent companies including Fliapagram/TikTok, SHIFT, and MNTN, Aiman has spearheaded cloud transformations, led high-performing DevOps teams, and implemented large-scale infrastructure projects with significant business impact. As the founder of NimbusStack, he now focuses on helping organizations streamline DevOps practices and optimize AWS infrastructure. His impressive portfolio includes over 50 successful DevOps projects that have helped companies save more than $2 million in cloud costs while reducing time to market by 35%.",
     talk_title: "Driving Cloud Cost Efficiency: Multi-Cloud Strategies and the Culture of Cost-Conscious Engineering",
     talk_summary: "",
     image: "/speakers/aiman.jpeg"
@@ -638,7 +638,7 @@ export const SPEAKERS = [
     title: "Solutions Architect",
     company: "OpsGuru",
     tag: "speaker",
-    bio: "Denis Astahov - Solutions Architect at OpsGuru, nominated as AWS Community Hero in 2021. He runs the ADV-IT YouTube channel, which has over 100,000 subscribers, where he shares knowledge on Cloud and DevOps technologies and helping people to become professional DevOps and Cloud Engineers. Denis holds 15 cloud certifications, including 12 from AWS.",
+    bio: "Denis Astahov serves as a Solutions Architect at OpsGuru and was recognized as an AWS Community Hero in 2021. He is the creator behind the ADV-IT YouTube channel, which boasts over 100,000 subscribers, where he shares valuable insights on Cloud and DevOps technologies to help professionals advance their careers in DevOps and Cloud Engineering. Denis holds an impressive collection of 15 cloud certifications, including 12 from AWS, demonstrating his deep expertise and commitment to the field.",
     talk_title: "How to become Cloud/DevOps Engineer from Zero",
     talk_summary: "",
     image: "/speakers/denis.jpg"
@@ -649,7 +649,7 @@ export const SPEAKERS = [
     title: "Asst. Professor Computer Science",
     company: "Northeastern University",
     tag: "featured",
-    bio: "Dr. Ryan Rad is a Professor at Northeastern University's Khoury College of Computer Sciences and an adjunct professor at the University of British Columbia. With over a decade of experience in AI, he brings a rare blend of academic depth and industry know-how, having held research, engineering, and leadership roles at both startups and tech giants like Microsoft. Driven by a passion for education, Dr. Rad has taught courses in Machine Learning, Computer Vision, Generative AI, and Data Science at five universities. His research aims to harness AI for social good, with impactful projects spanning healthcare, sustainability, and more. A sought-after speaker and advisor, he has presented his work internationally and published extensively—delivering over 50 talks and research papers at leading conferences and institutions around the world.",
+    bio: "Dr. Ryan Rad is a Professor at Northeastern University's Khoury College of Computer Sciences and an adjunct professor at the University of British Columbia. With over a decade of experience in AI, he combines academic depth with industry expertise, having held research, engineering, and leadership roles at both startups and tech giants like Microsoft. Passionate about education, Dr. Rad has taught courses in Machine Learning, Computer Vision, Generative AI, and Data Science across five universities. His research focuses on leveraging AI for social good, with impactful projects in healthcare, sustainability, and beyond. A respected thought leader, he has delivered more than 50 talks and research papers at prestigious conferences and institutions worldwide.",
     talk_title: "The State of LLMs: Breakthroughs, Barriers, and the Road Ahead",
     talk_summary: "",
     image: "/speakers/ryan.JPG"
@@ -671,8 +671,8 @@ export const SPEAKERS = [
     title: "CTO & Co-Founder",
     company: "Innovimia Technologies",
     tag: "speaker",
-    bio: "Farzad Khandan, is a futurist, AI/ML architect, and entrepreneur with a deep expertise in artificial intelligence, cloud computing, and emerging technologies. With a background in software engineering and a Ph.D. in Futures Studies, he has successfully designed and delivered large-scale AI/ML solutions, leveraging advanced machine learning, data engineering, and cloud architectures. Farzad has led high-performance teams and launched multiple startups, including Innovimia Technologies, where he develops AI-powered SaaS solutions. He is also the founder of the Future Human Foundation (Fuman.org), a nonprofit dedicated to advancing education and awareness in AI, space, and future technologies. Currently, he is developing Hadish Social Assistant, an AI-driven content automation app, empowering users to elevate their social media presence effortlessly.",
-    talk_title: "Building your Startups in the Cloud? Dos and Don’ts",
+    bio: "Farzad Khandan is a futurist, AI/ML architect, and entrepreneur with deep expertise in artificial intelligence, cloud computing, and emerging technologies. Combining a background in software engineering with a Ph.D. in Futures Studies, he has successfully designed and delivered large-scale AI/ML solutions leveraging advanced machine learning, data engineering, and cloud architectures. Farzad has led high-performance teams and launched multiple startups, including Innovimia Technologies, where he develops AI-powered SaaS solutions. He is also the founder of the Future Human Foundation (Fuman.org), a nonprofit dedicated to advancing education in AI, space, and future technologies. Currently, he is developing Hadish Social Assistant, an AI-driven content automation app that empowers users to elevate their social media presence effortlessly.",
+    talk_title: "Building your Startups in the Cloud? Dos and Don'ts",
     talk_summary: "",
     image: "/speakers/farzad.jpeg"
   },
@@ -684,7 +684,7 @@ export const SPEAKERS = [
     tag: "keynote",
     bio: "Coming Soon",
     talk_title: "AX and Why It Matters",
-    talk_summary: "AI agents are reshaping software development, but today’s infrastructure wasn’t built for them. For AI agents to truly be effective, we need to design our...",
+    talk_summary: "AI agents are reshaping software development, but today's infrastructure wasn't built for them. For AI agents to truly be effective, we need to design our...",
     image: "/speakers/matt.jpg"
   },
   {
@@ -704,7 +704,7 @@ export const SPEAKERS = [
     title: "Lead Software Engineer",
     company: 'Salesforce',
     tag: "speaker",
-    bio: "Niti is currently working as a Lead software engineer and Scrum Leader at Salesforce. She has seven years of experience as a software engineer. At Salesforce, she works in the Identity space focused on authorization and authentication at scale. Her interest lies in the area of distributed systems, identity and machine learning. Niti is a trailblazing tech leader who combines deep technical expertise with a passionate commitment to community building. She serves on the advisory board for the University of Wisconsin, Madison, and leads the Vancouver hub for AnitaB.org.",
+    bio: "Niti Jain is a Lead Software Engineer and Scrum Leader at Salesforce with seven years of industry experience. At Salesforce, she specializes in the Identity space, focusing on authorization and authentication at scale. Her technical interests encompass distributed systems, identity, and machine learning. A trailblazing tech leader, Niti combines deep technical expertise with a passionate commitment to community building. She serves on the advisory board for the University of Wisconsin, Madison, and leads the Vancouver hub for AnitaB.org, demonstrating her dedication to advancing diversity in technology.",
     talk_title: "Scaling Microservices: Mastering Zero-Downtime Data Migration Using Cloudflare",
     talk_summary: "",
     image: "/speakers/niti.png"
