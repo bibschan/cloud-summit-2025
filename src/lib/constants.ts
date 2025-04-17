@@ -693,7 +693,17 @@ export const SPEAKERS = [
     talk_summary: "Building a startup in the cloud opens up endless possibilities—but also a fair share of traps. In this session, we’ll walk through the real-world dos and don’ts of launching and scaling a cloud-native startup. You’ll get practical insights on cloud architecture, DevOps automation, cost management, and integrating AI/ML from day one. Whether you’re a founder, engineer, or just startup-curious, this talk will help you build smarter, move faster, and avoid the costly mistakes others have made.",
     image: "/speakers/farzad.jpeg"
   },
-
+  {
+    id: 11,
+    name: "Mark Gamble",
+    title: "Director, Product and Solutions Marketing",
+    company: "Couchbase",
+    tag: "speaker",
+    bio: "Mark is a passionate product marketer with a technical and solution consulting background and 20+ years of experience in enterprise and open source technology. He has launched several database and analytic solutions throughout his career, and has worked with customers across a wide variety of industries including Financial Services, Automotive, Gaming, Hospitality, High-Tech and Healthcare. With an expertise in analytics and AI, Mark loves all things data, and is an emphatic supporter of data-for-good initiatives. ",
+    talk_title: "Cloud-to-edge AI and role of the database",
+    talk_summary: "Edge AI is reshaping how we deliver intelligent, low-latency experiences—from mobile apps to IoT and embedded systems. But real-time AI at the edge demands more than just models—it requires a data architecture built for speed, scale, and autonomy. In this session, we’ll explore how Couchbase powers edge AI with a cloud-to-edge database, built-in vector search, and seamless sync between cloud and device. You’ll see how to deploy smarter, faster, and more resilient applications—right where your users are.",
+    image: "/speakers/mark.jpg"
+  },
   {
     id: 8,
     name: "Morohito (Moro) Arakaki",
