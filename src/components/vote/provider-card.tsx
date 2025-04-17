@@ -52,7 +52,7 @@ export function ProviderCard({
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className={cn(
-            "text-xl",
+            "text-xl font-body",
             disabled ? "text-white/70" : "text-white"
           )}>{provider.displayName}</CardTitle>
           <div className="relative w-10 h-10 flex items-center justify-center">

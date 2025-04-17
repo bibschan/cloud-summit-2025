@@ -21,7 +21,7 @@ export default function CharitySection() {
             alt="five circles showcasing Union Gospel Mission(UGM). First circle is the UGM van. Second circle UGM volunteer passing out food. Third circle UGM logo. Fourth circle man handing out coffee. Fifth circle man and daughter sitting on steps smilling. "
             width={380}
             height={100}
-            className="w-full animate-fade-in"
+            className="w-full "
           />
           <p className="flex-grow text-xl md:text-2xl font-semibold  text-white ">
             We&apos;re proud to announce that
