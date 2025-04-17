@@ -677,10 +677,10 @@ export const SPEAKERS = [
     title: "Principal Developer Advocate",
     company: "Amazon Web Services (AWS)",
     tag: "featured",
-    bio: "Coming Soon",
-    talk_title: "Coming Soon",
-    talk_summary: "",
-    image: ""
+    bio: "Eric is a Developer Advocate at AWS, focusing on Serverless technologies. With a background in software development and architecture, he shares his knowledge through speaking engagements and educational initiatives. He combines his technical expertise with an engaging teaching style to help others understand complex concepts.",
+    talk_title: "Taking GenAI from Paper to Production with Serverless",
+    talk_summary: "Start your journey into the world of Serverless and GenAI with this foundational session. Through a real-world application example, discover why serverless is the ideal architecture for GenAI workloads, offering superior scalability and cost-effectiveness compared to traditional infrastructure approaches. This practical demonstration will lay the groundwork for understanding how modern AI applications can be built and deployed efficiently using serverless.",
+    image: "/speakers/eric.png"
   },
   {
     id: 6,
