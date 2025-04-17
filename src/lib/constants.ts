@@ -700,9 +700,9 @@ export const SPEAKERS = [
     title: "Business Development Engineer",
     company: '',
     tag: "speaker",
-    bio: "Coming Soon",
-    talk_title: "Coming Soon",
-    talk_summary: "Coming Soon",
+    bio: "Morohito Arakaki is a Business Development Engineer at Fortinet, specializing in cloud technologies. He brings a wealth of technical expertise and strategic insight to help clients adopt secure cloud solutions that drive business growth. With a strong background in both engineering and business development, Morohito collaborates with cross-functional teams to design tailored cloud strategies that meet the evolving needs of organizations. His work focuses on bridging the gap between technical innovation and business goals, ensuring seamless cloud adoption and optimized performance. Morohito is dedicated to enabling businesses to securely scale their operations in the cloud.",
+    talk_title: "From Foundations to Expertise: Elevating Cloud Security with CNAPP ",
+    talk_summary: "Cloud misconfigurations, API exploits, and zero-day attacks are rising threats—even for seasoned teams. This session introduces CNAPP (Cloud-Native Application Protection Platform), a unified approach to securing modern cloud environments. We’ll explore how tools like FortiCNAPP and Lacework help detect hidden risks, protect workloads, and strengthen security posture. You’ll also learn how CSPM, CWPP, and CIEM work together to defend against common cloud pitfalls. Whether you're just starting or scaling in the cloud, this session will give you practical strategies to stay secure at every stage.",
     image: ""
   },
   {
