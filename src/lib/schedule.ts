@@ -96,10 +96,10 @@ export const speakerEvents: EventType[] = [
   {
     id: 6,
     stage: 1,
-    title: "Speaker To Be Announced",
+    title: "Speaker from Platformatic",
     startTime: "13:25",
     endTime: "13:55",
-    description: "Speaker To Be Announced.",
+    description: "Speaker To Be Announced from Platformatic.",
     speaker: {
       name: "TBA",
       photo: "/speakers/sponsor-speaker-2.jpg",
@@ -122,10 +122,10 @@ export const speakerEvents: EventType[] = [
   {
     id: 8,
     stage: 1,
-    title: "Speaker To Be Announced",
+    title: "Speaker from Fortinet",
     startTime: "14:00",
     endTime: "14:30",
-    description: "Speaker To Be Announced.",
+    description: "Speaker To Be Announced from Fortinet.",
     speaker: {
       name: "TBA",
       photo: "/speakers/sponsor-speaker-3.jpg",
@@ -148,24 +148,24 @@ export const speakerEvents: EventType[] = [
   {
     id: 10,
     stage: 1,
-    title: "Venture Capitalist Panel Discussion",
+    title: "Speaker from Couchbase",
     startTime: "14:40",
-    endTime: "15:40",
+    endTime: "15:10",
     description:
-      "An engaging panel discussion featuring industry experts discussing current trends and future directions in cloud computing.",
+      "Speaker To Be Announced from Couchbase.",
     speaker: {
-      name: "Panel Moderator & Guests",
-      photo: "/speakers/panel.jpg",
+      name: "TBA",
+      photo: "/speakers/sponsor-speaker-3.jpg",
     },
-    tags: ["Panel", "Discussion", "Industry Trends"],
+    tags: ["Sponsor", "Technology"],
   },
   {
     id: 11,
     stage: 1,
-    title: "Break",
-    startTime: "15:40",
-    endTime: "15:50",
-    description: "Break for attendees.",
+    title: "Short Break",
+    startTime: "15:10",
+    endTime: "15:15",
+    description: "A short break for attendees",
     speaker: {
       name: "Break",
       photo: "/speakers/break.jpg",
@@ -175,10 +175,10 @@ export const speakerEvents: EventType[] = [
   {
     id: 12,
     stage: 1,
-    title: "Speaker To Be Announced",
-    startTime: "15:50",
-    endTime: "16:20",
-    description: "Speaker To Be Announced.",
+    title: "Speaker from AWS",
+    startTime: "15:15",
+    endTime: "15:45",
+    description: "Speaker To Be Announced from AWS.",
     speaker: {
       name: "TBA",
       photo: "/speakers/sponsor-speaker-3.jpg",
@@ -188,10 +188,10 @@ export const speakerEvents: EventType[] = [
   {
     id: 13,
     stage: 1,
-    title: "Short Break",
-    startTime: "16:20",
-    endTime: "16:25",
-    description: "A short break for attendees.",
+    title: "Break",
+    startTime: "15:45",
+    endTime: "15:55",
+    description: "Break for attendees.",
     speaker: {
       name: "Break",
       photo: "/speakers/break.jpg",
@@ -201,9 +201,9 @@ export const speakerEvents: EventType[] = [
   {
     id: 14,
     stage: 1,
-    title: "Speaker To Be Announced",
-    startTime: "16:25",
-    endTime: "16:55",
+    title: "Speaker from Datadog",
+    startTime: "15:55",
+    endTime: "16:25",
     description: "Speaker To Be Announced.",
     speaker: {
       name: "TBA",
@@ -214,9 +214,35 @@ export const speakerEvents: EventType[] = [
   {
     id: 15,
     stage: 1,
-    title: "Cloud Award & Closing Remarks",
-    startTime: "16:55",
+    title: "Short Break",
+    startTime: "16:25",
+    endTime: "16:30",
+    description: "A short break for attendees.",
+    speaker: {
+      name: "Break",
+      photo: "/speakers/break.jpg",
+    },
+    tags: ["Break"],
+  },
+  {
+    id: 16,
+    stage: 1,
+    title: "Speaker from Ronin",
+    startTime: "16:30",
     endTime: "17:00",
+    description: "Speaker To Be Announced.",
+    speaker: {
+      name: "TBA",
+      photo: "/speakers/sponsor-speaker-3.jpg",
+    },
+    tags: ["Sponsor", "Technology"],
+  },
+  {
+    id: 17,
+    stage: 1,
+    title: "Cloud Award & Closing Remarks",
+    startTime: "17:00",
+    endTime: "17:10",
     description: "Cloud Award & Closing Remarks",
     speaker: {
       name: "",
@@ -225,7 +251,20 @@ export const speakerEvents: EventType[] = [
     tags: ["Closing", "Award"],
   },
   {
-    id: 16,
+    id: 18,
+    stage: 2,
+    title: "Welcoming Remarks",
+    startTime: "12:40",
+    endTime: "12:45",
+    description: "Opening remarks to welcome attendees.",
+    speaker: {
+      name: "",
+      photo: "/speakers/tba.jpg",
+    },
+    tags: ["Opening"],
+  },
+  {
+    id: 19,
     stage: 2,
     title: "Lightning Talk",
     startTime: "12:45",
@@ -238,7 +277,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Lightning Talk"],
   },
   {
-    id: 17,
+    id: 18,
     stage: 2,
     title: "Lightning Talk",
     startTime: "13:00",
@@ -251,7 +290,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Lightning Talk"],
   },
   {
-    id: 18,
+    id: 19,
     stage: 2,
     title: "Break",
     startTime: "13:15",
