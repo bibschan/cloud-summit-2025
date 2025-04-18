@@ -48,7 +48,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen text-white ">
-      <TorontoEventBanner />
       <SiteWideMessage
         isVisible={showMessage}
         handleClose={handleCloseMessage}
@@ -70,6 +69,7 @@ export default function Home() {
         <FAQSection />
         <SponsorsSection />
       </main>
+      <TorontoEventBanner />
       <Footer />
     </div>
   );
