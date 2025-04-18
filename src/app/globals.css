@@ -116,11 +116,11 @@ html.vote-page body {
 }
 @media (prefers-reduced-motion: no-preference) {
   @keyframes fade-in{
-    to {scale: 1; opacity: 1;}
+    to {scale: 1.5; rotate: -15deg;}
   }
 
   .animate-fade-in {
-    scale: .8; opacity: 0;
+    scale: .7; rotate: 0deg;;
     animation: fade-in linear forwards;
     animation-timeline: view();
     animation-range-start: cover;

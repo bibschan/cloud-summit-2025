@@ -19,7 +19,7 @@ export const NominateSection = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4 animate-fade-in">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-col gap-8 mb-8 md:max-w-[600px] mx-auto text-center md:text-left">
             <h3 className="text-3xl md:text-5xl">
               Nominate Your Company for the{" "}
@@ -47,7 +47,7 @@ export const NominateSection = () => {
             alt="Cloud Summit Award in blue with yellow sparkles"
             width={234}
             height={400}
-            className="mx-auto order-first md:order-none w-full max-w-[134px] min-w-0 h-auto "
+            className="mx-auto order-first md:order-none w-full max-w-[134px] min-w-0 h-auto  animate-fade-in"
           />
         </div>
       </div>
