@@ -20,8 +20,8 @@ export type EventType = {
   endTime: string;
   description?: string;
   speaker?: {
-    name: string;
-    photo: string;
+    speakerId: number[] | null;
+    name?: string | null;
   };
   tags: string[];
 };
@@ -36,8 +36,7 @@ export const speakerEvents: EventType[] = [
     endTime: "12:10",
     description: "Opening remarks to welcome attendees by our three emcees.",
     speaker: {
-      name: "",
-      photo: "/speakers/tba.jpg",
+      speakerId: null,
     },
     tags: ["Opening"],
   },
@@ -49,8 +48,7 @@ export const speakerEvents: EventType[] = [
     endTime: "12:40",
     description: "Opening keynote.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/tba.jpg",
+      speakerId: null,
     },
     tags: ["Keynote", "Web Development", "Cloud"],
   },
@@ -62,8 +60,7 @@ export const speakerEvents: EventType[] = [
     endTime: "12:45",
     description: "A short break for attendees.",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg",
+      speakerId: null,
     },
     tags: ["Break"],
   },
@@ -75,8 +72,7 @@ export const speakerEvents: EventType[] = [
     endTime: "13:15",
     description: "Speaker To Be Announced.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/sponsor-speaker.jpg",
+      speakerId: null,
     },
     tags: ["Sponsor", "Industry Insights"],
   },
@@ -88,8 +84,7 @@ export const speakerEvents: EventType[] = [
     endTime: "13:25",
     description: "Break for attendees.",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg",
+      speakerId: null,
     },
     tags: ["Break"],
   },
@@ -101,8 +96,7 @@ export const speakerEvents: EventType[] = [
     endTime: "13:55",
     description: "Speaker To Be Announced from Platformatic.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/sponsor-speaker-2.jpg",
+      speakerId: null,
     },
     tags: ["Sponsor", "Cloud Solutions"],
   },
@@ -114,8 +108,7 @@ export const speakerEvents: EventType[] = [
     endTime: "14:00",
     description: "A short break for attendees.",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg",
+      speakerId: null,
     },
     tags: ["Break"],
   },
@@ -127,8 +120,7 @@ export const speakerEvents: EventType[] = [
     endTime: "14:30",
     description: "Speaker To Be Announced from Fortinet.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/sponsor-speaker-3.jpg",
+      speakerId: [9],
     },
     tags: ["Sponsor", "Technology"],
   },
@@ -140,8 +132,7 @@ export const speakerEvents: EventType[] = [
     endTime: "14:40",
     description: "Break for attendees.",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg",
+      speakerId: null,
     },
     tags: ["Break"],
   },
@@ -154,8 +145,7 @@ export const speakerEvents: EventType[] = [
     description:
       "Speaker To Be Announced from Couchbase.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/sponsor-speaker-3.jpg",
+      speakerId: [7],
     },
     tags: ["Sponsor", "Technology"],
   },
@@ -167,8 +157,7 @@ export const speakerEvents: EventType[] = [
     endTime: "15:15",
     description: "A short break for attendees",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg",
+      speakerId: null,
     },
     tags: ["Break"],
   },
@@ -180,8 +169,7 @@ export const speakerEvents: EventType[] = [
     endTime: "15:45",
     description: "Speaker To Be Announced from AWS.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/sponsor-speaker-3.jpg",
+      speakerId: [5],
     },
     tags: ["Sponsor", "Technology"],
   },
@@ -193,8 +181,7 @@ export const speakerEvents: EventType[] = [
     endTime: "15:55",
     description: "Break for attendees.",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg",
+      speakerId: null,
     },
     tags: ["Break"],
   },
@@ -206,8 +193,7 @@ export const speakerEvents: EventType[] = [
     endTime: "16:25",
     description: "Speaker To Be Announced.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/sponsor-speaker-3.jpg",
+      speakerId: null,
     },
     tags: ["Sponsor", "Technology"],
   },
@@ -219,8 +205,7 @@ export const speakerEvents: EventType[] = [
     endTime: "16:30",
     description: "A short break for attendees.",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg",
+      speakerId: null,
     },
     tags: ["Break"],
   },
@@ -232,8 +217,7 @@ export const speakerEvents: EventType[] = [
     endTime: "17:00",
     description: "Speaker To Be Announced.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/sponsor-speaker-3.jpg",
+      speakerId: null,
     },
     tags: ["Sponsor", "Technology"],
   },
@@ -245,8 +229,7 @@ export const speakerEvents: EventType[] = [
     endTime: "17:10",
     description: "Cloud Award & Closing Remarks",
     speaker: {
-      name: "",
-      photo: "/speakers/networking.jpg",
+      speakerId: null,
     },
     tags: ["Closing", "Award"],
   },
@@ -258,8 +241,7 @@ export const speakerEvents: EventType[] = [
     endTime: "12:45",
     description: "Opening remarks to welcome attendees.",
     speaker: {
-      name: "",
-      photo: "/speakers/tba.jpg",
+      speakerId: null,
     },
     tags: ["Opening"],
   },
@@ -271,8 +253,7 @@ export const speakerEvents: EventType[] = [
     endTime: "13:00",
     description: "Speaker To Be Announced.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/tba.jpg",
+      speakerId: [1],
     },
     tags: ["Lightning Talk"],
   },
@@ -284,8 +265,7 @@ export const speakerEvents: EventType[] = [
     endTime: "13:15",
     description: "Speaker To Be Announced.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/tba.jpg",
+      speakerId: [2],
     },
     tags: ["Lightning Talk"],
   },
@@ -297,8 +277,7 @@ export const speakerEvents: EventType[] = [
     endTime: "13:25",
     description: "Short break to refresh and network with other attendees.",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg",
+      speakerId: null,
     },
     tags: ["Break", "Networking"],
   },
@@ -310,8 +289,7 @@ export const speakerEvents: EventType[] = [
     endTime: "13:55",
     description: "Speaker To Be Announced.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/tba.jpg",
+      speakerId: [3],
     },
     tags: ["Speaker"],
   },
@@ -323,8 +301,7 @@ export const speakerEvents: EventType[] = [
     endTime: "14:00",
     description: "A short break for attendees.",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg",
+      speakerId: null,
     },
     tags: ["Break"],
   },
@@ -336,8 +313,7 @@ export const speakerEvents: EventType[] = [
     endTime: "14:30",
     description: "Speaker To Be Announced.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/tba.jpg",
+      speakerId: [4],
     },
     tags: ["Speaker"],
   },
@@ -349,47 +325,33 @@ export const speakerEvents: EventType[] = [
     endTime: "14:40",
     description: "Short break to refresh and network with other attendees.",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg",
+      speakerId: null,
     },
     tags: ["Break", "Networking"],
   },
   {
     id: 23,
     stage: 2,
-    title: "Speaker To Be Announced",
+    title: "Venture Capitalist Panel Discussion",
     startTime: "14:40",
-    endTime: "15:10",
-    description: "Speaker To Be Announced.",
+    endTime: "15:45",
+    description:
+      "An engaging panel discussion featuring industry experts discussing current trends and future directions in cloud computing.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/tba.jpg",
+      speakerId: null,
+
     },
-    tags: ["Speaker"],
-  },
-  {
-    id: 24,
-    stage: 2,
-    title: "Speaker To Be Announced",
-    startTime: "15:10",
-    endTime: "15:40",
-    description: "Speaker To Be Announced.",
-    speaker: {
-      name: "TBA",
-      photo: "/speakers/tba.jpg",
-    },
-    tags: ["Speaker"],
+    tags: ["Panel", "Discussion", "Industry Trends"],
   },
   {
     id: 25,
     stage: 2,
     title: "Break",
-    startTime: "15:40",
-    endTime: "15:50",
+    startTime: "15:45",
+    endTime: "15:55",
     description: "Short break to refresh and network with other attendees.",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg",
+      speakerId: null,
     },
     tags: ["Break", "Networking"],
   },
@@ -397,12 +359,11 @@ export const speakerEvents: EventType[] = [
     id: 26,
     stage: 2,
     title: "Speaker To Be Announced",
-    startTime: "15:50",
-    endTime: "16:20",
+    startTime: "15:55",
+    endTime: "16:25",
     description: "Speaker To Be Announced.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/tba.jpg",
+      speakerId: [6],
     },
     tags: ["Speaker"],
   },
@@ -410,12 +371,11 @@ export const speakerEvents: EventType[] = [
     id: 27,
     stage: 2,
     title: "Short Break",
-    startTime: "16:20",
-    endTime: "16:25",
+    startTime: "16:25",
+    endTime: "16:30",
     description: "A short break for attendees.",
     speaker: {
-      name: "Break",
-      photo: "/speakers/break.jpg",
+      speakerId: null,
     },
     tags: ["Break"],
   },
@@ -423,12 +383,11 @@ export const speakerEvents: EventType[] = [
     id: 28,
     stage: 2,
     title: "Speaker To Be Announced",
-    startTime: "16:25",
-    endTime: "16:55",
+    startTime: "16:30",
+    endTime: "17:00",
     description: "Speaker To Be Announced.",
     speaker: {
-      name: "TBA",
-      photo: "/speakers/tba.jpg",
+      speakerId: [10, 11],
     },
     tags: ["Speaker"],
   },
@@ -436,12 +395,11 @@ export const speakerEvents: EventType[] = [
     id: 29,
     stage: 2,
     title: "Room Transformation",
-    startTime: "16:55",
-    endTime: "17:00",
+    startTime: "17:00",
+    endTime: "17:10",
     description: "Preparing the room for the next segment of the event.",
     speaker: {
-      name: "",
-      photo: "/speakers/event-staff.jpg",
+      speakerId: null,
     },
     tags: ["Logistics"],
   },
@@ -449,13 +407,13 @@ export const speakerEvents: EventType[] = [
     id: 30,
     stage: 2,
     title: "Networking, Food & Entertainment",
-    startTime: "17:00",
+    startTime: "17:10",
     endTime: "18:00",
     description:
       "Join us for food, drinks, live music, dancing, and networking. Diamond sponsors will have pop-up booths available.",
     speaker: {
+      speakerId: null,
       name: "All Attendees",
-      photo: "/speakers/networking.jpg",
     },
     tags: ["Networking", "Entertainment", "Food"],
   },
@@ -471,6 +429,7 @@ export const workshopEvents = [
     description:
       "Arrive early to register and receive exclusive event swag while supplies last.",
     speaker: {
+      speakerId: null,
       name: "TBA",
       photo: "",
     },
@@ -485,6 +444,7 @@ export const workshopEvents = [
     description:
       "Enjoy engaging presentations on the main stage accompanied by music from our innovative AI DJ.",
     speaker: {
+      speakerId: null,
       name: "TBA",
       photo: "",
     },
@@ -499,6 +459,7 @@ export const workshopEvents = [
     description:
       "Experience additional presentations on our second stage while a live band provides entertainment.",
     speaker: {
+      speakerId: null,
       name: "TBA",
       photo: "",
     },
@@ -513,6 +474,7 @@ export const workshopEvents = [
     description:
       "Visit our sponsors and community booths to network and learn about the latest technologies and opportunities.",
     speaker: {
+      speakerId: null,
       name: "TBA",
       photo: "",
     },
@@ -527,6 +489,7 @@ export const workshopEvents = [
     description:
       "Trade Lego swag and donate to UGM Charity at our interactive Lego Swap Stand.",
     speaker: {
+      speakerId: null,
       name: "TBA",
       photo: "",
     },
@@ -541,6 +504,7 @@ export const workshopEvents = [
     description:
       "Join CBC Radio personality Kris Krug for exclusive interviews with speakers and special guests.",
     speaker: {
+      speakerId: null,
       name: "TBA",
       photo: "",
     },
@@ -555,6 +519,7 @@ export const workshopEvents = [
     description:
       "Celebrate with a live band, food, and drinks. All refreshments are included in your ticket price.",
     speaker: {
+      speakerId: null,
       name: "",
       photo: "",
     },

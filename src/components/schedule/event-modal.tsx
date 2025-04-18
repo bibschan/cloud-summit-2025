@@ -1,10 +1,10 @@
 "use client"
-
 import { useEffect, useState, useCallback, useMemo } from "react"
 import type { EventType } from "@/lib/schedule"
 import Image from "next/image"
 import { X } from 'lucide-react'
 import { cn } from "@/lib/utils"
+import { SPEAKERS } from "@/lib/constants"
 
 type EventModalProps = {
   event: EventType
@@ -13,31 +13,46 @@ type EventModalProps = {
   isMobile: boolean
 }
 
+type SpeakerType = {
+  id: number;
+  name: string;
+  title?: string;
+  company?: string;
+  tag?: string;
+  bio?: string;
+  talk_title?: string;
+  talk_summary?: string;
+  image?: string;
+}
+
 const MODAL_WIDTH = 384
-const MODAL_HEIGHT = 300 // Approximate height
-const PADDING = 16 // Padding from window edges
-const CURSOR_OFFSET = 2 // Offset from cursor
+const MODAL_HEIGHT = 300
+const PADDING = 16
+const CURSOR_OFFSET = 2
 
 export function EventModal({ event, position, onClose, isMobile }: EventModalProps) {
-  console.log(event)
   const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 })
   const [imageError, setImageError] = useState(false)
+
+  const speakerInfo = useMemo(() => {
+    if (event.speaker?.speakerId && Array.isArray(event.speaker.speakerId) && event.speaker.speakerId.length > 0) {
+      return SPEAKERS.find(speaker => speaker.id === event.speaker?.speakerId?.[0]) || null;
+    }
+    return null;
+  }, [event.speaker?.speakerId]);
 
   const calculatePosition = useCallback(() => {
     let left = position.x + CURSOR_OFFSET
     let top = position.y - 20
 
-    // Check right edge
     if (left + MODAL_WIDTH + PADDING > window.innerWidth) {
       left = position.x - MODAL_WIDTH - CURSOR_OFFSET
     }
 
-    // Check bottom edge
     if (top + MODAL_HEIGHT + PADDING > window.innerHeight) {
       top = window.innerHeight - MODAL_HEIGHT - PADDING
     }
 
-    // Check top edge
     if (top < PADDING) {
       top = PADDING
     }
@@ -56,14 +71,15 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
     }
   }, [calculatePosition, isMobile])
 
-
   const handleImageError = useCallback(() => {
     setImageError(true)
   }, [])
 
   const imageSrc = useMemo(() => {
-    return imageError ? "/speakers/default-avatar.svg" : event.speaker?.photo
-  }, [imageError, event.speaker?.photo])
+    if (imageError) return "/speakers/default-avatar.svg";
+    if (speakerInfo?.image) return speakerInfo.image;
+    return "/speakers/default-avatar.svg";
+  }, [imageError, speakerInfo]);
 
   const style = useMemo(() => ({
     top: `${modalPosition.top}px`,
@@ -74,13 +90,21 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
     if (onClose) onClose()
   }, [onClose])
 
+  const displayTitle = useMemo(() => {
+    if (event.tags?.includes("Break")) {
+      return event.title;
+    }
+    if (speakerInfo?.talk_title) {
+      return speakerInfo.talk_title;
+    }
+    return event.title;
+  }, [event.title, event.tags, speakerInfo]);
+
+  const speakerName = speakerInfo?.name || "";
+
   if (isMobile) {
     return (
       <div className="fixed inset-0 z-50 flex flex-col bg-black bg-opacity-80 text-left">
-        <div className="text-xs text-gray-500 mb-2">
-          Has tags: {event.tags ? 'Yes' : 'No'},
-          Includes Activities: {event.tags && event.tags.includes("Activities") ? 'Yes' : 'No'}
-        </div>
         <div className="fixed inset-0 z-50 flex items-center justify-center ">
           <div className="w-full h-full max-w-md mx-auto bg-primary-800 overflow-auto flex flex-col gap-4 px-6">
             <div className="sticky top-0 flex justify-end p-4 bg-primary-800 px-0">
@@ -91,30 +115,32 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
                 <X size={24} />
               </button>
             </div>
-            {event.tags.includes("Activities") ? (
+            {event.tags?.includes("Activities") ? (
               <div className="flex flex-col items-center gap-4">
                 <div className="flex-1 space-y-1">
-                  <h3 className="font-body text-xl font-semibold text-gray-100">{event.title}</h3>
+                  <h3 className="font-body text-xl font-semibold text-gray-100">{displayTitle}</h3>
                 </div>
                 <p className="mt-4 text-md text-gray-300">{event.description}</p>
               </div>
             ) : (
               <>
                 <div className="flex items-start gap-4">
-                  <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden flex-shrink-0">
-                    <Image
-                      src={imageSrc || ""}
-                      alt={event.speaker?.name || ""}
-                      fill
-                      className="object-cover"
-                      onError={handleImageError}
-                      priority
-                      sizes="60px"
-                    />
-                  </div>
+                  {speakerInfo && (
+                    <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden flex-shrink-0">
+                      <Image
+                        src={imageSrc}
+                        alt={speakerName}
+                        fill
+                        className="object-cover"
+                        onError={handleImageError}
+                        priority
+                        sizes="60px"
+                      />
+                    </div>
+                  )}
                   <div className="flex-1 space-y-1">
-                    <h3 className="font-body text-xl font-semibold text-gray-100">{event.title}</h3>
-                    <p className="text-md text-gray-400">{event.speaker?.name}</p>
+                    <h3 className="font-body text-xl font-semibold text-gray-100">{displayTitle}</h3>
+                    {speakerName && <p className="text-md text-gray-400">{speakerName}</p>}
                     <p className="mt-1 text-md text-secondary-600">
                       {event.startTime} - {event.endTime}
                     </p>
@@ -129,17 +155,13 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
                   ))}
                 </div>
               </>
-
             )}
-
-
           </div>
         </div>
       </div>
     )
   }
 
-  // For desktop: render a tooltip-style modal
   return (
     <div
       className="fixed border bg-primary-800 border-gray-800 rounded-lg shadow-2xl p-4 z-50 w-96 pointer-events-none text-left"
@@ -149,30 +171,30 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
       }}
     >
       <div className="flex items-start justify-start space-x-4 bg-primary-800 text-left">
-        {event.tags.includes("Activities") ? (
+        {event.tags?.includes("Activities") ? (
           <div className="flex flex-col items-start gap-4">
-
-            <h3 className="font-body text-xl font-semibold text-gray-100">{event.title}</h3>
-
+            <h3 className="font-body text-xl font-semibold text-gray-100">{displayTitle}</h3>
             <p className="mt-4 text-md text-gray-300">{event.description}</p>
           </div>
         ) : (
           <div className="flex flex-col items-start justify-start space-x-4 bg-primary-800 text-left">
             <div className="flex items-start gap-4">
-              <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden flex-shrink-0">
-                <Image
-                  src={imageSrc || ""}
-                  alt={event.speaker?.name || ""}
-                  fill
-                  className="object-cover"
-                  onError={handleImageError}
-                  priority
-                  sizes="60px"
-                />
-              </div>
+              {speakerInfo && (
+                <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden flex-shrink-0">
+                  <Image
+                    src={imageSrc}
+                    alt={speakerName}
+                    fill
+                    className="w-full h-full object-cover object-top"
+                    onError={handleImageError}
+                    priority
+                    sizes="60px"
+                  />
+                </div>
+              )}
               <div className="flex-1 space-y-1">
-                <h3 className="font-body text-xl font-semibold text-gray-100">{event.title}</h3>
-                <p className="text-md text-gray-400">{event.speaker?.name}</p>
+                <h3 className="font-body text-xl font-semibold text-gray-100">{displayTitle}</h3>
+                {speakerName && <p className="text-md text-gray-400">{speakerName}</p>}
                 <p className="mt-1 text-md text-secondary-600">
                   {event.startTime} - {event.endTime}
                 </p>
@@ -187,38 +209,7 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
               ))}
             </div>
           </div>
-
         )}
-        {/* <div className="relative w-[50px] h-[50px] rounded-full overflow-hidden flex-shrink-0">
-          <Image
-            src={imageSrc || ""}
-            alt={event.speaker?.name || ""}
-            fill
-            className="object-cover"
-            onError={handleImageError}
-            priority
-            sizes="50px"
-          />
-        </div>
-        <div className="flex flex-col justify-start item-start">
-          <h3 className="font-body text-lg font-semibold text-gray-100">{event.title}</h3>
-          <p className="text-sm text-gray-400">{event.speaker?.name}</p>
-        </div>
-      </div>
-
-      <p className="mt-2 text-sm text-secondary-600">
-        {event.startTime} - {event.endTime}
-      </p>
-
-      <p className="mt-2 text-sm text-gray-300">{event.description}</p>
-
-      <div className="mt-2 flex flex-wrap gap-1">
-        {event.tags?.map((tag, index) => (
-          <span key={index} className="px-2 py-1 bg-gray-800 rounded-full text-xs text-gray-300">
-            {tag}
-          </span>
-        ))}
-      </div> */}
       </div>
     </div>
   )
