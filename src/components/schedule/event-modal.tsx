@@ -177,8 +177,8 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
             <p className="mt-4 text-md text-gray-300">{event.description}</p>
           </div>
         ) : (
-          <div className="flex flex-col items-start justify-start space-x-4 bg-primary-800 text-left">
-            <div className="flex items-start gap-4">
+          <div className="flex flex-col items-start justify-start bg-primary-800 text-left">
+            <div className="flex items-start gap-4 my-auto">
               {speakerInfo && (
                 <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden flex-shrink-0">
                   <Image
