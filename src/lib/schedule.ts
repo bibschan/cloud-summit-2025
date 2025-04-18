@@ -1,4 +1,3 @@
-// Event colors
 export const COLORS = {
   BLUE: "bg-blue-500/80 hover:bg-blue-500/90",
   PURPLE: "bg-purple-500/80 hover:bg-purple-500/90",
@@ -91,7 +90,7 @@ export const speakerEvents: EventType[] = [
   {
     id: 6,
     stage: 1,
-    title: "Speaker from Platformatic",
+    title: "Speaker To Be Announced",
     startTime: "13:25",
     endTime: "13:55",
     description: "Speaker To Be Announced from Platformatic.",
@@ -115,7 +114,7 @@ export const speakerEvents: EventType[] = [
   {
     id: 8,
     stage: 1,
-    title: "Speaker from Fortinet",
+    title: "Speaker To Be Announced",
     startTime: "14:00",
     endTime: "14:30",
     description: "Speaker To Be Announced from Fortinet.",
@@ -188,7 +187,7 @@ export const speakerEvents: EventType[] = [
   {
     id: 14,
     stage: 1,
-    title: "Speaker from Datadog",
+    title: "Speaker To Be Announced",
     startTime: "15:55",
     endTime: "16:25",
     description: "Speaker To Be Announced.",
@@ -212,7 +211,7 @@ export const speakerEvents: EventType[] = [
   {
     id: 16,
     stage: 1,
-    title: "Speaker from Ronin",
+    title: "Speaker To Be Announced",
     startTime: "16:30",
     endTime: "17:00",
     description: "Speaker To Be Announced.",
