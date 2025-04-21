@@ -3,7 +3,6 @@ import { useEffect, useState, useCallback, useMemo } from "react"
 import type { EventType } from "@/lib/schedule"
 import Image from "next/image"
 import { X } from 'lucide-react'
-import { cn } from "@/lib/utils"
 import { SPEAKERS } from "@/lib/constants"
 
 type EventModalProps = {
@@ -13,17 +12,6 @@ type EventModalProps = {
   isMobile: boolean
 }
 
-type SpeakerType = {
-  id: number;
-  name: string;
-  title?: string;
-  company?: string;
-  tag?: string;
-  bio?: string;
-  talk_title?: string;
-  talk_summary?: string;
-  image?: string;
-}
 
 const MODAL_WIDTH = 384
 const MODAL_HEIGHT = 300
@@ -33,6 +21,7 @@ const CURSOR_OFFSET = 2
 export function EventModal({ event, position, onClose, isMobile }: EventModalProps) {
   const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 })
   const [imageError, setImageError] = useState(false)
+
 
   const speakerInfo = useMemo(() => {
     if (event.speaker?.speakerId && Array.isArray(event.speaker.speakerId) && event.speaker.speakerId.length > 0) {
@@ -100,14 +89,24 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
     return event.title;
   }, [event.title, event.tags, speakerInfo]);
 
+  const displayDescription = useMemo(() => {
+    if (event.tags?.includes("Break") || event.tags?.includes("Activities")) {
+      return event.description;
+    }
+    if (speakerInfo?.talk_summary) {
+      return speakerInfo.talk_summary;
+    }
+    return event.description;
+  }, [event.description, event.tags, speakerInfo]);
+
   const speakerName = speakerInfo?.name || "";
 
   if (isMobile) {
     return (
       <div className="fixed inset-0 z-50 flex flex-col bg-black bg-opacity-80 text-left">
-        <div className="fixed inset-0 z-50 flex items-center justify-center ">
-          <div className="w-full h-full max-w-md mx-auto bg-primary-800 overflow-auto flex flex-col gap-4 px-6">
-            <div className="sticky top-0 flex justify-end p-4 bg-primary-800 px-0">
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="w-full h-full max-w-md mx-auto bg-primary-800 overflow-auto flex flex-col gap-4 px-6 pb-4 overflow-y-auto">
+            <div className="sticky top-0 flex justify-end p-0 bg-primary-800 z-10 pt-4">
               <button
                 onClick={handleClose}
                 className="text-gray-400 hover:text-white py-2"
@@ -115,23 +114,24 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
                 <X size={24} />
               </button>
             </div>
+
             {event.tags?.includes("Activities") ? (
               <div className="flex flex-col items-center gap-4">
                 <div className="flex-1 space-y-1">
                   <h3 className="font-body text-xl font-semibold text-gray-100">{displayTitle}</h3>
                 </div>
-                <p className="mt-4 text-md text-gray-300">{event.description}</p>
+                <p className="mt-4 text-md text-gray-300">{displayDescription}</p>
               </div>
             ) : (
               <>
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 ">
                   {speakerInfo && (
                     <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden flex-shrink-0">
                       <Image
                         src={imageSrc}
                         alt={speakerName}
                         fill
-                        className="object-cover"
+                        className="object-cover object-top z-0"
                         onError={handleImageError}
                         priority
                         sizes="60px"
@@ -146,7 +146,7 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
                     </p>
                   </div>
                 </div>
-                <p className="mt-4 text-md text-gray-300">{event.description}</p>
+                <p className="mt-4 text-md text-gray-300">{displayDescription}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {event.tags?.map((tag, index) => (
                     <span key={index} className="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">
@@ -174,18 +174,18 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
         {event.tags?.includes("Activities") ? (
           <div className="flex flex-col items-start gap-4">
             <h3 className="font-body text-xl font-semibold text-gray-100">{displayTitle}</h3>
-            <p className="mt-4 text-md text-gray-300">{event.description}</p>
+            <p className="mt-4 text-md text-gray-300">{displayDescription}</p>
           </div>
         ) : (
-          <div className="flex flex-col items-start justify-start bg-primary-800 text-left">
-            <div className="flex items-start gap-4 my-auto">
+          <div className="flex flex-col items-start justify-start space-x-4 bg-primary-800 text-left">
+            <div className="flex items-start gap-4">
               {speakerInfo && (
                 <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden flex-shrink-0">
                   <Image
                     src={imageSrc}
                     alt={speakerName}
                     fill
-                    className="w-full h-full object-cover object-top"
+                    className="object-cover object-top"
                     onError={handleImageError}
                     priority
                     sizes="60px"
@@ -200,7 +200,7 @@ export function EventModal({ event, position, onClose, isMobile }: EventModalPro
                 </p>
               </div>
             </div>
-            <p className="mt-4 text-md text-gray-300">{event.description}</p>
+            <p className="mt-4 text-md text-gray-300">{displayDescription}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {event.tags?.map((tag, index) => (
                 <span key={index} className="px-3 py-1 bg-gray-800 rounded-full text-sm text-gray-300">
