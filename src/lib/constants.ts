@@ -617,7 +617,7 @@ export const teamAreas = [
 
 export const SPEAKERS = [
   {
-    id: 7,
+    id: 8,
     name: "Matt Billman",
     title: "CEO and Co-Founder",
     company: "Netlify",
@@ -694,7 +694,7 @@ export const SPEAKERS = [
     image: "/speakers/farzad.jpeg"
   },
   {
-    id: 11,
+    id: 7,
     name: "Mark Gamble",
     title: "Director, Product and Solutions Marketing",
     company: "Couchbase",
@@ -705,7 +705,7 @@ export const SPEAKERS = [
     image: "/speakers/mark.jpg"
   },
   {
-    id: 8,
+    id: 9,
     name: "Morohito (Moro) Arakaki",
     title: "Business Development Engineer - Cloud",
     company: 'Fortinet',
@@ -716,7 +716,7 @@ export const SPEAKERS = [
     image: ""
   },
   {
-    id: 9,
+    id: 10,
     name: "Niti Jain",
     title: "Lead Software Engineer",
     company: 'Salesforce',
@@ -727,7 +727,7 @@ export const SPEAKERS = [
     image: "/speakers/niti.png"
   },
   {
-    id: 10,
+    id: 11,
     name: "Sarang Gupta",
     title: "Staff Data Scientist",
     company: 'Asana in Vancouver, Canada',

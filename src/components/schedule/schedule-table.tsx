@@ -5,10 +5,10 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { EventModal } from "./event-modal";
 import { timeSlots, type EventType } from "@/lib/schedule";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { SPEAKERS } from "@/lib/constants";
 
 const TIME_SLOT_HEIGHT = 250;
 const EVENT_GAP = 2;
-const ALL_DAY_HEIGHT = 100;
 
 const timeToMinutes = (time: string) => {
   const [hours, minutes] = time.split(":").map(Number);
@@ -26,10 +26,27 @@ const isActivityEvent = (event: EventType) => {
   return event.tags && event.tags.includes("Activities");
 };
 
+const getSpeakerInfo = (speakerId: number[] | null): SpeakerType | null => {
+  if (!speakerId || !Array.isArray(speakerId) || speakerId.length === 0) return null;
+  return SPEAKERS.find(speaker => speaker.id === speakerId[0]) || null;
+};
+
 type ScheduleTableProps = {
   events: EventType[];
   stages: Array<{ id: number; name: string }>;
   mode: "schedule" | "workshops";
+};
+
+type SpeakerType = {
+  id: number;
+  name: string;
+  title?: string;
+  company?: string;
+  tag?: string;
+  bio?: string;
+  talk_title?: string;
+  talk_summary?: string;
+  image?: string;
 };
 
 export function ScheduleTable({
@@ -131,7 +148,7 @@ export function ScheduleTable({
                   className={cn(
                     "cursor-pointer hover:bg-primary-700 transition-colors text-left",
                     index !== activityEvents.length - 1 &&
-                      "border-b-2 border-primary-900"
+                    "border-b-2 border-primary-900"
                   )}
                   onClick={() => handleEventClick(event)}
                   onMouseEnter={() => handleMouseEnter(event)}
@@ -213,8 +230,8 @@ export function ScheduleTable({
                   "col-start-2 row-start-1 relative",
                   stageIndex === 1 && !isSingleColumn && "md:col-start-3",
                   stage.id.toString() !== activeStage &&
-                    stages.length > 1 &&
-                    "hidden md:block"
+                  stages.length > 1 &&
+                  "hidden md:block"
                 )}
               >
                 <div className="absolute inset-0"></div>
@@ -222,6 +239,12 @@ export function ScheduleTable({
                   const isBreak = event.title.includes("Break");
                   const isShort = isShortTalk(event.startTime, event.endTime);
                   const position = calculateEventPosition(event, index);
+                  const speakerInfo = event.speaker?.speakerId
+                    ? getSpeakerInfo(event.speaker.speakerId)
+                    : (event.speaker?.name
+                      ? { id: -1, name: event.speaker.name } as SpeakerType
+                      : null);
+                  const displayTitle = !isBreak && speakerInfo?.talk_title ? speakerInfo.talk_title : event.title;
 
                   return (
                     <div
@@ -246,12 +269,12 @@ export function ScheduleTable({
                           {event.startTime} - {event.endTime}
                         </p>
                       )}
-                      <h3 className="font-body font-bold text-md md:text-xl text-center text-white">
-                        {event.title}
+                      <h3 className="font-body font-bold text-md md:text-xl text-center text-white break-words line-clamp-2 overflow-ellipsis">
+                        {displayTitle}
                       </h3>
-                      {!isBreak && event.speaker?.name && (
+                      {!isBreak && speakerInfo && (
                         <p className="text-sm md:text-md text-center text-lemon-lime">
-                          {event.speaker.name}
+                          {speakerInfo.name}
                         </p>
                       )}
                     </div>
