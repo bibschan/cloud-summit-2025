@@ -331,14 +331,14 @@ export const speakerEvents: EventType[] = [
   {
     id: 23,
     stage: 2,
-    title: "Venture Capitalist Panel Discussion",
+    title: "Cloud, AI & the Rise of the Next Billion-Dollar Idea",
     startTime: "14:40",
     endTime: "15:45",
     description:
-      "An engaging panel discussion featuring industry experts discussing current trends and future directions in cloud computing.",
+      "What separates startups that scale from those that stall? In this panel, top startup execs from Vancouver share how they're leveraging emerging AI and cloud technologies to build smarter, faster, and more defensible companies. We’ll dive into how early cloud architecture decisions shape growth trajectories, which AI tools are reshaping SaaS, and what it really takes to create an edge in today's hyper-competitive tech landscape.",
     speaker: {
       speakerId: null,
-
+      name: 'Panel Discussion',
     },
     tags: ["Panel", "Discussion", "Industry Trends"],
   },
