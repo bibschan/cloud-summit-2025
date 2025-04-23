@@ -44,15 +44,15 @@ export const speakerEvents: EventType[] = [
   {
     id: 2,
     stage: 1,
-    title: "Keynote - Speaker To Be Announced",
+    title: "Speaker To Be Announced",
     startTime: "12:10",
     endTime: "12:40",
-    description: "Opening keynote.",
+    description: "Speaker To Be Announced.",
     speaker: {
       name: "TBA",
       photo: "/speakers/tba.jpg",
     },
-    tags: ["Keynote", "Web Development", "Cloud"],
+    tags: ["Web Development", "Cloud"],
   },
   {
     id: 3,
