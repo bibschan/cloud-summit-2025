@@ -65,37 +65,38 @@ export const EVENT_CONFIG = {
           icon: "/activities/networking.svg", // You can replace this with an actual icon component or path
           title: "Networking",
           details: "Expand your connections with cloud professionals.",
-          link: ""
+          link: "",
         },
         {
           icon: "/activities/presentations.svg",
           title: "Presentations",
           details: "Get industry insights from cloud experts.",
-          link: ""
-        }, {
+          link: "",
+        },
+        {
           icon: "/activities/tech_companies.svg",
           title: "Tech Companies",
           details: "Find cloud solutions for your business needs.",
-          link: ""
+          link: "",
         },
         {
           icon: "/activities/workshops.svg",
           title: "Live Interviews",
           details: "Share your thoughts on Cloud & AI.",
-          link: "/media"
+          link: "/media",
         },
 
         {
           icon: "/activities/communities.svg",
           title: "Communities",
           details: "Explore & connect with local tech communities.",
-          link: "/#community-section"
+          link: "/#community-section",
         },
         {
           icon: "/activities/music.svg",
           title: "Live Music & AI DJ",
           details: "Enjoy the ambience with live music.",
-          link: ""
+          link: "",
         },
       ],
     },
@@ -281,7 +282,7 @@ export const EVENT_CONFIG = {
       },
       {
         name: "Byte Quest",
-        link: "https://www.linkedin.com/company/bytequestllc/",
+        link: "https://bytequest.ca/home",
         team: "webAndDesign",
       },
       {
@@ -319,7 +320,7 @@ export const EVENT_CONFIG = {
       { name: "Bibi", github: "https://github.com/bibschan" },
       {
         name: "Byte Quest",
-        github: "https://www.linkedin.com/company/bytequestllc/",
+        github: "https://bytequest.ca/home",
       },
       { name: "Jackie", github: "https://jackieho.ca/" },
       { name: "Luis", github: "https://github.com/luisher98" },
@@ -624,19 +625,22 @@ export const SPEAKERS = [
     tag: "keynote",
     bio: "Coming Soon",
     talk_title: "AX and Why It Matters",
-    talk_summary: "AI agents are reshaping software development, but today’s infrastructure wasn’t built for them. For AI agents to truly be effective, we need to design our infrastructure with Agent Experience (AX) in mind. AX is about building the shortest path for an agent to go from user input to a URL in production. This requires primitives and APIs designed for LLMs and workflows that enable seamless developer-agent collaboration. This talk will offer a new perspective on AI-driven development, key architectural principles for supporting AI agents, and a glimpse into the not-so-far off future where AI isn't just a coding assistant but an active participant in software creation.",
-    image: "/speakers/matt.jpg"
+    talk_summary:
+      "AI agents are reshaping software development, but today’s infrastructure wasn’t built for them. For AI agents to truly be effective, we need to design our infrastructure with Agent Experience (AX) in mind. AX is about building the shortest path for an agent to go from user input to a URL in production. This requires primitives and APIs designed for LLMs and workflows that enable seamless developer-agent collaboration. This talk will offer a new perspective on AI-driven development, key architectural principles for supporting AI agents, and a glimpse into the not-so-far off future where AI isn't just a coding assistant but an active participant in software creation.",
+    image: "/speakers/matt.jpg",
   },
   {
     id: 1,
     name: "Adetokunbo Ige",
     title: "Sr. DevOps Engineer",
-    company: 'Planview',
+    company: "Planview",
     tag: "featured",
     bio: "Adetokunbo Ige is a seasoned platform engineer and Certified ISO 22301 Lead Implementer in Business Continuity. With extensive expertise spanning software engineering, enterprise application management, server infrastructure, database administration, incident response, and cloud engineering, he brings a wealth of technical knowledge to the conference. Adetokunbo holds a B.Sc in Computer Science from Babcock University and an M.Sc in Business Information Technology from Middlesex University, where he graduated with distinction. His technical arsenal includes proficiency in SQL Server, Oracle, MySQL, Docker, Kubernetes, and numerous scripting languages.",
-    talk_title: "Build and Deploy Dockerize Python Application to Azure Container Instances (ACI) using Azure DevOps",
-    talk_summary: "If you're building Python apps in Docker and want to deploy them to Azure automatically, this session is for you. We’ll walk through how to use Azure DevOps to deploy a containerized Python application to Azure Container Instances (ACI) with no manual intervention. You’ll learn how to streamline your pipeline, avoid common pitfalls, and set up a repeatable, reliable deployment workflow—all using real-world examples.",
-    image: "/speakers/adetokunbo.jpeg"
+    talk_title:
+      "Build and Deploy Dockerize Python Application to Azure Container Instances (ACI) using Azure DevOps",
+    talk_summary:
+      "If you're building Python apps in Docker and want to deploy them to Azure automatically, this session is for you. We’ll walk through how to use Azure DevOps to deploy a containerized Python application to Azure Container Instances (ACI) with no manual intervention. You’ll learn how to streamline your pipeline, avoid common pitfalls, and set up a repeatable, reliable deployment workflow—all using real-world examples.",
+    image: "/speakers/adetokunbo.jpeg",
   },
   {
     id: 2,
@@ -645,9 +649,11 @@ export const SPEAKERS = [
     company: "NimbusStack",
     tag: "speaker",
     bio: "Aiman Parvaiz brings over a decade of hands-on experience in DevOps and cloud infrastructure, primarily across the US & Canada. Having held leadership positions at prominent companies including Fliapagram/TikTok, SHIFT, and MNTN, Aiman has spearheaded cloud transformations, led high-performing DevOps teams, and implemented large-scale infrastructure projects with significant business impact. As the founder of NimbusStack, he now focuses on helping organizations streamline DevOps practices and optimize AWS infrastructure. His impressive portfolio includes over 50 successful DevOps projects that have helped companies save more than $2 million in cloud costs while reducing time to market by 35%.",
-    talk_title: "Driving Cloud Cost Efficiency: Multi-Cloud Strategies and the Culture of Cost-Conscious Engineering",
-    talk_summary: "Multi-cloud sounds great—until the bills roll in. The truth is, no amount of tooling can rein in cloud spend without the right culture behind it. In this talk, we’ll explore why building a culture of cost-awareness across engineering and leadership is the real key to multi-cloud success. You’ll learn how to align DevOps and FinOps, drive better decisions through shared financial accountability, and create an environment where smart cloud usage becomes second nature.",
-    image: "/speakers/aiman.jpeg"
+    talk_title:
+      "Driving Cloud Cost Efficiency: Multi-Cloud Strategies and the Culture of Cost-Conscious Engineering",
+    talk_summary:
+      "Multi-cloud sounds great—until the bills roll in. The truth is, no amount of tooling can rein in cloud spend without the right culture behind it. In this talk, we’ll explore why building a culture of cost-awareness across engineering and leadership is the real key to multi-cloud success. You’ll learn how to align DevOps and FinOps, drive better decisions through shared financial accountability, and create an environment where smart cloud usage becomes second nature.",
+    image: "/speakers/aiman.jpeg",
   },
   {
     id: 3,
@@ -657,8 +663,9 @@ export const SPEAKERS = [
     tag: "speaker",
     bio: "Denis Astahov serves as a Solutions Architect at OpsGuru and was recognized as an AWS Community Hero in 2021. He is the creator behind the ADV-IT YouTube channel, which boasts over 100,000 subscribers, where he shares valuable insights on Cloud and DevOps technologies to help professionals advance their careers in DevOps and Cloud Engineering. Denis holds an impressive collection of 15 cloud certifications, including 12 from AWS, demonstrating his deep expertise and commitment to the field.",
     talk_title: "How to become Cloud/DevOps Engineer from Zero",
-    talk_summary: "Interested in a career in Cloud or DevOps but not sure where to start? In this session, Denis Astahov will break down a practical, step-by-step learning roadmap for going from zero experience to Cloud/DevOps Engineer. We’ll cover which topics to focus on, in what order, and how deep to go at each stage. Whether you’re switching careers or just starting out, you’ll leave with a clear path forward and the confidence to begin your journey.",
-    image: "/speakers/denis.jpg"
+    talk_summary:
+      "Interested in a career in Cloud or DevOps but not sure where to start? In this session, Denis Astahov will break down a practical, step-by-step learning roadmap for going from zero experience to Cloud/DevOps Engineer. We’ll cover which topics to focus on, in what order, and how deep to go at each stage. Whether you’re switching careers or just starting out, you’ll leave with a clear path forward and the confidence to begin your journey.",
+    image: "/speakers/denis.jpg",
   },
   {
     id: 4,
@@ -667,9 +674,11 @@ export const SPEAKERS = [
     company: "Northeastern University",
     tag: "featured",
     bio: "Dr. Ryan Rad is a Professor at Northeastern University's Khoury College of Computer Sciences and an adjunct professor at the University of British Columbia. With over a decade of experience in AI, he combines academic depth with industry expertise, having held research, engineering, and leadership roles at both startups and tech giants like Microsoft. Passionate about education, Dr. Rad has taught courses in Machine Learning, Computer Vision, Generative AI, and Data Science across five universities. His research focuses on leveraging AI for social good, with impactful projects in healthcare, sustainability, and beyond. A respected thought leader, he has delivered more than 50 talks and research papers at prestigious conferences and institutions worldwide.",
-    talk_title: "The State of LLMs: Breakthroughs, Barriers, and the Road Ahead",
-    talk_summary: "Large Language Models (LLMs) are everywhere—from writing code to generating content—but how do they actually work, and where are they headed? This talk explores the most exciting recent advances in LLMs, including improvements in reasoning, efficiency, and adaptability. We’ll also dive into the real challenges they face: bias, hallucinations, ethical concerns, and high compute costs. Finally, we’ll look ahead at what’s next—like retrieval-augmented generation (RAG), multimodal AI, and smarter alignment. By the end of this session, you will have a deeper understanding of the current capabilities of LLMs, the challenges that must be addressed, and the innovations shaping the future of AI. ",
-    image: "/speakers/ryan.JPG"
+    talk_title:
+      "The State of LLMs: Breakthroughs, Barriers, and the Road Ahead",
+    talk_summary:
+      "Large Language Models (LLMs) are everywhere—from writing code to generating content—but how do they actually work, and where are they headed? This talk explores the most exciting recent advances in LLMs, including improvements in reasoning, efficiency, and adaptability. We’ll also dive into the real challenges they face: bias, hallucinations, ethical concerns, and high compute costs. Finally, we’ll look ahead at what’s next—like retrieval-augmented generation (RAG), multimodal AI, and smarter alignment. By the end of this session, you will have a deeper understanding of the current capabilities of LLMs, the challenges that must be addressed, and the innovations shaping the future of AI. ",
+    image: "/speakers/ryan.JPG",
   },
   {
     id: 5,
@@ -679,8 +688,9 @@ export const SPEAKERS = [
     tag: "featured",
     bio: "Eric is a Developer Advocate at AWS, focusing on Serverless technologies. With a background in software development and architecture, he shares his knowledge through speaking engagements and educational initiatives. He combines his technical expertise with an engaging teaching style to help others understand complex concepts.",
     talk_title: "Taking GenAI from Paper to Production with Serverless",
-    talk_summary: "Start your journey into the world of Serverless and GenAI with this foundational session. Through a real-world application example, discover why serverless is the ideal architecture for GenAI workloads, offering superior scalability and cost-effectiveness compared to traditional infrastructure approaches. This practical demonstration will lay the groundwork for understanding how modern AI applications can be built and deployed efficiently using serverless.",
-    image: "/speakers/eric.png"
+    talk_summary:
+      "Start your journey into the world of Serverless and GenAI with this foundational session. Through a real-world application example, discover why serverless is the ideal architecture for GenAI workloads, offering superior scalability and cost-effectiveness compared to traditional infrastructure approaches. This practical demonstration will lay the groundwork for understanding how modern AI applications can be built and deployed efficiently using serverless.",
+    image: "/speakers/eric.png",
   },
   {
     id: 6,
@@ -690,8 +700,9 @@ export const SPEAKERS = [
     tag: "speaker",
     bio: "Farzad Khandan is a futurist, AI/ML architect, and entrepreneur with deep expertise in artificial intelligence, cloud computing, and emerging technologies. Combining a background in software engineering with a Ph.D. in Futures Studies, he has successfully designed and delivered large-scale AI/ML solutions leveraging advanced machine learning, data engineering, and cloud architectures. Farzad has led high-performance teams and launched multiple startups, including Innovimia Technologies, where he develops AI-powered SaaS solutions. He is also the founder of the Future Human Foundation (Fuman.org), a nonprofit dedicated to advancing education in AI, space, and future technologies. Currently, he is developing Hadish Social Assistant, an AI-driven content automation app that empowers users to elevate their social media presence effortlessly.",
     talk_title: "Building your Startups in the Cloud? Dos and Don'ts",
-    talk_summary: "Building a startup in the cloud opens up endless possibilities—but also a fair share of traps. In this session, we’ll walk through the real-world dos and don’ts of launching and scaling a cloud-native startup. You’ll get practical insights on cloud architecture, DevOps automation, cost management, and integrating AI/ML from day one. Whether you’re a founder, engineer, or just startup-curious, this talk will help you build smarter, move faster, and avoid the costly mistakes others have made.",
-    image: "/speakers/farzad.jpeg"
+    talk_summary:
+      "Building a startup in the cloud opens up endless possibilities—but also a fair share of traps. In this session, we’ll walk through the real-world dos and don’ts of launching and scaling a cloud-native startup. You’ll get practical insights on cloud architecture, DevOps automation, cost management, and integrating AI/ML from day one. Whether you’re a founder, engineer, or just startup-curious, this talk will help you build smarter, move faster, and avoid the costly mistakes others have made.",
+    image: "/speakers/farzad.jpeg",
   },
   {
     id: 7,
@@ -701,40 +712,47 @@ export const SPEAKERS = [
     tag: "speaker",
     bio: "Mark is a passionate product marketer with a technical and solution consulting background and 20+ years of experience in enterprise and open source technology. He has launched several database and analytic solutions throughout his career, and has worked with customers across a wide variety of industries including Financial Services, Automotive, Gaming, Hospitality, High-Tech and Healthcare. With an expertise in analytics and AI, Mark loves all things data, and is an emphatic supporter of data-for-good initiatives. ",
     talk_title: "Cloud-to-edge AI and role of the database",
-    talk_summary: "Edge AI is reshaping how we deliver intelligent, low-latency experiences—from mobile apps to IoT and embedded systems. But real-time AI at the edge demands more than just models—it requires a data architecture built for speed, scale, and autonomy. In this session, we’ll explore how Couchbase powers edge AI with a cloud-to-edge database, built-in vector search, and seamless sync between cloud and device. You’ll see how to deploy smarter, faster, and more resilient applications—right where your users are.",
-    image: "/speakers/mark.jpg"
+    talk_summary:
+      "Edge AI is reshaping how we deliver intelligent, low-latency experiences—from mobile apps to IoT and embedded systems. But real-time AI at the edge demands more than just models—it requires a data architecture built for speed, scale, and autonomy. In this session, we’ll explore how Couchbase powers edge AI with a cloud-to-edge database, built-in vector search, and seamless sync between cloud and device. You’ll see how to deploy smarter, faster, and more resilient applications—right where your users are.",
+    image: "/speakers/mark.jpg",
   },
   {
     id: 9,
     name: "Morohito (Moro) Arakaki",
     title: "Business Development Engineer - Cloud",
-    company: 'Fortinet',
+    company: "Fortinet",
     tag: "speaker",
     bio: "Morohito Arakaki is a Business Development Engineer at Fortinet, specializing in cloud technologies. He brings a wealth of technical expertise and strategic insight to help clients adopt secure cloud solutions that drive business growth. With a strong background in both engineering and business development, Morohito collaborates with cross-functional teams to design tailored cloud strategies that meet the evolving needs of organizations. His work focuses on bridging the gap between technical innovation and business goals, ensuring seamless cloud adoption and optimized performance. Morohito is dedicated to enabling businesses to securely scale their operations in the cloud.",
-    talk_title: "From Foundations to Expertise: Elevating Cloud Security with CNAPP ",
-    talk_summary: "Cloud misconfigurations, API exploits, and zero-day attacks are rising threats—even for seasoned teams. This session introduces CNAPP (Cloud-Native Application Protection Platform), a unified approach to securing modern cloud environments. We’ll explore how tools like FortiCNAPP and Lacework help detect hidden risks, protect workloads, and strengthen security posture. You’ll also learn how CSPM, CWPP, and CIEM work together to defend against common cloud pitfalls. Whether you're just starting or scaling in the cloud, this session will give you practical strategies to stay secure at every stage.",
-    image: ""
+    talk_title:
+      "From Foundations to Expertise: Elevating Cloud Security with CNAPP ",
+    talk_summary:
+      "Cloud misconfigurations, API exploits, and zero-day attacks are rising threats—even for seasoned teams. This session introduces CNAPP (Cloud-Native Application Protection Platform), a unified approach to securing modern cloud environments. We’ll explore how tools like FortiCNAPP and Lacework help detect hidden risks, protect workloads, and strengthen security posture. You’ll also learn how CSPM, CWPP, and CIEM work together to defend against common cloud pitfalls. Whether you're just starting or scaling in the cloud, this session will give you practical strategies to stay secure at every stage.",
+    image: "",
   },
   {
     id: 10,
     name: "Niti Jain",
     title: "Lead Software Engineer",
-    company: 'Salesforce',
+    company: "Salesforce",
     tag: "speaker",
     bio: "Niti Jain is a Lead Software Engineer and Scrum Leader at Salesforce with seven years of industry experience. At Salesforce, she specializes in the Identity space, focusing on authorization and authentication at scale. Her technical interests encompass distributed systems, identity, and machine learning. A trailblazing tech leader, Niti combines deep technical expertise with a passionate commitment to community building. She serves on the advisory board for the University of Wisconsin, Madison, and leads the Vancouver hub for AnitaB.org, demonstrating her dedication to advancing diversity in technology.",
-    talk_title: "Scaling Microservices: Mastering Zero-Downtime Data Migration Using Cloudflare",
-    talk_summary: "Migrating data without disruption is a critical challenge in modern systems. In this session, we’ll explore how to execute large-scale, zero-downtime data migrations using strategies like real-time traffic shaping, phased rollouts, and canary deployments—powered by Cloudflare’s edge capabilities. Joining the session is Sarang Gupta, Staff Data Scientist at Asana, who brings over 8 years of experience building enterprise-grade data and ML systems. Together, we’ll share practical insights for designing migration workflows that are scalable, resilient, and seamless for end users.Moving data without downtime is one of the toughest challenges in scaling microservices. In this session, we’ll look at how Cloudflare’s global edge network can help you pull off seamless data migrations with zero user disruption. We’ll cover strategies for real-time traffic shaping, phased rollouts, canary deployments, and global fault tolerance—along with lessons learned from the field. If you’re scaling services or modernizing systems, this talk will give you the tools to migrate with confidence.",
-    image: "/speakers/niti.png"
+    talk_title:
+      "Scaling Microservices: Mastering Zero-Downtime Data Migration Using Cloudflare",
+    talk_summary:
+      "Migrating data without disruption is a critical challenge in modern systems. In this session, we’ll explore how to execute large-scale, zero-downtime data migrations using strategies like real-time traffic shaping, phased rollouts, and canary deployments—powered by Cloudflare’s edge capabilities. Joining the session is Sarang Gupta, Staff Data Scientist at Asana, who brings over 8 years of experience building enterprise-grade data and ML systems. Together, we’ll share practical insights for designing migration workflows that are scalable, resilient, and seamless for end users.Moving data without downtime is one of the toughest challenges in scaling microservices. In this session, we’ll look at how Cloudflare’s global edge network can help you pull off seamless data migrations with zero user disruption. We’ll cover strategies for real-time traffic shaping, phased rollouts, canary deployments, and global fault tolerance—along with lessons learned from the field. If you’re scaling services or modernizing systems, this talk will give you the tools to migrate with confidence.",
+    image: "/speakers/niti.png",
   },
   {
     id: 11,
     name: "Sarang Gupta",
     title: "Staff Data Scientist",
-    company: 'Asana in Vancouver, Canada',
+    company: "Asana in Vancouver, Canada",
     tag: "speaker",
     bio: "Sarang Gupta is a Staff Data Scientist at Asana in Vancouver, Canada, where he serves as a founding data scientist on the Asana's AI team. With over 8 years of experience in machine learning and data science, he has made contributions to enterprise-grade ML applications and academic research. Sarang holds an MS in Data Science from Columbia University and a dual degree (BEng in Industrial Engineering and BBA in Business Management) from the Hong Kong University of Science and Technology (HKUST), where he graduated first in his class. His professional journey includes experience at Goldman Sachs, Hong Kong and research contributions at the Brown Institute for Media Innovation (a collaboration between Stanford and Columbia University).",
-    talk_title: "Scaling Microservices: Mastering Zero-Downtime Data Migration Using Cloudflare",
-    talk_summary: "Migrating data without disruption is a critical challenge in modern systems. In this session, we’ll explore how to execute large-scale, zero-downtime data migrations using strategies like real-time traffic shaping, phased rollouts, and canary deployments—powered by Cloudflare’s edge capabilities. Joining the session is Sarang Gupta, Staff Data Scientist at Asana, who brings over 8 years of experience building enterprise-grade data and ML systems. Together, we’ll share practical insights for designing migration workflows that are scalable, resilient, and seamless for end users.",
-    image: "/speakers/Sarang.png"
-  }
+    talk_title:
+      "Scaling Microservices: Mastering Zero-Downtime Data Migration Using Cloudflare",
+    talk_summary:
+      "Migrating data without disruption is a critical challenge in modern systems. In this session, we’ll explore how to execute large-scale, zero-downtime data migrations using strategies like real-time traffic shaping, phased rollouts, and canary deployments—powered by Cloudflare’s edge capabilities. Joining the session is Sarang Gupta, Staff Data Scientist at Asana, who brings over 8 years of experience building enterprise-grade data and ML systems. Together, we’ll share practical insights for designing migration workflows that are scalable, resilient, and seamless for end users.",
+    image: "/speakers/Sarang.png",
+  },
 ];
