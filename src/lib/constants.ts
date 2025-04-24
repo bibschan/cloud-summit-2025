@@ -743,6 +743,19 @@ export const SPEAKERS = [
     image: "/speakers/niti.png",
   },
   {
+    id: 12,
+    name: "Parice Brandies",
+    title: "Lead Developer ",
+    company: "RONIN",
+    tag: "speaker",
+    bio: "Dr Parice Brandies is the Lead Developer at RONIN. She has a background in research and completed her PhD at the University of Sydney in the field of genomics and bioinformatics. Parice is passionate about the opportunities cloud can bring to all fields and her mission is to help empower institutions around the globe to confidently harness the extraordinary power of the cloud with RONIN.",
+    talk_title:
+      "RONIN: Secure, Self-Service Cloud Without the Chaos",
+    talk_summary:
+      "In the fast-paced world of commercial industries, innovation can’t wait for IT bottlenecks or spiraling cloud costs. RONIN offers a streamlined platform that grants teams secure, self-service access to essential cloud computing resources, all while maintaining cost control and governance. Join us to discover how organizations are accelerating their digital transformation by enabling their teams to harness the power of the cloud—securely, efficiently, and without the usual complexities. ",
+    image: "/speakers/parice.jpg",
+  },
+  {
     id: 11,
     name: "Sarang Gupta",
     title: "Staff Data Scientist",
