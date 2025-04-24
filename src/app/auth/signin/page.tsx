@@ -12,7 +12,9 @@ export default function SignInPage() {
       <div className="container mx-auto px-6 pt-24">
         <div className="flex flex-col gap-8 max-w-md mx-auto">
           <div className="flex flex-col gap-1.5">
-            <h1 className="text-3xl font-bold tracking-tight text-white">Sign In</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-white">
+              Sign In
+            </h1>
             <p className="text-lg text-white/60">
               Choose your preferred sign in method.
             </p>
@@ -42,13 +44,13 @@ function SignInButtons() {
         />
         Sign in with Google
       </Button>
-      <Button
+      {/* <Button
         className="w-full flex items-center justify-center gap-2 bg-white text-black hover:bg-gray-100"
         onClick={() => signIn("github", { callbackUrl: "/vote" })}
       >
         <Github className="w-5 h-5" />
         Sign in with GitHub
-      </Button>
+      </Button> */}
     </div>
   );
 }
