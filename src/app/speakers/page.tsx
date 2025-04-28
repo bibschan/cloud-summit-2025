@@ -60,7 +60,7 @@ export default function SpeakersPage() {
                                     key={speaker.id}
                                     onMouseEnter={() => handleSpeakerHover(speaker.id)}
                                     onMouseLeave={() => handleSpeakerHover(0)}
-                                    className='w-full md:w-1/2 lg:w-[30%]'
+                                    className='w-full md:w-[40%] lg:w-[30%]'
                                 >
                                     <SpeakersCard
                                         speaker={speaker}
