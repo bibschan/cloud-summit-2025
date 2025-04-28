@@ -717,6 +717,18 @@ export const SPEAKERS = [
     image: "/speakers/farzad.jpeg",
   },
   {
+    id: 14,
+    name: "Luca",
+    title: "CEO",
+    company: "Platformatic",
+    tag: "speaker",
+    bio: "",
+    talk_title: "",
+    talk_summary:
+      "",
+    image: "",
+  },
+  {
     id: 7,
     name: "Mark Gamble",
     title: "Director, Product and Solutions Marketing",
