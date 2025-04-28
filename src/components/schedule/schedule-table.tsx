@@ -55,21 +55,9 @@ export function ScheduleTable({
   mode = "schedule",
 }: ScheduleTableProps) {
   const [activeEvent, setActiveEvent] = useState<EventType | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeStage, setActiveStage] = useState("1");
   const isMobile = useMediaQuery("(max-width: 768px)");
 
-  const handleMouseEnter = useCallback((event: EventType) => {
-    setActiveEvent(event);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setActiveEvent(null);
-  }, []);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    setMousePosition({ x: e.clientX, y: e.clientY });
-  }, []);
 
   const handleEventClick = useCallback((event: EventType) => {
     setActiveEvent(event);
@@ -102,7 +90,6 @@ export function ScheduleTable({
   return (
     <div
       className="w-full bg-primary-900 rounded-2xl "
-      onMouseMove={handleMouseMove}
     >
       {/* Mobile toggle */}
       {stages.length > 1 && (
@@ -151,8 +138,6 @@ export function ScheduleTable({
                     "border-b-2 border-primary-900"
                   )}
                   onClick={() => handleEventClick(event)}
-                  onMouseEnter={() => handleMouseEnter(event)}
-                  onMouseLeave={handleMouseLeave}
                 >
                   <td className="text-sm md:text-md py-3 px-4 text-white border-primary-900 border-r-2 ">
                     {event.startTime} - {event.endTime}
@@ -260,8 +245,6 @@ export function ScheduleTable({
                         top: `${position.top}px`,
                         height: `${position.height}px`,
                       }}
-                      onMouseEnter={() => handleMouseEnter(event)}
-                      onMouseLeave={handleMouseLeave}
                       onClick={() => handleEventClick(event)}
                     >
                       {!isBreak && !isShort && (
@@ -288,7 +271,6 @@ export function ScheduleTable({
       {activeEvent && (
         <EventModal
           event={activeEvent}
-          position={mousePosition}
           onClose={handleCloseModal}
           isMobile={isMobile}
         />
