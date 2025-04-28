@@ -192,7 +192,7 @@ export const speakerEvents: EventType[] = [
     endTime: "16:25",
     description: "Speaker To Be Announced.",
     speaker: {
-      speakerId: null,
+      speakerId: [13],
     },
     tags: ["Sponsor", "Technology"],
   },
@@ -216,7 +216,7 @@ export const speakerEvents: EventType[] = [
     endTime: "17:00",
     description: "Speaker To Be Announced.",
     speaker: {
-      speakerId: null,
+      speakerId: [12],
     },
     tags: ["Sponsor", "Technology"],
   },
