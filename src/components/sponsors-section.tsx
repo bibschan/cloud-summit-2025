@@ -42,7 +42,7 @@ const DiamondSponsors: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
     rightPlaceholders.push(null);
   }
   return (
-    <div className="mb-12">
+    <div className="mb-6">
       <Image
         src="/sponsors/diamond.svg"
         alt="word diamond and arrow pointing to diamond sponsors of the 2025 cloud summit"
