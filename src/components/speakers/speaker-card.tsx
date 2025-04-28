@@ -33,7 +33,7 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
 
     const cardStyles = {
         keynote: "flex flex-col items-center text-center max-w-lg mx-auto",
-        list: "flex flex-col items-center text-center max-w-xs min-h-[410px]",
+        list: "flex flex-col items-center text-center max-w-xs min-h-[410px] ",
         selected: "flex flex-col items-center text-center max-w-xs min-h-[410px]",
         focused: "flex flex-col items-center text-center max-w-xs min-h-[410px]",
         alternating: "flex items-center justify-center w-full"
@@ -219,17 +219,17 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
 
     const ClickableWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         if (variant === 'keynote') {
-            return <Link href="/speakers" className="h-full">{children}</Link>;
+            return <Link href="/speakers" className="h-full ">{children}</Link>;
         }
         if (variant === 'list' || variant === 'selected') {
-            return <div onClick={handleCardClick} className="cursor-pointer h-full flex flex-col items-center">{children}</div>;
+            return <div onClick={handleCardClick} className="cursor-pointer h-full flex flex-col items-center ">{children}</div>;
         }
         return <div className="h-full">{children}</div>;
     };
 
     return (
         <ClickableWrapper>
-            <div className={`${cardStyles[variant]} ${className} transition-transform h-full`}>
+            <div className={`${cardStyles[variant]} ${className} transition-transform h-full `}>
                 {renderSpeakerImage(imageSizes[variant], imageContainerStyles[variant])}
                 <div className={`h-1/2 mt-2 flex flex-col ${variant !== 'focused' ? "justify-start md:justify-between" : ""}`}>
                     {getContent()}

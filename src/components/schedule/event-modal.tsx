@@ -137,7 +137,7 @@ export function EventModal({ event, onClose, isMobile }: EventModalProps) {
                   </div>
                 ) : null}
 
-                <div className={`${speakerInfos.length > 0 ? 'md:h-[150px]' : ''} flex-1 flex flex-col justify-evenly md:gap-4 md:ml-4`}>
+                <div className={`${speakerInfos.length > 0 ? 'md:h-[150px]  md:ml-4' : ''} flex-1 flex flex-col justify-evenly md:gap-4`}>
                   <h3 className="font-body text-lg md:text-3xl font-semibold text-gray-100">{displayTitle}</h3>
                   {speakerInfos.length === 1 && (
                     <p className="text-md md:text-xl text-gray-400">{speakerInfos[0].name}</p>
