@@ -65,16 +65,16 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
 
     const nameStyles = {
         keynote: "text-md md:text-xl font-semibold mt-3 text-white",
-        list: "font-body text-lg font-medium mt-2 text-white",
-        selected: "font-body text-lg font-medium mt-2 text-white",
+        list: "font-body text-lg font-semibold mt-2 text-white",
+        selected: "font-body text-lg font-semibold mt-2 text-white",
         focused: "font-body text-lg font-medium mt-2 text-white",
         alternating: "font-body text-xl font-bold text-white"
     };
 
     const titleStyles = {
         keynote: "text-xl",
-        list: "text-lg ",
-        selected: "text-lg",
+        list: "text-md ",
+        selected: "text-md",
         focused: "text-lg",
         alternating: "text-sm"
     };
@@ -151,10 +151,10 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
                         </div>
                     </>
                 );
+                // Speaker Modal is focused case
             case 'focused':
                 return (
                     <>
-                        {talk_title && <div className={talkTitleStyles[variant]}>{talk_title}</div>}
                         <div>
                             <h3 className={nameStyles[variant]}>{name}</h3>
                             <p className={titleStyles[variant]}>{title}, {company}</p>
