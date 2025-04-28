@@ -31,9 +31,16 @@ export const SponsorsSection = () => {
   );
 };
 
-const DiamondSponsors: React.FC<{sponsors: Sponsor[]}> = ({sponsors}) => {
+const DiamondSponsors: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
   if (!sponsors || sponsors.length === 0) return null;
 
+  const totalCols = 4;
+  const placeholdersPerSide = Math.floor((totalCols - sponsors.length) / 2);
+  const rightPlaceholders = placeholdersPerSide > 0 ? Array(placeholdersPerSide).fill(null) : [];
+
+  if ((totalCols - sponsors.length) % 2 !== 0) {
+    rightPlaceholders.push(null);
+  }
   return (
     <div className="mb-12">
       <Image
@@ -49,7 +56,7 @@ const DiamondSponsors: React.FC<{sponsors: Sponsor[]}> = ({sponsors}) => {
             href={sponsor.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="col-span-4 flex items-center justify-center bg-primary-800 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+            className="col-span-2 flex items-center justify-center bg-primary-800 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300"
           >
             <div className="relative w-full" style={{ height: '6rem' }}> {/* Using explicit style height */}
               <Image
@@ -61,16 +68,34 @@ const DiamondSponsors: React.FC<{sponsors: Sponsor[]}> = ({sponsors}) => {
             </div>
           </Link>
         ))}
+        {rightPlaceholders.map((_, index) => (
+          <div
+            key={`right-placeholder-${index}`}
+            className="col-span-2 bg-primary-800 rounded-lg lg:block"
+          ></div>
+        ))}
       </div>
     </div>
   );
 };
 
-const KeySponsors: React.FC<{sponsors: Sponsor[]}> = ({sponsors}) => {
+const KeySponsors: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
   if (!sponsors || sponsors.length === 0) return null;
+  const totalCols = 4;
+  const placeholdersPerSide = Math.floor((totalCols - sponsors.length) / 2);
+  const rightPlaceholders = placeholdersPerSide > 0 ? Array(placeholdersPerSide).fill(null) : [];
 
+  if ((totalCols - sponsors.length) % 2 !== 0) {
+    rightPlaceholders.push(null);
+  }
   return (
     <div className="mb-12">
+      <Image
+        src="/sponsors/diamond.svg"
+        alt="word key and arrow pointing to key sponsors of the 2025 cloud summit"
+        width={180}
+        height={100}
+      />
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {sponsors.map((sponsor, index) => (
           <Link
@@ -90,12 +115,18 @@ const KeySponsors: React.FC<{sponsors: Sponsor[]}> = ({sponsors}) => {
             </div>
           </Link>
         ))}
+               {rightPlaceholders.map((_, index) => (
+          <div
+            key={`right-placeholder-${index}`}
+            className="col-span-2 bg-primary-800 rounded-lg lg:block"
+          ></div>
+        ))}
       </div>
     </div>
   );
 };
 
-const GoldSponsors: React.FC<{sponsors: Sponsor[]}> = ({sponsors}) => {
+const GoldSponsors: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
   if (!sponsors || sponsors.length === 0) return null;
 
   const totalCols = 4;
