@@ -145,7 +145,7 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
                 return (
                     <>
 
-                        <div className='md:min-h-[6em]'>
+                        <div className=''>
                             <h3 className={nameStyles[variant]}>{name}</h3>
                             <p className={titleStyles[variant]}>{title}, {company}</p>
                         </div>

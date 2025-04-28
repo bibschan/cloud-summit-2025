@@ -90,12 +90,17 @@ const KeySponsors: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
   }
   return (
     <div className="mb-12">
-      <Image
-        src="/sponsors/diamond.svg"
-        alt="word key and arrow pointing to key sponsors of the 2025 cloud summit"
-        width={180}
-        height={100}
-      />
+      <div className="flex flex-col items-end">
+        <Image
+          src="/sponsors/key.svg"
+          className="scale-x-[-1] mr-24 lilac-filter"
+          alt="arrow pointing to key sponsors of the 2025 cloud summit"
+          width={90}
+          height={50}
+        />
+        <p className="font-semibold text-3xl">Platinum</p>
+      </div>
+
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {sponsors.map((sponsor, index) => (
           <Link
@@ -115,7 +120,7 @@ const KeySponsors: React.FC<{ sponsors: Sponsor[] }> = ({ sponsors }) => {
             </div>
           </Link>
         ))}
-               {rightPlaceholders.map((_, index) => (
+        {rightPlaceholders.map((_, index) => (
           <div
             key={`right-placeholder-${index}`}
             className="col-span-2 bg-primary-800 rounded-lg lg:block"

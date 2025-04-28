@@ -392,7 +392,7 @@ export const SPONSORS = [
   {
     name: "Platformatic",
     status: "diamond",
-    logo: "/sponsors/platformatic-logo.svg",
+    logo: "/sponsors/platformatic.svg",
     link: "https://docs.platformatic.dev/",
   },
   {
