@@ -640,7 +640,7 @@ export const SPEAKERS = [
       "Build and Deploy Dockerize Python Application to Azure Container Instances (ACI) using Azure DevOps",
     talk_summary:
       "If you're building Python apps in Docker and want to deploy them to Azure automatically, this session is for you. We’ll walk through how to use Azure DevOps to deploy a containerized Python application to Azure Container Instances (ACI) with no manual intervention. You’ll learn how to streamline your pipeline, avoid common pitfalls, and set up a repeatable, reliable deployment workflow—all using real-world examples.",
-    image: "/speakers/adetokunbo.jpeg",
+    image: "/speakers/adetokunbo-cropped.jpeg",
   },
   {
     id: 2,
@@ -654,6 +654,18 @@ export const SPEAKERS = [
     talk_summary:
       "Multi-cloud sounds great—until the bills roll in. The truth is, no amount of tooling can rein in cloud spend without the right culture behind it. In this talk, we’ll explore why building a culture of cost-awareness across engineering and leadership is the real key to multi-cloud success. You’ll learn how to align DevOps and FinOps, drive better decisions through shared financial accountability, and create an environment where smart cloud usage becomes second nature.",
     image: "/speakers/aiman.jpeg",
+  },
+  {
+    id: 13,
+    name: "Brian Clendenin",
+    title: "Enterprise Sales - Strategic",
+    company: "Datadog",
+    tag: "speaker",
+    bio: 'Widely recognized as a powerful speaker intertwining storytelling and expertise, Clendenin writes and speaks on the topics of leadership, cloud, observability, devops, AI, security, mobility, IT strategy, and digital transformation. Invests his time interviewing engaging thought leaders. "We are at one of the most exciting moments in history when it comes to innovation in IT driving innovation in business."',
+    talk_title: "The Business Value of Observability in the Age of AI ",
+    talk_summary:
+      "This is where full-stack observability platforms like Datadog come into play. IT research firms, Gartner and Forrester, have similar viewpoints regarding the operational and financial benefits of standardizing on a single platform. Brian will share his insights into the key business drivers of why many organizations today are looking at full-stack observability platforms to improve their business agility and reduce risk in the age of AI. ",
+    image: "/speakers/brian.jpg",
   },
   {
     id: 3,
@@ -714,7 +726,7 @@ export const SPEAKERS = [
     talk_title: "Cloud-to-edge AI and role of the database",
     talk_summary:
       "Edge AI is reshaping how we deliver intelligent, low-latency experiences—from mobile apps to IoT and embedded systems. But real-time AI at the edge demands more than just models—it requires a data architecture built for speed, scale, and autonomy. In this session, we’ll explore how Couchbase powers edge AI with a cloud-to-edge database, built-in vector search, and seamless sync between cloud and device. You’ll see how to deploy smarter, faster, and more resilient applications—right where your users are.",
-    image: "/speakers/mark.jpg",
+    image: "/speakers/mark-cropped.jpg",
   },
   {
     id: 9,
