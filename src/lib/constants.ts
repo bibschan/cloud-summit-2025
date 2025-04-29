@@ -390,6 +390,18 @@ export const SPONSORS = [
     link: "https://www.fortinet.com/",
   },
   {
+    name: "Platformatic",
+    status: "diamond",
+    logo: "/sponsors/platformatic.svg",
+    link: "https://docs.platformatic.dev/",
+  },
+  {
+    name: "AWS",
+    status: "key",
+    logo: "/cloud-providers/aws-white.svg",
+    link: "https://aws.amazon.com/",
+  },
+  {
     name: "The Upgrade AI",
     status: "gold",
     logo: "/sponsors/the-upgrade.webp",

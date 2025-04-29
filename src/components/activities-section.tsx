@@ -65,7 +65,7 @@ function ActivitiesSection() {
                   className="mx-auto"
                 />
                 <p className="font-bold text-xl md:text-2xl">{feature.title}</p>
-                <p className="md:w-1/2 md:line-clamp-2 text-sm md:text-md">
+                <p className="md:w-1/2  text-sm md:text-md">
                   {feature.details}
                 </p>
               </Link>
@@ -82,7 +82,7 @@ function ActivitiesSection() {
                   className="mx-auto"
                 />
                 <p className="font-bold text-xl md:text-2xl">{feature.title}</p>
-                <p className="md:w-1/2 md:line-clamp-2 text-sm md:text-md">
+                <p className="md:w-1/2 text-sm md:text-md">
                   {feature.details}
                 </p>
               </div>

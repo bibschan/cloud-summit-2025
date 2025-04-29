@@ -144,11 +144,12 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
             case 'selected':
                 return (
                     <>
-                        {talk_title && <div className={talkTitleStyles[variant]}>{talk_title}</div>}
-                        <div>
+
+                        <div className=''>
                             <h3 className={nameStyles[variant]}>{name}</h3>
                             <p className={titleStyles[variant]}>{title}, {company}</p>
                         </div>
+                        {talk_title && <div className={talkTitleStyles[variant]}>{talk_title}</div>}
                     </>
                 );
                 // Speaker Modal is focused case
@@ -231,7 +232,7 @@ const SpeakersCard: React.FC<SpeakersCardProps> = ({
         <ClickableWrapper>
             <div className={`${cardStyles[variant]} ${className} transition-transform h-full `}>
                 {renderSpeakerImage(imageSizes[variant], imageContainerStyles[variant])}
-                <div className={`h-1/2 mt-2 flex flex-col ${variant !== 'focused' ? "justify-start md:justify-between" : ""}`}>
+                <div className={`h-1/2 mt-2 flex flex-col ${variant !== 'focused' ? "justify-start" : ""}`}>
                     {getContent()}
                 </div>
             </div>

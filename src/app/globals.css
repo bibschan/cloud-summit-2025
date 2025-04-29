@@ -127,3 +127,7 @@ html.vote-page body {
     animation-range-end: contain;
   }
 }
+
+.lilac-filter {
+  filter: brightness(0) saturate(100%) invert(84%) sepia(48%) saturate(4995%) hue-rotate(217deg) brightness(102%) contrast(101%);
+}
