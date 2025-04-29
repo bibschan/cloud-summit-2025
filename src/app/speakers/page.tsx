@@ -54,12 +54,13 @@ export default function SpeakersPage() {
                         </div>
                     </section>
                     <section>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="flex flex-wrap justify-center gap-8">
                             {SPEAKERS.map(speaker => (
                                 <div
                                     key={speaker.id}
                                     onMouseEnter={() => handleSpeakerHover(speaker.id)}
                                     onMouseLeave={() => handleSpeakerHover(0)}
+                                    className='w-full md:w-[40%] lg:w-[30%]'
                                 >
                                     <SpeakersCard
                                         speaker={speaker}

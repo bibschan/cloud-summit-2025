@@ -91,8 +91,8 @@ const SpeakerModal: React.FC<SpeakerModalProps> = ({
                         </div>
                         {/* Accordion Section */}
                         <div className='flex-1 p-4'>
-                            <Accordion type="single" collapsible>
-                                <AccordionItem value="talk">
+                            <Accordion type="single" collapsible defaultValue='talk'>
+                                <AccordionItem value="talk" >
                                     <AccordionTrigger className="text-left text-white text-xl font-medium">
                                         <p className="mb-2">{talk_title}</p>
                                     </AccordionTrigger>

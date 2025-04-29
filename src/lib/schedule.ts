@@ -47,7 +47,7 @@ export const speakerEvents: EventType[] = [
     endTime: "12:40",
     description: "Speaker To Be Announced.",
     speaker: {
-      speakerId: null,
+      speakerId: [8],
     },
     tags: ["Web Development", "Cloud"],
   },
@@ -71,7 +71,7 @@ export const speakerEvents: EventType[] = [
     endTime: "13:15",
     description: "Speaker To Be Announced.",
     speaker: {
-      speakerId: null,
+      speakerId: [13],
     },
     tags: ["Sponsor", "Industry Insights"],
   },
@@ -95,7 +95,7 @@ export const speakerEvents: EventType[] = [
     endTime: "13:55",
     description: "Speaker To Be Announced from Platformatic.",
     speaker: {
-      speakerId: null,
+      speakerId: [12],
     },
     tags: ["Sponsor", "Cloud Solutions"],
   },
@@ -187,12 +187,12 @@ export const speakerEvents: EventType[] = [
   {
     id: 14,
     stage: 1,
-    title: "Speaker To Be Announced",
+    title: "Talk to be Announced",
     startTime: "15:55",
     endTime: "16:25",
-    description: "Speaker To Be Announced.",
+    description: "Talk details coming soon.",
     speaker: {
-      speakerId: null,
+      speakerId: [14],
     },
     tags: ["Sponsor", "Technology"],
   },
@@ -209,24 +209,12 @@ export const speakerEvents: EventType[] = [
     tags: ["Break"],
   },
   {
-    id: 16,
-    stage: 1,
-    title: "Speaker To Be Announced",
-    startTime: "16:30",
-    endTime: "17:00",
-    description: "Speaker To Be Announced.",
-    speaker: {
-      speakerId: null,
-    },
-    tags: ["Sponsor", "Technology"],
-  },
-  {
     id: 17,
     stage: 1,
-    title: "Cloud Award & Closing Remarks",
-    startTime: "17:00",
-    endTime: "17:10",
-    description: "Cloud Award & Closing Remarks",
+    title: "Cloud Award, UGM Spotlight, Donation to UGM, Prize Draw, & Closing Remarks",
+    startTime: "16:30",
+    endTime: "17:00",
+    description: "Cloud Award, UGM Spotlight, Donation to UGM, Prize Draw, & Closing Remarks",
     speaker: {
       speakerId: null,
     },
@@ -333,7 +321,7 @@ export const speakerEvents: EventType[] = [
     stage: 2,
     title: "Cloud, AI & the Rise of the Next Billion-Dollar Idea",
     startTime: "14:40",
-    endTime: "15:45",
+    endTime: "15:35",
     description:
       "What separates startups that scale from those that stall? In this panel, top startup execs from Vancouver share how they're leveraging emerging AI and cloud technologies to build smarter, faster, and more defensible companies. We’ll dive into how early cloud architecture decisions shape growth trajectories, which AI tools are reshaping SaaS, and what it really takes to create an edge in today's hyper-competitive tech landscape.",
     speaker: {
@@ -346,8 +334,8 @@ export const speakerEvents: EventType[] = [
     id: 25,
     stage: 2,
     title: "Break",
-    startTime: "15:45",
-    endTime: "15:55",
+    startTime: "15:35",
+    endTime: "15:45",
     description: "Short break to refresh and network with other attendees.",
     speaker: {
       speakerId: null,
@@ -358,8 +346,8 @@ export const speakerEvents: EventType[] = [
     id: 26,
     stage: 2,
     title: "Speaker To Be Announced",
-    startTime: "15:55",
-    endTime: "16:25",
+    startTime: "15:45",
+    endTime: "16:15",
     description: "Speaker To Be Announced.",
     speaker: {
       speakerId: [6],
@@ -370,8 +358,8 @@ export const speakerEvents: EventType[] = [
     id: 27,
     stage: 2,
     title: "Short Break",
-    startTime: "16:25",
-    endTime: "16:30",
+    startTime: "16:15",
+    endTime: "16:20",
     description: "A short break for attendees.",
     speaker: {
       speakerId: null,
@@ -382,8 +370,8 @@ export const speakerEvents: EventType[] = [
     id: 28,
     stage: 2,
     title: "Speaker To Be Announced",
-    startTime: "16:30",
-    endTime: "17:00",
+    startTime: "16:20",
+    endTime: "16:50",
     description: "Speaker To Be Announced.",
     speaker: {
       speakerId: [10, 11],
@@ -394,8 +382,8 @@ export const speakerEvents: EventType[] = [
     id: 29,
     stage: 2,
     title: "Room Transformation",
-    startTime: "17:00",
-    endTime: "17:10",
+    startTime: "16:50",
+    endTime: "17:00",
     description: "Preparing the room for the next segment of the event.",
     speaker: {
       speakerId: null,
@@ -405,8 +393,8 @@ export const speakerEvents: EventType[] = [
   {
     id: 30,
     stage: 2,
-    title: "Networking, Food & Entertainment",
-    startTime: "17:10",
+    title: "Networking & Entertainment",
+    startTime: "17:00",
     endTime: "18:00",
     description:
       "Join us for food, drinks, live music, dancing, and networking. Diamond sponsors will have pop-up booths available.",

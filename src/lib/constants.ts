@@ -640,7 +640,7 @@ export const SPEAKERS = [
       "Build and Deploy Dockerize Python Application to Azure Container Instances (ACI) using Azure DevOps",
     talk_summary:
       "If you're building Python apps in Docker and want to deploy them to Azure automatically, this session is for you. We’ll walk through how to use Azure DevOps to deploy a containerized Python application to Azure Container Instances (ACI) with no manual intervention. You’ll learn how to streamline your pipeline, avoid common pitfalls, and set up a repeatable, reliable deployment workflow—all using real-world examples.",
-    image: "/speakers/adetokunbo.jpeg",
+    image: "/speakers/adetokunbo-cropped.jpeg",
   },
   {
     id: 2,
@@ -654,6 +654,18 @@ export const SPEAKERS = [
     talk_summary:
       "Multi-cloud sounds great—until the bills roll in. The truth is, no amount of tooling can rein in cloud spend without the right culture behind it. In this talk, we’ll explore why building a culture of cost-awareness across engineering and leadership is the real key to multi-cloud success. You’ll learn how to align DevOps and FinOps, drive better decisions through shared financial accountability, and create an environment where smart cloud usage becomes second nature.",
     image: "/speakers/aiman.jpeg",
+  },
+  {
+    id: 13,
+    name: "Brian Clendenin",
+    title: "Enterprise Sales - Strategic",
+    company: "Datadog",
+    tag: "speaker",
+    bio: 'Widely recognized as a powerful speaker intertwining storytelling and expertise, Clendenin writes and speaks on the topics of leadership, cloud, observability, devops, AI, security, mobility, IT strategy, and digital transformation. Invests his time interviewing engaging thought leaders. "We are at one of the most exciting moments in history when it comes to innovation in IT driving innovation in business."',
+    talk_title: "The Business Value of Observability in the Age of AI ",
+    talk_summary:
+      "This is where full-stack observability platforms like Datadog come into play. IT research firms, Gartner and Forrester, have similar viewpoints regarding the operational and financial benefits of standardizing on a single platform. Brian will share his insights into the key business drivers of why many organizations today are looking at full-stack observability platforms to improve their business agility and reduce risk in the age of AI. ",
+    image: "/speakers/brian.jpg",
   },
   {
     id: 3,
@@ -705,6 +717,18 @@ export const SPEAKERS = [
     image: "/speakers/farzad.jpeg",
   },
   {
+    id: 14,
+    name: "Luca",
+    title: "CEO",
+    company: "Platformatic",
+    tag: "speaker",
+    bio: "",
+    talk_title: "",
+    talk_summary:
+      "",
+    image: "",
+  },
+  {
     id: 7,
     name: "Mark Gamble",
     title: "Director, Product and Solutions Marketing",
@@ -714,7 +738,7 @@ export const SPEAKERS = [
     talk_title: "Cloud-to-edge AI and role of the database",
     talk_summary:
       "Edge AI is reshaping how we deliver intelligent, low-latency experiences—from mobile apps to IoT and embedded systems. But real-time AI at the edge demands more than just models—it requires a data architecture built for speed, scale, and autonomy. In this session, we’ll explore how Couchbase powers edge AI with a cloud-to-edge database, built-in vector search, and seamless sync between cloud and device. You’ll see how to deploy smarter, faster, and more resilient applications—right where your users are.",
-    image: "/speakers/mark.jpg",
+    image: "/speakers/mark-cropped.jpg",
   },
   {
     id: 9,
@@ -741,6 +765,19 @@ export const SPEAKERS = [
     talk_summary:
       "Migrating data without disruption is a critical challenge in modern systems. In this session, we’ll explore how to execute large-scale, zero-downtime data migrations using strategies like real-time traffic shaping, phased rollouts, and canary deployments—powered by Cloudflare’s edge capabilities. Joining the session is Sarang Gupta, Staff Data Scientist at Asana, who brings over 8 years of experience building enterprise-grade data and ML systems. Together, we’ll share practical insights for designing migration workflows that are scalable, resilient, and seamless for end users.Moving data without downtime is one of the toughest challenges in scaling microservices. In this session, we’ll look at how Cloudflare’s global edge network can help you pull off seamless data migrations with zero user disruption. We’ll cover strategies for real-time traffic shaping, phased rollouts, canary deployments, and global fault tolerance—along with lessons learned from the field. If you’re scaling services or modernizing systems, this talk will give you the tools to migrate with confidence.",
     image: "/speakers/niti.png",
+  },
+  {
+    id: 12,
+    name: "Parice Brandies",
+    title: "Lead Developer ",
+    company: "RONIN",
+    tag: "speaker",
+    bio: "Dr Parice Brandies is the Lead Developer at RONIN. She has a background in research and completed her PhD at the University of Sydney in the field of genomics and bioinformatics. Parice is passionate about the opportunities cloud can bring to all fields and her mission is to help empower institutions around the globe to confidently harness the extraordinary power of the cloud with RONIN.",
+    talk_title:
+      "RONIN: Secure, Self-Service Cloud Without the Chaos",
+    talk_summary:
+      "In the fast-paced world of commercial industries, innovation can’t wait for IT bottlenecks or spiraling cloud costs. RONIN offers a streamlined platform that grants teams secure, self-service access to essential cloud computing resources, all while maintaining cost control and governance. Join us to discover how organizations are accelerating their digital transformation by enabling their teams to harness the power of the cloud—securely, efficiently, and without the usual complexities. ",
+    image: "/speakers/parice.jpg",
   },
   {
     id: 11,
