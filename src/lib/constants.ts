@@ -392,7 +392,7 @@ export const SPONSORS = [
   {
     name: "Platformatic",
     status: "diamond",
-    logo: "/sponsors/platformatic.svg",
+    logo: "/sponsors/platformatic-approved.svg",
     link: "https://docs.platformatic.dev/",
   },
   {
@@ -730,15 +730,15 @@ export const SPEAKERS = [
   },
   {
     id: 14,
-    name: "Luca",
-    title: "CEO",
+    name: "Luca Maraschi",
+    title: "Co-Founder & CEO",
     company: "Platformatic",
     tag: "speaker",
-    bio: "",
-    talk_title: "",
+    bio: "Luca Maraschi has spent two decades at the frontier of real-time systems, cloud infrastructure, and developer experience. From scaling platforms at Telus Digital and NearForm to founding and exiting multiple startups, he’s built a career turning technical chaos into elegant solutions. Today, as CEO of Platformatic, he’s on a mission to reinvent how developers run backend systems. Luca believes the best technology should feel invisible — simple, fast, and built for real life. ",
+    talk_title: "Scaling Node.js in Kubernetes: Metrics, Memory, and Mastery",
     talk_summary:
-      "",
-    image: "",
+      "Running Node.js in Kubernetes isn’t a simple lift-and-shift — it demands a deep understanding of memory management, event loop behaviour, and production-grade observability. In this session, Luca Maraschi (CEO of Platformatic) and Matteo Collina (Node.js TSC Member and CTO) will dive into the critical metrics you must monitor, how Node.js behaves under Kubernetes orchestration, and the pitfalls that limit scalability. We’ll share hard-earned best practices — and unveil how Platformatic Watt redefines the cloud primitives needed to run Node.js workloads efficiently in modern environments. Stay tuned: we'll reveal one more thing that pushes the boundaries of what cloud primitives can be. ",
+    image: "/speakers/Matteo_Luca_Hoodie.png",
   },
   {
     id: 7,
@@ -751,6 +751,19 @@ export const SPEAKERS = [
     talk_summary:
       "Edge AI is reshaping how we deliver intelligent, low-latency experiences—from mobile apps to IoT and embedded systems. But real-time AI at the edge demands more than just models—it requires a data architecture built for speed, scale, and autonomy. In this session, we’ll explore how Couchbase powers edge AI with a cloud-to-edge database, built-in vector search, and seamless sync between cloud and device. You’ll see how to deploy smarter, faster, and more resilient applications—right where your users are.",
     image: "/speakers/mark-cropped.jpg",
+  },
+
+  {
+    id: 15,
+    name: "Matteo Collina",
+    title: "Co-Founder & CTO",
+    company: "Platformatic",
+    tag: "speaker",
+    bio: "Matteo is co-founder & CTO at Platformatic. With over 15 years of software engineering experience, he's known to author the Fastify web framework, the fast logger Pino, and his contributions to Node.js. Matteo is a member of the Node.js Technical Steering Committee, and is an active Open Source author, with modules he maintains being downloaded over 12 billion times per year.",
+    talk_title: "Scaling Node.js in Kubernetes: Metrics, Memory, and Mastery",
+    talk_summary:
+      "Running Node.js in Kubernetes isn’t a simple lift-and-shift — it demands a deep understanding of memory management, event loop behaviour, and production-grade observability. In this session, Luca Maraschi (CEO of Platformatic) and Matteo Collina (Node.js TSC Member and CTO) will dive into the critical metrics you must monitor, how Node.js behaves under Kubernetes orchestration, and the pitfalls that limit scalability. We’ll share hard-earned best practices — and unveil how Platformatic Watt redefines the cloud primitives needed to run Node.js workloads efficiently in modern environments. Stay tuned: we'll reveal one more thing that pushes the boundaries of what cloud primitives can be. ",
+    image: "/speakers/Matteo_Luca_Hoodie.png",
   },
   {
     id: 9,
@@ -774,8 +787,8 @@ export const SPEAKERS = [
     bio: "Niti Jain is a Lead Software Engineer and Scrum Leader at Salesforce with seven years of industry experience. At Salesforce, she specializes in the Identity space, focusing on authorization and authentication at scale. Her technical interests encompass distributed systems, identity, and machine learning. A trailblazing tech leader, Niti combines deep technical expertise with a passionate commitment to community building. She serves on the advisory board for the University of Wisconsin, Madison, and leads the Vancouver hub for AnitaB.org, demonstrating her dedication to advancing diversity in technology.",
     talk_title:
       "Scaling Microservices: Mastering Zero-Downtime Data Migration Using Cloudflare",
-    talk_summary:
-      "Migrating data without disruption is a critical challenge in modern systems. In this session, we’ll explore how to execute large-scale, zero-downtime data migrations using strategies like real-time traffic shaping, phased rollouts, and canary deployments—powered by Cloudflare’s edge capabilities. Joining the session is Sarang Gupta, Staff Data Scientist at Asana, who brings over 8 years of experience building enterprise-grade data and ML systems. Together, we’ll share practical insights for designing migration workflows that are scalable, resilient, and seamless for end users.Moving data without downtime is one of the toughest challenges in scaling microservices. In this session, we’ll look at how Cloudflare’s global edge network can help you pull off seamless data migrations with zero user disruption. We’ll cover strategies for real-time traffic shaping, phased rollouts, canary deployments, and global fault tolerance—along with lessons learned from the field. If you’re scaling services or modernizing systems, this talk will give you the tools to migrate with confidence.",
+      talk_summary:
+      "Data and traffic migration is a critical yet often overlooked challenge in modern distributed systems — one that can make or break an organization’s technological resilience. In an era where every minute of downtime translates to potential revenue loss, security vulnerabilities, and eroded user trust, the ability to seamlessly transition both data and live service traffic without interruption has become a strategic imperative. This presentation unveils the intricate dance of migrating complex infrastructures — a process that demands surgical precision, advanced architectural patterns, and a deep understanding of distributed systems dynamics. Attendees will explore real-world, phased migration strategies that transform what could be a high-risk, catastrophic transition into a controlled, methodical evolution. Through live migration scenarios, cutting-edge traffic shaping techniques, and actionable implementation insights, this session offers a rare, in-depth look at how top engineering teams execute zero-downtime migrations — balancing data consistency, operational safety, and user trust. For anyone managing mission-critical infrastructure, this session provides a blueprint for scaling and modernizing systems without missing a heartbeat.",
     image: "/speakers/niti.png",
   },
   {
@@ -801,7 +814,8 @@ export const SPEAKERS = [
     talk_title:
       "Scaling Microservices: Mastering Zero-Downtime Data Migration Using Cloudflare",
     talk_summary:
-      "Migrating data without disruption is a critical challenge in modern systems. In this session, we’ll explore how to execute large-scale, zero-downtime data migrations using strategies like real-time traffic shaping, phased rollouts, and canary deployments—powered by Cloudflare’s edge capabilities. Joining the session is Sarang Gupta, Staff Data Scientist at Asana, who brings over 8 years of experience building enterprise-grade data and ML systems. Together, we’ll share practical insights for designing migration workflows that are scalable, resilient, and seamless for end users.",
+      "Data and traffic migration is a critical yet often overlooked challenge in modern distributed systems — one that can make or break an organization’s technological resilience. In an era where every minute of downtime translates to potential revenue loss, security vulnerabilities, and eroded user trust, the ability to seamlessly transition both data and live service traffic without interruption has become a strategic imperative. This presentation unveils the intricate dance of migrating complex infrastructures — a process that demands surgical precision, advanced architectural patterns, and a deep understanding of distributed systems dynamics. Attendees will explore real-world, phased migration strategies that transform what could be a high-risk, catastrophic transition into a controlled, methodical evolution. Through live migration scenarios, cutting-edge traffic shaping techniques, and actionable implementation insights, this session offers a rare, in-depth look at how top engineering teams execute zero-downtime migrations — balancing data consistency, operational safety, and user trust. For anyone managing mission-critical infrastructure, this session provides a blueprint for scaling and modernizing systems without missing a heartbeat.",
     image: "/speakers/Sarang.png",
   },
+
 ];
