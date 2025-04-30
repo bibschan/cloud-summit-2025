@@ -28,8 +28,26 @@ const isActivityEvent = (event: EventType) => {
 
 const getSpeakerInfo = (speakerId: number[] | null): SpeakerType | null => {
   if (!speakerId || !Array.isArray(speakerId) || speakerId.length === 0) return null;
-  return SPEAKERS.find(speaker => speaker.id === speakerId[0]) || null;
+
+  const primarySpeaker = SPEAKERS.find(speaker => speaker.id === speakerId[0]);
+
+  if (!primarySpeaker) return null;
+
+  if (speakerId.length > 1) {
+    const allSpeakers = speakerId
+      .map(id => SPEAKERS.find(speaker => speaker.id === id))
+      .filter(Boolean)
+      .map(speaker => speaker?.name);
+
+    return {
+      ...primarySpeaker,
+      name: allSpeakers.join(" & ")
+    };
+  }
+
+  return primarySpeaker;
 };
+
 
 type ScheduleTableProps = {
   events: EventType[];
@@ -229,6 +247,7 @@ export function ScheduleTable({
                     : (event.speaker?.name
                       ? { id: -1, name: event.speaker.name } as SpeakerType
                       : null);
+
                   const displayTitle = !isBreak && speakerInfo?.talk_title ? speakerInfo.talk_title : event.title;
 
                   return (

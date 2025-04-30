@@ -115,29 +115,60 @@ export function EventModal({ event, onClose, isMobile }: EventModalProps) {
                       </div>
                     ) : (
                       // Multiple speakers display
-                      <div className="flex flex-col sm:flex-row gap-2">
-                        {speakerInfos.map((speaker, index) => (
-                          <div key={speaker.id} className="flex flex-col items-center ">
-                            <div className="relative w-[60px] md:w-[100px] h-[60px] md:h-[100px] rounded-full overflow-hidden flex-shrink-0">
-                              <Image
-                                src={getImageSrc(speaker)}
-                                alt={speaker.name}
-                                fill
-                                className="object-cover object-top z-0"
-                                onError={() => handleImageError(speaker.id)}
-                                priority
-                                sizes="100px"
-                              />
+                      (() => {
+                        // Check if all speakers have the same image path
+                        const firstImagePath = getImageSrc(speakerInfos[0]);
+                        const allSameImage = speakerInfos.every(speaker => getImageSrc(speaker) === firstImagePath);
+
+                        if (allSameImage) {
+                          // If all speakers have the same image, display just one image with combined names
+                          const combinedNames = speakerInfos.map(speaker => speaker.name).join(" & ");
+                          return (
+                            <div className="flex flex-col items-center">
+                              <div className="relative w-[60px] md:w-[150px] h-[60px] md:h-[150px] rounded-full overflow-hidden flex-shrink-0">
+                                <Image
+                                  src={firstImagePath}
+                                  alt={combinedNames}
+                                  fill
+                                  className="object-cover object-top z-0"
+                                  onError={() => handleImageError(speakerInfos[0].id)}
+                                  priority
+                                  sizes="150px"
+                                />
+                              </div>
+                              <p className="text-md text-gray-400 mt-1">{combinedNames}</p>
                             </div>
-                            <p className="text-md text-gray-400 mt-1">{speaker.name}</p>
-                          </div>
-                        ))}
-                      </div>
+                          );
+                        } else {
+                          // If speakers have different images, display them separately
+                          return (
+                            <div className="flex flex-col sm:flex-row gap-2">
+                              {speakerInfos.map((speaker, index) => (
+                                <div key={speaker.id} className="flex flex-col items-center">
+                                  <div className="relative w-[60px] md:w-[100px] h-[60px] md:h-[100px] rounded-full overflow-hidden flex-shrink-0">
+                                    <Image
+                                      src={getImageSrc(speaker)}
+                                      alt={speaker.name}
+                                      fill
+                                      className="object-cover object-top z-0"
+                                      onError={() => handleImageError(speaker.id)}
+                                      priority
+                                      sizes="100px"
+                                    />
+                                  </div>
+                                  <p className="text-md text-gray-400 mt-1">{speaker.name}</p>
+                                </div>
+                              ))}
+                            </div>
+                          );
+                        }
+                      })()
                     )}
                   </div>
                 ) : null}
 
-                <div className={`${speakerInfos.length > 0 ? 'md:min-h-[150px]  md:ml-4' : ''} flex-1 flex flex-col justify-evenly md:gap-4`}>
+
+                < div className={`${speakerInfos.length > 0 ? 'md:min-h-[150px]  md:ml-4' : ''} flex-1 flex flex-col justify-evenly md:gap-4`}>
                   <h3 className="font-body text-lg md:text-3xl font-semibold text-gray-100">{displayTitle}</h3>
                   {speakerInfos.length === 1 && (
                     <p className="text-md md:text-xl text-gray-400">{speakerInfos[0].name}</p>
