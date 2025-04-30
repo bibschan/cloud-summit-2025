@@ -58,8 +58,7 @@ export const HeroSection = () => {
             <a
               href={EVENT_CONFIG.links.tickets}
               className="px-4 h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all font-bold"
-              data-luma-action="checkout"
-              data-luma-event-id="evt-cItbLfgBkf8na4n"
+              target="_blank"
             >
               {ticketMessage}
             </a>

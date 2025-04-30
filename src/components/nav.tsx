@@ -122,8 +122,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
                 <a
                   href={EVENT_CONFIG.links.tickets}
                   className="min-w-[190px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 text-white"
-                  data-luma-action="checkout"
-                  data-luma-event-id="evt-cItbLfgBkf8na4n"
+                  target="_blank"
                 >
                   {ticketMessage}
                 </a>
@@ -145,8 +144,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
           <a
             href={EVENT_CONFIG.links.tickets}
             className="min-w-[190px] h-9 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all"
-            data-luma-action="checkout"
-            data-luma-event-id="evt-cItbLfgBkf8na4n"
+            target="_blank"
           >
             {ticketMessage}
           </a>
@@ -164,15 +162,12 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
     <nav
       className={`
       w-full z-50 text-white
-      ${
-        isSignInPage || isAdminPage || isNominatePage
+      ${isSignInPage || isAdminPage || isNominatePage
           ? "absolute py-4"
-          : `fixed ${
-              showMessage === "visible" ? "top-16" : "top-0"
-            } py-5 transition duration-300 ease-in-out ${
-              !isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""
-            }`
-      }
+          : `fixed ${showMessage === "visible" ? "top-16" : "top-0"
+          } py-5 transition duration-300 ease-in-out ${!isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""
+          }`
+        }
     `}
     >
       {renderNavContent()}
