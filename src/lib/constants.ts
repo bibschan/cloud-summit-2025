@@ -631,7 +631,7 @@ export const teamAreas = [
 export const SPEAKERS = [
   {
     id: 8,
-    name: "Matt Billman",
+    name: "Matt Biilmann",
     title: "CEO and Co-Founder",
     company: "Netlify",
     tag: "keynote",
