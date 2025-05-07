@@ -738,7 +738,7 @@ export const SPEAKERS = [
     talk_title: "Scaling Node.js in Kubernetes: Metrics, Memory, and Mastery",
     talk_summary:
       "Running Node.js in Kubernetes isn’t a simple lift-and-shift — it demands a deep understanding of memory management, event loop behaviour, and production-grade observability. In this session, Luca Maraschi (CEO of Platformatic) and Matteo Collina (Node.js TSC Member and CTO) will dive into the critical metrics you must monitor, how Node.js behaves under Kubernetes orchestration, and the pitfalls that limit scalability. We’ll share hard-earned best practices — and unveil how Platformatic Watt redefines the cloud primitives needed to run Node.js workloads efficiently in modern environments. Stay tuned: we'll reveal one more thing that pushes the boundaries of what cloud primitives can be. ",
-    image: "/speakers/Matteo_Luca_Hoodie.png",
+    image: "/speakers/Luca.png",
   },
   {
     id: 7,
@@ -763,7 +763,7 @@ export const SPEAKERS = [
     talk_title: "Scaling Node.js in Kubernetes: Metrics, Memory, and Mastery",
     talk_summary:
       "Running Node.js in Kubernetes isn’t a simple lift-and-shift — it demands a deep understanding of memory management, event loop behaviour, and production-grade observability. In this session, Luca Maraschi (CEO of Platformatic) and Matteo Collina (Node.js TSC Member and CTO) will dive into the critical metrics you must monitor, how Node.js behaves under Kubernetes orchestration, and the pitfalls that limit scalability. We’ll share hard-earned best practices — and unveil how Platformatic Watt redefines the cloud primitives needed to run Node.js workloads efficiently in modern environments. Stay tuned: we'll reveal one more thing that pushes the boundaries of what cloud primitives can be. ",
-    image: "/speakers/Matteo_Luca_Hoodie.png",
+    image: "/speakers/Matteo.png",
   },
   {
     id: 9,
