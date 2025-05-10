@@ -493,7 +493,7 @@ export const COMMUNITIES = [
     name: "Vancouver AI Community",
     description:
       "Connect with AI enthusiasts, researchers, and practitioners in Vancouver.",
-    url: "https://www.vancouveraimeetup.com/",
+    url: "https://lu.ma/vancouver-ai",
     image: "/communities/vanai.svg",
   },
   {
