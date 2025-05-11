@@ -126,11 +126,11 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
                 >
                   {ticketMessage}
                 </a>
-                <Script
+                {/* <Script
                   id="luma-checkout-mobile"
                   src="https://embed.lu.ma/checkout-button.js"
                   strategy="lazyOnload"
-                />
+                /> */}
               </div>
             </div>
           </div>
@@ -148,11 +148,11 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
           >
             {ticketMessage}
           </a>
-          <Script
+          {/* <Script
             id="luma-checkout-desktop"
             src="https://embed.lu.ma/checkout-button.js"
             strategy="lazyOnload"
-          />
+          /> */}
         </div>
       </div>
     );
