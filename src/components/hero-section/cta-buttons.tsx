@@ -20,11 +20,11 @@ export const CTAButtons = () => {
         Get Tickets
       </a>
 
-      <Script
+      {/* <Script
         id="luma-checkout"
         src="https://embed.lu.ma/checkout-button.js"
         strategy="lazyOnload"
-      />
+      /> */}
 
       <Button
         size="lg"
@@ -36,4 +36,4 @@ export const CTAButtons = () => {
       </Button>
     </div>
   );
-}; 
+};

@@ -62,12 +62,12 @@ export const HeroSection = () => {
             >
               {ticketMessage}
             </a>
-
+{/*
             <Script
               id="luma-checkout"
               src="https://embed.lu.ma/checkout-button.js"
               strategy="lazyOnload"
-            />
+            /> */}
 
             <Button
               size="lg"
