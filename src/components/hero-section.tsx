@@ -12,7 +12,7 @@ export const HeroSection = () => {
   const today = new Date();
   const earlyBirdDeadline = new Date("2025-05-14T00:00:00");
   const ticketMessage =
-    today < earlyBirdDeadline ? "Get Early-Bird Tickets!" : "Get your tickets!";
+    today < earlyBirdDeadline ? "Get Your Tickets!" : "Get Your Tickets!";
 
   const openVolunteersLink = () => {
     window.open(EVENT_CONFIG.links.volunteers, "_blank");
@@ -62,7 +62,7 @@ export const HeroSection = () => {
             >
               {ticketMessage}
             </a>
-{/*
+            {/*
             <Script
               id="luma-checkout"
               src="https://embed.lu.ma/checkout-button.js"

@@ -31,7 +31,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
   const today = new Date();
   const earlyBirdDeadline = new Date("2025-05-14T00:00:00");
   const ticketMessage =
-    today < earlyBirdDeadline ? "Get Early-Bird Tickets!" : "Get your tickets!";
+    today < earlyBirdDeadline ? "Get Your Tickets!" : "Get Your Tickets!";
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -162,12 +162,15 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
     <nav
       className={`
       w-full z-50 text-white
-      ${isSignInPage || isAdminPage || isNominatePage
+      ${
+        isSignInPage || isAdminPage || isNominatePage
           ? "absolute py-4"
-          : `fixed ${showMessage === "visible" ? "top-16" : "top-0"
-          } py-5 transition duration-300 ease-in-out ${!isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""
-          }`
-        }
+          : `fixed ${
+              showMessage === "visible" ? "top-16" : "top-0"
+            } py-5 transition duration-300 ease-in-out ${
+              !isAtTop ? "bg-black/50 backdrop-blur-md shadow-xl" : ""
+            }`
+      }
     `}
     >
       {renderNavContent()}
