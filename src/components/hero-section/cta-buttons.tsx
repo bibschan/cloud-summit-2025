@@ -14,17 +14,17 @@ export const CTAButtons = () => {
       <a
         href={EVENT_CONFIG.links.tickets}
         className="min-w-[200px] h-11 flex justify-center items-center rounded-md bg-gradient-to-r from-green-900 to-green-500 font-bold"
-        data-luma-action="checkout"
-        data-luma-event-id="evt-cItbLfgBkf8na4n"
+        // data-luma-action="checkout"
+        // data-luma-event-id="evt-cItbLfgBkf8na4n"
       >
         Get Tickets
       </a>
 
-      <Script
+      {/* <Script
         id="luma-checkout"
         src="https://embed.lu.ma/checkout-button.js"
         strategy="lazyOnload"
-      />
+      /> */}
 
       <Button
         size="lg"
@@ -36,4 +36,4 @@ export const CTAButtons = () => {
       </Button>
     </div>
   );
-}; 
+};

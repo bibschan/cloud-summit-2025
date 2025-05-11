@@ -498,13 +498,78 @@ export const COMMUNITIES = [
   },
   {
     id: 6,
-    name: "Google Developer Group",
+    name: "Google developer group Surrey",
     description:
       "A diverse and inclusive tech community where everyone, regardless of their experience level, feels empowered to learn, share, and grow.",
     url: "https://gdg.community.dev/gdg-surrey/",
     image: "/communities/gdg.svg",
   },
+  {
+    id: 7,
+    name: "Linux User Group",
+    description:
+      "Vancouver Linux community sharing knowledge and promoting open-source technologies.",
+    url: "https://vanlug.ca/",
+    image: "",
+  },
+  {
+    id: 8,
+    name: "VanRuby Group",
+    description:
+      "A community of Ruby and Rails developers in Vancouver hosting regular meetups and talks.",
+    url: "https://vanruby.ca/",
+    image: "/communities/van_ruby_logo.svg",
+  },
+  {
+    id: 9,
+    name: "ISACA Vancouver Chapter",
+    description:
+      "The Vancouver chapter of ISACA, focusing on IT governance, risk management, cybersecurity, and audit professionals.",
+    url: "https://engage.isaca.org/vancouverchapter/home",
+    image: "/communities/isaca.png",
+  },
+  {
+    id: 10,
+    name: "Vancouver PyLadies",
+    description:
+      "An international mentorship group with a Vancouver chapter focused on helping more women become active Python participants.",
+    url: "https://vancouver.pyladies.com/",
+    image: "/communities/pyladiesvancouver.png",
+  },
+  {
+    id: 11,
+    name: "PM Hive",
+    description:
+      "A Vancouver-based community for project and product managers to connect, learn, and grow.",
+    url: "https://linktr.ee/pmhive",
+    image: "/communities/pmhive.webp",
+  },
+  {
+    id: 12,
+    name: "Vancouver Tech Week",
+    description:
+      "An annual week-long celebration of Vancouver’s vibrant tech community featuring events, panels, and networking.",
+    url: "https://lu.ma/vantechweek",
+    image: "/communities/van-tech-week.avif",
+  },
+  {
+    id: 13,
+    name: "VAM! Vancouver AI Meetup",
+    description:
+      "A meetup for AI practitioners and enthusiasts in Vancouver focused on practical and emerging applications of AI.",
+    url: "https://vam-nexus.github.io/vam/",
+    image: "/communities/vam.jpeg",
+  },
+  {
+    id: 14,
+    name: "Google developer group Vancouver",
+    description:
+      "An inclusive developer community in Vancouver supported by Google Developers, organizing talks, codelabs, and events.",
+    url: "https://lu.ma/GDGvancouver",
+    image: "/communities/gdg-van.avif",
+  },
 ];
+
 export const teamAreas = [
   {
     target: "_blank",
