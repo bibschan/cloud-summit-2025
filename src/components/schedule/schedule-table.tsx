@@ -14,6 +14,7 @@ const timeToMinutes = (time: string) => {
   const [hours, minutes] = time.split(":").map(Number);
   return hours * 60 + minutes;
 };
+
 const firstSlotMinutes = timeToMinutes(timeSlots[0]);
 
 const isShortTalk = (startTime: string, endTime: string) => {
@@ -28,26 +29,20 @@ const isActivityEvent = (event: EventType) => {
 
 const getSpeakerInfo = (speakerId: number[] | null): SpeakerType | null => {
   if (!speakerId || !Array.isArray(speakerId) || speakerId.length === 0) return null;
-
   const primarySpeaker = SPEAKERS.find(speaker => speaker.id === speakerId[0]);
-
   if (!primarySpeaker) return null;
-
   if (speakerId.length > 1) {
     const allSpeakers = speakerId
       .map(id => SPEAKERS.find(speaker => speaker.id === id))
       .filter(Boolean)
       .map(speaker => speaker?.name);
-
     return {
       ...primarySpeaker,
       name: allSpeakers.join(" & ")
     };
   }
-
   return primarySpeaker;
 };
-
 
 type ScheduleTableProps = {
   events: EventType[];
@@ -76,7 +71,6 @@ export function ScheduleTable({
   const [activeStage, setActiveStage] = useState("1");
   const isMobile = useMediaQuery("(max-width: 768px)");
 
-
   const handleEventClick = useCallback((event: EventType) => {
     setActiveEvent(event);
   }, []);
@@ -93,7 +87,6 @@ export function ScheduleTable({
     const top = (minutesSinceStart / 60) * TIME_SLOT_HEIGHT + 70;
     const rawHeight = (duration / 60) * TIME_SLOT_HEIGHT;
     const gapAdjustment = index > 0 ? EVENT_GAP : 0;
-
     return {
       ...event,
       top: top + gapAdjustment,
@@ -102,8 +95,10 @@ export function ScheduleTable({
   };
 
   const isSingleColumn = mode === "workshops" || stages.length === 1;
-  const activityEvents = events.filter((event) => isActivityEvent(event));
+  const activityEvents = events.filter((event) => isActivityEvent(event) && !event.isFullWidth);
   const regularEvents = events.filter((event) => !isActivityEvent(event));
+  const fullWidthEvents = events.filter((event) => event.isFullWidth);
+  console.log("Full width events:", fullWidthEvents);
 
   return (
     <div
@@ -133,6 +128,7 @@ export function ScheduleTable({
           </Tabs>
         </div>
       )}
+
       {mode === "workshops" && activityEvents.length > 0 && (
         <div className=" overflow-hidden bg-primary-800 w-fit  mx-auto">
           <table className=" w-auto border-collapse ">
@@ -172,7 +168,6 @@ export function ScheduleTable({
         </div>
       )}
 
-      {/* Regular timed events section */}
       {(mode === "schedule" || regularEvents.length > 0) && (
         <div
           className={cn(
@@ -247,7 +242,6 @@ export function ScheduleTable({
                     : (event.speaker?.name
                       ? { id: -1, name: event.speaker.name } as SpeakerType
                       : null);
-
                   const displayTitle = !isBreak && speakerInfo?.talk_title ? speakerInfo.talk_title : event.title;
 
                   return (
@@ -287,6 +281,70 @@ export function ScheduleTable({
           })}
         </div>
       )}
+
+      {fullWidthEvents.length > 0 && (
+        <div className="mt-8 overflow-hidden bg-primary-800 w-full mx-auto">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="border-b-2 border-primary-900">
+                <th className="py-3 px-4 text-left text-pale-gold font-medium w-1/4 border-primary-900 border-r-2">
+                  Time
+                </th>
+                <th className="py-3 px-4 text-left text-pale-gold font-medium w-3/4">
+                  After Party
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {fullWidthEvents.map((event) => (
+                <tr
+                  key={event.id}
+                  className="cursor-pointer hover:bg-primary-700 transition-colors text-left border-b-2 border-primary-900"
+                >
+                  <td className="text-sm md:text-md py-3 px-4 text-white border-primary-900 border-r-2">
+                    {event.startTime} - {event.endTime}
+                  </td>
+                  <td className="py-3 px-4">
+                    <a
+                      href={event.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <h3 className="font-body font-bold text-white flex items-center">
+                        {event.title}
+                        <span className="ml-2 text-pale-gold text-sm flex items-center">
+                          (Click to RSVP)
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4 ml-1"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        </span>
+                      </h3>
+                      <p className="text-sm md:text-md text-gray-300 whitespace-pre-line">
+                        {event.description.split('\n').map((line, i) => (
+                          <span key={i} className="block">{line}</span>
+                        ))}
+                      </p>
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
       {activeEvent && (
         <EventModal
           event={activeEvent}
