@@ -24,10 +24,7 @@ export type EventType = {
     photo?: string;
   };
   tags: string[];
-<<<<<<< HEAD
   isFullWidth?: boolean;
-=======
->>>>>>> main
   link?: string;
 };
 
