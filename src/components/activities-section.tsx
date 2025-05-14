@@ -4,12 +4,8 @@ import { useRef, useEffect } from "react";
 import { EVENT_CONFIG } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
-
-type EventFeature = {
-  icon: string;
-  title: string;
-  details: string;
-};
+import { ExternalLink } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 function ActivitiesSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -20,7 +16,6 @@ function ActivitiesSection() {
       video.pause();
       video.currentTime = 0;
     }
-
     return () => {
       if (video) {
         video.pause();
@@ -28,6 +23,43 @@ function ActivitiesSection() {
       }
     };
   }, []);
+
+  const isExternalLink = (url: string) => {
+    return url && (url.startsWith("http://") || url.startsWith("https://"));
+  };
+
+  // Function to split text and make "register now" clickable
+  const renderDetailsWithClickableRegister = (details: string, link: string) => {
+    if (!details.toLowerCase().includes("register now") || !link) {
+      return details;
+    }
+
+    const parts = details.split(/(register now)/i);
+    const external = isExternalLink(link);
+
+    return (
+      <>
+        {parts.map((part, i) => {
+          if (part.toLowerCase() === "register now") {
+            return (
+              <Link
+                key={i}
+                href={link}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
+                className="text-blue-400 underline hover:text-blue-300 inline-flex items-center"
+              >
+                {part}
+                {external && <ExternalLink size={14} className="ml-1" />}
+              </Link>
+            );
+          }
+          return <span key={i}>{part}</span>;
+        })}
+      </>
+    );
+  };
+
   return (
     <section className="py-20 bg-[#1B221D]">
       <div className="max-w-[1100px] mx-auto px-4 pb-12">
@@ -48,8 +80,8 @@ function ActivitiesSection() {
           />
           <p className="text-sm">Video trailer</p>
         </div>
-
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:px-16">
+
           {EVENT_CONFIG.sections.eventFeatures.activities.map((feature, index) => (
             feature.link ? (
               <Link
@@ -65,9 +97,9 @@ function ActivitiesSection() {
                   className="mx-auto"
                 />
                 <p className="font-bold text-xl md:text-2xl">{feature.title}</p>
-                <p className="md:w-1/2  text-sm md:text-md">
-                  {feature.details}
-                </p>
+              <p className="md:w-1/2 text-sm md:text-md">
+                {renderDetailsWithClickableRegister(feature.details, feature.link || "")}
+              </p>
               </Link>
             ) : (
               <div

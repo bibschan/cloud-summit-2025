@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -72,8 +73,17 @@ export function ScheduleTable({
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   const handleEventClick = useCallback((event: EventType) => {
-    setActiveEvent(event);
-  }, []);
+    // If the event has a link and we're in workshops mode, open the link in a new tab
+    if (mode === "workshops" && event.link) {
+      window.open(event.link, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    // Only open modal for non-workshop events
+    if (mode !== "workshops") {
+      setActiveEvent(event);
+    }
+  }, [mode]);
 
   const handleCloseModal = useCallback(() => {
     setActiveEvent(null);
@@ -130,7 +140,7 @@ export function ScheduleTable({
       )}
 
       {mode === "workshops" && activityEvents.length > 0 && (
-        <div className=" overflow-hidden bg-primary-800 w-fit  mx-auto">
+        <div className=" overflow-hidden bg-primary-800 w-fit md:w-[30rem]  mx-auto">
           <table className=" w-auto border-collapse ">
             <thead>
               <tr className="border-b-2 border-primary-900">
@@ -147,18 +157,24 @@ export function ScheduleTable({
                 <tr
                   key={event.id}
                   className={cn(
-                    "cursor-pointer hover:bg-primary-700 transition-colors text-left",
+                    "cursor-pointer transition-colors text-left",
                     index !== activityEvents.length - 1 &&
-                    "border-b-2 border-primary-900"
+                    "border-b-2 border-primary-900",
+                    event.link && "text-lemon-lime"
                   )}
                   onClick={() => handleEventClick(event)}
                 >
-                  <td className="text-sm md:text-md py-3 px-4 text-white border-primary-900 border-r-2 ">
+                  <td className="text-sm md:text-md py-3 px-4 text-white border-primary-900 border-r-2 min-w-[50px] ">
                     {event.startTime} - {event.endTime}
                   </td>
                   <td className="py-3 px-4">
-                    <h3 className="font-body font-bold text-white">
+                    <h3 className={cn("font-body font-bold", event.link ? "text-lemon-lime" : "text-white")}>
                       {event.title}
+                      {event.link && (
+                        <span className="ml-2 text-xs">
+                          (Click to open)
+                        </span>
+                      )}
                     </h3>
                   </td>
                 </tr>
@@ -168,6 +184,7 @@ export function ScheduleTable({
         </div>
       )}
 
+      {/* Regular timed events section */}
       {(mode === "schedule" || regularEvents.length > 0) && (
         <div
           className={cn(
@@ -189,7 +206,6 @@ export function ScheduleTable({
               </div>
             ))}
           </div>
-
           {stages.length > 0 && (
             <div
               className={cn(
@@ -212,7 +228,6 @@ export function ScheduleTable({
               ))}
             </div>
           )}
-
           {stages.map((stage, stageIndex) => {
             const stageEvents = regularEvents
               .filter((event) => event.stage === stage.id)
@@ -220,7 +235,6 @@ export function ScheduleTable({
                 (a, b) =>
                   timeToMinutes(a.startTime) - timeToMinutes(b.startTime)
               );
-
             return (
               <div
                 key={stage.id}
@@ -243,7 +257,6 @@ export function ScheduleTable({
                       ? { id: -1, name: event.speaker.name } as SpeakerType
                       : null);
                   const displayTitle = !isBreak && speakerInfo?.talk_title ? speakerInfo.talk_title : event.title;
-
                   return (
                     <div
                       key={event.id}
@@ -252,7 +265,8 @@ export function ScheduleTable({
                         "transition-colors duration-200",
                         isBreak
                           ? "bg-secondary-500 text-white"
-                          : "bg-primary-800"
+                          : "bg-primary-800",
+                        event.link && "border-2 border-lemon-lime"
                       )}
                       style={{
                         top: `${position.top}px`,
@@ -265,8 +279,16 @@ export function ScheduleTable({
                           {event.startTime} - {event.endTime}
                         </p>
                       )}
-                      <h3 className="font-body font-bold text-md md:text-xl text-center text-white break-words line-clamp-2 overflow-ellipsis">
+                      <h3 className={cn(
+                        "font-body font-bold text-md md:text-xl text-center break-words line-clamp-2 overflow-ellipsis",
+                        event.link ? "text-lemon-lime" : "text-white"
+                      )}>
                         {displayTitle}
+                        {event.link && mode === "workshops" && (
+                          <span className="block text-xs">
+                            (Click to open)
+                          </span>
+                        )}
                       </h3>
                       {!isBreak && speakerInfo && (
                         <p className="text-sm md:text-md text-center text-lemon-lime">
