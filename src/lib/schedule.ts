@@ -414,14 +414,14 @@ export const speakerEvents: EventType[] = [
     startTime: "18:30",
     endTime: "20:00",
     description:
-      "🕡 Starts: 6:30 PM, following the main event\n📍 Location: 12-minute walk from the Orpheum Theatre\n🎟️ Entry: Free for Cloud Summit pass holders; $30 for guests\n🔗 RSVP: Required for all attendees, including pass holders (RSVP Link Coming soon)",
+      "🕡 Starts: 6:30 PM, following the main event\n📍 Location: 12-minute walk from the Orpheum Theatre\n🎟️ Entry: Free for Cloud Summit pass holders; $30 for General Public\n🔗 RSVP: Required for all attendees, including pass holders (RSVP Link Coming soon)",
     speaker: {
       speakerId: null,
       name: "RSVP Required",
     },
     tags: ["Activities", "After Party", "Networking"],
     isFullWidth: true,
-    link: ''
+    link: 'https://www.eventbrite.com/e/cloud-summit-2025-after-party-at-vesper-lounge-tickets-1365026253269'
   },
 ];
 
