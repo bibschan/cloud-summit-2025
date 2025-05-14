@@ -414,7 +414,7 @@ export const speakerEvents: EventType[] = [
     startTime: "18:30",
     endTime: "20:00",
     description:
-      "🕡 Starts: 6:30 PM, following the main event\n📍 Location: 12-minute walk from the Orpheum Theatre\n🎟️ Entry: Free for Cloud Summit pass holders; $30 for General Public\n🔗 RSVP: Required for all attendees, including pass holders (RSVP Link Coming soon)",
+      "🕡 Starts: 6:30 PM, following the main event\n📍 Location: Vesper Lounge, 12-minute walk from the Orpheum Theatre\n🎟️ Entry: Free for Cloud Summit pass holders; $30 for General Public \n🔗 RSVP: Required for all attendees, including pass holders",
     speaker: {
       speakerId: null,
       name: "RSVP Required",

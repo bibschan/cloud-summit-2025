@@ -171,7 +171,7 @@ export function ScheduleTable({
                     <h3 className={cn("font-body font-bold", event.link ? "text-lemon-lime" : "text-white")}>
                       {event.title}
                       {event.link && (
-                        <span className="ml-2 text-xs">
+                        <span className="ml-2 text-xs hover:underline">
                           (Click to open)
                         </span>
                       )}
@@ -335,7 +335,7 @@ export function ScheduleTable({
                     >
                       <h3 className="font-body font-bold text-white flex items-center">
                         {event.title}
-                        <span className="ml-2 text-pale-gold text-sm flex items-center">
+                        <span className="ml-2 text-pale-gold text-sm flex items-center hover:underline">
                           (Click to RSVP)
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
