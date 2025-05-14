@@ -23,6 +23,7 @@ export type EventType = {
     name?: string | null;
   };
   tags: string[];
+  link?: string;
 };
 
 export const timeSlots = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
@@ -466,6 +467,22 @@ export const workshopEvents = [
       photo: "",
     },
     tags: ["Activities", "Web Development", "Cloud"],
+  },
+  {
+    id: 8,
+    stage: 3,
+    title: "AWS Workshop Registraction",
+    startTime: "12:45",
+    endTime: "14:45",
+    description:
+      "The workshop will be held at Cloud Summit 2025. Please secure your event ticket to participate in this workshop. For more information and registration, visit cloudsummit.ca.* Join AWS experts to explore AI agents and autonomous workflow development using LLMs. Experience hands-on training in building intelligent virtual assistants using AWS Bedrock, implement Tool Use patterns, and orchestrate complex tasks with Step Functions. Learn essential agent architectures and best practices for choosing the right solution for your needs.",
+    speaker: {
+      speakerId: null,
+      name: "TBA",
+      photo: "",
+    },
+    tags: ["Activities", "Web Development", "Cloud"],
+    link: "https://aws-experience.com/amer/smb/e/c96fe/workshop-building-serverless-agentic-workflows-on-aws"
   },
   {
     id: 5,
