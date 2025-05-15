@@ -306,7 +306,7 @@ export function ScheduleTable({
       )}
 
       {fullWidthEvents.length > 0 && (
-        <div className="mt-8 overflow-hidden  bg-black/70 w-full mx-auto ">
+        <div className="mt-8 overflow-hidden  bg-black/80 w-full mx-auto ">
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b-2 border-primary-900">
@@ -322,7 +322,7 @@ export function ScheduleTable({
               {fullWidthEvents.map((event) => (
                 <tr
                   key={event.id}
-                  className="cursor-pointer hover:bg-primary-700 transition-colors text-left border-b-2 border-primary-900 "
+                  className="cursor-pointer hover:bg-black transition-colors text-left border-b-2 border-primary-900 "
                 >
                   <td className="text-sm md:text-md py-3 px-4 text-white border-primary-900 border-r-2 ">
                     {event.startTime} - {event.endTime}
