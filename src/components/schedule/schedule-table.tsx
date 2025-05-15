@@ -306,14 +306,14 @@ export function ScheduleTable({
       )}
 
       {fullWidthEvents.length > 0 && (
-        <div className="mt-8 overflow-hidden  bg-black w-full mx-auto ">
+        <div className="mt-8 overflow-hidden  bg-black/70 w-full mx-auto ">
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b-2 border-primary-900">
-                <th className="py-3 px-4 text-left text-pale-gold font-medium w-1/4 border-primary-900 border-r-2">
+                <th className="py-3 px-4 text-left text-white font-semibold w-1/4 border-primary-900 border-r-2">
                   Time
                 </th>
-                <th className="py-3 px-4 text-left text-pale-gold font-medium w-3/4">
+                <th className="py-3 px-4 text-left text-white font-semibold w-3/4">
                   After Party
                 </th>
               </tr>
@@ -336,7 +336,7 @@ export function ScheduleTable({
                     >
                       <h3 className="font-body font-bold text-white flex items-center">
                         {event.title}
-                        <span className="ml-2 text-pale-gold text-sm flex items-center hover:underline">
+                        <span className="ml-2 text-secondary-600 text-sm flex items-center hover:underline">
                           (Click to RSVP)
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
