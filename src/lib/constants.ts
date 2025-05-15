@@ -395,6 +395,12 @@ export const SPONSORS = [
     logo: "/sponsors/platformatic-approved.svg",
     link: "https://docs.platformatic.dev/",
   },
+    {
+    name: "BC + AI",
+    status: "diamond",
+    logo: "/sponsors/bcai.jpg",
+    link: "https://kriskrug.notion.site/BC-AI-179c6f799a3380e2b741e8ecb00f94e7",
+  },
   {
     name: "AWS",
     status: "key",
@@ -419,6 +425,19 @@ export const SPONSORS = [
     logo: "/sponsors/elastic.svg",
     link: "https://www.elastic.co/",
   },
+    {
+    name: "Internet Masterminds",
+    status: "gold",
+    logo: "/sponsors/imblack.png",
+    link: "https://internetmasterminds.org/",
+  },
+    {
+    name: "Vesper Lounge",
+    status: "gold",
+    logo: "/sponsors/vesper.avif",
+    link: "https://vesperlounge.ca/",
+  },
+
 ];
 
 export const MEDIA_CONFIG = {
