@@ -7,6 +7,7 @@ import { EventModal } from "./event-modal";
 import { timeSlots, type EventType } from "@/lib/schedule";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { SPEAKERS } from "@/lib/constants";
+import Image from "next/image";
 
 const TIME_SLOT_HEIGHT = 250;
 const EVENT_GAP = 2;
@@ -305,7 +306,7 @@ export function ScheduleTable({
       )}
 
       {fullWidthEvents.length > 0 && (
-        <div className="mt-8 overflow-hidden bg-primary-800 w-full mx-auto">
+        <div className="mt-8 overflow-hidden  bg-black w-full mx-auto ">
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b-2 border-primary-900">
@@ -321,9 +322,9 @@ export function ScheduleTable({
               {fullWidthEvents.map((event) => (
                 <tr
                   key={event.id}
-                  className="cursor-pointer hover:bg-primary-700 transition-colors text-left border-b-2 border-primary-900"
+                  className="cursor-pointer hover:bg-primary-700 transition-colors text-left border-b-2 border-primary-900 "
                 >
-                  <td className="text-sm md:text-md py-3 px-4 text-white border-primary-900 border-r-2">
+                  <td className="text-sm md:text-md py-3 px-4 text-white border-primary-900 border-r-2 ">
                     {event.startTime} - {event.endTime}
                   </td>
                   <td className="py-3 px-4">
@@ -331,7 +332,7 @@ export function ScheduleTable({
                       href={event.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block"
+                      className="block space-y-1"
                     >
                       <h3 className="font-body font-bold text-white flex items-center">
                         {event.title}
@@ -353,11 +354,27 @@ export function ScheduleTable({
                           </svg>
                         </span>
                       </h3>
-                      <p className="text-sm md:text-md text-gray-300 whitespace-pre-line">
+                      <p className="text-sm md:text-md text-gray-300 whitespace-pre-line ">
                         {event.description.split('\n').map((line, i) => (
-                          <span key={i} className="block">{line}</span>
+                          <span key={i} className="block mb-2">{line}</span>
                         ))}
                       </p>
+                      <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+                        <Image
+                          src="/sponsors/vesper.avif"
+                          alt="Two men looking at ipad"
+                          width={600}
+                          height={600}
+                          className="w-1/2 h-auto md:w-1/5 object-cover"
+                        />
+                        <Image
+                          src="/sponsors/imblack.png"
+                          alt="Two men looking at ipad"
+                          width={600}
+                          height={600}
+                          className="w-1/2 h-1/2 object-cover" />
+                      </div>
+
                     </a>
                   </td>
                 </tr>
