@@ -6,7 +6,6 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { GoogleTagManager } from "@next/third-parties/google";
 import { Providers } from "@/components/providers";
 import { Toaster } from "sonner";
 import Nav from "@/components/nav";
@@ -80,7 +79,6 @@ export default function RootLayout({
       >
         <Providers>{children}</Providers>
         <Toaster richColors position="bottom-right" closeButton={false} />
-        <GoogleTagManager gtmId="GTM-56TFJ6TC" />
       </body>
     </html>
   );
