@@ -144,8 +144,7 @@ export const speakerEvents: EventType[] = [
     title: "Speaker from Couchbase",
     startTime: "14:40",
     endTime: "15:10",
-    description:
-      "Speaker To Be Announced from Couchbase.",
+    description: "Speaker To Be Announced from Couchbase.",
     speaker: {
       speakerId: [7],
     },
@@ -214,10 +213,12 @@ export const speakerEvents: EventType[] = [
   {
     id: 17,
     stage: 1,
-    title: "Cloud Award, UGM Spotlight, Donation to UGM, Prize Draw, & Closing Remarks",
+    title:
+      "Cloud Award, UGM Spotlight, Donation to UGM, Prize Draw, & Closing Remarks",
     startTime: "16:30",
     endTime: "17:00",
-    description: "Cloud Award, UGM Spotlight, Donation to UGM, Prize Draw, & Closing Remarks",
+    description:
+      "Cloud Award, UGM Spotlight, Donation to UGM, Prize Draw, & Closing Remarks",
     speaker: {
       speakerId: null,
     },
@@ -236,28 +237,16 @@ export const speakerEvents: EventType[] = [
     tags: ["Opening"],
   },
   {
-    id: 19,
+    id: 24,
     stage: 2,
-    title: "Lightning Talk",
+    title: "Speaker To Be Announced",
     startTime: "12:45",
-    endTime: "13:00",
-    description: "Speaker To Be Announced.",
-    speaker: {
-      speakerId: [1],
-    },
-    tags: ["Lightning Talk"],
-  },
-  {
-    id: 20,
-    stage: 2,
-    title: "Lightning Talk",
-    startTime: "13:00",
     endTime: "13:15",
     description: "Speaker To Be Announced.",
     speaker: {
-      speakerId: [2],
+      speakerId: [4],
     },
-    tags: ["Lightning Talk"],
+    tags: ["Speaker"],
   },
   {
     id: 21,
@@ -295,17 +284,30 @@ export const speakerEvents: EventType[] = [
     },
     tags: ["Break"],
   },
+
   {
     id: 24,
     stage: 2,
-    title: "Speaker To Be Announced",
+    title: "Lightning Talk",
     startTime: "14:00",
+    endTime: "14:15",
+    description: "Speaker To Be Announced.",
+    speaker: {
+      speakerId: [1],
+    },
+    tags: ["Lightning Talk"],
+  },
+  {
+    id: 25,
+    stage: 2,
+    title: "Lightning Talk",
+    startTime: "14:15",
     endTime: "14:30",
     description: "Speaker To Be Announced.",
     speaker: {
-      speakerId: [4],
+      speakerId: [2],
     },
-    tags: ["Speaker"],
+    tags: ["Lightning Talk"],
   },
   {
     id: 25,
@@ -329,7 +331,7 @@ export const speakerEvents: EventType[] = [
       "What separates startups that scale from those that stall? In this panel, top startup execs from Vancouver share how they're leveraging emerging AI and cloud technologies to build smarter, faster, and more defensible companies. We’ll dive into how early cloud architecture decisions shape growth trajectories, which AI tools are reshaping SaaS, and what it really takes to create an edge in today's hyper-competitive tech landscape.",
     speaker: {
       speakerId: null,
-      name: 'Panel Discussion',
+      name: "Panel Discussion",
     },
     tags: ["Panel", "Discussion", "Industry Trends"],
   },
@@ -421,7 +423,7 @@ export const speakerEvents: EventType[] = [
     },
     tags: ["Activities", "After Party", "Networking"],
     isFullWidth: true,
-    link: 'https://www.eventbrite.com/e/cloud-summit-2025-after-party-at-vesper-lounge-tickets-1365026253269'
+    link: "https://www.eventbrite.com/e/cloud-summit-2025-after-party-at-vesper-lounge-tickets-1365026253269",
   },
 ];
 
@@ -500,7 +502,7 @@ export const workshopEvents = [
       photo: "",
     },
     tags: ["Activities", "Web Development", "Cloud"],
-    link: "https://aws-experience.com/amer/smb/e/c96fe/workshop-building-serverless-agentic-workflows-on-aws"
+    link: "https://aws-experience.com/amer/smb/e/c96fe/workshop-building-serverless-agentic-workflows-on-aws",
   },
   {
     id: 5,

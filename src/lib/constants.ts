@@ -770,16 +770,16 @@ export const SPEAKERS = [
   },
   {
     id: 4,
-    name: "Dr. Ryan Rad",
-    title: "Asst. Professor Computer Science",
-    company: "Northeastern University",
+    name: "Ahmad Awais",
+    title: "CEO",
+    company: "Langbase",
     tag: "featured",
-    bio: "Dr. Ryan Rad is a Professor at Northeastern University's Khoury College of Computer Sciences and an adjunct professor at the University of British Columbia. With over a decade of experience in AI, he combines academic depth with industry expertise, having held research, engineering, and leadership roles at both startups and tech giants like Microsoft. Passionate about education, Dr. Rad has taught courses in Machine Learning, Computer Vision, Generative AI, and Data Science across five universities. His research focuses on leveraging AI for social good, with impactful projects in healthcare, sustainability, and beyond. A respected thought leader, he has delivered more than 50 talks and research papers at prestigious conferences and institutions worldwide.",
+    bio: "Ahmad Awais is an award-winning open-source engineering leader, founder and CEO of Langbase. Creator of the first AI agent that can vibe code AI agents for you. NASA Mars Ingenuity Helicopter mission code-contributor. Angel investor. Ex-VP of Developer Relations, Google Developers Advisory Board founding member, Node.js Community Committee Outreach Lead, Business Governance Board Member Linux Foundation & OpenAPI Initiative, WordPress Core Developer, and previously VP of Engineering at WGA. He has authored various open-source software tools used by millions of developers worldwide, like his Shades of Purple code theme (4M Dev Users) or projects like the corona-cli (10+ Billion Requests).",
     talk_title:
-      "The State of LLMs: Breakthroughs, Barriers, and the Road Ahead",
+      "Why the Best AI Agents Are Built Without Frameworks (Primitives over Frameworks)",
     talk_summary:
-      "Large Language Models (LLMs) are everywhere—from writing code to generating content—but how do they actually work, and where are they headed? This talk explores the most exciting recent advances in LLMs, including improvements in reasoning, efficiency, and adaptability. We’ll also dive into the real challenges they face: bias, hallucinations, ethical concerns, and high compute costs. Finally, we’ll look ahead at what’s next—like retrieval-augmented generation (RAG), multimodal AI, and smarter alignment. By the end of this session, you will have a deeper understanding of the current capabilities of LLMs, the challenges that must be addressed, and the innovations shaping the future of AI. ",
-    image: "/speakers/ryan.JPG",
+      "Cursor, CHAI, perplexity, v0,, lovable, bolt — what do they all have in common? They weren’t built on AI frameworks—they're built using primitives optimized for speed, scale, and flexibility. LLMs are evolving fast—like, literally every week. New standards pop up (looking at you, MCP), and APIs change faster than you can keep track. Frameworks just can't move at this speed. In this talk, I'll challenge conventional engineering wisdom, sharing my real-world experience scaling thousands of AI agents to handle over 100 million monthly runs. You'll discover how using AI primitives can dramatically speed up iteration, provide bigger scale, and simplify maintenance. I'll share eight practical agent architectures—covering memory management, auto tool integration, and simple serverless deployment—to help you quickly build reliable and scalable AI agents. By the end of this session, you'll clearly see why we must rethink and rebuild our infrastructure and focus on AI-native primitives instead of heavy, bloated, and quickly outdated frameworks.",
+    image: "/speakers/ahmad.jpg",
   },
   {
     id: 5,
