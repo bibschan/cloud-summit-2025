@@ -17,12 +17,14 @@ export type EventType = {
   title: string;
   startTime: string;
   endTime: string;
-  description?: string;
-  speaker?: {
+  description: string;
+  speaker: {
     speakerId: number[] | null;
-    name?: string | null;
+    name?: string;
+    photo?: string;
   };
   tags: string[];
+  isFullWidth?: boolean;
   link?: string;
 };
 
@@ -246,7 +248,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Lightning Talk"],
   },
   {
-    id: 18,
+    id: 20,
     stage: 2,
     title: "Lightning Talk",
     startTime: "13:00",
@@ -258,7 +260,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Lightning Talk"],
   },
   {
-    id: 19,
+    id: 21,
     stage: 2,
     title: "Break",
     startTime: "13:15",
@@ -270,7 +272,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Break", "Networking"],
   },
   {
-    id: 19,
+    id: 22,
     stage: 2,
     title: "Speaker To Be Announced",
     startTime: "13:25",
@@ -282,7 +284,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Speaker"],
   },
   {
-    id: 20,
+    id: 23,
     stage: 2,
     title: "Short Break",
     startTime: "13:55",
@@ -294,7 +296,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Break"],
   },
   {
-    id: 21,
+    id: 24,
     stage: 2,
     title: "Speaker To Be Announced",
     startTime: "14:00",
@@ -306,7 +308,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Speaker"],
   },
   {
-    id: 22,
+    id: 25,
     stage: 2,
     title: "Break",
     startTime: "14:30",
@@ -318,7 +320,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Break", "Networking"],
   },
   {
-    id: 23,
+    id: 26,
     stage: 2,
     title: "Cloud, AI & the Rise of the Next Billion-Dollar Idea",
     startTime: "14:40",
@@ -332,7 +334,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Panel", "Discussion", "Industry Trends"],
   },
   {
-    id: 25,
+    id: 27,
     stage: 2,
     title: "Break",
     startTime: "15:35",
@@ -344,7 +346,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Break", "Networking"],
   },
   {
-    id: 26,
+    id: 28,
     stage: 2,
     title: "Speaker To Be Announced",
     startTime: "15:45",
@@ -356,7 +358,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Speaker"],
   },
   {
-    id: 27,
+    id: 29,
     stage: 2,
     title: "Short Break",
     startTime: "16:15",
@@ -368,7 +370,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Break"],
   },
   {
-    id: 28,
+    id: 30,
     stage: 2,
     title: "Speaker To Be Announced",
     startTime: "16:20",
@@ -380,7 +382,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Speaker"],
   },
   {
-    id: 29,
+    id: 31,
     stage: 2,
     title: "Room Transformation",
     startTime: "16:50",
@@ -392,7 +394,7 @@ export const speakerEvents: EventType[] = [
     tags: ["Logistics"],
   },
   {
-    id: 30,
+    id: 32,
     stage: 2,
     title: "Networking & Entertainment",
     startTime: "17:00",
@@ -404,6 +406,22 @@ export const speakerEvents: EventType[] = [
       name: "All Attendees",
     },
     tags: ["Networking", "Entertainment", "Food"],
+  },
+  {
+    id: 33,
+    stage: 1,
+    title: "Cloud Summit After Party",
+    startTime: "18:30",
+    endTime: "20:00",
+    description:
+      "🕡 Starts: 6:30 PM, following the main event\n📍 Location: Vesper Lounge, 12-minute walk from the Orpheum Theatre\n🎟️ Entry: Free for Cloud Summit pass holders; $30 for General Public \n🔗 RSVP: Required for all attendees, including pass holders",
+    speaker: {
+      speakerId: null,
+      name: "RSVP Required",
+    },
+    tags: ["Activities", "After Party", "Networking"],
+    isFullWidth: true,
+    link: 'https://www.eventbrite.com/e/cloud-summit-2025-after-party-at-vesper-lounge-tickets-1365026253269'
   },
 ];
 

@@ -402,12 +402,6 @@ export const SPONSORS = [
     link: "https://aws.amazon.com/",
   },
   {
-    name: "The Upgrade AI",
-    status: "gold",
-    logo: "/sponsors/the-upgrade.webp",
-    link: "https://www.theupgrade.ai/",
-  },
-  {
     name: "Greydata",
     status: "gold",
     logo: "/sponsors/greydata.svg",
@@ -419,6 +413,19 @@ export const SPONSORS = [
     logo: "/sponsors/elastic.svg",
     link: "https://www.elastic.co/",
   },
+    {
+    name: "Internet Masterminds",
+    status: "gold",
+    logo: "/sponsors/imblack.png",
+    link: "https://internetmasterminds.org/",
+  },
+    {
+    name: "Vesper Lounge",
+    status: "gold",
+    logo: "/sponsors/Vesper_White_Only.png",
+    link: "https://vesperlounge.ca/",
+  },
+
 ];
 
 export const MEDIA_CONFIG = {

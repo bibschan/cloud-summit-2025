@@ -103,12 +103,12 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
           />
         </Link>
         {/* Mobile nav bar */}
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
+        <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
           <Menu className="w-6 h-6 hover:text-sky-400 text-primary-50" />
         </button>
 
         {isOpen && (
-          <div className="m-0 fixed top-0 left-0 w-screen h-screen z-50 bg-black/50 md:hidden text-white">
+          <div className="m-0 fixed top-0 left-0 w-screen h-screen z-50 bg-black/50 lg:hidden text-white">
             <div className="h-full bg-primary-800 p-4 w-full flex">
               <button
                 className="absolute top-0 right-0 p-4"
@@ -137,10 +137,10 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
         )}
 
         {/* tablet and desktop nav bar */}
-        <div className="hidden md:flex space-x-4 sm:space-x-8 text-sm md:text-base">
+        <div className="hidden lg:flex space-x-4 sm:space-x-8 text-sm md:text-base">
           {navLinks.map((link) => renderNavLink(link))}
         </div>
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden lg:flex items-center space-x-4">
           <a
             href={EVENT_CONFIG.links.tickets}
             className="min-w-[190px] h-9 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all"
