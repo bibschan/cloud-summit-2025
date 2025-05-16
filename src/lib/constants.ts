@@ -408,24 +408,29 @@ export const SPONSORS = [
     link: "https://greydata.ca/",
   },
   {
+    name: "The Upgrade AI",
+    status: "gold",
+    logo: "/sponsors/the-upgrade.webp",
+    link: "https://www.theupgrade.ai/",
+  },
+  {
     name: "Elastic",
     status: "gold",
     logo: "/sponsors/elastic.svg",
     link: "https://www.elastic.co/",
   },
-    {
+  {
     name: "Internet Masterminds",
     status: "gold",
     logo: "/sponsors/imblack.png",
     link: "https://internetmasterminds.org/",
   },
-    {
+  {
     name: "Vesper Lounge",
     status: "gold",
     logo: "/sponsors/Vesper_White_Only.png",
     link: "https://vesperlounge.ca/",
   },
-
 ];
 
 export const MEDIA_CONFIG = {
@@ -859,7 +864,7 @@ export const SPEAKERS = [
     bio: "Niti Jain is a Lead Software Engineer and Scrum Leader at Salesforce with seven years of industry experience. At Salesforce, she specializes in the Identity space, focusing on authorization and authentication at scale. Her technical interests encompass distributed systems, identity, and machine learning. A trailblazing tech leader, Niti combines deep technical expertise with a passionate commitment to community building. She serves on the advisory board for the University of Wisconsin, Madison, and leads the Vancouver hub for AnitaB.org, demonstrating her dedication to advancing diversity in technology.",
     talk_title:
       "Scaling Microservices: Mastering Zero-Downtime Data Migration Using Cloudflare",
-      talk_summary:
+    talk_summary:
       "Data and traffic migration is a critical yet often overlooked challenge in modern distributed systems — one that can make or break an organization’s technological resilience. In an era where every minute of downtime translates to potential revenue loss, security vulnerabilities, and eroded user trust, the ability to seamlessly transition both data and live service traffic without interruption has become a strategic imperative. This presentation unveils the intricate dance of migrating complex infrastructures — a process that demands surgical precision, advanced architectural patterns, and a deep understanding of distributed systems dynamics. Attendees will explore real-world, phased migration strategies that transform what could be a high-risk, catastrophic transition into a controlled, methodical evolution. Through live migration scenarios, cutting-edge traffic shaping techniques, and actionable implementation insights, this session offers a rare, in-depth look at how top engineering teams execute zero-downtime migrations — balancing data consistency, operational safety, and user trust. For anyone managing mission-critical infrastructure, this session provides a blueprint for scaling and modernizing systems without missing a heartbeat.",
     image: "/speakers/niti.png",
   },
@@ -870,8 +875,7 @@ export const SPEAKERS = [
     company: "RONIN",
     tag: "speaker",
     bio: "Dr Parice Brandies is the Lead Developer at RONIN. She has a background in research and completed her PhD at the University of Sydney in the field of genomics and bioinformatics. Parice is passionate about the opportunities cloud can bring to all fields and her mission is to help empower institutions around the globe to confidently harness the extraordinary power of the cloud with RONIN.",
-    talk_title:
-      "RONIN: Secure, Self-Service Cloud Without the Chaos",
+    talk_title: "RONIN: Secure, Self-Service Cloud Without the Chaos",
     talk_summary:
       "In the fast-paced world of commercial industries, innovation can’t wait for IT bottlenecks or spiraling cloud costs. RONIN offers a streamlined platform that grants teams secure, self-service access to essential cloud computing resources, all while maintaining cost control and governance. Join us to discover how organizations are accelerating their digital transformation by enabling their teams to harness the power of the cloud—securely, efficiently, and without the usual complexities. ",
     image: "/speakers/parice.jpg",
@@ -889,5 +893,4 @@ export const SPEAKERS = [
       "Data and traffic migration is a critical yet often overlooked challenge in modern distributed systems — one that can make or break an organization’s technological resilience. In an era where every minute of downtime translates to potential revenue loss, security vulnerabilities, and eroded user trust, the ability to seamlessly transition both data and live service traffic without interruption has become a strategic imperative. This presentation unveils the intricate dance of migrating complex infrastructures — a process that demands surgical precision, advanced architectural patterns, and a deep understanding of distributed systems dynamics. Attendees will explore real-world, phased migration strategies that transform what could be a high-risk, catastrophic transition into a controlled, methodical evolution. Through live migration scenarios, cutting-edge traffic shaping techniques, and actionable implementation insights, this session offers a rare, in-depth look at how top engineering teams execute zero-downtime migrations — balancing data consistency, operational safety, and user trust. For anyone managing mission-critical infrastructure, this session provides a blueprint for scaling and modernizing systems without missing a heartbeat.",
     image: "/speakers/Sarang.png",
   },
-
 ];
