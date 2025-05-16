@@ -395,23 +395,11 @@ export const SPONSORS = [
     logo: "/sponsors/platformatic-approved.svg",
     link: "https://docs.platformatic.dev/",
   },
-    {
-    name: "BC + AI",
-    status: "diamond",
-    logo: "/sponsors/bcai.jpg",
-    link: "https://kriskrug.notion.site/BC-AI-179c6f799a3380e2b741e8ecb00f94e7",
-  },
   {
     name: "AWS",
     status: "key",
     logo: "/cloud-providers/aws-white.svg",
     link: "https://aws.amazon.com/",
-  },
-  {
-    name: "The Upgrade AI",
-    status: "gold",
-    logo: "/sponsors/the-upgrade.webp",
-    link: "https://www.theupgrade.ai/",
   },
   {
     name: "Greydata",
@@ -434,7 +422,7 @@ export const SPONSORS = [
     {
     name: "Vesper Lounge",
     status: "gold",
-    logo: "/sponsors/vesper.avif",
+    logo: "/sponsors/Vesper_White_Only.png",
     link: "https://vesperlounge.ca/",
   },
 

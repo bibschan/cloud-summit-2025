@@ -361,7 +361,7 @@ export function ScheduleTable({
                       </p>
                       <div className="flex flex-col md:flex-row items-center justify-center gap-4">
                         <Image
-                          src="/sponsors/vesper.avif"
+                          src="/sponsors/Vesper_White_Only.png"
                           alt="Two men looking at ipad"
                           width={600}
                           height={600}
