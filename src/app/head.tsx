@@ -6,9 +6,9 @@ export default function Head() {
       {/* Google Ads Conversion Tracking */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=AW-957966437"
-        strategy="lazyOnload"
+        strategy="beforeInteractive"
       />
-      <Script id="google-ads" strategy="lazyOnload">
+      <Script id="google-ads" strategy="beforeInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

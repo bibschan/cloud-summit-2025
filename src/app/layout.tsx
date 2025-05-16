@@ -11,6 +11,7 @@ import { Toaster } from "sonner";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import { headers } from "next/headers";
+import Head from "./head";
 
 export const metadata: Metadata = {
   title: "Cloud Summit 2025",
@@ -69,6 +70,9 @@ export default function RootLayout({
       lang="en"
       className={cn("scroll-smooth", isVotePage && "bg-blue-700")}
     >
+      <head>
+        <Head />
+      </head>
       <body
         className={cn(
           "antialiased",
