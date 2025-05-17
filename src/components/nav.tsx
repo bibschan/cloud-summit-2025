@@ -54,6 +54,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
 
   const navLinks: NavLink[] = [
     { label: "About", href: getHomeLink("about") },
+    { label: "Nominate", href: getHomeLink("nominate") },
     { label: "Schedule", href: "/schedule" },
     { label: "Speakers", href: "/speakers" },
     { label: "Venue", href: "/venue" },
