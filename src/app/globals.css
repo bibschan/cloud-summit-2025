@@ -114,17 +114,36 @@ html.vote-page body {
   animation-play-state: paused;
 
 }
+
 @media (prefers-reduced-motion: no-preference) {
-  @keyframes fade-in{
-    to {scale: 1.5; rotate: -15deg;}
+  @keyframes fade-in-mobile {
+    to {
+      scale: 1;
+      /* no scale */
+      rotate: -15deg;
+    }
   }
 
   .animate-fade-in {
-    scale: .7; rotate: 0deg;;
-    animation: fade-in linear forwards;
+    scale: 0.7;
+    rotate: 0deg;
+    animation: fade-in-mobile linear forwards;
     animation-timeline: view();
     animation-range-start: cover;
     animation-range-end: contain;
+  }
+
+  @media (min-width: 768px) {
+    @keyframes fade-in-desktop {
+      to {
+        scale: 1.5;
+        rotate: -15deg;
+      }
+    }
+
+    .animate-fade-in {
+      animation-name: fade-in-desktop;
+    }
   }
 }
 

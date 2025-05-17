@@ -87,6 +87,9 @@ export default function Footer() {
           <div>
             <p className="text-lg text-white  mb-2 md:mb-4">Resources</p>
             <ul className="grid grid-cols-2 gap-4 md:gap-2 md:grid-cols-1">
+              <a href="/docs/Cloud Summit Press Release - May 17.pdf" target="_blank" rel="noopener noreferrer">
+                Press Release
+              </a>
               <li>
                 <Link
                   href="https://forms.gle/NECDLqn6T6qbmWXZ8"
@@ -120,6 +123,7 @@ export default function Footer() {
                   Media Lounge
                 </Link>
               </li>
+
             </ul>
           </div>
           <div>
@@ -155,8 +159,8 @@ export default function Footer() {
                   {index < EVENT_CONFIG.team.webMembers.length - 2
                     ? ", "
                     : index === EVENT_CONFIG.team.webMembers.length - 2
-                    ? " & "
-                    : ""}
+                      ? " & "
+                      : ""}
                 </React.Fragment>
               ))}
               .
