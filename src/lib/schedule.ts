@@ -491,7 +491,7 @@ export const workshopEvents = [
   {
     id: 8,
     stage: 3,
-    title: "AWS Workshop Registraction",
+    title: "AWS Workshop Registration",
     startTime: "12:45",
     endTime: "14:45",
     description:
