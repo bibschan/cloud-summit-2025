@@ -156,7 +156,7 @@ export const HighlightsSection = () => {
           }}
         >
           <h3 className={`font-highlight text-xl md:text-8xl font-semibold`}>
-            780+
+            350+
           </h3>
           <p className="font-semibold text-sm md:text-lg">
             In-Person Attendees
