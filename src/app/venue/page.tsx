@@ -12,9 +12,9 @@ import { Button } from "@/components/ui/button";
 export default function VenuePage() {
 
     const images = [
-        { src: "/venue/CloudSummit_2025_Floorplans_MainFloor.svg", title: "Main Floor" },
-        { src: "/venue/CloudSummit_2025_Floorplans_2ndFloor.svg", title: "2nd Floor" },
-        { src: "/venue/CloudSummit_2025_Floorplans_3rdFloor.svg", title: "3rd Floor" },
+        { src: "/venue/CloudSummit_2025_EventFloorPlan_MainFloor.png", title: "Main Floor" },
+        { src: "/venue/CloudSummit_2025_EventFloorPlan_SecondFloor.png", title: "2nd Floor" },
+        { src: "/venue/CloudSummit_2025_EventFloorPlan_ThirdFloor.png", title: "3rd Floor" },
     ];
 
 
