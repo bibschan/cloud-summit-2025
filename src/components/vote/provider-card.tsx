@@ -100,8 +100,8 @@ export function ProviderCard({
               : "bg-gray-700/30"
           )}
         />
-        {/* <div className="flex justify-between items-center">
-          <p className={cn(
+        <div className="flex justify-between items-center">
+          {/* <p className={cn(
             "text-sm",
             disabled ? "text-white/50" : "text-white/80"
           )}>
@@ -109,7 +109,7 @@ export function ProviderCard({
               ? `${voteCount} vote${voteCount !== 1 ? 's' : ''} (${percentage}%)`
               : 'No votes yet - be the first!'
             }
-          </p>
+          </p> */}
           {voteCount > 0 && (
             <p
               className={cn(
@@ -120,7 +120,7 @@ export function ProviderCard({
               {percentage}%
             </p>
           )}
-        </div> */}
+        </div>
       </CardContent>
       <CardFooter>
         <Button
