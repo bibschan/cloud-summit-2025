@@ -472,8 +472,8 @@ export const COMMUNITIES = [
     id: 1,
     name: "VanJS",
     description:
-      "A monthly meetup for developers in Vancouver focusing on JavaScript, front-end technology, and the open web.",
-    url: "https://www.vanjs.com/",
+      "A monthly meetup for developers in Vancouver focusing on JavaScript. Check out their latest flappy bird in the clouds game by clicking this card.",
+    url: "https://www.vanjs.com/flappy-bird/",
     image: "/communities/vanjs.svg",
   },
   {
