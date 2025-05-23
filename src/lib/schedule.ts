@@ -122,7 +122,7 @@ export const speakerEvents: EventType[] = [
     endTime: "14:30",
     description: "Speaker To Be Announced from Fortinet.",
     speaker: {
-      speakerId: [9],
+      speakerId: [9, 16],
     },
     tags: ["Sponsor", "Technology"],
   },

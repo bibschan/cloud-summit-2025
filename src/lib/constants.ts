@@ -844,7 +844,7 @@ export const SPEAKERS = [
   },
   {
     id: 9,
-    name: "Morohito (Moro) Arakaki",
+    name: "Moro Arakaki",
     title: "Business Development Engineer - Cloud",
     company: "Fortinet",
     tag: "speaker",
@@ -871,7 +871,7 @@ export const SPEAKERS = [
   {
     id: 12,
     name: "Parice Brandies",
-    title: "Lead Developer ",
+    title: "Lead Developer",
     company: "RONIN",
     tag: "speaker",
     bio: "Dr Parice Brandies is the Lead Developer at RONIN. She has a background in research and completed her PhD at the University of Sydney in the field of genomics and bioinformatics. Parice is passionate about the opportunities cloud can bring to all fields and her mission is to help empower institutions around the globe to confidently harness the extraordinary power of the cloud with RONIN.",
@@ -892,5 +892,18 @@ export const SPEAKERS = [
     talk_summary:
       "Data and traffic migration is a critical yet often overlooked challenge in modern distributed systems — one that can make or break an organization’s technological resilience. In an era where every minute of downtime translates to potential revenue loss, security vulnerabilities, and eroded user trust, the ability to seamlessly transition both data and live service traffic without interruption has become a strategic imperative. This presentation unveils the intricate dance of migrating complex infrastructures — a process that demands surgical precision, advanced architectural patterns, and a deep understanding of distributed systems dynamics. Attendees will explore real-world, phased migration strategies that transform what could be a high-risk, catastrophic transition into a controlled, methodical evolution. Through live migration scenarios, cutting-edge traffic shaping techniques, and actionable implementation insights, this session offers a rare, in-depth look at how top engineering teams execute zero-downtime migrations — balancing data consistency, operational safety, and user trust. For anyone managing mission-critical infrastructure, this session provides a blueprint for scaling and modernizing systems without missing a heartbeat.",
     image: "/speakers/Sarang.png",
+  },
+  {
+    id: 16,
+    name: "Warren Lyne",
+    title: "Business Development Manager - Cloud",
+    company: "Fortinet",
+    tag: "speaker",
+    bio: "Warren Lyne is a Business Development Manager at Fortinet with over 25 years in technology and 15 years in cloud, specializing in driving secure, cloud-based solutions for enterprise customers. A Computer Science graduate from Queen's University, Warren has contributed to several startups—one acquired in 2013 for its cloud-native SaaS design built entirely on AWS. He spent eight years at AWS as a Sales Leader, helping grow the enterprise business across Western Canada and guiding organizations through cloud adoption and digital transformation. At Fortinet, Warren focuses on enabling customers to securely manage their IT environments across multi-cloud, OT, and virtualized infrastructure, accelerating their shift from on-prem to cloud-native operations.",
+    talk_title:
+      "From Foundations to Expertise: Elevating Cloud Security with CNAPP",
+    talk_summary:
+      "Cloud misconfigurations, API exploits, and zero-day attacks are rising threats—even for seasoned teams. This session introduces CNAPP (Cloud-Native Application Protection Platform), a unified approach to securing modern cloud environments. We'll explore how tools like FortiCNAPP and Lacework help detect hidden risks, protect workloads, and strengthen security posture. You'll also learn how CSPM, CWPP, and CIEM work together to defend against common cloud pitfalls. Whether you're just starting or scaling in the cloud, this session will give you practical strategies to stay secure at every stage.",
+    image: "/speakers/Warren.jpg",
   },
 ];
