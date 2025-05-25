@@ -805,6 +805,32 @@ export const SPEAKERS = [
       "Building a startup in the cloud opens up endless possibilities—but also a fair share of traps. In this session, we’ll walk through the real-world dos and don’ts of launching and scaling a cloud-native startup. You’ll get practical insights on cloud architecture, DevOps automation, cost management, and integrating AI/ML from day one. Whether you’re a founder, engineer, or just startup-curious, this talk will help you build smarter, move faster, and avoid the costly mistakes others have made.",
     image: "/speakers/farzad.jpeg",
   },
+    {
+    id: 17,
+    name: "Gabriel Caldwell",
+    title: "CTO",
+    company: "Tsunami Solutions",
+    tag: "speaker",
+    bio: "Gabriel Caldwell has been a pivotal figure at Tsunami since his inception with the company in 2001. Taking on the mantle of Chief Technology Officer in 2009, he has adeptly shaped and steered Tsunami’s technology strategy, ensuring the products remains at the cutting edge of innovation. Gabriel's dedication lies in continuously developing and deploying new technologies, not just to enhance the company's offerings, but to genuinely empower customers and streamline operations. Beyond his technical prowess, he embodies a leadership style that fosters innovation and teamwork. Outside of his professional realm, Gabriel cherishes quality moments immersed in nature, be it hiking, camping or traveling the world. Together with his family, he is often embarking on adventures, feeding his passion for exploration and understanding.",
+    talk_title:
+      "Cloud, AI & the Rise of the Next Billion-Dollar Idea",
+    talk_summary:
+      "What separates startups that scale from those that stall? In this panel, top startup execs from Vancouver share how they're leveraging emerging AI and cloud technologies to build smarter, faster, and more defensible companies. We’ll dive into how early cloud architecture decisions shape growth trajectories, which AI tools are reshaping SaaS, and what it really takes to create an edge in today's hyper-competitive tech landscape.",
+    image: "/speakers/gabriel.jpg",
+  },
+  {
+    id: 18,
+    name: "Herman Chandi",
+    title: "Cofounder & COO",
+    company: "UrbanLogiq",
+    tag: "speaker",
+    bio: "Herman Chandi is the co-founder and Chief Operating Officer of UrbanLogiq, a data analytics company helping cities across the US and Canada make smarter decisions with real-time insights and predictive analytics. Herman leads the implementation of data-driven solutions that address government challenges using machine learning and AI.",
+    talk_title:
+      "Cloud, AI & the Rise of the Next Billion-Dollar Idea",
+    talk_summary:
+      "What separates startups that scale from those that stall? In this panel, top startup execs from Vancouver share how they're leveraging emerging AI and cloud technologies to build smarter, faster, and more defensible companies. We’ll dive into how early cloud architecture decisions shape growth trajectories, which AI tools are reshaping SaaS, and what it really takes to create an edge in today's hyper-competitive tech landscape.",
+    image: "/speakers/herman.jpg",
+  },
   {
     id: 14,
     name: "Luca Maraschi",
@@ -844,7 +870,7 @@ export const SPEAKERS = [
   },
   {
     id: 9,
-    name: "Moro Arakaki",
+    name: "Morohito (Moro) Arakaki",
     title: "Business Development Engineer - Cloud",
     company: "Fortinet",
     tag: "speaker",
@@ -868,10 +894,23 @@ export const SPEAKERS = [
       "Data and traffic migration is a critical yet often overlooked challenge in modern distributed systems — one that can make or break an organization’s technological resilience. In an era where every minute of downtime translates to potential revenue loss, security vulnerabilities, and eroded user trust, the ability to seamlessly transition both data and live service traffic without interruption has become a strategic imperative. This presentation unveils the intricate dance of migrating complex infrastructures — a process that demands surgical precision, advanced architectural patterns, and a deep understanding of distributed systems dynamics. Attendees will explore real-world, phased migration strategies that transform what could be a high-risk, catastrophic transition into a controlled, methodical evolution. Through live migration scenarios, cutting-edge traffic shaping techniques, and actionable implementation insights, this session offers a rare, in-depth look at how top engineering teams execute zero-downtime migrations — balancing data consistency, operational safety, and user trust. For anyone managing mission-critical infrastructure, this session provides a blueprint for scaling and modernizing systems without missing a heartbeat.",
     image: "/speakers/niti.png",
   },
+    {
+    id: 19,
+    name: "Noorain Panjwani",
+    title: "Founder",
+    company: "Fluidcast",
+    tag: "speaker",
+    bio: "Noorain is a die hard developer fused with the entrepreneurial spirit. As cloud evangelist at heart, I love anything to do with serverlessless and GenAI.",
+    talk_title:
+      "Cloud, AI & the Rise of the Next Billion-Dollar Idea",
+    talk_summary:
+      "What separates startups that scale from those that stall? In this panel, top startup execs from Vancouver share how they're leveraging emerging AI and cloud technologies to build smarter, faster, and more defensible companies. We’ll dive into how early cloud architecture decisions shape growth trajectories, which AI tools are reshaping SaaS, and what it really takes to create an edge in today's hyper-competitive tech landscape.",
+    image: "/speakers/noorain.jpg",
+  },
   {
     id: 12,
     name: "Parice Brandies",
-    title: "Lead Developer",
+    title: "Lead Developer ",
     company: "RONIN",
     tag: "speaker",
     bio: "Dr Parice Brandies is the Lead Developer at RONIN. She has a background in research and completed her PhD at the University of Sydney in the field of genomics and bioinformatics. Parice is passionate about the opportunities cloud can bring to all fields and her mission is to help empower institutions around the globe to confidently harness the extraordinary power of the cloud with RONIN.",

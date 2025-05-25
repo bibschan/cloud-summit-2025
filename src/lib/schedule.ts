@@ -330,7 +330,7 @@ export const speakerEvents: EventType[] = [
     description:
       "What separates startups that scale from those that stall? In this panel, top startup execs from Vancouver share how they're leveraging emerging AI and cloud technologies to build smarter, faster, and more defensible companies. We’ll dive into how early cloud architecture decisions shape growth trajectories, which AI tools are reshaping SaaS, and what it really takes to create an edge in today's hyper-competitive tech landscape.",
     speaker: {
-      speakerId: null,
+      speakerId: [17, 18, 19],
       name: "Panel Discussion",
     },
     tags: ["Panel", "Discussion", "Industry Trends"],
