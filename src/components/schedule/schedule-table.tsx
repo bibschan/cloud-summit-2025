@@ -12,6 +12,22 @@ import Image from "next/image";
 const TIME_SLOT_HEIGHT = 250;
 const EVENT_GAP = 2;
 
+type SpeakerType = {
+  id: number;
+  name: string;
+  title?: string;
+  company?: string;
+  tag?: string;
+  bio?: string;
+  talk_title?: string;
+  talk_summary?: string;
+  image?: string;
+};
+
+type FormattedSpeakerType = SpeakerType & {
+  name: string;
+};
+
 const timeToMinutes = (time: string) => {
   const [hours, minutes] = time.split(":").map(Number);
   return hours * 60 + minutes;
@@ -29,39 +45,37 @@ const isActivityEvent = (event: EventType) => {
   return event.tags && event.tags.includes("Activities");
 };
 
-const getSpeakerInfo = (speakerId: number[] | null): SpeakerType | null => {
+const getSpeakerInfo = (speakerId: number[] | null): FormattedSpeakerType | null => {
   if (!speakerId || !Array.isArray(speakerId) || speakerId.length === 0) return null;
-  const primarySpeaker = SPEAKERS.find(speaker => speaker.id === speakerId[0]);
-  if (!primarySpeaker) return null;
-  if (speakerId.length > 1) {
-    const allSpeakers = speakerId
-      .map(id => SPEAKERS.find(speaker => speaker.id === id))
-      .filter(Boolean)
-      .map(speaker => speaker?.name);
-    return {
-      ...primarySpeaker,
-      name: allSpeakers.join(" & ")
-    };
+
+const allSpeakers = speakerId
+  .map(id => SPEAKERS.find(speaker => speaker.id === id))
+  .filter(Boolean) as SpeakerType[];
+
+  if (allSpeakers.length === 0) return null;
+
+  const primarySpeaker = allSpeakers[0];
+  let formattedName: string;
+
+  if (allSpeakers.length === 1) {
+    formattedName = allSpeakers[0].name;
+  } else if (allSpeakers.length === 2) {
+    formattedName = `${allSpeakers[0]?.name} & ${allSpeakers[1]?.name}`;
+  } else {
+    const last = allSpeakers[allSpeakers.length - 1];
+    formattedName = `${allSpeakers.slice(0, -1).map(s => s?.name).join(", ")} & ${last?.name}`;
   }
-  return primarySpeaker;
+
+  return {
+    ...primarySpeaker,
+    name: formattedName,
+  } as FormattedSpeakerType;
 };
 
 type ScheduleTableProps = {
   events: EventType[];
   stages: Array<{ id: number; name: string }>;
   mode: "schedule" | "workshops";
-};
-
-type SpeakerType = {
-  id: number;
-  name: string;
-  title?: string;
-  company?: string;
-  tag?: string;
-  bio?: string;
-  talk_title?: string;
-  talk_summary?: string;
-  image?: string;
 };
 
 export function ScheduleTable({
