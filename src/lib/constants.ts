@@ -538,7 +538,7 @@ export const COMMUNITIES = [
     description:
       "The Vancouver chapter of ISACA, focusing on IT governance, risk management, cybersecurity, and audit professionals.",
     url: "https://engage.isaca.org/vancouverchapter/home",
-    image: "/communities/isaca.png",
+    image: "/communities/ISACA_logo_Vancouver_rev_RGB.png",
   },
   {
     id: 10,
@@ -574,11 +574,11 @@ export const COMMUNITIES = [
   },
   {
     id: 14,
-    name: "Google developer group Vancouver",
+    name: "AI Summit",
     description:
-      "An inclusive developer community in Vancouver supported by Google Developers, organizing talks, codelabs, and events.",
-    url: "https://lu.ma/GDGvancouver",
-    image: "/communities/gdg-van.avif",
+      "AI Summit Vancouver is a community for professionals and innovators exploring advanced AI applications—from industry-specific use cases to cutting-edge tools shaping the future. We bring together experts, founders, and builders pushing the boundaries of what AI can do.",
+    url: "https://vanaisummit.com/",
+    image: "/communities/ai summit logo-color.png",
   },
 ];
 

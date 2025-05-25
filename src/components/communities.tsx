@@ -104,9 +104,9 @@ export function CommunitiesList() {
                           <Image
                             src={community.image}
                             alt={community.name}
-                            width={50}
+                            width={100}
                             height={50}
-                            className="object-cover w-full h-full"
+                            className="object-fit"
                           />
                         </div>
                       )}
