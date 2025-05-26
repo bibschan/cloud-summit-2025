@@ -375,7 +375,7 @@ export const speakerEvents: EventType[] = [
     stage: 2,
     title: "Room Transformation",
     startTime: "16:40",
-    endTime: "16:50",
+    endTime: "17:10",
     description: "Preparing the room for the next segment of the event.",
     speaker: {
       speakerId: null,
@@ -386,7 +386,7 @@ export const speakerEvents: EventType[] = [
     id: 32,
     stage: 2,
     title: "Networking & Entertainment",
-    startTime: "17:00",
+    startTime: "17:10",
     endTime: "18:00",
     description:
       "Join us for live music, dancing, and networking. Supported by our Diamond Sponsors.",
