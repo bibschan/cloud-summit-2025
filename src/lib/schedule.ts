@@ -214,11 +214,11 @@ export const speakerEvents: EventType[] = [
     id: 17,
     stage: 1,
     title:
-      "Cloud Award, UGM Spotlight, Donation to UGM, Prize Draw, & Closing Remarks",
+      "Cloud Award, UGM Spotlight, Donation to UGM, & Closing Remarks",
     startTime: "16:30",
     endTime: "17:00",
     description:
-      "Cloud Award, UGM Spotlight, Donation to UGM, Prize Draw, & Closing Remarks",
+      "Cloud Award, UGM Spotlight, Donation to UGM, & Closing Remarks",
     speaker: {
       speakerId: null,
     },
