@@ -153,10 +153,10 @@ export const speakerEvents: EventType[] = [
   {
     id: 11,
     stage: 1,
-    title: "Short Break",
+    title: "Break",
     startTime: "15:10",
-    endTime: "15:15",
-    description: "A short break for attendees",
+    endTime: "15:20",
+    description: "Break for attendees.",
     speaker: {
       speakerId: null,
     },
@@ -201,10 +201,10 @@ export const speakerEvents: EventType[] = [
   {
     id: 15,
     stage: 1,
-    title: "Short Break",
+    title: "Break",
     startTime: "16:25",
-    endTime: "16:30",
-    description: "A short break for attendees.",
+    endTime: "16:35",
+    description: "A break for attendees.",
     speaker: {
       speakerId: null,
     },
@@ -213,8 +213,7 @@ export const speakerEvents: EventType[] = [
   {
     id: 17,
     stage: 1,
-    title:
-      "Cloud Award, UGM Spotlight, Donation to UGM, & Closing Remarks",
+    title: "Cloud Award, UGM Spotlight, Donation to UGM, & Closing Remarks",
     startTime: "16:30",
     endTime: "17:00",
     description:
@@ -358,18 +357,6 @@ export const speakerEvents: EventType[] = [
       speakerId: [6],
     },
     tags: ["Speaker"],
-  },
-  {
-    id: 29,
-    stage: 2,
-    title: "Short Break",
-    startTime: "16:15",
-    endTime: "16:20",
-    description: "A short break for attendees.",
-    speaker: {
-      speakerId: null,
-    },
-    tags: ["Break"],
   },
   {
     id: 30,
