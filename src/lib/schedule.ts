@@ -337,9 +337,9 @@ export const speakerEvents: EventType[] = [
   {
     id: 27,
     stage: 2,
-    title: "Break",
+    title: "Short Break",
     startTime: "15:35",
-    endTime: "15:45",
+    endTime: "15:40",
     description: "Short break to refresh and network with other attendees.",
     speaker: {
       speakerId: null,
@@ -350,8 +350,8 @@ export const speakerEvents: EventType[] = [
     id: 28,
     stage: 2,
     title: "Speaker To Be Announced",
-    startTime: "15:45",
-    endTime: "16:15",
+    startTime: "15:40",
+    endTime: "16:10",
     description: "Speaker To Be Announced.",
     speaker: {
       speakerId: [6],
@@ -362,8 +362,8 @@ export const speakerEvents: EventType[] = [
     id: 30,
     stage: 2,
     title: "Speaker To Be Announced",
-    startTime: "16:15",
-    endTime: "16:45",
+    startTime: "16:10",
+    endTime: "16:40",
     description: "Speaker To Be Announced.",
     speaker: {
       speakerId: [10, 11],
@@ -374,8 +374,8 @@ export const speakerEvents: EventType[] = [
     id: 31,
     stage: 2,
     title: "Room Transformation",
-    startTime: "16:45",
-    endTime: "17:00",
+    startTime: "16:40",
+    endTime: "16:50",
     description: "Preparing the room for the next segment of the event.",
     speaker: {
       speakerId: null,
@@ -386,7 +386,7 @@ export const speakerEvents: EventType[] = [
     id: 32,
     stage: 2,
     title: "Networking & Entertainment",
-    startTime: "17:10",
+    startTime: "17:00",
     endTime: "18:00",
     description:
       "Join us for live music, dancing, and networking. Supported by our Diamond Sponsors.",
