@@ -58,7 +58,7 @@ export default function Home() {
         <ProvidersSection />
         <ActivitiesSection />
         <SpeakerSection />
-        <NominateSection />
+        {/* <NominateSection /> */}
         <CharitySection />
         <CommunitiesList />
         <BannerSection />
