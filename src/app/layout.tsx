@@ -61,15 +61,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const headersList = headers();
-  const pathname = headersList.get("x-pathname") || "";
-  const isVotePage = pathname === "/vote";
+  // const headersList = headers();
+  // const pathname = headersList.get("x-pathname") || "";
+  // const isVotePage = pathname === "/vote";
 
   return (
-    <html
-      lang="en"
-      className={cn("scroll-smooth", isVotePage && "bg-blue-700")}
-    >
+    <html lang="en" className={cn("scroll-smooth")}>
       <head>
         <Head />
       </head>
