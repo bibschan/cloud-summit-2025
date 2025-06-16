@@ -42,7 +42,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href='https://tally.so/r/mBVZjA'
+                  href="https://tally.so/r/mBVZjA"
                   className="hover:text-green-500 transition-colors"
                 >
                   Volunteer Signup
@@ -50,7 +50,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href='https://tally.so/r/woaoKX'
+                  href="https://tally.so/r/woaoKX"
                   className="hover:text-green-500 transition-colors"
                 >
                   Community Booth Signup
@@ -69,7 +69,11 @@ export default function Footer() {
           <div>
             <p className="text-lg text-white  mb-2 md:mb-4">Resources</p>
             <ul className="grid grid-cols-2 gap-4 md:gap-2 md:grid-cols-1">
-              <a href="/docs/Cloud Summit Press Release - May 17.pdf" target="_blank" rel="noopener noreferrer">
+              <a
+                href="/docs/Cloud Summit Press Release - May 17.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Press Release
               </a>
 
@@ -89,7 +93,6 @@ export default function Footer() {
                   Justification Letter
                 </Link>
               </li>
-
             </ul>
           </div>
           <div>
@@ -97,10 +100,18 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="./2024.html"
+                  href="./archive/2024.html"
                   className="hover:text-green-500 transition-colors"
                 >
                   Cloud Summit 2024
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="./archive/2025/index.html"
+                  className="hover:text-green-500 transition-colors"
+                >
+                  Cloud Summit 2025
                 </Link>
               </li>
             </ul>
@@ -125,8 +136,8 @@ export default function Footer() {
                   {index < EVENT_CONFIG.team.webMembers.length - 2
                     ? ", "
                     : index === EVENT_CONFIG.team.webMembers.length - 2
-                      ? " & "
-                      : ""}
+                    ? " & "
+                    : ""}
                 </React.Fragment>
               ))}
               .
