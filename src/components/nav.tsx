@@ -54,12 +54,10 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
 
   const navLinks: NavLink[] = [
     { label: "About", href: getHomeLink("about") },
-    { label: "Nominate", href: getHomeLink("nominate") },
-    { label: "Schedule", href: "/schedule" },
-    { label: "Speakers", href: "/speakers" },
-    { label: "Venue", href: "/venue" },
-    { label: "Contact", href: "/contact" },
-    { label: "Team", href: "/team" },
+    { label: "Nominate", href: "https://tally.so/r/3q7OJd" },
+    { label: "Sponsors", href: "https://tally.so/r/wLqXvO" },
+    { label: "Volunteer", href: "https://tally.so/r/mBVZjA" },
+    { label: "Community Booth", href: "https://tally.so/r/woaoKX" },
   ];
 
   const renderNavLink = (link: NavLink, onClick?: () => void) => (
@@ -117,22 +115,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
               >
                 <X className="w-6 h-6 hover:text-sky-400 text-primary-50" />
               </button>
-              <div className="grow flex flex-col items-center justify-center gap-10">
-                {navLinks.map((link) => renderNavLink(link, handleNav))}
 
-                <a
-                  href={EVENT_CONFIG.links.tickets}
-                  className="min-w-[190px] h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 text-white"
-                  target="_blank"
-                >
-                  {ticketMessage}
-                </a>
-                {/* <Script
-                  id="luma-checkout-mobile"
-                  src="https://embed.lu.ma/checkout-button.js"
-                  strategy="lazyOnload"
-                /> */}
-              </div>
             </div>
           </div>
         )}
@@ -141,20 +124,7 @@ export default function Nav({ showMessage = "hidden" }: NavProps) {
         <div className="hidden lg:flex space-x-4 sm:space-x-8 text-sm md:text-base">
           {navLinks.map((link) => renderNavLink(link))}
         </div>
-        <div className="hidden lg:flex items-center space-x-4">
-          <a
-            href={EVENT_CONFIG.links.tickets}
-            className="min-w-[190px] h-9 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all"
-            target="_blank"
-          >
-            {ticketMessage}
-          </a>
-          {/* <Script
-            id="luma-checkout-desktop"
-            src="https://embed.lu.ma/checkout-button.js"
-            strategy="lazyOnload"
-          /> */}
-        </div>
+
       </div>
     );
   };

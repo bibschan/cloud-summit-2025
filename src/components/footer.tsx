@@ -34,52 +34,34 @@ export default function Footer() {
             <ul className=" grid grid-cols-2 gap-4 md:gap-2 md:grid-cols-1 ">
               <li>
                 <Link
-                  href={getHomeLink("about")}
+                  href="https://tally.so/r/wLqXvO"
                   className="hover:text-green-500 transition-colors"
                 >
-                  About Us
+                  Sponsorship Enquiry
                 </Link>
               </li>
               <li>
                 <Link
-                  href='/speakers'
+                  href='https://tally.so/r/mBVZjA'
                   className="hover:text-green-500 transition-colors"
                 >
-                  Speakers
+                  Volunteer Signup
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/schedule"
+                  href='https://tally.so/r/woaoKX'
                   className="hover:text-green-500 transition-colors"
                 >
-                  Schedule
-                </Link>
-              </li>
-
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-green-500 transition-colors"
-                >
-                  Contact
+                  Community Booth Signup
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/team"
+                  href="https://tally.so/r/3q7OJd"
                   className="hover:text-green-500 transition-colors"
                 >
-                  Team
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={EVENT_CONFIG.links.sponsors}
-                  className="hover:text-green-500 transition-colors"
-                  target="_blank"
-                >
-                  Sponsor
+                  Cloud Award Nomination
                 </Link>
               </li>
             </ul>
@@ -90,15 +72,7 @@ export default function Footer() {
               <a href="/docs/Cloud Summit Press Release - May 17.pdf" target="_blank" rel="noopener noreferrer">
                 Press Release
               </a>
-              <li>
-                <Link
-                  href="https://forms.gle/NECDLqn6T6qbmWXZ8"
-                  className="hover:text-green-500 transition-colors"
-                  target="_blank"
-                >
-                  Volunteer
-                </Link>
-              </li>
+
               <li>
                 <Link
                   href={getHomeLink("faq")}
@@ -113,14 +87,6 @@ export default function Footer() {
                   className="hover:text-green-500 transition-colors"
                 >
                   Justification Letter
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/media"
-                  className="hover:text-green-500 transition-colors"
-                >
-                  Media Lounge
                 </Link>
               </li>
 

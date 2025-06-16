@@ -66,7 +66,7 @@ function ActivitiesSection() {
         <div className="flex flex-col items-center justify-center space-y-4 text-center pb-8">
           <div className="space-y-2">
             <h2 className="text-6xl md:text-8xl tracking-tighter text-white">
-              Event <span className="text-lemon-lime">Activities</span>
+              2025 Event <span className="text-lemon-lime">Summary</span>
             </h2>
           </div>
         </div>
