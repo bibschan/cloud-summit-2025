@@ -21,7 +21,7 @@ export const SponsorsSection = () => {
     <section className="bg-primary-900">
       <div className="container mx-auto px-4 pb-12">
         <h2 className="text-6xl md:text-8xl font-bold mb-12 text-center White">
-          Thank You <span className="text-lemon-lime">Sponsors</span>
+          Thank You <span className="text-lemon-lime">Past Sponsors</span>
         </h2>
 
         <SponsorsGrid sponsors={SPONSORS as Sponsor[]} />

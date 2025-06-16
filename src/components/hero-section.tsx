@@ -22,68 +22,34 @@ export const HeroSection = () => {
     <section className="min-h-[500px] md:min-h-[900px] w-full ">
       <SplineSection />
       <div className="max-w-[1100px] mx-auto relative z-10 min-h-screen flex flex-col flex-wrap item-center justify-center gap-2">
-        <h1 className="hidden">
-          Western Canada&apos;s Premiere Cloud Summit 2025
+        <h1 className="text-center text-6xl md:text-8xl">
+          Cloud Summit 2026
+          <span className="block text-4xl md:text-6xl">Toronto & Vancouver</span>
+          <span className="block text-4xl md:text-6xl"> Canada</span>
         </h1>
-        <Image
-          src="/main-banner/updated-banner.png"
-          alt="Hero Logo"
-          width={0}
-          height={0}
-          sizes="100vw"
-          className="w-[90%] mt-40 md:mt-28 h-auto xl:w-[70%] 2xl:w-[60%] 3xl:w-[50%] mx-auto mb-6"
-        />
-        <div className="md:mb-4">
-          <p className="mx-auto max-w-3xl text-center text-xl text-white md:text-3xl font-semibold uppercase">
-            save the date
-          </p>
-          <h3 className="mx-auto max-w-3xl text-center text-4xl md:text-7xl  text-white font-bold uppercase">
-            {EVENT_CONFIG.date}
-          </h3>
-          <p className="mx-auto max-w-3xl text-center text-xl  text-white md:text-3xl font-semibold uppercase">
-            at the {EVENT_CONFIG.location.city} {EVENT_CONFIG.venue}
-          </p>
-        </div>
 
-        <EventCountDown />
 
         <div className="relative mx-auto flex flex-col flex-wrap justify-center gap-4 md:gap-10 z-10">
           {/* Description */}
           <p className="mx-auto max-w-3xl text-center text-sm md:text-xl  text-white px-4">
-            {EVENT_CONFIG.description}
+            Want to learn more about the Cloud Summit 2026? Subscribe below to be notified about Toronto and Vancouver date announcements.
           </p>
 
-          {/* CTA Buttons */}
-          <div className=" flex flex-col md:flex-row items-center justify-evenly md:justify-center gap-4 ">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4">
             <a
-              href={EVENT_CONFIG.links.tickets}
+              href="https://tally.so/r/mR6RBl"
               className="px-4 h-11 flex justify-center items-center rounded-md bg-secondary-600 hover:bg-secondary-800 transition-all font-bold"
-              target="_blank"
             >
-              {ticketMessage}
+              Subscribe for 2026 News
             </a>
-            {/*
-            <Script
-              id="luma-checkout"
-              src="https://embed.lu.ma/checkout-button.js"
-              strategy="lazyOnload"
-            /> */}
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="min-w-[150px] border-white/20 text-white hover:bg-white/10 h-11 md:block"
-              onClick={openVolunteersLink}
-            >
-              Get involved
-            </Button>
           </div>
-          <Link
+
+          {/* <Link
             href="/justification-letter"
             className="mx-auto underline hover:font-bold transition-all text-sm md:text-xl  mb-6"
           >
             Need help convincing? Use our justification letter!
-          </Link>
+          </Link> */}
         </div>
       </div>
     </section>

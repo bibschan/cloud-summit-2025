@@ -137,14 +137,15 @@ export const HighlightsSection = () => {
           />
         </div>
         <div className="hidden md:block rounded-2xl bg-pale-gold p-4 "></div>
-        <div className="order-first md:order-none rounded-2xl bg-primary-800 p-4 col-span-2 row-span-3 flex justify-center">
+        <div className="order-first md:order-none rounded-2xl bg-primary-800 p-4 col-span-2 row-span-3 flex justify-center flex-col items-center text-white gap-4 ">
           <Image
             src="/past-events/cloud-logo.svg"
             alt="Cloud Summit 2025 Logo with text under reading Cloud Summit"
             width={192}
             height={177}
-            className="m-auto"
+            className="m-auto pt-4"
           />
+          <h4 className='text-3xl text-center'>May 27, 2025 <span className='block'>Event Successes</span></h4>
         </div>
         <motion.div
           className="rounded-2xl bg-secondary-600 p-4 col-span-2 row-span-2 text-white flex flex-col justify-center text-center"
@@ -171,10 +172,10 @@ export const HighlightsSection = () => {
             ease: isVisible ? "easeOut" : "easeIn"
           }}>
           <h3 className={`font-highlight text-xl md:text-8xl font-semibold`}>
-            21+
+            19
           </h3>
           <p className="font-semibold text-sm md:text-lg">
-            Presentations & Workshops
+            Speakers
           </p>
         </motion.div>
         <div className="hidden md:block rounded-2xl col-span-2 row-span-2">
@@ -185,6 +186,7 @@ export const HighlightsSection = () => {
             height={118}
             className="w-full h-full rounded-2xl object-cover"
           />
+
         </div>
 
         <div className="hidden md:block  rounded-2xl col-span-2 row-span-1 overflow-hidden">
