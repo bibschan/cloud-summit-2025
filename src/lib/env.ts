@@ -27,12 +27,6 @@ function validateEnv() {
         .join('\n')}`
     );
   }
-
-  // Validate DATABASE_URL format
-  const dbUrl = process.env.DATABASE_URL;
-  if (!dbUrl?.startsWith('mongodb://') && !dbUrl?.startsWith('mongodb+srv://')) {
-    throw new Error('DATABASE_URL must be a valid MongoDB connection string');
-  }
 }
 
 // Run validation
