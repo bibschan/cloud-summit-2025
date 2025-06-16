@@ -22,10 +22,11 @@ export const NominateSection = () => {
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-col gap-8 mb-8 md:max-w-[600px] mx-auto text-center md:text-left">
             <h3 className="text-3xl md:text-5xl">
-              Nominate Your Company for the{" "}
-              <span className="block text-pale-gold">
-                2025 Canadian Cloud Award
+              We are proud to announce the {" "}
+              <span className=" text-pale-gold">
+                2025 Canadian Cloud Award{" "}
               </span>
+              went to <span className=" text-pale-gold">Defang</span>!
             </h3>
             <p className="text-sm md:text-lg">
               {EVENT_CONFIG.sections.nominate.description}

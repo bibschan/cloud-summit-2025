@@ -26,7 +26,7 @@ export default function CharitySection() {
           <p className="flex-grow text-xl md:text-2xl font-semibold  text-white ">
             We&apos;re proud to announce that
             <span className="font-heading text-brink-pink block text-2xl md:text-4xl uppercase">
-              All profits from CLOUD SUMMIT will be donated
+              $10,000 was raised in 2025
             </span>
             to Union Gospel Mission.
           </p>

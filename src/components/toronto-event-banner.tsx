@@ -12,7 +12,7 @@ export default function TorontoEventBanner(): React.JSX.Element {
           </p>
         </div>
         <Link
-          href="https://forms.gle/9DPrR1bf2JMw1nFu8"
+          href="https://tally.so/r/mR6RBl"
           target="_blank"
           rel="cloud summit vancouver website"
           className="inline-flex items-center gap-1 rounded-full bg-white px-4 py-1.5 text-sm font-medium text-blue-700 transition-colors hover:bg-blue-50"
