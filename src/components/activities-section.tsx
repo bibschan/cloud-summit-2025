@@ -73,7 +73,7 @@ function ActivitiesSection() {
         <div className="flex flex-col items-center justify-center pb-8 text-center">
           <video
             ref={videoRef}
-            src="/main-banner/Cloudsummith_2025.mp4"
+            src="/main-banner/Cloudsummit_2025_compressed.mp4"
             muted
             controls
             className="object-cover h-full w-full px-6 md:px-16 md:w-4/5 aspect-video pb-4"
