@@ -24,7 +24,7 @@ export const BackgroundVideo = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/60"></div>
       <video
         ref={videoRef}
-        src="/main-banner/highlight-video.mp4"
+        src="/main-banner/Cloudsummit_2025_compressed.mp4"
         autoPlay
         muted
         loop
@@ -32,4 +32,4 @@ export const BackgroundVideo = () => {
       />
     </div>
   );
-}; 
+};
